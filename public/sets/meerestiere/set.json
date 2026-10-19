@@ -9,42 +9,49 @@
     {
       "id": "wal",
       "name": "Wal",
+      "artikel": "der",
       "bild": "wal.svg",
       "info": "Der Wal ist das grösste Tier der Welt. Er atmet durch ein Loch oben auf dem Kopf."
     },
     {
       "id": "delfin",
       "name": "Delfin",
+      "artikel": "der",
       "bild": "delfin.svg",
       "info": "Der Delfin springt gern aus dem Wasser und pfeift, um mit seinen Freunden zu reden."
     },
     {
       "id": "hai",
       "name": "Hai",
+      "artikel": "der",
       "bild": "hai.svg",
       "info": "Der Hai hat viele Reihen Zähne. Fällt einer aus, wächst ein neuer nach."
     },
     {
       "id": "krake",
       "name": "Krake",
+      "artikel": "die",
       "bild": "krake.svg",
       "info": "Die Krake kann ihre Farbe wechseln und sich in kleinsten Ritzen verstecken."
     },
     {
       "id": "seestern",
       "name": "Seestern",
+      "artikel": "der",
       "bild": "seestern.svg",
       "info": "Verliert der Seestern einen Arm, wächst ihm ein neuer nach."
     },
     {
       "id": "krabbe",
       "name": "Krabbe",
+      "artikel": "die",
       "bild": "krabbe.svg",
       "info": "Die Krabbe läuft seitwärts und zwickt mit ihren Scheren."
     },
     {
       "id": "meeresschildkroete",
       "name": "Meeresschildkröte",
+      "artikel": "die",
       "trennung": "Meeres­schildkröte",
       "bild": "meeresschildkroete.svg",
       "info": "Die Meeresschildkröte schwimmt weit durchs Meer und legt ihre Eier am Strand."
@@ -52,12 +59,14 @@
     {
       "id": "qualle",
       "name": "Qualle",
+      "artikel": "die",
       "bild": "qualle.svg",
       "info": "Die Qualle besteht fast nur aus Wasser und lässt sich durchs Meer treiben."
     },
     {
       "id": "seepferdchen",
       "name": "Seepferdchen",
+      "artikel": "das",
       "trennung": "See­pferdchen",
       "bild": "seepferdchen.svg",
       "info": "Beim Seepferdchen trägt der Papa die Babys in einem Beutel am Bauch."
@@ -65,18 +74,21 @@
     {
       "id": "robbe",
       "name": "Robbe",
+      "artikel": "die",
       "bild": "robbe.svg",
       "info": "Die Robbe schwimmt flink und liegt gern auf Felsen in der Sonne."
     },
     {
       "id": "pinguin",
       "name": "Pinguin",
+      "artikel": "der",
       "bild": "pinguin.svg",
       "info": "Der Pinguin kann nicht fliegen, aber wunderbar schwimmen und tauchen."
     },
     {
       "id": "kugelfisch",
       "name": "Kugelfisch",
+      "artikel": "der",
       "trennung": "Kugel­fisch",
       "bild": "kugelfisch.svg",
       "info": "Der Kugelfisch bläst sich bei Gefahr auf wie ein stacheliger Ball."

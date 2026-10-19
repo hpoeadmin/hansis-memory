@@ -123,16 +123,7 @@ export const T = {
     frage: 'Was möchtest du einstellen?',
     zurueck: 'Einstellungen',
     seiten: {
-      lernmemory: {
-    frage: 'Was möchtest du üben?',
-    arten: {
-      bildwort: { titel: 'Bild und Wort', text: 'Lesen üben' },
-      mengezahl: { titel: 'Menge und Zahl', text: 'Zählen üben' },
-      buchstaben: { titel: 'Gross und klein', text: 'Buchstaben üben' },
-    },
-  },
-
-  allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
+      allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
       spieler: { titel: 'Spieler', text: 'Namen und Tiere' },
       memory: { titel: 'Memory', text: 'Karten und Tempo' },
       nuenistei: { titel: 'Nüni Stei', text: 'Zug zurück' },
@@ -252,6 +243,31 @@ export const T = {
     imZiel: (n) => (n === 1 ? '1 im Ziel' : `${n} im Ziel`),
     tablet: 'spielt das Tablet',
     augen: ['eine Eins', 'eine Zwei', 'eine Drei', 'eine Vier', 'eine Fünf', 'eine Sechs'],
+  },
+
+  lebensraum: {
+    frage: 'Wie viele Tiere?',
+    runden: {
+      kurz: { titel: 'Kurz', text: '6 Tiere' },
+      mittel: { titel: 'Mittel', text: '10 Tiere' },
+      lang: { titel: 'Lang', text: '16 Tiere' },
+    },
+    orte: {
+      bauernhof: 'Auf dem Bauernhof',
+      meerestiere: 'Im Meer',
+      waldtiere: 'Im Wald',
+      'in-der-luft': 'In der Luft',
+    },
+    wo: (artikel, name) => `Wo wohnt ${artikel} ${name}?`,
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Stimmt!'],
+    // «Auf dem Bauernhof» → «auf dem Bauernhof» (nur der erste Buchstabe wird klein)
+    falsch: (artikel, name, ort) =>
+      `Hm, ${artikel} ${name} wohnt nicht ${ort[0].toLowerCase()}${ort.slice(1)}. Versuch es nochmal!`,
+    weiter: 'Weiter',
+    fertig: 'Fertig',
+    tierVon: (n, gesamt) => `Tier ${n} von ${gesamt}`,
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Tieren gleich beim ersten Mal richtig gewusst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
   },
 
   lernmemory: {

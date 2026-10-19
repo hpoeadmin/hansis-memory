@@ -16,6 +16,13 @@ export const SPIELE = [
     starte: (app) => app.lernmemory.zeigeStart(),
   },
   {
+    id: 'lebensraum',
+    bild: 'spiele/lebensraum.svg',
+    farbe: '#FBE7C6',
+    status: 'bereit',
+    starte: (app) => app.lebensraum.zeigeStart(),
+  },
+  {
     id: 'nuenistei',
     bild: 'spiele/nuenistei.svg',
     farbe: '#EAD7B7',

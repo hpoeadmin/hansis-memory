@@ -9,30 +9,35 @@
     {
       "id": "reh",
       "name": "Reh",
+      "artikel": "das",
       "bild": "reh.svg",
       "info": "Das Reh ist scheu und hört mit seinen grossen Ohren jedes Geräusch."
     },
     {
       "id": "hirsch",
       "name": "Hirsch",
+      "artikel": "der",
       "bild": "hirsch.svg",
       "info": "Der Hirsch trägt ein Geweih. Jedes Jahr fällt es ab und wächst neu."
     },
     {
       "id": "fuchs",
       "name": "Fuchs",
+      "artikel": "der",
       "bild": "fuchs.svg",
       "info": "Der Fuchs ist schlau und wohnt in einer Höhle, dem Fuchsbau."
     },
     {
       "id": "igel",
       "name": "Igel",
+      "artikel": "der",
       "bild": "igel.svg",
       "info": "Der Igel hat viele Stacheln und rollt sich bei Gefahr zu einer Kugel."
     },
     {
       "id": "eichhoernchen",
       "name": "Eichhörnchen",
+      "artikel": "das",
       "trennung": "Eich­hörnchen",
       "bild": "eichhoernchen.svg",
       "info": "Das Eichhörnchen versteckt im Herbst Nüsse für den Winter."
@@ -40,12 +45,14 @@
     {
       "id": "dachs",
       "name": "Dachs",
+      "artikel": "der",
       "bild": "dachs.svg",
       "info": "Der Dachs gräbt sich lange Gänge unter der Erde und schläft am Tag."
     },
     {
       "id": "wildschwein",
       "name": "Wildschwein",
+      "artikel": "das",
       "trennung": "Wild­schwein",
       "bild": "wildschwein.svg",
       "info": "Das Wildschwein wühlt mit seiner Schnauze im Waldboden nach Futter."
@@ -53,30 +60,35 @@
     {
       "id": "hase",
       "name": "Hase",
+      "artikel": "der",
       "bild": "hase.svg",
       "info": "Der Hase hat lange Ohren und kann sehr schnell rennen und hoppeln."
     },
     {
       "id": "baer",
       "name": "Bär",
+      "artikel": "der",
       "bild": "baer.svg",
       "info": "Der Bär nascht gern Honig und Beeren und schläft im Winter lange."
     },
     {
       "id": "wolf",
       "name": "Wolf",
+      "artikel": "der",
       "bild": "wolf.svg",
       "info": "Der Wolf lebt mit seiner Familie im Rudel und heult den Mond an."
     },
     {
       "id": "luchs",
       "name": "Luchs",
+      "artikel": "der",
       "bild": "luchs.svg",
       "info": "Der Luchs hat Haarpinsel an den Ohren und sieht im Dunkeln sehr gut."
     },
     {
       "id": "biber",
       "name": "Biber",
+      "artikel": "der",
       "bild": "biber.svg",
       "info": "Der Biber fällt mit seinen starken Zähnen Bäume und baut Dämme."
     }

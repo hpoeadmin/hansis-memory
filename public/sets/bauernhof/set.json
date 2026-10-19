@@ -9,66 +9,77 @@
     {
       "id": "kuh",
       "name": "Kuh",
+      "artikel": "die",
       "bild": "kuh.svg",
       "info": "Die Kuh gibt uns Milch. Daraus macht man Käse und Butter."
     },
     {
       "id": "schwein",
       "name": "Schwein",
+      "artikel": "das",
       "bild": "schwein.svg",
       "info": "Das Schwein wälzt sich gern im Schlamm. So bleibt es schön kühl."
     },
     {
       "id": "pferd",
       "name": "Pferd",
+      "artikel": "das",
       "bild": "pferd.svg",
       "info": "Das Pferd kann sogar im Stehen schlafen."
     },
     {
       "id": "esel",
       "name": "Esel",
+      "artikel": "der",
       "bild": "esel.svg",
       "info": "Der Esel ruft laut «I-A» und ist sehr klug."
     },
     {
       "id": "schaf",
       "name": "Schaf",
+      "artikel": "das",
       "bild": "schaf.svg",
       "info": "Aus der Wolle vom Schaf strickt man warme Pullover."
     },
     {
       "id": "ziege",
       "name": "Ziege",
+      "artikel": "die",
       "bild": "ziege.svg",
       "info": "Die Ziege klettert gern auf Felsen und Mauern."
     },
     {
       "id": "huhn",
       "name": "Huhn",
+      "artikel": "das",
       "bild": "huhn.svg",
       "info": "Das Huhn legt Eier – manchmal fast jeden Tag eines."
     },
     {
       "id": "ente",
       "name": "Ente",
+      "artikel": "die",
       "bild": "ente.svg",
       "info": "Die Ente hat Schwimmhäute an den Füssen und paddelt flink."
     },
     {
       "id": "hund",
       "name": "Hund",
+      "artikel": "der",
       "bild": "hund.svg",
       "info": "Der Hund wedelt mit dem Schwanz, wenn er sich freut."
     },
     {
       "id": "katze",
       "name": "Katze",
+      "artikel": "die",
       "bild": "katze.svg",
       "info": "Die Katze schnurrt, wenn sie zufrieden ist."
     },
     {
       "id": "kaninchen",
       "name": "Kaninchen",
+      "artikel": "das",
       "trennung": "Kanin­chen",
       "bild": "kaninchen.svg",
       "info": "Das Kaninchen hat lange Ohren und hört sehr gut."
@@ -76,6 +87,7 @@
     {
       "id": "maus",
       "name": "Maus",
+      "artikel": "die",
       "bild": "maus.svg",
       "info": "Die Maus ist klein und flink und knabbert gern Körner."
     }
