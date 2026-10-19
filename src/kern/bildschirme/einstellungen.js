@@ -149,7 +149,7 @@ export function zeigeEinstellungen(app) {
           ],
           'namen',
         ),
-        el('h2', { class: 'gruppen-titel' }, T.spiele.nuenistei),
+        el('h2', { class: 'gruppen-titel' }, E.gruppeBrettspiele),
         auswahl(
           E.zugZurueck,
           [

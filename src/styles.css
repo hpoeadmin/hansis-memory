@@ -2017,6 +2017,191 @@ img {
   box-shadow: 0 0 0 8px var(--stern);
 }
 
+/* ---------- Eile mit Weile ---------- */
+
+.emw-spiel {
+  display: grid;
+  grid-template-columns: minmax(170px, 230px) minmax(0, 1fr) minmax(140px, 180px);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'meldung meldung meldung'
+    'spieler brett rechts'
+    'fuss fuss fuss';
+  gap: 12px;
+}
+
+.emw-spiel .meldung {
+  grid-area: meldung;
+  margin: 0;
+  padding: 10px 18px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.emw-spieler {
+  grid-area: spieler;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.emw-spielerkarte {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 6px 6px;
+  border: 4px solid var(--kontur);
+  border-left: 16px solid var(--brettfarbe);
+  border-radius: 18px;
+  background: var(--flaeche);
+}
+
+.emw-spielerkarte.aktiv {
+  border-width: 6px;
+  border-left-width: 18px;
+  background: var(--brettfarbe);
+  color: #FFFFFF;
+}
+
+.emw-spielerkarte .avatar {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-width: 4px;
+}
+
+.emw-spielertext {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.emw-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.emw-info {
+  font-size: 0.95rem;
+}
+
+.emw-pfeil {
+  margin-left: auto;
+  font-size: 1.3rem;
+}
+
+.emw-mitte {
+  grid-area: brett;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.emw-brett {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  touch-action: manipulation;
+}
+
+.emw-rechts {
+  grid-area: rechts;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.emw-wuerfel {
+  width: clamp(90px, 14vw, 130px);
+  cursor: pointer;
+}
+
+.emw-wuerfel svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.knopf-wuerfeln {
+  width: 100%;
+  max-width: 170px;
+  min-height: 80px;
+  font-size: 1.6rem;
+}
+
+.emw-hinweis {
+  margin: 0;
+  min-height: 2.6em;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.emw-fuss {
+  grid-area: fuss;
+}
+
+.emw-glanz {
+  fill: rgba(246, 195, 59, 0.6);
+  stroke: #E0A21B;
+  stroke-width: 4;
+  animation: emw-pulsieren 1.2s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes emw-pulsieren {
+  from { transform: scale(0.9); }
+  to { transform: scale(1.08); }
+}
+
+.emw-ziel {
+  fill: var(--hell);
+  fill-opacity: 0.85;
+  stroke: var(--farbe);
+  stroke-width: 4.5;
+  stroke-dasharray: 6 5;
+}
+
+.emw-tipp {
+  fill: transparent;
+  cursor: pointer;
+}
+
+/* Hochformat: Spieler oben als Reihe, Würfel unten neben dem Knopf */
+@media (orientation: portrait) {
+  .emw-spiel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    grid-template-areas: 'meldung' 'spieler' 'brett' 'rechts' 'fuss';
+  }
+  .emw-spieler {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .emw-rechts {
+    flex-direction: row;
+  }
+  .emw-wuerfel {
+    width: 84px;
+  }
+  .emw-hinweis {
+    min-height: 0;
+    max-width: 12em;
+  }
+}
+
 /* ---------- Bewegung reduzieren ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2031,7 +2216,8 @@ img {
   .paar-karte,
   .neues-abzeichen,
   .stein.neu,
-  .stein.gezogen {
+  .stein.gezogen,
+  .emw-glanz {
     animation: none !important;
   }
 }

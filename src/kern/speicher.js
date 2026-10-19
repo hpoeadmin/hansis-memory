@@ -15,6 +15,7 @@ const STANDARD = {
     zugZurueck: true, // Brettspiele: «Zug zurück» anbieten
   },
   nuenistei: { laufend: null }, // gespeichertes, noch nicht beendetes Spiel
+  eilemitweile: { laufend: null },
   bestleistungen: {}, // { profilId: { leicht: zuege, ... } }
   album: {}, // { profilId: { setId: [tierId, ...] } }
 };

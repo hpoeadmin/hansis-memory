@@ -47,6 +47,16 @@ export const klang = {
       ton(1047, 0.13, 0.45, 0.3); // C6
     }),
   wechsel: () => spiele(() => ton(523, 0, 0.2, 0.12, 'triangle')),
+  hupf: () => spiele(() => ton(880, 0, 0.06, 0.06, 'triangle')),
+  wuerfeln: () =>
+    spiele(() => {
+      for (let i = 0; i < 5; i++) ton(300 + Math.random() * 300, i * 0.08, 0.05, 0.08, 'square');
+    }),
+  schlagen: () =>
+    spiele(() => {
+      ton(523, 0, 0.18, 0.2, 'triangle');
+      ton(392, 0.15, 0.3, 0.2, 'triangle');
+    }),
   fertig: () =>
     spiele(() => {
       [523, 659, 784, 1047].forEach((f, i) => ton(f, i * 0.16, 0.4, 0.28));

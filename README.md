@@ -1,7 +1,7 @@
 # Hansis Spielplatz
 
 Spiele für Tablets – für Enkel und Grosseltern. Ohne Zeitdruck, ohne Verlieren.
-Zurzeit: **Memory** mit vier Tiersätzen und **Nüni Stei** (zu zweit oder gegen das Tablet). In Arbeit: **Eile mit Weile**.
+Zurzeit: **Memory** mit vier Tiersätzen, **Nüni Stei** (zu zweit oder gegen das Tablet) und **Eile mit Weile** (2–4 Farben, freie Plätze spielt das Tablet).
 
 ## Aufbau
 
@@ -15,8 +15,9 @@ src/
 │  └─ bildschirme/  Spielerauswahl, Profil-Editor, Einstellungen
 └─ spiele/
    ├─ memory/       Satzwahl, Stufe, Spiel, Abschluss, Album
-   └─ nuenistei/    regeln.js (Spielregeln), computer.js (Gegner), brett.js (SVG),
-                    start.js, spiel.js, ende.js
+   ├─ nuenistei/    regeln.js (Spielregeln), computer.js (Gegner), brett.js (SVG),
+   │                start.js, spiel.js, ende.js
+   └─ eilemitweile/ gleich aufgebaut wie nuenistei
 tests/              automatische Tests der Spielregeln (npm test)
 ```
 

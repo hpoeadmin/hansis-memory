@@ -15,5 +15,11 @@ export const SPIELE = [
     status: 'bereit',
     starte: (app) => app.nuenistei.zeigeStart(),
   },
-  { id: 'eilemitweile', bild: 'spiele/eilemitweile.svg', farbe: '#F6E3B4', status: 'bald' },
+  {
+    id: 'eilemitweile',
+    bild: 'spiele/eilemitweile.svg',
+    farbe: '#F6E3B4',
+    status: 'bereit',
+    starte: (app) => app.eilemitweile.zeigeStart(),
+  },
 ];
