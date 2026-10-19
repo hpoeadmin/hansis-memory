@@ -6,6 +6,7 @@ import { ladeSets } from './sets.js';
 import { speicher } from './speicher.js';
 import { merkeLetzteSpieler } from './profile.js';
 import { zeige, el } from './ui.js';
+import { entsperreAudio } from './klang.js';
 import { zeigeStart } from './screens/start.js';
 import { zeigeStufe } from './screens/stufe.js';
 import { zeigeSpieler } from './screens/spieler.js';
@@ -56,5 +57,8 @@ async function starte() {
     zeige(el('p', { class: 'meldung' }, T.allgemein.ladeFehler));
   }
 }
+
+// Ton darf erst nach der ersten Berührung starten (iPad)
+document.addEventListener('pointerdown', entsperreAudio, { capture: true });
 
 starte();

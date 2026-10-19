@@ -3,6 +3,8 @@ import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../ui.js
 import { STUFEN, bildUrl } from '../sets.js';
 import { bestesRaster } from '../raster.js';
 import { avatarUrl, farbStil, merkeGefunden } from '../profile.js';
+import { klang } from '../klang.js';
+import { sprich } from '../vorlesen.js';
 
 const FLIP_DAUER = 500; // ms, muss zur CSS-Animation passen
 const KARTEN_VERHAELTNIS = 0.8; // Breite / Höhe (Bild + Name)
@@ -72,6 +74,27 @@ export function zeigeSpiel(app) {
     });
   }
 
+  // ---------- Paar-Anzeige: Tiername gross über dem Brett ----------
+
+  const paarBild = el('img', { alt: '' });
+  const paarName = el('span', { class: 'paar-name' });
+  const paarAnzeige = el(
+    'div',
+    { class: 'paar-anzeige', 'aria-hidden': 'true' },
+    el('div', { class: 'paar-karte' }, paarBild, paarName),
+  );
+  let paarZeit = null;
+
+  function zeigePaar(tier) {
+    paarBild.src = bildUrl(set, tier.bild);
+    paarName.textContent = tier.name;
+    paarAnzeige.classList.remove('sichtbar');
+    void paarAnzeige.offsetWidth;
+    paarAnzeige.classList.add('sichtbar');
+    clearTimeout(paarZeit);
+    paarZeit = setTimeout(() => paarAnzeige.classList.remove('sichtbar'), 1600);
+  }
+
   // ---------- Karten ----------
 
   const brett = el('div', { class: 'brett', style: `--set-farbe: ${set.farbe}` });
@@ -106,6 +129,8 @@ export function zeigeSpiel(app) {
     if (zustand.gesperrt || karte.offen || karte.gefunden || zustand.beendet) return;
     setzeOffen(karte, true);
     zustand.offen.push(karte);
+    klang.umdrehen();
+    sprich(karte.tier.name);
 
     if (zustand.offen.length < 2) {
       // Während die Karte dreht, werden weitere Tipps ignoriert
@@ -131,10 +156,12 @@ export function zeigeSpiel(app) {
       s.paare++;
       merkeGefunden(s.profil, set.id, a.tier.id);
       paareAnzeige.textContent = T.spiel.vonGesamt(zustand.gefunden, paare);
+      klang.paar();
+      zeigePaar(a.tier);
       if (zustand.gefunden === paare) {
         zustand.beendet = true;
         aktualisiereKopf();
-        await warte(1400);
+        await warte(1800);
         beobachter.disconnect();
         app.zeigeEnde({ paare, zuege: zustand.zuege, spieler });
         return;
@@ -150,6 +177,7 @@ export function zeigeSpiel(app) {
       if (mehrspieler) {
         zustand.aktiv = (zustand.aktiv + 1) % spieler.length;
         aktualisiereKopf();
+        klang.wechsel();
       }
       zustand.gesperrt = false;
     }
@@ -200,7 +228,7 @@ export function zeigeSpiel(app) {
         beendenKnopf,
       );
 
-  zeige(el('main', { class: 'bildschirm spiel' }, kopf, brett));
+  zeige(el('main', { class: 'bildschirm spiel' }, kopf, brett, paarAnzeige));
   if (mehrspieler) aktualisiereKopf();
   passeRasterAn();
 }

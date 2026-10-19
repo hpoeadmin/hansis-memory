@@ -1,6 +1,9 @@
 import { T } from '../texte.js';
 import { el, knopf, zeige, mischen } from '../ui.js';
 import { avatarUrl, farbStil, merkeBestleistung } from '../profile.js';
+import { klang } from '../klang.js';
+import { sprich } from '../vorlesen.js';
+import { konfetti } from '../konfetti.js';
 
 // Sterne: immer mindestens einer – es gibt kein «Verlieren».
 export function berechneSterne(paare, zuege) {
@@ -9,12 +12,13 @@ export function berechneSterne(paare, zuege) {
   return 1;
 }
 
-function stern(verdient) {
+function stern(verdient, nummer) {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 100 100');
   svg.setAttribute('class', `stern ${verdient ? 'verdient' : 'leer'}`);
   svg.setAttribute('aria-hidden', 'true');
+  svg.style.animationDelay = `${0.3 + nummer * 0.35}s`;
   const pfad = document.createElementNS(ns, 'path');
   pfad.setAttribute(
     'd',
@@ -31,6 +35,7 @@ function zufall(liste) {
 function einzelErgebnis(app, { paare, zuege, spieler }) {
   const profil = spieler[0].profil;
   const sterne = berechneSterne(paare, zuege);
+  const lob = profil.gast ? zufall(T.ende.lob) : T.ende.lobPersoenlich(profil.name);
   const { neu, bisher } = merkeBestleistung(profil, app.auswahl.stufe, zuege);
   let bestleistung = null;
   if (!profil.gast) {
@@ -41,11 +46,11 @@ function einzelErgebnis(app, { paare, zuege, spieler }) {
 
   return [
     el('img', { class: 'avatar ende-avatar', src: avatarUrl(profil), alt: '', style: farbStil(profil) }),
-    el('h1', { class: 'lob' }, profil.gast ? zufall(T.ende.lob) : T.ende.lobPersoenlich(profil.name)),
+    el('h1', { class: 'lob', 'data-vorlesen': lob }, lob),
     el(
       'div',
       { class: 'sterne', role: 'img', 'aria-label': T.ende.sterne(sterne) },
-      [1, 2, 3].map((n) => stern(n <= sterne)),
+      [1, 2, 3].map((n) => stern(n <= sterne, n)),
     ),
     el('p', { class: 'zusammenfassung' }, T.ende.zusammenfassung(paare, zuege)),
     bestleistung,
@@ -59,7 +64,7 @@ function mehrErgebnis({ spieler }) {
   const lobsaetze = mischen(T.ende.lobSpieler);
 
   return [
-    el('h1', { class: 'lob lob-alle' }, T.ende.alleTitel),
+    el('h1', { class: 'lob lob-alle', 'data-vorlesen': T.ende.alleTitel }, T.ende.alleTitel),
     el('p', { class: 'zusammenfassung' }, T.ende.alleText),
     el(
       'ul',
@@ -101,4 +106,9 @@ export function zeigeEnde(app, ergebnis) {
       ),
     ),
   );
+
+  klang.fertig();
+  konfetti();
+  const titel = document.querySelector('[data-vorlesen]');
+  if (titel) sprich(titel.dataset.vorlesen);
 }

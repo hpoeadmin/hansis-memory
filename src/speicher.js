@@ -6,7 +6,7 @@ const STANDARD = {
   version: 1,
   profile: [],
   letzteSpieler: [],
-  einstellungen: { aufdeckDauer: 'normal' },
+  einstellungen: { aufdeckDauer: 'normal', ton: true, vorlesen: false },
   bestleistungen: {}, // { profilId: { leicht: zuege, ... } }
   album: {}, // { profilId: { setId: [tierId, ...] } }
 };
@@ -15,7 +15,12 @@ function lade() {
   const daten = structuredClone(STANDARD);
   try {
     const roh = localStorage.getItem(SCHLUESSEL);
-    if (roh) Object.assign(daten, JSON.parse(roh));
+    if (roh) {
+      const gelesen = JSON.parse(roh);
+      Object.assign(daten, gelesen);
+      // Neue Einstellungen bekommen ihren Standardwert
+      daten.einstellungen = { ...STANDARD.einstellungen, ...gelesen.einstellungen };
+    }
   } catch (fehler) {
     console.warn('Spielstand konnte nicht gelesen werden', fehler);
   }

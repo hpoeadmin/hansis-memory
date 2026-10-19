@@ -9,7 +9,7 @@
 | 3 | Spielbare Grundversion (Menü → Stufe → Spiel → Abschluss, 1 Spieler) | ✅ |
 | 4 | Stufen und Raster für Quer- und Hochformat | ✅ (bereits in der Grundversion enthalten, noch auf echtem iPad prüfen) |
 | 5 | Spielerprofile und Mehrspielermodus | ✅ |
-| 6 | Animationen, Lob, Konfetti, Klang, Vorlesen | offen |
+| 6 | Animationen, Lob, Konfetti, Klang, Vorlesen | ✅ (Klang und Vorlesen noch auf dem iPad anhören) |
 | 7 | Sammelalbum und Abzeichen | offen |
 | 8 | Einstellungen mit Elternschloss | offen |
 | 9 | Offline/PWA mit Update-Hinweis | offen |
@@ -32,6 +32,10 @@
 - **Wer ist dran:** grosses Schild mit Avatar, Name, «ist dran» bzw. «darf nochmals!» in der Spielerfarbe. In der Punkteliste markiert ein Pfeil zusätzlich den aktiven Spieler.
 - **Mehrspieler-Abschluss:** alle Spieler in Spielreihenfolge, jeder mit eigenem Lobsatz. Ein kleines Abzeichen «Meiste Paare» gibt es nur, wenn nicht alle gleich viele haben.
 - **Bestleistung:** pro Profil und Stufe die wenigsten Züge, nur im Einzelspiel.
+- **Klang:** Wird im Browser erzeugt (Web Audio, `src/klang.js`), keine Tondateien. Leise voreingestellt (Lautstärke 0.25). Es gibt nur freundliche Klänge: Umdrehen, Paar gefunden, Spielerwechsel, Abschluss. Bei einem Fehlversuch gibt es keinen Ton. Auf dem iPad startet der Ton erst nach der ersten Berührung.
+- **Vorlesen:** Web Speech API (`src/vorlesen.js`), Stimme de-CH, sonst de-DE, Tempo 0.8. Liest beim Aufdecken den Tiernamen und am Schluss das Lob. Standardmässig aus; einschalten kommt in die Einstellungen.
+- **Gefundenes Paar:** Die Karten hüpfen, und Bild und Name erscheinen 1,6 s gross über dem Brett. Die Anzeige blockiert keine Tipps.
+- **Abschluss:** Konfetti (Canvas, 4 s), Sterne erscheinen nacheinander. Bei «Bewegung reduzieren» gibt es weder Konfetti noch Hüpf- oder Sternanimationen.
 - **Album:** Gefundene Tiere werden schon jetzt pro Profil gespeichert. Die Anzeige folgt in Schritt 7.
 
 ## Offene Fragen
