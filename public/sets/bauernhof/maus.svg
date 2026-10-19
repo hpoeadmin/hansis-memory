@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Grosse runde Ohren -->
+    <circle cx="52" cy="66" r="32" fill="#B9B5C4"/>
+    <circle cx="148" cy="66" r="32" fill="#B9B5C4"/>
+    <circle cx="52" cy="66" r="19" fill="#F5B3C3" stroke="none"/>
+    <circle cx="148" cy="66" r="19" fill="#F5B3C3" stroke="none"/>
+    <!-- Kopf -->
+    <path d="M100 62 C134 62 152 86 148 116 C144 146 120 166 100 166 C80 166 56 146 52 116 C48 86 66 62 100 62 Z" fill="#B9B5C4"/>
+    <!-- Augen -->
+    <ellipse cx="82" cy="106" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="118" cy="106" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="85" cy="102" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="121" cy="102" r="3" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="72" cy="126" r="6" fill="#F5A3B5" stroke="none"/>
+    <circle cx="128" cy="126" r="6" fill="#F5A3B5" stroke="none"/>
+    <!-- Schnurrhaare -->
+    <path d="M86 134 L50 128 M86 140 L52 146 M114 134 L150 128 M114 140 L148 146" fill="none" stroke-width="3"/>
+    <!-- Nase und Mund -->
+    <circle cx="100" cy="132" r="8" fill="#F27C8C" stroke-width="4"/>
+    <path d="M92 148 Q100 154 108 148" fill="none" stroke-width="4"/>
+  </g>
+</svg>

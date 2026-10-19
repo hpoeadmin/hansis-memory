@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Wolle: erst Umrisse, dann Füllung darüber, damit nur der Aussenrand bleibt -->
+    <g fill="#F8F5EE">
+      <circle cx="100" cy="58" r="26"/><circle cx="68" cy="68" r="24"/><circle cx="132" cy="68" r="24"/>
+      <circle cx="54" cy="100" r="22"/><circle cx="146" cy="100" r="22"/>
+      <circle cx="62" cy="132" r="22"/><circle cx="138" cy="132" r="22"/>
+      <circle cx="100" cy="146" r="30"/><circle cx="100" cy="104" r="44"/>
+    </g>
+    <g fill="#F8F5EE" stroke="none">
+      <circle cx="100" cy="58" r="26"/><circle cx="68" cy="68" r="24"/><circle cx="132" cy="68" r="24"/>
+      <circle cx="54" cy="100" r="22"/><circle cx="146" cy="100" r="22"/>
+      <circle cx="62" cy="132" r="22"/><circle cx="138" cy="132" r="22"/>
+      <circle cx="100" cy="146" r="30"/><circle cx="100" cy="104" r="44"/>
+    </g>
+    <!-- Ohren -->
+    <ellipse cx="52" cy="106" rx="20" ry="10" transform="rotate(-20 52 106)" fill="#4A403A"/>
+    <ellipse cx="148" cy="106" rx="20" ry="10" transform="rotate(20 148 106)" fill="#4A403A"/>
+    <!-- Gesicht -->
+    <ellipse cx="100" cy="114" rx="34" ry="42" fill="#4A403A"/>
+    <!-- Stirnlocke -->
+    <g fill="#F8F5EE">
+      <circle cx="86" cy="78" r="14"/><circle cx="114" cy="78" r="14"/><circle cx="100" cy="72" r="15"/>
+    </g>
+    <g fill="#F8F5EE" stroke="none">
+      <circle cx="86" cy="78" r="14"/><circle cx="114" cy="78" r="14"/><circle cx="100" cy="72" r="15"/>
+    </g>
+    <!-- Augen -->
+    <circle cx="86" cy="106" r="10" fill="#FFFFFF" stroke="none"/>
+    <circle cx="114" cy="106" r="10" fill="#FFFFFF" stroke="none"/>
+    <ellipse cx="87" cy="107" rx="6" ry="7" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="115" cy="107" rx="6" ry="7" fill="#2E2A26" stroke="none"/>
+    <circle cx="89" cy="104" r="2.4" fill="#FFFFFF" stroke="none"/>
+    <circle cx="117" cy="104" r="2.4" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen, Nase, Mund -->
+    <circle cx="76" cy="128" r="6" fill="#E98AA0" stroke="none"/>
+    <circle cx="124" cy="128" r="6" fill="#E98AA0" stroke="none"/>
+    <ellipse cx="100" cy="128" rx="8" ry="5" fill="#F2A0B2" stroke="none"/>
+    <path d="M90 140 Q100 148 110 140" fill="none" stroke="#F8F5EE" stroke-width="5"/>
+  </g>
+</svg>

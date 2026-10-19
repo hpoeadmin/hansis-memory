@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Ohren -->
+    <path d="M54 80 L48 30 L92 56 Z" fill="#F2A65A"/>
+    <path d="M146 80 L152 30 L108 56 Z" fill="#F2A65A"/>
+    <path d="M60 68 L56 44 L80 58 Z" fill="#F5B3C3" stroke="none"/>
+    <path d="M140 68 L144 44 L120 58 Z" fill="#F5B3C3" stroke="none"/>
+    <!-- Kopf -->
+    <ellipse cx="100" cy="110" rx="64" ry="52" fill="#F2A65A"/>
+    <!-- Streifen -->
+    <path d="M100 62 L100 76 M86 64 L89 76 M114 64 L111 76" fill="none" stroke="#C76B2A" stroke-width="5"/>
+    <path d="M40 104 L54 106 M40 116 L54 116 M160 104 L146 106 M160 116 L146 116" fill="none" stroke="#C76B2A" stroke-width="5"/>
+    <!-- Augen -->
+    <ellipse cx="78" cy="100" rx="10" ry="12" fill="#8CC66B"/>
+    <ellipse cx="122" cy="100" rx="10" ry="12" fill="#8CC66B"/>
+    <ellipse cx="78" cy="101" rx="4.5" ry="8" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="122" cy="101" rx="4.5" ry="8" fill="#2E2A26" stroke="none"/>
+    <circle cx="81" cy="96" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <circle cx="125" cy="96" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <!-- Schnäuzchen -->
+    <ellipse cx="90" cy="130" rx="14" ry="11" fill="#FFF4E6" stroke="none"/>
+    <ellipse cx="110" cy="130" rx="14" ry="11" fill="#FFF4E6" stroke="none"/>
+    <!-- Schnurrhaare -->
+    <path d="M72 126 L38 120 M72 134 L38 140 M128 126 L162 120 M128 134 L162 140" fill="none" stroke-width="3"/>
+    <!-- Nase und Mund -->
+    <path d="M93 118 L107 118 L100 126 Z" fill="#F27C8C" stroke-width="3"/>
+    <path d="M100 126 L100 131 M90 133 Q95 140 100 131 Q105 140 110 133" fill="none" stroke-width="4"/>
+  </g>
+</svg>

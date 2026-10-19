@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Ohren -->
+    <path d="M54 72 L40 30 L86 52 Z" fill="#F59DB2"/>
+    <path d="M146 72 L160 30 L114 52 Z" fill="#F59DB2"/>
+    <!-- Kopf -->
+    <ellipse cx="100" cy="110" rx="64" ry="58" fill="#F9BCCB"/>
+    <!-- Haarlocke -->
+    <path d="M94 54 C92 44 102 40 106 46 C108 50 104 54 100 52" fill="none"/>
+    <!-- Augen -->
+    <ellipse cx="76" cy="92" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="124" cy="92" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="79" cy="88" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="127" cy="88" r="3" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="58" cy="122" r="8" fill="#F48FA8" stroke="none"/>
+    <circle cx="142" cy="122" r="8" fill="#F48FA8" stroke="none"/>
+    <!-- Rüssel -->
+    <ellipse cx="100" cy="124" rx="30" ry="21" fill="#F59DB2"/>
+    <ellipse cx="90" cy="124" rx="4.5" ry="7.5" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="110" cy="124" rx="4.5" ry="7.5" fill="#2E2A26" stroke="none"/>
+    <!-- Lächeln -->
+    <path d="M84 152 Q100 162 116 152" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Ohren -->
+    <path d="M68 58 L60 20 L88 44 Z" fill="#A8683A"/>
+    <path d="M132 58 L140 20 L112 44 Z" fill="#A8683A"/>
+    <!-- Kopf -->
+    <path d="M100 36 C130 36 142 60 140 92 C138 118 132 134 130 150 L70 150 C68 134 62 118 60 92 C58 60 70 36 100 36 Z" fill="#A8683A"/>
+    <!-- Blesse -->
+    <path d="M100 70 C107 82 107 100 103 116 L97 116 C93 100 93 82 100 70 Z" fill="#FFFFFF" stroke="none"/>
+    <!-- Stirnlocke -->
+    <path d="M82 40 C86 56 94 64 100 70 C104 60 112 52 118 40 C108 32 92 32 82 40 Z" fill="#5A3420"/>
+    <!-- Augen -->
+    <ellipse cx="78" cy="94" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="122" cy="94" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="81" cy="90" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="125" cy="90" r="3" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="68" cy="118" r="7" fill="#E88A8A" stroke="none"/>
+    <circle cx="132" cy="118" r="7" fill="#E88A8A" stroke="none"/>
+    <!-- Maul -->
+    <ellipse cx="100" cy="150" rx="40" ry="26" fill="#D9A37A"/>
+    <ellipse cx="86" cy="144" rx="4.5" ry="6.5" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="114" cy="144" rx="4.5" ry="6.5" fill="#2E2A26" stroke="none"/>
+    <path d="M88 160 Q100 169 112 160" fill="none"/>
+  </g>
+</svg>

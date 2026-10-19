@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Füsse -->
+    <path d="M84 160 L74 182 L96 182 Z" fill="#F59E2B"/>
+    <path d="M114 160 L104 182 L126 182 Z" fill="#F59E2B"/>
+    <!-- Schwanz -->
+    <path d="M46 126 L24 98 L62 112 Z" fill="#FFFFFF"/>
+    <!-- Körper -->
+    <ellipse cx="96" cy="132" rx="62" ry="38" fill="#FFFFFF"/>
+    <!-- Kopf -->
+    <circle cx="128" cy="76" r="30" fill="#FFFFFF"/>
+    <!-- Schnabel -->
+    <path d="M154 74 C172 70 184 76 182 86 C178 94 160 94 150 88 Z" fill="#F59E2B"/>
+    <path d="M156 82 L176 82" fill="none" stroke-width="4"/>
+    <!-- Auge und Bäckchen -->
+    <ellipse cx="134" cy="68" rx="7" ry="9" fill="#2E2A26" stroke="none"/>
+    <circle cx="137" cy="64" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <circle cx="122" cy="88" r="6" fill="#F5A3B5" stroke="none"/>
+    <!-- Flügel -->
+    <path d="M62 128 C78 106 116 108 120 130 C106 150 76 150 62 128 Z" fill="#E4E8EE"/>
+    <path d="M78 134 C88 138 100 138 108 134" fill="none" stroke-width="4"/>
+  </g>
+</svg>

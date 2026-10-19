@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Lange Ohren -->
+    <ellipse cx="78" cy="48" rx="15" ry="38" transform="rotate(-10 78 48)" fill="#FDFBF8"/>
+    <ellipse cx="122" cy="48" rx="15" ry="38" transform="rotate(10 122 48)" fill="#FDFBF8"/>
+    <ellipse cx="78" cy="50" rx="7" ry="27" transform="rotate(-10 78 50)" fill="#F5B3C3" stroke="none"/>
+    <ellipse cx="122" cy="50" rx="7" ry="27" transform="rotate(10 122 50)" fill="#F5B3C3" stroke="none"/>
+    <!-- Kopf -->
+    <ellipse cx="100" cy="122" rx="56" ry="48" fill="#FDFBF8"/>
+    <!-- Augen -->
+    <ellipse cx="80" cy="112" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="120" cy="112" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="83" cy="108" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="123" cy="108" r="3" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="68" cy="134" r="7" fill="#F5A3B5" stroke="none"/>
+    <circle cx="132" cy="134" r="7" fill="#F5A3B5" stroke="none"/>
+    <!-- Zähne -->
+    <path d="M93 142 L93 154 L107 154 L107 142 M100 142 L100 154" fill="#FFFFFF" stroke-width="3"/>
+    <!-- Nase und Mund -->
+    <path d="M93 128 L107 128 L100 135 Z" fill="#F27C8C" stroke-width="3"/>
+    <path d="M100 135 L100 140 M88 141 Q94 148 100 140 Q106 148 112 141" fill="none" stroke-width="4"/>
+  </g>
+</svg>
