@@ -1,7 +1,7 @@
 import { T } from '../texte.js';
 import { el, beiTipp, knopf, zeige } from '../ui.js';
 import { speicher } from '../speicher.js';
-import { bildUrl } from '../sets.js';
+import { bildUrl, tierName } from '../sets.js';
 import { albumVon, avatarUrl, farbStil } from '../profile.js';
 import { abzeichen } from '../abzeichen.js';
 import { sprich } from '../vorlesen.js';
@@ -42,7 +42,7 @@ function setAbschnitt(set, gesammelt) {
       'button',
       { class: 'album-feld', type: 'button', 'aria-label': tier.name },
       el('img', { src: bildUrl(set, tier.bild), alt: '' }),
-      el('span', { class: 'album-name' }, tier.name),
+      el('span', { class: 'album-name' }, tierName(tier)),
     );
     beiTipp(feld, () => zeigeTier(set, tier), { scrollbar: true });
     return feld;

@@ -410,9 +410,20 @@ img {
   flex: 1;
   display: grid;
   place-items: center;
-  font-size: calc(var(--kb) * 0.15);
+  padding: 0 4%;
   font-weight: 700;
   line-height: 1;
+  text-align: center;
+}
+
+.karte-name .tier-name-text {
+  font-size: calc(var(--kb) * var(--namen-faktor, 0.15));
+}
+
+/* Weiche Trennstriche (\u00AD) in langen Namen werden als Trennung genutzt */
+.tier-name-text {
+  -webkit-hyphens: manual;
+  hyphens: manual;
 }
 
 /* Gefundenes Paar: hüpft kurz und bekommt ein Häkchen (nicht nur Farbe) */
@@ -988,15 +999,24 @@ img {
   box-shadow: 0 10px 0 var(--kontur), 0 0 0 100vmax rgba(255, 248, 236, 0.45);
 }
 
+.paar-karte {
+  width: calc(min(42vmin, 300px) + 68px);
+  container-type: inline-size;
+  text-align: center;
+}
+
 .paar-karte img {
   width: min(42vmin, 300px);
   height: auto;
 }
 
 .paar-name {
-  font-size: clamp(2.8rem, 8vmin, 4.5rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.05;
+}
+
+.paar-name .tier-name-text {
+  font-size: calc(100cqw * var(--namen-faktor, 0.15) * 1.25);
 }
 
 .paar-anzeige.sichtbar {
@@ -1198,10 +1218,19 @@ img {
   aspect-ratio: 1;
 }
 
+.album-feld {
+  container-type: inline-size;
+}
+
 .album-name {
-  font-size: 1.3rem;
   font-weight: 700;
-  padding-top: 4px;
+  padding: 4px 4% 0;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.album-name .tier-name-text {
+  font-size: calc(100cqw * var(--namen-faktor, 0.15));
 }
 
 .album-feld.leer {

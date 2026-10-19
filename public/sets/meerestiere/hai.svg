@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="hai-koerper"><path d="M22 116 C30 96 60 82 100 82 C136 82 160 96 170 110 C160 122 136 134 100 136 C60 138 32 130 22 116 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#CDE7F5"/>
+  <circle cx="100" cy="112" r="80" fill="#BBDDF0"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M164 108 C170 92 176 80 184 70 C188 88 186 100 180 112 C186 122 190 136 188 150 C178 140 170 128 164 118 Z" fill="#8C99A6"/>
+    <path d="M84 88 C90 66 102 50 118 42 C116 60 118 74 124 88 Z" fill="#8C99A6"/>
+    <path d="M22 116 C30 96 60 82 100 82 C136 82 160 96 170 110 C160 122 136 134 100 136 C60 138 32 130 22 116 Z" fill="#8C99A6" stroke="none"/>
+    <g clip-path="url(#hai-koerper)" stroke="none"><ellipse cx="84" cy="140" rx="76" ry="24" fill="#F2F5F8"/></g>
+    <path d="M22 116 C30 96 60 82 100 82 C136 82 160 96 170 110 C160 122 136 134 100 136 C60 138 32 130 22 116 Z" fill="none"/>
+    <path d="M72 100 L70 114 M82 98 L80 114 M92 98 L90 114" fill="none" stroke-width="4"/>
+    <path d="M104 122 C112 134 112 146 104 158 C96 146 96 134 104 122 Z" fill="#6F7C88"/>
+    <ellipse cx="48" cy="104" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="51" cy="100" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="58" cy="116" r="7" fill="#F5A3B5" stroke="none"/>
+    <path d="M28 120 Q42 132 60 124 Z" fill="#FFFFFF" stroke-width="5"/>
+  </g>
+</svg>

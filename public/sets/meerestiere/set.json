@@ -1,82 +1,83 @@
 {
   "id": "meerestiere",
   "name": "Meerestiere",
-  "status": "bald",
+  "status": "bereit",
   "reihenfolge": 2,
   "farbe": "#CDE7F5",
-  "titelbild": null,
+  "titelbild": "wal.svg",
   "tiere": [
     {
       "id": "wal",
       "name": "Wal",
       "bild": "wal.svg",
-      "info": ""
+      "info": "Der Wal ist das grösste Tier der Welt. Er atmet durch ein Loch oben auf dem Kopf."
     },
     {
       "id": "delfin",
       "name": "Delfin",
       "bild": "delfin.svg",
-      "info": ""
+      "info": "Der Delfin springt gern aus dem Wasser und pfeift, um mit seinen Freunden zu reden."
     },
     {
       "id": "hai",
       "name": "Hai",
       "bild": "hai.svg",
-      "info": ""
+      "info": "Der Hai hat viele Reihen Zähne. Fällt einer aus, wächst ein neuer nach."
     },
     {
       "id": "krake",
       "name": "Krake",
       "bild": "krake.svg",
-      "info": ""
+      "info": "Die Krake kann ihre Farbe wechseln und sich in kleinsten Ritzen verstecken."
     },
     {
       "id": "seestern",
       "name": "Seestern",
       "bild": "seestern.svg",
-      "info": ""
+      "info": "Verliert der Seestern einen Arm, wächst ihm ein neuer nach."
     },
     {
       "id": "krabbe",
       "name": "Krabbe",
       "bild": "krabbe.svg",
-      "info": ""
+      "info": "Die Krabbe läuft seitwärts und zwickt mit ihren Scheren."
     },
     {
       "id": "meeresschildkroete",
       "name": "Meeresschildkröte",
+      "trennung": "Meeres­schildkröte",
       "bild": "meeresschildkroete.svg",
-      "info": ""
+      "info": "Die Meeresschildkröte schwimmt weit durchs Meer und legt ihre Eier am Strand."
     },
     {
       "id": "qualle",
       "name": "Qualle",
       "bild": "qualle.svg",
-      "info": ""
+      "info": "Die Qualle besteht fast nur aus Wasser und lässt sich durchs Meer treiben."
     },
     {
       "id": "seepferdchen",
       "name": "Seepferdchen",
       "bild": "seepferdchen.svg",
-      "info": ""
+      "info": "Beim Seepferdchen trägt der Papa die Babys in einem Beutel am Bauch."
     },
     {
       "id": "robbe",
       "name": "Robbe",
       "bild": "robbe.svg",
-      "info": ""
+      "info": "Die Robbe schwimmt flink und liegt gern auf Felsen in der Sonne."
     },
     {
       "id": "pinguin",
       "name": "Pinguin",
       "bild": "pinguin.svg",
-      "info": ""
+      "info": "Der Pinguin kann nicht fliegen, aber wunderbar schwimmen und tauchen."
     },
     {
       "id": "kugelfisch",
       "name": "Kugelfisch",
       "bild": "kugelfisch.svg",
-      "info": ""
+      "info": "Der Kugelfisch bläst sich bei Gefahr auf wie ein stacheliger Ball."
     }
   ]
 }

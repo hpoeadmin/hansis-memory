@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="delfin-koerper"><path d="M24 112 C24 106 34 102 46 100 C60 84 96 76 128 82 C152 86 168 98 172 108 C162 112 150 122 132 128 C104 138 64 136 46 124 C34 122 24 118 24 112 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#CDE7F5"/>
+  <circle cx="100" cy="112" r="80" fill="#BBDDF0"/>
+  <g transform="rotate(-20 100 112)">
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M166 106 C172 92 180 86 190 84 C186 96 184 104 178 110 C184 116 186 124 188 134 C178 132 170 124 164 114 Z" fill="#45AFC0"/>
+    <path d="M98 82 C106 66 116 58 128 56 C124 68 124 76 126 86 Z" fill="#45AFC0"/>
+    <path d="M24 112 C24 106 34 102 46 100 C60 84 96 76 128 82 C152 86 168 98 172 108 C162 112 150 122 132 128 C104 138 64 136 46 124 C34 122 24 118 24 112 Z" fill="#45AFC0" stroke="none"/>
+    <g clip-path="url(#delfin-koerper)" stroke="none"><ellipse cx="96" cy="138" rx="74" ry="20" fill="#D2F0F3"/></g>
+    <path d="M24 112 C24 106 34 102 46 100 C60 84 96 76 128 82 C152 86 168 98 172 108 C162 112 150 122 132 128 C104 138 64 136 46 124 C34 122 24 118 24 112 Z" fill="none"/>
+    <path d="M92 118 C100 130 96 142 86 148 C82 138 84 126 92 118 Z" fill="#2E8FA0"/>
+    <ellipse cx="62" cy="102" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="65" cy="98" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="72" cy="116" r="7" fill="#F5A3B5" stroke="none"/>
+    <path d="M30 114 Q40 121 52 117" fill="none"/>
+  </g>
+  </g>
+</svg>

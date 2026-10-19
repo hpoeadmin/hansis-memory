@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#CDE7F5"/>
+  <circle cx="100" cy="112" r="80" fill="#BBDDF0"/>
+  <!-- Stern mit runden Spitzen: dicke dunkle Kontur, darüber die Farbe -->
+  <polygon points="100,36 120,82.5 170.4,87.1 132.3,120.5 143.5,169.9 100,144 56.5,169.9 67.7,120.5 29.6,87.1 80,82.5"
+    fill="#2E2A26" stroke="#2E2A26" stroke-width="30" stroke-linejoin="round"/>
+  <polygon points="100,36 120,82.5 170.4,87.1 132.3,120.5 143.5,169.9 100,144 56.5,169.9 67.7,120.5 29.6,87.1 80,82.5"
+    fill="#F6A93B" stroke="#F6A93B" stroke-width="18" stroke-linejoin="round"/>
+  <!-- Pünktchen auf den Armen -->
+  <g fill="#FCD38E">
+    <circle cx="100" cy="50" r="4"/><circle cx="100" cy="64" r="3.5"/>
+    <circle cx="156" cy="92" r="4"/><circle cx="142" cy="96" r="3.5"/>
+    <circle cx="136" cy="156" r="4"/><circle cx="128" cy="144" r="3.5"/>
+    <circle cx="64" cy="156" r="4"/><circle cx="72" cy="144" r="3.5"/>
+    <circle cx="44" cy="92" r="4"/><circle cx="58" cy="96" r="3.5"/>
+  </g>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Augen -->
+    <ellipse cx="88" cy="104" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="112" cy="104" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="91" cy="100" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="115" cy="100" r="3" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen und Lächeln -->
+    <circle cx="78" cy="120" r="6" fill="#F27C8C" stroke="none" opacity="0.7"/>
+    <circle cx="122" cy="120" r="6" fill="#F27C8C" stroke="none" opacity="0.7"/>
+    <path d="M90 122 Q100 132 110 122" fill="none"/>
+  </g>
+</svg>

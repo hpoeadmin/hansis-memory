@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#CDE7F5"/>
+  <circle cx="100" cy="112" r="80" fill="#BBDDF0"/>
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Arme: erst dunkle Kontur, dann Farbe darüber -->
+    <g stroke="#2E2A26" stroke-width="30">
+      <path d="M66 110 C56 132 40 140 30 158"/>
+      <path d="M82 116 C80 140 66 156 62 174"/>
+      <path d="M100 118 C100 146 96 162 100 180"/>
+      <path d="M118 116 C120 140 134 156 138 174"/>
+      <path d="M134 110 C144 132 160 140 170 158"/>
+    </g>
+    <g stroke="#F2836B" stroke-width="18">
+      <path d="M66 110 C56 132 40 140 30 158"/>
+      <path d="M82 116 C80 140 66 156 62 174"/>
+      <path d="M100 118 C100 146 96 162 100 180"/>
+      <path d="M118 116 C120 140 134 156 138 174"/>
+      <path d="M134 110 C144 132 160 140 170 158"/>
+    </g>
+  </g>
+  <g fill="#FBC2B4">
+    <circle cx="44" cy="146" r="3.5"/><circle cx="70" cy="156" r="3.5"/><circle cx="99" cy="160" r="3.5"/>
+    <circle cx="130" cy="156" r="3.5"/><circle cx="156" cy="146" r="3.5"/>
+  </g>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Kopf -->
+    <path d="M100 26 C142 26 160 58 158 90 C156 112 140 124 100 124 C60 124 44 112 42 90 C40 58 58 26 100 26 Z" fill="#F2836B"/>
+    <circle cx="124" cy="46" r="7" fill="#F7A894" stroke="none"/>
+    <circle cx="138" cy="62" r="5" fill="#F7A894" stroke="none"/>
+    <circle cx="70" cy="50" r="5" fill="#F7A894" stroke="none"/>
+    <!-- Augen -->
+    <ellipse cx="80" cy="82" rx="9" ry="11" fill="#2E2A26" stroke="none"/>
+    <ellipse cx="120" cy="82" rx="9" ry="11" fill="#2E2A26" stroke="none"/>
+    <circle cx="83" cy="78" r="3.2" fill="#FFFFFF" stroke="none"/>
+    <circle cx="123" cy="78" r="3.2" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen und Lächeln -->
+    <circle cx="64" cy="100" r="7" fill="#E9607A" stroke="none" opacity="0.6"/>
+    <circle cx="136" cy="100" r="7" fill="#E9607A" stroke="none" opacity="0.6"/>
+    <path d="M88 102 Q100 112 112 102" fill="none"/>
+  </g>
+</svg>

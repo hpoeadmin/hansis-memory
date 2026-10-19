@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="wal-koerper">
+      <path d="M26 118 C26 80 66 60 108 64 C150 68 166 96 160 124 C154 152 120 162 88 160 C52 158 26 146 26 118 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#CDE7F5"/>
+  <circle cx="100" cy="112" r="80" fill="#BBDDF0"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Wasserfontäne -->
+    <path d="M60 52 C52 44 52 34 58 28 C64 34 66 44 60 52 Z" fill="#8CCBF2"/>
+    <path d="M78 46 C72 36 74 24 80 18 C86 24 86 36 78 46 Z" fill="#8CCBF2"/>
+    <path d="M96 52 C94 42 98 32 106 28 C108 36 104 46 96 52 Z" fill="#8CCBF2"/>
+    <!-- Schwanzflosse -->
+    <path d="M146 108 C154 96 160 84 166 76 C172 88 178 90 186 86 C182 102 172 116 154 128 Z" fill="#4A8FD6"/>
+    <!-- Körper mit hellem Bauch -->
+    <path d="M26 118 C26 80 66 60 108 64 C150 68 166 96 160 124 C154 152 120 162 88 160 C52 158 26 146 26 118 Z" fill="#4A8FD6" stroke="none"/>
+    <g clip-path="url(#wal-koerper)" stroke="none">
+      <ellipse cx="86" cy="158" rx="70" ry="26" fill="#D6ECFA"/>
+    </g>
+    <path d="M26 118 C26 80 66 60 108 64 C150 68 166 96 160 124 C154 152 120 162 88 160 C52 158 26 146 26 118 Z" fill="none"/>
+    <!-- Flosse -->
+    <path d="M96 128 C108 126 120 134 122 146 C110 148 98 140 96 128 Z" fill="#3A78BC"/>
+    <!-- Auge, Bäckchen, Lächeln -->
+    <ellipse cx="62" cy="102" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="65" cy="98" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="74" cy="120" r="7" fill="#F5A3B5" stroke="none"/>
+    <path d="M38 124 Q50 136 64 130" fill="none"/>
+  </g>
+</svg>

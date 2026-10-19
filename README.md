@@ -26,6 +26,7 @@ Danach im Browser `http://localhost:5173/hansis-memory/` öffnen.
    - `"farbe"` → Hintergrundfarbe des Satzes
    - `"titelbild"` → Bild auf der Menükachel
    - `"tiere"` → 12 Einträge mit `id`, `name`, `bild` und `info` (Satz fürs Album)
+   - optional `"trennung"` bei sehr langen Namen: der Name mit weichem Trennstrich, z.B. `"Meeres\u00adschildkröte"`. Dann darf der Name auf der Karte zweizeilig stehen.
 4. `npm run dev` starten. Der neue Satz erscheint automatisch.
 
 Fehlt ein Bild, bricht `npm run dev` bzw. `npm run build` mit einer Meldung ab.

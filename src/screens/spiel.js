@@ -1,6 +1,6 @@
 import { T } from '../texte.js';
 import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../ui.js';
-import { STUFEN, bildUrl } from '../sets.js';
+import { STUFEN, bildUrl, tierName } from '../sets.js';
 import { bestesRaster } from '../raster.js';
 import { avatarUrl, farbStil, merkeGefunden } from '../profile.js';
 import { klang } from '../klang.js';
@@ -93,7 +93,7 @@ export function zeigeSpiel(app) {
 
   function zeigePaar(tier) {
     paarBild.src = bildUrl(set, tier.bild);
-    paarName.textContent = tier.name;
+    paarName.replaceChildren(tierName(tier));
     paarAnzeige.classList.remove('sichtbar');
     void paarAnzeige.offsetWidth;
     paarAnzeige.classList.add('sichtbar');
@@ -142,7 +142,7 @@ export function zeigeSpiel(app) {
           'div',
           { class: 'seite vorderseite' },
           el('img', { src: bildUrl(set, karte.tier.bild), alt: '', draggable: 'false' }),
-          el('span', { class: 'karte-name' }, karte.tier.name),
+          el('span', { class: 'karte-name' }, tierName(karte.tier)),
         ),
       ),
     );

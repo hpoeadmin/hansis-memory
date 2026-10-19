@@ -14,6 +14,7 @@
 | 8 | Einstellungen mit Elternschloss | ✅ |
 | 9 | Offline/PWA mit Update-Hinweis | ✅ |
 | 10 | GitHub Pages, Anleitung für die Familie | ✅ https://hpoeadmin.github.io/hansis-memory/ |
+| 11 | Satz «Meerestiere» (12 Tiere) | ✅ |
 
 ## Entscheidungen
 
@@ -45,6 +46,8 @@
 - **Updates:** `registerType: 'prompt'`. Eine neue Version wartet, bis jemand auf den gelben Hinweis tippt; das unterbricht kein Spiel. Geprüft wird beim Start, beim Zurückkehren in die App (`visibilitychange`) und alle 30 Minuten.
 - **Icons:** `public/icon.svg` (zwei Karten mit Kuh auf Grün). Die PNGs erzeugt `@vite-pwa/assets-generator` (`pwa-assets.config.js`).
 - **Veröffentlichung:** GitHub Actions (`deploy.yml`, Node 22) → GitHub Pages, Quelle «GitHub Actions».
+- **Meerestiere:** Satzfarbe `#CDE7F5`, Titelbild Wal. Gut unterscheidbar durch Farbe *und* Form: Wal blau, Delfin türkis und schräg springend, Hai grau mit Kiemen und weissem Maul, Krake lachsrot, Seestern orange, Krabbe rot, Schildkröte grün, Qualle rosa, Seepferdchen lila, Robbe graubraun, Pinguin schwarz-weiss, Kugelfisch gelb mit Stacheln. Bei der Krake steht im Infosatz bewusst keine Armzahl (gezeichnet sind 5 Arme).
+- **Lange Tiernamen:** Die Schriftgrösse richtet sich nach dem längsten Wortteil (`tierName()` in `src/sets.js`). Ein optionales Feld `trennung` mit weichem Trennstrich erlaubt zwei Zeilen («Meeres-/schildkröte»). Das gilt für Karte, Paar-Anzeige und Album.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 
 ## Offene Fragen
