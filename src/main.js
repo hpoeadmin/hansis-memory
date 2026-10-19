@@ -21,6 +21,10 @@ import { frankenSteuerung } from './spiele/franken/index.js';
 import { einmaleinsSteuerung } from './spiele/einmaleins/index.js';
 import { uhrSteuerung } from './spiele/uhr/index.js';
 import { kantoneSteuerung } from './spiele/kantone/index.js';
+import { rechnenSteuerung } from './spiele/rechnen/index.js';
+import { zahlenhausSteuerung } from './spiele/zahlenhaus/index.js';
+import { verdoppelnSteuerung } from './spiele/verdoppeln/index.js';
+import { zahlenstrahlSteuerung } from './spiele/zahlenstrahl/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -44,6 +48,10 @@ app.franken = frankenSteuerung(app);
 app.einmaleins = einmaleinsSteuerung(app);
 app.uhr = uhrSteuerung(app);
 app.kantone = kantoneSteuerung(app);
+app.rechnen = rechnenSteuerung(app);
+app.zahlenhaus = zahlenhausSteuerung(app);
+app.verdoppeln = verdoppelnSteuerung(app);
+app.zahlenstrahl = zahlenstrahlSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();
