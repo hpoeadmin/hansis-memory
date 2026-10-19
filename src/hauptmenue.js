@@ -47,7 +47,7 @@ export function zeigeKlassenwahl(app) {
     const k = el(
       'button',
       { class: 'set-kachel klassen-kachel', type: 'button', style: `--set-farbe: ${KLASSEN_FARBE[klasse]}` },
-      el('span', { class: 'klassen-zeichen' }, W.zeichen[klasse]),
+      el('img', { class: 'klassen-bild', src: `${BASIS}spiele/klasse-${klasse}.svg`, alt: '' }),
       el('span', { class: 'set-name' }, klasse === 'alle' ? W.alle : T.schule.kategorien[klasse]),
       el('span', { class: 'modus-text' }, W.anzahl(sichtbareSpiele(app, klasse).length)),
       kinder.length

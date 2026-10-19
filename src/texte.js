@@ -16,7 +16,6 @@ export const T = {
     frage: 'In welche Klasse gehst du?',
     zurueck: 'Klassen',
     alle: 'Alle Spiele',
-    zeichen: { kg: 'KG', kl12: '1 2', kl34: '3 4', kl56: '5 6', alle: '★' },
     anzahl: (n) => `${n} Spiele`,
   },
 

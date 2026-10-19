@@ -3056,17 +3056,13 @@ img {
   hyphens: auto;
 }
 
-.klassen-zeichen {
-  display: grid;
-  place-items: center;
-  width: clamp(84px, 11vw, 130px);
+.klassen-bild {
+  display: block;
+  width: clamp(110px, 15vw, 180px);
   aspect-ratio: 1;
   border: 5px solid var(--kontur);
   border-radius: 50%;
   background: var(--flaeche);
-  font-size: clamp(2rem, 4.4vw, 3.2rem);
-  font-weight: 700;
-  word-spacing: -0.1em;
 }
 
 .klassen-kinder {
@@ -3097,6 +3093,9 @@ img {
     grid-template-rows: none;
     grid-auto-rows: minmax(0, 1fr);
     align-content: stretch;
+  }
+  .klassen-bild {
+    width: clamp(120px, 22vw, 190px);
   }
   .klassen-kachel:last-child {
     grid-column: 1 / -1;
