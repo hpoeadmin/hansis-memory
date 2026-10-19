@@ -1,8 +1,19 @@
 // Alle Spiele im Hauptmenü, geordnet nach Bereichen. Ein neues Spiel = ein Eintrag hier
 // (Name in texte.js unter «spiele», Bild in public/spiele/).
 // ab: ab welcher Kategorie das Spiel gedacht ist ('alle', 'kg', 'kl12', 'kl34', 'kl56')
+// bis: (freiwillig) bis zu welcher Kategorie – für Ältere zu einfache Spiele fehlen dort
 
 export const BEREICHE = ['gedaechtnis', 'raum', 'mathe', 'lesen', 'natur', 'brett'];
+
+// Klassen auf der Startseite (Reihenfolge = Alter). «alle» zeigt jedes Spiel.
+export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'alle'];
+const RANG = { alle: 0, kg: 1, kl12: 2, kl34: 3, kl56: 4 };
+
+// Spiele für eine Klasse: alles, was «ab» dieser Klasse oder jünger gedacht ist
+export function spieleFuer(klasse) {
+  if (klasse === 'alle') return SPIELE;
+  return SPIELE.filter((spiel) => RANG[spiel.ab] <= RANG[klasse] && RANG[klasse] <= RANG[spiel.bis ?? 'kl56']);
+}
 
 export const SPIELE = [
   {
@@ -25,6 +36,7 @@ export const SPIELE = [
     id: 'lern-mengezahl',
     bereich: 'mathe',
     ab: 'kg',
+    bis: 'kl12',
     bild: 'spiele/lern-mengezahl.svg',
     farbe: '#FBE7C6',
     starte: (app) => app.lernmemory.waehleArt('mengezahl'),
@@ -41,6 +53,7 @@ export const SPIELE = [
     id: 'lern-bildwort',
     bereich: 'lesen',
     ab: 'kg',
+    bis: 'kl12',
     bild: 'spiele/lern-bildwort.svg',
     farbe: '#DCEBFA',
     starte: (app) => app.lernmemory.waehleArt('bildwort'),
@@ -49,6 +62,7 @@ export const SPIELE = [
     id: 'lern-buchstaben',
     bereich: 'lesen',
     ab: 'kg',
+    bis: 'kl12',
     bild: 'spiele/lern-buchstaben.svg',
     farbe: '#EADCF7',
     starte: (app) => app.lernmemory.waehleArt('buchstaben'),

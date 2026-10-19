@@ -2865,7 +2865,7 @@ img {
 }
 
 .fr-bezahlt-mit svg {
-  width: 120px;
+  width: 64px;
   display: block;
 }
 
@@ -2951,8 +2951,12 @@ img {
   transform: scale(0.94);
 }
 
+.fr-geld .geld-muenze {
+  width: calc(var(--mm) * 3.9px);
+}
+
 .fr-geld .geld-note {
-  width: 120px;
+  width: 74px;
 }
 
 .fr-auf-teller {
@@ -2961,11 +2965,11 @@ img {
 }
 
 .fr-auf-teller .geld-muenze {
-  width: 54px !important;
+  width: calc(var(--mm) * 2.9px);
 }
 
 .fr-auf-teller .geld-note {
-  width: 86px;
+  width: 52px;
 }
 
 .fr-stufenbild {
@@ -3023,5 +3027,77 @@ img {
   .stein.gezogen,
   .emw-glanz {
     animation: none !important;
+  }
+}
+
+/* ---------- Startseite: Klassenwahl ---------- */
+
+.klassen-raster {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: minmax(0, min(100%, 420px));
+  align-content: center;
+  gap: var(--abstand);
+}
+
+.klassen-kachel {
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 8px;
+}
+
+.klassen-kachel .set-name {
+  font-size: clamp(1.15rem, 2.3vw, 1.6rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.klassen-zeichen {
+  display: grid;
+  place-items: center;
+  width: clamp(84px, 11vw, 130px);
+  aspect-ratio: 1;
+  border: 5px solid var(--kontur);
+  border-radius: 50%;
+  background: var(--flaeche);
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  font-weight: 700;
+  word-spacing: -0.1em;
+}
+
+.klassen-kinder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  margin-top: 6px;
+}
+
+.klassen-kind {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.klassen-kind .avatar {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+@media (orientation: portrait) {
+  .klassen-raster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(0, 1fr);
+    align-content: stretch;
+  }
+  .klassen-kachel:last-child {
+    grid-column: 1 / -1;
   }
 }

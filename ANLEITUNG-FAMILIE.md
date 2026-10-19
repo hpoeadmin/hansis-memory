@@ -34,7 +34,8 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 ## Gut zu wissen
 
 - **Ohne Internet:** Öffne das Spiel einmal mit Internet. Danach funktioniert es auch ohne WLAN, z.B. im Zug oder in den Ferien.
-- **Spiel wählen:** Im Hauptmenü tippst du auf das Spiel, z.B. **Memory**.
+- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Unter **Alle Spiele** findest du jedes Spiel.
+- **Spiel wählen:** Danach erscheinen die Spiele für diese Klasse. Tippe auf ein Spiel, z.B. **Memory**. Mit **‹ Klassen** kommst du zurück zur Startseite.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
 - **Lern-Memory:** Memory mit ungleichen Paaren: Bild und Wort (Lesen), Menge und Zahl (Zählen), Gross- und Kleinbuchstabe.
@@ -45,7 +46,7 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.
 - **Eile mit Weile:** Für 2, 3 oder 4 Farben; wer fehlt, wird vom Tablet gespielt. Tippe auf «Würfeln», dann auf eine leuchtende Figur. Die Regeln sind wie bei uns zu Hause: mit einer 6 herauskommen, nach einer 6 nochmals würfeln, auf dem Bänkli ist man sicher, zwei gleiche Figuren auf einem Bänkli sperren.
 - **Album:** Jeder sammelt die Tiere, die er gefunden hat. Wer alle 12 Tiere hat, bekommt ein Abzeichen.
-- **Einstellungen für Erwachsene:** Den Knopf **«Für Eltern»** oben links **3 Sekunden gedrückt halten**. Die Einstellungen sind nach Bereichen geordnet: Allgemein (Ton, Vorlesen, welche Spiele im Hauptmenü erscheinen), Spieler, Memory (z.B. Karten länger offen lassen oder «Bis man tippt»), Nüni Stei und Eile mit Weile.
+- **Einstellungen für Erwachsene:** Auf der Startseite den Knopf **«Für Eltern»** oben links **3 Sekunden gedrückt halten**. Die Einstellungen sind nach Bereichen geordnet: Allgemein (Ton, Vorlesen, welche Spiele im Hauptmenü erscheinen), Spieler, Memory (z.B. Karten länger offen lassen oder «Bis man tippt»), Nüni Stei und Eile mit Weile.
 - **Neue Version:** Wenn ich etwas verbessert habe, erscheint unten ein gelber Hinweis **«Neue Version verfügbar – Tippen zum Aktualisieren»**. Einfach antippen.
 - **Jedes Tablet für sich:** Spieler, Album und Bestleistungen bleiben auf dem jeweiligen Tablet gespeichert. Auf einem anderen Tablet legt man die Spieler neu an.
 - **Achtung:** Wer in den Safari-Einstellungen «Verlauf und Websitedaten löschen» antippt, löscht auch Spieler und Album.

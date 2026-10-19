@@ -12,6 +12,14 @@ export const T = {
     zurueck: 'Spiele',
   },
 
+  klassenwahl: {
+    frage: 'In welche Klasse gehst du?',
+    zurueck: 'Klassen',
+    alle: 'Alle Spiele',
+    zeichen: { kg: 'KG', kl12: '1 2', kl34: '3 4', kl56: '5 6', alle: '★' },
+    anzahl: (n) => `${n} Spiele`,
+  },
+
   bereiche: {
     gedaechtnis: 'Gedächtnis',
     raum: 'Räumliches Denken',
