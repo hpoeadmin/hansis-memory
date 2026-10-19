@@ -2636,6 +2636,159 @@ img {
   border-width: 7px;
 }
 
+/* ---------- Wortarten ---------- */
+
+.wa-spiel {
+  gap: 16px;
+}
+
+.wa-oben {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-wort {
+  min-width: 300px;
+  padding: 40px 48px;
+  border: 6px solid var(--kontur);
+  border-radius: 32px;
+  background: var(--flaeche);
+  box-shadow: 0 8px 0 var(--kontur);
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.wa-meldung {
+  max-width: 440px;
+}
+
+.wa-kisten {
+  display: grid;
+  gap: 18px;
+}
+
+.wa-kisten.wa-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wa-kisten.wa-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Jede Kiste: eigene Farbe, Name und Merkhilfe – nie nur Farbe */
+.wa-kiste {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-height: 130px;
+  padding: 18px 12px;
+  border: 5px solid var(--kontur);
+  border-top: 22px solid var(--kisten-farbe);
+  border-radius: 22px;
+  background: var(--kisten-hell);
+  box-shadow: 0 6px 0 var(--kontur);
+  cursor: pointer;
+}
+
+.wa-nomen {
+  --kisten-farbe: #2F6FD0;
+  --kisten-hell: #DCE7F8;
+}
+
+.wa-verb {
+  --kisten-farbe: #D64545;
+  --kisten-hell: #F8DADA;
+}
+
+.wa-adjektiv {
+  --kisten-farbe: #E0A21B;
+  --kisten-hell: #FCEFC4;
+}
+
+.wa-kiste-name {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+}
+
+.wa-kiste-hilfe {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+}
+
+.wa-kiste.richtig {
+  outline: 8px solid #2F8F46;
+  outline-offset: 2px;
+}
+
+.wa-kiste.falsch {
+  opacity: 0.45;
+  box-shadow: none;
+  cursor: default;
+}
+
+.wa-kiste.richtig::after,
+.wa-kiste.falsch::after {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 4px solid var(--kontur);
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.wa-kiste.richtig::after {
+  content: '✓';
+  background: #2F8F46;
+}
+
+.wa-kiste.falsch::after {
+  content: '✕';
+  background: #8C99A6;
+}
+
+/* Kleine Kisten auf den Stufen-Kacheln */
+.wa-stufenbild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 80%;
+}
+
+.wa-mini {
+  padding: 8px 12px;
+  border: 4px solid var(--kontur);
+  border-left: 18px solid var(--kisten-farbe);
+  border-radius: 14px;
+  background: var(--kisten-hell);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (orientation: portrait) {
+  .wa-oben {
+    flex-direction: column;
+  }
+  .wa-wort {
+    min-width: 0;
+    width: min(90%, 460px);
+  }
+}
+
 /* ---------- Versionsanzeige ---------- */
 
 .version-zeile {

@@ -46,6 +46,14 @@ export const SPIELE = [
     starte: (app) => app.lernmemory.waehleArt('buchstaben'),
   },
   {
+    id: 'wortarten',
+    bereich: 'lesen',
+    ab: 'kl34',
+    bild: 'spiele/wortarten.svg',
+    farbe: '#E3F0D9',
+    starte: (app) => app.wortarten.zeigeStart(),
+  },
+  {
     id: 'lebensraum',
     bereich: 'natur',
     ab: 'alle',

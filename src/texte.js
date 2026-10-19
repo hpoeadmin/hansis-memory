@@ -27,6 +27,7 @@ export const T = {
     'lern-mengezahl': 'Menge und Zahl',
     'lern-bildwort': 'Bild und Wort',
     'lern-buchstaben': 'Gross und klein',
+    wortarten: 'Wortarten',
     lebensraum: 'Wo wohne ich?',
     reihenfolge: 'Merk dir die Reihenfolge',
     nuenistei: 'Nüni Stei',
@@ -213,6 +214,35 @@ export const T = {
     },
     ab: { alle: 'für alle', kg: 'ab Kindergarten', kl12: 'ab 1. Klasse', kl34: 'ab 3. Klasse', kl56: 'ab 5. Klasse' },
     passtFuer: (name) => `passt für ${name}`,
+  },
+
+  wortarten: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      zwei: { titel: 'Nomen oder Verb', text: 'zwei Kisten' },
+      drei: { titel: 'Nomen, Verb, Adjektiv', text: 'drei Kisten' },
+      profi: { titel: 'Profi', text: 'alles in GROSSBUCHSTABEN' },
+    },
+    kisten: {
+      nomen: { name: 'Nomen', hilfe: 'der · die · das' },
+      verb: { name: 'Verb', hilfe: 'er …' },
+      adjektiv: { name: 'Adjektiv', hilfe: 'wie?' },
+    },
+    frageWort: 'Welche Wortart ist das?',
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Stimmt!'],
+    erklaerung: {
+      nomen: (probe) => `«${probe}» – Nomen haben einen Begleiter und werden grossgeschrieben.`,
+      verb: (probe) => `«${probe}» – Verben sagen, was jemand tut.`,
+      adjektiv: (probe) => `«${probe}» – Adjektive sagen, wie etwas ist.`,
+    },
+    tipp: {
+      nomen: (wort) => `Hm, «${wort}» ist kein Nomen. Tipp: Passt «der», «die» oder «das» davor?`,
+      verb: (wort) => `Hm, «${wort}» ist kein Verb. Tipp: Kann man sagen «er …», wie «er rennt»?`,
+      adjektiv: (wort) => `Hm, «${wort}» ist kein Adjektiv. Tipp: Kann man es steigern, wie «schnell – schneller»?`,
+    },
+    wortVon: (n, gesamt) => `Wort ${n} von ${gesamt}`,
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Wörtern gleich beim ersten Mal richtig eingeordnet.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
   },
 
   update: {
