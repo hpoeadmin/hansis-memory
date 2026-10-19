@@ -30,6 +30,14 @@ export const SPIELE = [
     starte: (app) => app.lernmemory.waehleArt('mengezahl'),
   },
   {
+    id: 'franken',
+    bereich: 'mathe',
+    ab: 'kl34',
+    bild: 'spiele/franken.svg',
+    farbe: '#FFF3D6',
+    starte: (app) => app.franken.zeigeStart(),
+  },
+  {
     id: 'lern-bildwort',
     bereich: 'lesen',
     ab: 'kg',
