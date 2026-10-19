@@ -1,20 +1,23 @@
 // Münzen und Noten als SVG – nah am Schweizer Original (Farbe, Grösse, Wertseite),
 // aber vereinfacht gezeichnet, damit sie klar als Spielgeld erkennbar bleiben.
-// Münzen: Wertseite wie im Portemonnaie (5 Rp. goldgelb, sonst Silber; ½, 1, 2, 5 Fr. mit Kranz).
+// Münzen: Wertseite wie das Original (5 Rp. goldgelb, sonst Silber; Wertzahl in Serifenschrift
+// im Kranz mit Schleife; Fünfliber mit «5FR.», Wappen und zwei Zweigen).
 // Noten: 9. Serie im Hochformat (10 gelb, 20 rot, 50 grün) mit Weltkugel und Motiv.
 const K = '#2E2A26';
 const SCHRIFT = "font-family=\"'Atkinson Hyperlegible', system-ui, sans-serif\" font-weight=\"700\"";
 
-// Durchmesser in Millimetern wie die echten Münzen – die Grössen stimmen untereinander
+// Durchmesser in Millimetern wie die echten Münzen – die Grössen stimmen untereinander.
+// zahl/fr: Beschriftung der Wertseite wie auf dem Original («½ Fr.», «20», «5FR.» mit Wappen)
 const MUENZE = {
-  5: { mm: 17.15, gold: true },
-  10: { mm: 19.15 },
-  20: { mm: 21.05 },
-  50: { mm: 18.2, kranz: true, zahl: '½', fr: true },
-  100: { mm: 23.2, kranz: true, zahl: '1', fr: true },
-  200: { mm: 27.4, kranz: true, zahl: '2', fr: true },
-  500: { mm: 31.45, kranz: true, zahl: '5', fr: true },
+  5: { mm: 17.15, gold: true, zahl: '5' },
+  10: { mm: 19.15, zahl: '10' },
+  20: { mm: 21.05, zahl: '20' },
+  50: { mm: 18.2, zahl: '½', fr: true },
+  100: { mm: 23.2, zahl: '1', fr: true },
+  200: { mm: 27.4, zahl: '2', fr: true },
+  500: { mm: 31.45, wappen: true },
 };
+const SERIF = 'font-family="\'Times New Roman\', Times, Georgia, serif" font-weight="700"';
 
 // Noten: Farbe der echten Serie, Länge in mm (Breite 70 mm)
 const NOTE = {
@@ -25,40 +28,87 @@ const NOTE = {
 
 const r1 = (x) => Math.round(x * 10) / 10;
 
-// Kranz aus Blättern um die untere Hälfte (wie auf ½, 1, 2 und 5 Franken)
-function kranz(farbe) {
-  let blaetter = '';
-  for (let seite = -1; seite <= 1; seite += 2) {
-    for (let i = 0; i < 6; i++) {
-      const winkel = ((90 + seite * (20 + i * 16)) * Math.PI) / 180;
-      const x = 50 + 34 * Math.cos(winkel);
-      const y = 50 + 34 * Math.sin(winkel);
-      const drehung = (winkel * 180) / Math.PI + 90 * seite;
-      blaetter += `<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="6" ry="2.6" transform="rotate(${r1(drehung + seite * 25)} ${r1(x)} ${r1(y)})" fill="${farbe}"/>`;
+// Kranz: zwei Zweige wachsen von der Schleife unten auf beiden Seiten bis fast nach oben
+// (wie auf 5 Rp. bis 2 Fr.)
+function kranz(farbe, licht) {
+  let teile = '';
+  for (const seite of [-1, 1]) {
+    for (let i = 0; i < 11; i++) {
+      const grad = 90 + seite * (16 + i * 15.2);
+      const w = (grad * Math.PI) / 180;
+      const x = 50 + 34 * Math.cos(w);
+      const y = 50 + 34 * Math.sin(w);
+      const richtung = grad + seite * 90; // Wuchsrichtung entlang des Kreises
+      for (const neigung of [-38, 38]) {
+        const n = ((richtung + neigung) * Math.PI) / 180;
+        const bx = x + 3.4 * Math.cos(n);
+        const by = y + 3.4 * Math.sin(n);
+        teile += `<ellipse cx="${r1(bx)}" cy="${r1(by)}" rx="4" ry="1.8" transform="rotate(${r1(richtung + neigung)} ${r1(bx)} ${r1(by)})"/>`;
+      }
     }
   }
-  return blaetter;
+  // Schleife unten
+  const schleife =
+    `<ellipse cx="45" cy="85" rx="4.5" ry="2.4" transform="rotate(-20 45 85)"/>` +
+    `<ellipse cx="55" cy="85" rx="4.5" ry="2.4" transform="rotate(20 55 85)"/><circle cx="50" cy="85.5" r="2"/>`;
+  return `<g fill="${farbe}" stroke="${licht}" stroke-width="0.4">${teile}${schleife}</g>`;
+}
+
+// Zweig neben dem Wappen auf dem Fünfliber
+function zweig(seite, farbe) {
+  const x0 = 50 + seite * 29;
+  let blaetter = '';
+  for (let i = 0; i < 7; i++) {
+    const y = 74 - i * 6.2;
+    const x = x0 + seite * Math.sin(i / 2) * 2;
+    blaetter += `<ellipse cx="${r1(x - seite * 3)}" cy="${r1(y)}" rx="3.6" ry="1.4" transform="rotate(${seite * 40} ${r1(x - seite * 3)} ${r1(y)})"/>`;
+    blaetter += `<ellipse cx="${r1(x + seite * 3)}" cy="${r1(y - 1)}" rx="3.6" ry="1.4" transform="rotate(${-seite * 40} ${r1(x + seite * 3)} ${r1(y - 1)})"/>`;
+  }
+  return `<g fill="${farbe}"><path d="M${x0} 78 Q${x0 + seite * 3} 56 ${x0} 34" fill="none" stroke="${farbe}" stroke-width="1.2"/>${blaetter}</g>`;
+}
+
+// Geprägte Schrift: dunkle Schrift mit heller Kante unten rechts
+function praegung(x, y, groesse, text, dunkel, licht, extra = '') {
+  return (
+    `<text x="${x + 0.7}" y="${y + 0.7}" text-anchor="middle" font-size="${groesse}" ${SERIF} fill="${licht}"${extra}>${text}</text>` +
+    `<text x="${x}" y="${y}" text-anchor="middle" font-size="${groesse}" ${SERIF} fill="${dunkel}"${extra}>${text}</text>`
+  );
 }
 
 function muenzeSvg(wert) {
   const m = MUENZE[wert];
   const id = `m${wert}`;
-  const [hell, mitte, dunkel] = m.gold ? ['#FBE7A1', '#DDB54A', '#9C7A1E'] : ['#F4F6F8', '#C3C9CF', '#7F878F'];
-  const zahl = m.zahl ?? String(wert);
-  const zahlGroesse = m.fr ? 40 : zahl.length > 1 ? 40 : 46;
-  const zahlY = m.fr ? 58 : 63;
-  const inhalt = m.fr
-    ? `<text x="${m.zahl === '½' ? 42 : 44}" y="${zahlY}" text-anchor="middle" font-size="${zahlGroesse}" ${SCHRIFT} fill="${dunkel}">${zahl}</text>` +
-      `<text x="${m.zahl === '½' ? 62 : 59}" y="${zahlY - 2}" text-anchor="start" font-size="13" ${SCHRIFT} fill="${dunkel}">Fr.</text>` +
-      kranz(dunkel)
-    : `<text x="50" y="${zahlY}" text-anchor="middle" font-size="${zahlGroesse}" ${SCHRIFT} fill="${dunkel}">${zahl}</text>`;
+  const [hell, mitte, dunkel] = m.gold ? ['#FFF0B8', '#E0BC55', '#8F6E16'] : ['#FAFBFC', '#C9CED4', '#737B84'];
+  const relief = m.gold ? '#6E5410' : '#4D545C';
+  const licht = m.gold ? '#FFF6D0' : '#FFFFFF';
+
+  // Perlkreis innen am Rand
+  let perlen = '';
+  for (let i = 0; i < 60; i++) {
+    const w = (i * 6 * Math.PI) / 180;
+    perlen += `<circle cx="${r1(50 + 42 * Math.cos(w))}" cy="${r1(50 + 42 * Math.sin(w))}" r="0.9"/>`;
+  }
+
+  let inhalt;
+  if (m.wappen) {
+    inhalt =
+      praegung(50, 27, 17, '5FR.', relief, licht) +
+      `<path d="M35 33 H65 V51 C65 64 58 71 50 75 C42 71 35 64 35 51 Z" fill="${mitte}" stroke="${relief}" stroke-width="2"/>` +
+      `<path d="M47 39 h6 v8 h8 v6 h-8 v8 h-6 v-8 h-8 v-6 h8 z" fill="${licht}" stroke="${relief}" stroke-width="0.8"/>` +
+      zweig(-1, relief) +
+      zweig(1, relief);
+  } else if (m.fr) {
+    inhalt = praegung(50, 59, 29, `${m.zahl}<tspan font-size="21"> Fr.</tspan>`, relief, licht) + kranz(relief, licht);
+  } else {
+    inhalt = praegung(50, m.zahl.length > 1 ? 62 : 64, m.zahl.length > 1 ? 34 : 40, m.zahl, relief, licht) + kranz(relief, licht);
+  }
+
   return (
     `<svg viewBox="0 0 100 100" class="geld-muenze" aria-hidden="true" style="--mm: ${m.mm}">` +
     `<defs><radialGradient id="${id}" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="${hell}"/><stop offset="0.6" stop-color="${mitte}"/><stop offset="1" stop-color="${dunkel}"/></radialGradient></defs>` +
     `<circle cx="50" cy="50" r="47" fill="url(#${id})" stroke="${K}" stroke-width="3"/>` +
-    // geriffelter Rand
-    `<circle cx="50" cy="50" r="44.5" fill="none" stroke="${dunkel}" stroke-width="3" stroke-dasharray="1.2 1.6" opacity="0.7"/>` +
-    `<circle cx="50" cy="50" r="41" fill="none" stroke="${dunkel}" stroke-width="1.5" opacity="0.6"/>` +
+    `<circle cx="50" cy="50" r="45" fill="none" stroke="${licht}" stroke-width="1.2" opacity="0.8"/>` +
+    `<g fill="${relief}" opacity="0.75">${perlen}</g>` +
     inhalt +
     `</svg>`
   );
