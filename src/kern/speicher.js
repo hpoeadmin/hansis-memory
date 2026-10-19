@@ -12,7 +12,9 @@ const STANDARD = {
     vorlesen: false,
     rueckseite: 'blau', // blau | gruen | orange
     namen: true, // Tiernamen auf den Karten
-    zugZurueck: true, // Brettspiele: «Zug zurück» anbieten
+    zugZurueck: true, // Nüni Stei: «Zug zurück» anbieten
+    emwZugZurueck: true, // Eile mit Weile: «Zug zurück» anbieten
+    ausgeblendet: [], // Spiele, die im Hauptmenü nicht erscheinen
   },
   nuenistei: { laufend: null }, // gespeichertes, noch nicht beendetes Spiel
   eilemitweile: { laufend: null },

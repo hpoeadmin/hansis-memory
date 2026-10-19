@@ -26,6 +26,7 @@
 | B | Nüni Stei für 2 Personen (Setzen, Ziehen, Springen, Mühle, Wegnehmen, Zug zurück) | ✅ |
 | C | Nüni Stei gegen das Tablet (zwei Stufen) | ✅ |
 | D | Eile mit Weile für 2–4 Farben, freie Plätze spielt das Tablet | ✅ |
+| D2 | Einstellungen nach Spielen geordnet, Spiele im Hauptmenü ausblendbar | ✅ |
 | E | Weitere Spiele (z.B. Tier-Domino, Vier gewinnt, Leiterlispiel, Puzzle) | Idee |
 
 **Regeln laut Hanspeter (19.10.2026):**
@@ -78,6 +79,7 @@
 - **Eile mit Weile – Regeln** (`regeln.js`, Tests in `tests/eilemitweile.test.js`): Positionen ab dem eigenen Start-Bänkli gezählt (−1 Haus, 0–75 Weg, 76–83 Zielgasse). Die eigenen Figuren dürfen an der eigenen Sperre vorbei. Eine fremde Sperre auf dem Start-Bänkli verhindert das Herauskommen. In der Zielgasse darf man über eigene Figuren springen, aber nicht auf einem besetzten Feld landen. Geht kein Zug, ist der Nächste dran, nach einer 6 aber nochmals dieselbe Farbe. Das Spiel endet, sobald eine Farbe alle 4 Figuren in der Zielgasse hat.
 - **Eile mit Weile – Bedienung:** grosser Knopf «Würfeln» (auch der Würfel selbst ist antippbar). Ziehbare Figuren leuchten pulsierend, ihr Zielfeld ist gestrichelt. Antippen lässt sich die Figur oder ihr Zielfeld (unsichtbare Tippfläche, Radius 26 von 700). Die Figur hüpft Feld für Feld (0,14 s pro Feld). Bei einer Sperre erscheint ein Schloss. Mit Vorlesen wird die gewürfelte Zahl angesagt.
 - **Eile mit Weile – Ablauf:** Hauptmenü → Anzahl Farben (2: Rot/Blau, 3: Rot/Grün/Blau, 4: alle) → Spieler (1 bis Anzahl). Die gewählten Menschen bekommen die ersten Farben, die übrigen Plätze spielt das Tablet. Der Computer bewertet jeden Zug mit Faustregeln: herauskommen, ins Ziel, schlagen (je weiter die fremde Figur, desto lieber), aufs Bänkli, Sperre bauen; gefährliche Felder (fremde Figur 1–6 dahinter) meidet er. «Nochmals spielen» behält die Plätze, die nächste Farbe beginnt. Gespeichert wird wie bei Nüni Stei; «Zug zurück» gilt für beide Brettspiele.
+- **Einstellungen (Elternschloss):** Übersicht mit fünf Kacheln, jede öffnet eine eigene Seite: *Allgemein* (Ton, Vorlesen, Spiele im Hauptmenü zeigen/ausblenden), *Spieler* (ändern, löschen, neu), *Memory* (Aufdeck-Dauer, Kartenrückseite, Tiernamen), *Nüni Stei* und *Eile mit Weile* (je «Zug zurück» erlaubt, getrennt einstellbar: `zugZurueck` bzw. `emwZugZurueck`). Mindestens ein Spiel bleibt im Hauptmenü sichtbar (`einstellungen.ausgeblendet`). Sind weniger Spiele sichtbar, stehen ihre Kacheln in der Mitte.
 - **Lange Tiernamen:** Die Schriftgrösse richtet sich nach dem längsten Wortteil (`tierName()` in `src/sets.js`). Ein optionales Feld `trennung` mit weichem Trennstrich erlaubt zwei Zeilen («Meeres-/schildkröte»). Das gilt für Karte, Paar-Anzeige und Album.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 

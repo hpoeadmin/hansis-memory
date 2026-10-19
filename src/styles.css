@@ -1431,10 +1431,22 @@ img {
   top: 0;
 }
 
-/* Hauptmenü: höchstens 3 Spiele pro Zeile, damit die Kacheln gross bleiben */
+/* Hauptmenü: höchstens 3 Spiele pro Zeile; sind weniger sichtbar, stehen sie in der Mitte */
+.spiel-raster {
+  width: 100%;
+  max-width: calc(var(--anzahl, 3) * 340px);
+  margin-inline: auto;
+}
+
 @media (orientation: landscape) {
   .spiel-raster {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(min(var(--anzahl, 3), 3), minmax(0, 1fr));
+  }
+}
+
+@media (orientation: portrait) {
+  .spiel-raster {
+    grid-template-columns: repeat(min(var(--anzahl, 3), 2), minmax(0, 1fr));
   }
 }
 
@@ -2200,6 +2212,35 @@ img {
     min-height: 0;
     max-width: 12em;
   }
+}
+
+/* ---------- Einstellungen: Übersicht und Spiele-Liste ---------- */
+
+.einstellungen .kopfzeile .knopf-fertig {
+  margin-left: auto;
+}
+
+@media (orientation: landscape) {
+  .einstellungs-raster {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (orientation: portrait) {
+  .einstellungs-raster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.spiel-zeile {
+  border-left-width: 3px;
+}
+
+.spiel-symbol {
+  width: 64px;
+  height: 64px;
+  border: 3px solid var(--kontur);
+  border-radius: 14px;
 }
 
 /* ---------- Bewegung reduzieren ---------- */

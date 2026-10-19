@@ -109,7 +109,7 @@ export function zeigeSpiel(e) {
     wuerfelHinweis.textContent = mensch && z.wurf !== null ? E.wuerfelnWarten : '';
     wuerfelKnopf.style.cssText = `--spieler-farbe: ${FARBEN[arm]}`;
 
-    zurueckKnopf.hidden = e.einstellungen.zugZurueck === false;
+    zurueckKnopf.hidden = e.einstellungen.emwZugZurueck === false;
     const moeglich = !beschaeftigt && partie.verlauf.some((s) => !istComputer(s.amZug));
     zurueckKnopf.classList.toggle('inaktiv', !moeglich);
   }
@@ -230,7 +230,7 @@ export function zeigeSpiel(e) {
   }
 
   function zugZurueck() {
-    if (beschaeftigt || e.einstellungen.zugZurueck === false) return;
+    if (beschaeftigt || e.einstellungen.emwZugZurueck === false) return;
     let ziel = null;
     while (partie.verlauf.length) {
       ziel = partie.verlauf.pop();

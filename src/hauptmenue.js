@@ -6,7 +6,8 @@ import { SPIELE } from './spiele.js';
 const BASIS = import.meta.env.BASE_URL;
 
 export function zeigeHauptmenue(app) {
-  const kacheln = SPIELE.map((spiel) => {
+  const ausgeblendet = app.einstellungen.ausgeblendet ?? [];
+  const kacheln = SPIELE.filter((spiel) => !ausgeblendet.includes(spiel.id)).map((spiel) => {
     const bereit = spiel.status === 'bereit';
     const kachel = el(
       'button',
@@ -35,7 +36,7 @@ export function zeigeHauptmenue(app) {
         el('h1', { class: 'titel' }, T.hauptmenue.titel),
       ),
       el('p', { class: 'frage' }, T.hauptmenue.frage),
-      el('div', { class: 'set-raster spiel-raster' }, kacheln),
+      el('div', { class: 'set-raster spiel-raster', style: `--anzahl: ${kacheln.length}` }, kacheln),
     ),
   );
 }

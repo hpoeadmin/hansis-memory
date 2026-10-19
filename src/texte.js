@@ -117,9 +117,19 @@ export const T = {
 
   einstellungen: {
     titel: 'Einstellungen',
-    gruppeAllgemein: 'Für alle Spiele',
-    gruppeSpieler: 'Spieler',
-    gruppeBrettspiele: 'Nüni Stei und Eile mit Weile',
+    frage: 'Was möchtest du einstellen?',
+    zurueck: 'Einstellungen',
+    seiten: {
+      allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
+      spieler: { titel: 'Spieler', text: 'Namen und Tiere' },
+      memory: { titel: 'Memory', text: 'Karten und Tempo' },
+      nuenistei: { titel: 'Nüni Stei', text: 'Zug zurück' },
+      eilemitweile: { titel: 'Eile mit Weile', text: 'Zug zurück' },
+    },
+    spieleImMenue: 'Spiele im Hauptmenü',
+    zeigen: 'Zeigen',
+    ausblenden: 'Ausblenden',
+    einesBleibt: 'Mindestens ein Spiel bleibt im Hauptmenü sichtbar.',
     zugZurueck: 'Zug zurücknehmen erlaubt',
     ton: 'Ton',
     vorlesen: 'Tiernamen vorlesen',
