@@ -20,12 +20,49 @@ const MUENZE = {
 };
 const SERIF = 'font-family="\'Times New Roman\', Times, Georgia, serif" font-weight="700"';
 
-// Noten der 9. Serie: Farbverlauf, Streifen rechts, Länge in mm (Breite 70 mm)
+// Noten der 9. Serie (nach Foto): Grundfarben oben → unten, Farbe der Wertzahl, Streifen rechts.
+// Länge in mm (Breite 70 mm), Namen wie auf der Note in zwei Landessprachen.
 const NOTE = {
-  1000: { verlauf: ['#FFE27A', '#FBC23A', '#F39A2B'], streifen: '#F7B23A', zahl: '#FFF4D0', dunkel: '#9A5A0C', mm: 123, motiv: 'zeit', name: 'Zehn Franken' },
-  2000: { verlauf: ['#F98CA0', '#EE4458', '#D9263A'], streifen: '#F2667A', zahl: '#FFE4E8', dunkel: '#8E1022', mm: 130, motiv: 'licht', name: 'Zwanzig Franken' },
-  5000: { verlauf: ['#C6EA7A', '#7CC74E', '#3E9B45'], streifen: '#9FD86A', zahl: '#F0FFE0', dunkel: '#1F5E26', mm: 137, motiv: 'wind', name: 'Fünfzig Franken' },
+  1000: {
+    verlauf: ['#FBD77A', '#FCE6A6', '#FBD28A'],
+    streifen: '#F6A940',
+    zahl: '#EE8A17',
+    dunkel: '#A85A0A',
+    linie: '#E9A23B',
+    mm: 123,
+    motiv: 'zeit',
+    namen: ['Zehn Franken', 'Dix Francs'],
+  },
+  2000: {
+    verlauf: ['#F0525A', '#F48C8F', '#F9D3D3'],
+    streifen: '#E8323E',
+    zahl: '#D61F2C',
+    dunkel: '#8E1022',
+    linie: '#D93A48',
+    mm: 130,
+    motiv: 'licht',
+    namen: ['Zwanzig Franken', 'Vingt Francs'],
+  },
+  5000: {
+    verlauf: ['#39B04A', '#B9DE6A', '#DDF0EA'],
+    streifen: '#62C35A',
+    zahl: '#23893A',
+    dunkel: '#1B5E2A',
+    linie: '#4FA85A',
+    mm: 137,
+    motiv: 'wind',
+    namen: ['Fünfzig Franken', 'Cinquante Francs'],
+  },
 };
+
+// Zufallszahlen, die bei jedem Zeichnen gleich ausfallen (für Sprenkel und Linien)
+function zufallsfolge(start) {
+  let x = start;
+  return () => {
+    x = (x * 1103515245 + 12345) % 2147483648;
+    return x / 2147483648;
+  };
+}
 
 const r1 = (x) => Math.round(x * 10) / 10;
 
@@ -115,95 +152,151 @@ function muenzeSvg(wert) {
   );
 }
 
-// Motive der 9. Serie, vereinfacht: 10 Zahnräder (Zeit), 20 Schmetterling und Prisma (Licht),
-// 50 Pusteblume und Höhenlinien (Wind)
-function zahnrad(x, y, r, zaehne, farbe, loch) {
-  let pfad = '';
+// Motive der 9. Serie, vereinfacht nach dem Foto
+function zahnrad(x, y, r, zaehne, farbe, loch, speichen = 0) {
+  let teile = '';
   for (let i = 0; i < zaehne; i++) {
-    pfad += `<rect x="${r1(-r * 0.18)}" y="${r1(-r * 1.28)}" width="${r1(r * 0.36)}" height="${r1(r * 0.4)}" rx="0.6" transform="rotate(${r1((i * 360) / zaehne)})"/>`;
+    teile += `<rect x="${r1(-r * 0.16)}" y="${r1(-r * 1.22)}" width="${r1(r * 0.32)}" height="${r1(r * 0.34)}" transform="rotate(${r1((i * 360) / zaehne)})"/>`;
   }
-  return `<g transform="translate(${x} ${y})" fill="${farbe}">${pfad}<circle r="${r}"/><circle r="${r1(r * 0.62)}" fill="none" stroke="${loch}" stroke-width="1"/><circle r="${r1(r * 0.25)}" fill="${loch}"/></g>`;
+  let speichenPfad = '';
+  for (let i = 0; i < speichen; i++) {
+    speichenPfad += `<rect x="-0.5" y="${r1(-r * 0.8)}" width="1" height="${r1(r * 0.8)}" transform="rotate(${r1((i * 360) / speichen)})" fill="${farbe}"/>`;
+  }
+  return (
+    `<g transform="translate(${x} ${y})" fill="${farbe}" stroke="${loch}" stroke-width="0.25">${teile}<circle r="${r}"/>` +
+    `<circle r="${r1(r * 0.8)}" fill="${loch}" stroke="none"/>${speichenPfad}<circle r="${r1(r * 0.25)}"/></g>`
+  );
 }
 
-function motiv(art, n) {
+// Höhenlinien wie auf einer Landkarte
+function hoehenlinien(h, farbe, zufall, anzahl, deckkraft) {
+  let pfade = '';
+  for (let i = 0; i < anzahl; i++) {
+    const y = (i / anzahl) * h * 1.1;
+    const a = r1(zufall() * 10 - 5);
+    const b = r1(zufall() * 10 - 5);
+    pfade += `<path d="M-2 ${r1(y)} C20 ${r1(y + a)} 30 ${r1(y - b)} 46 ${r1(y + a / 2)} S66 ${r1(y + b)} 72 ${r1(y - a)}"/>`;
+  }
+  return `<g fill="none" stroke="${farbe}" stroke-width="0.35" opacity="${deckkraft}">${pfade}</g>`;
+}
+
+function sprenkel(x0, y0, b, hoehe, farben, zufall, anzahl) {
+  let punkte = '';
+  for (let i = 0; i < anzahl; i++) {
+    const x = r1(x0 + zufall() * b);
+    const y = r1(y0 + zufall() * hoehe);
+    if (x > 34 && y > 82) continue;
+    const f = farben[Math.floor(zufall() * farben.length)];
+    punkte += `<circle cx="${x}" cy="${y}" r="${r1(0.4 + zufall() * 0.9)}" fill="${f}"/>`;
+  }
+  return `<g opacity="0.85">${punkte}</g>`;
+}
+
+function motiv(art, n, h) {
+  const zufall = zufallsfolge(art.length * 7919);
   if (art === 'zeit') {
+    // Leiterbahnen oben, Uhrwerk in der Mitte, blauer Lichtfächer mit Weltkugel darunter
+    let bahnen = '';
+    for (let i = 0; i < 9; i++) {
+      const x = r1(8 + zufall() * 54);
+      const y = r1(6 + zufall() * 36);
+      bahnen += `<path d="M${x} ${y} h${r1(zufall() * 10 - 5)} l4 4 v${r1(zufall() * 8)}"/><circle cx="${x}" cy="${y}" r="0.8"/>`;
+    }
+    let faecher = '';
+    for (let i = 0; i < 16; i++) {
+      const w = ((200 + i * 9) * Math.PI) / 180;
+      faecher += `<line x1="30" y1="78" x2="${r1(30 + 20 * Math.cos(w))}" y2="${r1(78 - 20 * Math.sin(w))}"/>`;
+    }
     return (
-      zahnrad(30, 46, 9, 12, '#C9962A', '#FBE3A0') +
-      zahnrad(44, 58, 6, 9, '#B07E1C', '#FBE3A0') +
-      zahnrad(22, 61, 4.5, 8, '#D7A93A', '#FBE3A0') +
-      // Zeitzonen-Linien auf der Weltkugel
-      `<g fill="none" stroke="${n.dunkel}" stroke-width="0.6" opacity="0.45"><circle cx="30" cy="92" r="20"/><ellipse cx="30" cy="92" rx="8" ry="20"/><ellipse cx="30" cy="92" rx="15" ry="20"/><path d="M10 92 H50 M13 82 H47 M13 102 H47"/></g>`
+      `<g fill="none" stroke="${n.linie}" stroke-width="0.4" opacity="0.7">${bahnen}</g>` +
+      `<g stroke="#2E7FC2" stroke-width="0.6" opacity="0.6">${faecher}</g>` +
+      `<circle cx="30" cy="78" r="10" fill="#5FA9DE" opacity="0.55"/>` +
+      `<g fill="none" stroke="#1D5E9A" stroke-width="0.4" opacity="0.7"><circle cx="30" cy="78" r="10"/><ellipse cx="30" cy="78" rx="4.5" ry="10"/><path d="M20 78 H40 M21.5 73 H38.5 M21.5 83 H38.5"/></g>` +
+      zahnrad(30, 50, 9, 18, '#B98A3A', '#F5E1A8', 5) +
+      zahnrad(42, 60, 6.5, 14, '#9C7128', '#F2D894', 4) +
+      zahnrad(22, 63, 4.5, 10, '#C99B4A', '#F7E6B6', 3) +
+      zahnrad(40, 44, 3.5, 9, '#8B6420', '#F2D894')
     );
   }
   if (art === 'licht') {
-    const strahlen = ['#FFE14D', '#7BD36A', '#4EB0F0', '#9C6BE0']
-      .map((f, i) => `<path d="M34 92 L60 ${82 + i * 6} L60 ${86 + i * 6} Z" fill="${f}" opacity="0.85"/>`)
-      .join('');
+    const fluegel = (x, y, g, f1, f2) =>
+      `<g transform="translate(${x} ${y}) scale(${g})" stroke="#4B2470" stroke-width="0.6">` +
+      `<path d="M0 0 C-4 -12 -18 -14 -17 -4 C-16 2 -6 2 0 0 Z" fill="${f1}"/>` +
+      `<path d="M0 0 C4 -12 18 -14 17 -4 C16 2 6 2 0 0 Z" fill="${f1}"/>` +
+      `<path d="M0 0 C-3 4 -12 12 -11 3 Z" fill="${f2}"/><path d="M0 0 C3 4 12 12 11 3 Z" fill="${f2}"/>` +
+      `<path d="M-10 -6 L-4 -2 M10 -6 L4 -2 M-12 -9 C-9 -8 -6 -6 -3 -3 M12 -9 C9 -8 6 -6 3 -3" fill="none" stroke-width="0.4"/>` +
+      `<line x1="0" y1="-3" x2="0" y2="5" stroke-width="1.4"/></g>`;
     return (
-      // Schmetterling
-      `<g transform="translate(34 48)" stroke="${n.dunkel}" stroke-width="0.8">` +
-      `<path d="M0 0 C-6 -14 -20 -12 -16 -2 C-14 4 -6 4 0 0 Z" fill="#C64BA0" opacity="0.9"/>` +
-      `<path d="M0 0 C6 -14 20 -12 16 -2 C14 4 6 4 0 0 Z" fill="#7E4FD0" opacity="0.9"/>` +
-      `<path d="M0 0 C-4 6 -12 12 -10 4 Z" fill="#E86AA8"/><path d="M0 0 C4 6 12 12 10 4 Z" fill="#A070E0"/>` +
-      `<line x1="0" y1="-4" x2="0" y2="6" stroke-width="1.6"/></g>` +
-      // Prisma mit Lichtstrahl
-      `<path d="M6 86 L30 92" stroke="#FFFFFF" stroke-width="2.4"/>${strahlen}` +
-      `<polygon points="32,80 41,98 23,98" fill="#FFFFFF" fill-opacity="0.55" stroke="${n.dunkel}" stroke-width="1.2"/>`
+      `<g fill="none" stroke="${n.linie}" stroke-width="0.35" opacity="0.6">` +
+      [0, 1, 2, 3, 4, 5].map((i) => `<path d="M${10 + i * 9} 4 v40 h-6 v20"/>`).join('') +
+      `</g>` +
+      fluegel(36, 30, 0.95, '#9C5AC6', '#C78BE0') +
+      fluegel(30, 48, 0.75, '#7E4AB0', '#B27AD8') +
+      // Fenster mit Schweizerkreuz
+      `<rect x="20" y="60" width="26" height="13" fill="#FFFFFF" opacity="0.75" stroke="#C9A0A8" stroke-width="0.5"/>` +
+      `<path d="M50 22 h4 v4 h4 v4 h-4 v4 h-4 v-4 h-4 v-4 h4 z" fill="none" stroke="#D61F2C" stroke-width="1.2"/>` +
+      // türkise Lichtpunkte
+      sprenkel(14, 76, 30, h - 82, ['#2BB3C0', '#48C9D6', '#E85A8A', '#7FD7E0', '#FFFFFF'], zufall, 150)
     );
   }
-  let schirm = '';
-  for (let i = 0; i < 14; i++) {
-    const w = ((i * 360) / 14) * (Math.PI / 180);
-    const x = r1(11 * Math.cos(w));
-    const y = r1(11 * Math.sin(w));
-    schirm += `<line x1="0" y1="0" x2="${x}" y2="${y}"/><circle cx="${x}" cy="${y}" r="1.4"/>`;
+  // Wind: Höhenlinien, Berge, blaue Weltkugel, rote Fläche mit Linien (Hand), türkis unten rechts
+  let rot = '';
+  for (let i = 0; i < 9; i++) {
+    rot += `<path d="M20 ${66 + i * 3} C28 ${62 + i * 3} 38 ${70 + i * 3} 48 ${64 + i * 3}" />`;
   }
-  // davonfliegende Samen
-  const flug = [[52, 30, 0.32], [58, 44, 0.26], [50, 18, 0.22]]
-    .map(([x, y, g]) => `<g transform="translate(${x} ${y}) rotate(25) scale(${g})">${schirm}<line x1="0" y1="0" x2="1" y2="14" stroke-width="2"/></g>`)
-    .join('');
-  // Höhenlinien wie auf einer Landkarte
-  const linien = [0, 1, 2, 3, 4]
-    .map((i) => `<path d="M2 ${86 + i * 7} C18 ${76 + i * 7} 30 ${96 + i * 7} 48 ${82 + i * 7} S66 ${84 + i * 7} 68 ${80 + i * 7}"/>`)
-    .join('');
   return (
-    `<g fill="none" stroke="${n.dunkel}" stroke-width="0.7" opacity="0.4">${linien}</g>` +
-    `<g transform="translate(30 50)" stroke="#FFFFFF" fill="#FFFFFF" stroke-width="0.9">${schirm}<line x1="0" y1="0" x2="2" y2="26" stroke-width="1.6"/></g>` +
-    `<g stroke="#FFFFFF" fill="#FFFFFF" stroke-width="1.2">${flug}</g>`
+    hoehenlinien(h, n.dunkel, zufall, 30, 0.3) +
+    `<defs><radialGradient id="kugel50" cx="40%" cy="30%" r="70%"><stop offset="0" stop-color="#BFE3FA"/><stop offset="0.5" stop-color="#4C97D8"/><stop offset="1" stop-color="#1F5FA8"/></radialGradient>` +
+    `<clipPath id="rot50"><path d="M22 64 C28 58 42 58 47 66 C50 78 42 92 31 90 C22 88 18 74 22 64 Z"/></clipPath></defs>` +
+    `<path d="M2 74 L12 56 L18 62 L28 46 L36 56 L44 48 L54 60 L62 52 L70 64 L70 84 L2 84 Z" fill="#2F8F42" opacity="0.5"/>` +
+    `<path d="M2 78 L10 66 L20 72 L30 60 L40 70 L50 62 L60 72 L70 68 L70 86 L2 86 Z" fill="#6FBE4E" opacity="0.6"/>` +
+    `<path d="M28 58 A14 14 0 1 1 56 58 C52 62 32 62 28 58 Z" fill="url(#kugel50)"/>` +
+    `<path d="M32 50 A10 10 0 0 1 44 44" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.7"/>` +
+    `<path d="M22 64 C28 58 42 58 47 66 C50 78 42 92 31 90 C22 88 18 74 22 64 Z" fill="#E0503A"/>` +
+    `<g clip-path="url(#rot50)" fill="none" stroke="#F7B06A" stroke-width="0.6">${rot}</g>` +
+    `<path d="M48 74 C54 70 64 72 68 80 L68 98 C58 100 50 94 48 86 Z" fill="#53B8C8" opacity="0.6"/>` +
+    `<circle cx="52" cy="82" r="2.2" fill="#1D6FA8"/>`
   );
 }
 
 function noteSvg(wert) {
   const n = NOTE[wert];
-  const h = Math.round((n.mm / 70) * 70);
+  const h = n.mm;
   const zahl = wert / 100;
   const id = `n${wert}`;
   // feine Linien wie die kleine Schrift auf der Note
   let schrift = '';
-  for (let i = 0; i < 4; i++) schrift += `<rect x="6" y="${28 + i * 3}" width="${16 - i * 3}" height="1" rx="0.5"/>`;
+  for (let i = 0; i < 6; i++) schrift += `<rect x="5" y="${30 + i * 2.2}" width="${[17, 15, 16, 12, 16, 10][i]}" height="0.8" rx="0.4"/>`;
+  let klein = '';
+  for (let i = 0; i < 4; i++) klein += `<rect x="${52 - (i % 2) * 2}" y="${r1(h * 0.78 + i * 2)}" width="${12 + (i % 2) * 2}" height="0.7"/>`;
   return (
     `<svg viewBox="0 0 70 ${h}" class="geld-note" aria-hidden="true" style="--mm: ${n.mm}">` +
-    `<defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${n.verlauf[0]}"/><stop offset="0.55" stop-color="${n.verlauf[1]}"/><stop offset="1" stop-color="${n.verlauf[2]}"/></linearGradient>` +
-    `<clipPath id="${id}c"><rect x="1.5" y="1.5" width="67" height="${h - 3}" rx="3"/></clipPath></defs>` +
+    `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="${n.verlauf[0]}"/><stop offset="0.5" stop-color="${n.verlauf[1]}"/><stop offset="1" stop-color="${n.verlauf[2]}"/></linearGradient>` +
+    `<pattern id="${id}p" width="2.4" height="2.4" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="2.4" stroke="${n.linie}" stroke-width="0.25"/></pattern>` +
+    `<clipPath id="${id}c"><rect width="70" height="${h}" rx="2"/></clipPath></defs>` +
     `<g clip-path="url(#${id}c)">` +
     `<rect width="70" height="${h}" fill="url(#${id})"/>` +
-    // heller Streifen rechts, wie das Fenster der echten Note
-    `<rect x="47" y="0" width="23" height="${h}" fill="${n.streifen}" opacity="0.55"/>` +
-    `<rect x="47" y="0" width="1" height="${h}" fill="#FFFFFF" opacity="0.6"/>` +
-    motiv(n.motiv, n) +
-    // Wert oben links
-    `<text x="4" y="23" font-size="24" ${SCHRIFT} fill="${n.dunkel}" stroke="${n.zahl}" stroke-width="2.2" paint-order="stroke">${zahl}</text>` +
-    `<g fill="${n.dunkel}" opacity="0.45">${schrift}</g>` +
-    // Name des Werts rechts unten, Wert klein in der Ecke
-    `<text x="66" y="${h - 22}" text-anchor="end" font-size="4.6" ${SCHRIFT} fill="${n.dunkel}">${n.name}</text>` +
-    `<text x="66" y="${h - 5}" text-anchor="end" font-size="7" ${SCHRIFT} fill="${n.dunkel}">${zahl}</text>` +
-    // senkrechte Beschriftung links unten – «SPIELGELD» statt Bankname
-    `<text transform="translate(9 ${h - 5}) rotate(-90)" font-size="5" ${SCHRIFT} fill="${n.dunkel}" letter-spacing="0.6">SPIELGELD</text>` +
-    // kleines Schweizerkreuz
-    `<rect x="54" y="6" width="9" height="9" rx="1" fill="#D52B1E"/>` +
-    `<path d="M57.5 7.5 h2 v2.5 h2.5 v2 h-2.5 v2.5 h-2 v-2.5 h-2.5 v-2 h2.5 z" fill="#FFFFFF"/>` +
+    `<rect width="70" height="${h}" fill="url(#${id}p)" opacity="0.45"/>` +
+    // Streifen rechts (wie der Folienstreifen der echten Note)
+    `<rect x="46" y="0" width="24" height="${h}" fill="${n.streifen}" opacity="0.35"/>` +
+    motiv(n.motiv, n, h) +
+    // helles Feld unten links (Wasserzeichen-Bereich)
+    `<rect x="3" y="${r1(h * 0.68)}" width="27" height="${r1(h * 0.3)}" fill="#FFFFFF" opacity="0.4"/>` +
+    // Wertzahl oben links, schmal und kräftig wie auf der Note
+    `<text transform="translate(4 26) scale(0.84 1)" font-size="27" ${SCHRIFT} fill="${n.zahl}" letter-spacing="-1">${zahl}</text>` +
+    `<g fill="${n.dunkel}" opacity="0.5">${schrift}</g>` +
+    // Name in zwei Sprachen rechts, Kleingedrucktes darunter, Wert klein in der Ecke
+    `<rect x="34" y="${r1(h * 0.69 - 5)}" width="34" height="12" fill="#FFFFFF" opacity="0.35"/>` +
+    `<text x="66" y="${r1(h * 0.69)}" text-anchor="end" font-size="4.3" ${SCHRIFT} fill="${n.zahl}">${n.namen[0]}</text>` +
+    `<text x="66" y="${r1(h * 0.69 + 5)}" text-anchor="end" font-size="4.3" ${SCHRIFT} fill="${n.zahl}">${n.namen[1]}</text>` +
+    `<g fill="${n.dunkel}" opacity="0.45">${klein}</g>` +
+    `<text x="66" y="${h - 3}" text-anchor="end" font-size="5" ${SCHRIFT} fill="${n.dunkel}">${zahl}</text>` +
+    // Seriennummer senkrecht rechts, «Spielgeld» senkrecht links (statt Bankname)
+    `<text transform="translate(63 ${r1(h * 0.22)}) rotate(90)" font-size="3.6" ${SCHRIFT} fill="${n.dunkel}" opacity="0.7" letter-spacing="0.5">HS${zahl}00${zahl}7</text>` +
+    `<text transform="translate(7 ${h - 3}) rotate(-90)" font-size="3.8" ${SCHRIFT} fill="${n.dunkel}" letter-spacing="0.3">SPIELGELD · SPIELGELD</text>` +
+    `<text transform="translate(11.5 ${h - 3}) rotate(-90)" font-size="3.8" ${SCHRIFT} fill="${n.dunkel}" letter-spacing="0.3">HANSIS SPIELPLATZ</text>` +
     `</g>` +
-    `<rect x="1.5" y="1.5" width="67" height="${h - 3}" rx="3" fill="none" stroke="${K}" stroke-width="2.5"/>` +
+    `<rect x="0.4" y="0.4" width="69.2" height="${h - 0.8}" rx="2" fill="none" stroke="${n.dunkel}" stroke-opacity="0.6" stroke-width="0.8"/>` +
     `</svg>`
   );
 }

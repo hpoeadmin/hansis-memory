@@ -2865,7 +2865,7 @@ img {
 }
 
 .fr-bezahlt-mit svg {
-  width: 72px;
+  width: 88px;
   display: block;
 }
 
@@ -2956,7 +2956,8 @@ img {
 }
 
 .fr-geld .geld-note {
-  width: 80px;
+  width: 92px;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
 }
 
 .fr-auf-teller {
@@ -2969,7 +2970,7 @@ img {
 }
 
 .fr-auf-teller .geld-note {
-  width: 58px;
+  width: 64px;
 }
 
 .fr-stufenbild {
