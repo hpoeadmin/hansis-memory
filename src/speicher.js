@@ -6,7 +6,13 @@ const STANDARD = {
   version: 1,
   profile: [],
   letzteSpieler: [],
-  einstellungen: { aufdeckDauer: 'normal', ton: true, vorlesen: false },
+  einstellungen: {
+    aufdeckDauer: 'normal', // normal | langsam | sehr-langsam | tippen
+    ton: true,
+    vorlesen: false,
+    rueckseite: 'blau', // blau | gruen | orange
+    namen: true, // Tiernamen auf den Karten
+  },
   bestleistungen: {}, // { profilId: { leicht: zuege, ... } }
   album: {}, // { profilId: { setId: [tierId, ...] } }
 };

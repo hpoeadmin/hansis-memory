@@ -14,6 +14,7 @@ import { zeigeProfil } from './screens/profil.js';
 import { zeigeSpiel } from './screens/spiel.js';
 import { zeigeEnde } from './screens/ende.js';
 import { zeigeAlbum } from './screens/album.js';
+import { zeigeEinstellungen, wendeRueckseiteAn } from './screens/einstellungen.js';
 
 const app = {
   sets: [],
@@ -30,8 +31,10 @@ const app = {
     app.auswahl.stufe = stufe;
     zeigeSpieler(app);
   },
-  zeigeProfil(profil) {
+  // Ohne «zurueck» geht es danach zur Spielerauswahl
+  zeigeProfil(profil, zurueck) {
     zeigeProfil(app, profil, (gespeichert) => {
+      if (zurueck) return zurueck(gespeichert);
       // Ein neu angelegter Spieler ist gleich ausgewählt
       if (gespeichert && !profil && speicher.letzteSpieler.length < 4) {
         speicher.letzteSpieler.push(gespeichert.id);
@@ -47,9 +50,11 @@ const app = {
   zeigeSpiel: () => zeigeSpiel(app),
   zeigeEnde: (ergebnis) => zeigeEnde(app, ergebnis),
   zeigeAlbum: (profilId) => zeigeAlbum(app, profilId),
+  zeigeEinstellungen: () => zeigeEinstellungen(app),
 };
 
 async function starte() {
+  wendeRueckseiteAn();
   zeige(el('p', { class: 'meldung' }, T.allgemein.laden));
   try {
     app.sets = await ladeSets();

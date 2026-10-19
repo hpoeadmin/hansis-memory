@@ -60,9 +60,9 @@ export function beiTipp(element, aktion, { sperrzeit = 350, scrollbar = false } 
   element.addEventListener('contextmenu', (ereignis) => ereignis.preventDefault());
 }
 
-export function knopf(text, aktion, klasse = '') {
+export function knopf(text, aktion, klasse = '', tippOptionen = {}) {
   const k = el('button', { class: `knopf ${klasse}`.trim(), type: 'button' }, text);
-  beiTipp(k, aktion);
+  beiTipp(k, aktion, tippOptionen);
   return k;
 }
 

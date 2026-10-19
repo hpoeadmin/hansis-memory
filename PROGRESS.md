@@ -11,7 +11,7 @@
 | 5 | Spielerprofile und Mehrspielermodus | ✅ |
 | 6 | Animationen, Lob, Konfetti, Klang, Vorlesen | ✅ (Klang und Vorlesen noch auf dem iPad anhören) |
 | 7 | Sammelalbum und Abzeichen | ✅ |
-| 8 | Einstellungen mit Elternschloss | offen |
+| 8 | Einstellungen mit Elternschloss | ✅ |
 | 9 | Offline/PWA mit Update-Hinweis | offen |
 | 10 | GitHub Pages, Anleitung für die Familie | offen |
 
@@ -38,6 +38,9 @@
 - **Abschluss:** Konfetti (Canvas, 4 s), Sterne erscheinen nacheinander. Bei «Bewegung reduzieren» gibt es weder Konfetti noch Hüpf- oder Sternanimationen.
 - **Album:** Den Knopf «Album» gibt es im Startmenü. Oben wählt man das Profil (Reiter mit Avatar und Name). Pro spielbarem Satz zeigt das Album Fortschritt («7 von 12 Tieren» und Balken) und alle 12 Felder: gefundene Tiere mit Bild und Name, noch fehlende als gestricheltes «?». Tippt man ein Tier an, erscheinen grosses Bild, Name und Infosatz (bei eingeschaltetem Vorlesen wird beides vorgelesen). Der Gast hat kein Album.
 - **Abzeichen:** Wer alle 12 Tiere eines Satzes gesammelt hat, bekommt eine Medaille mit dem Titelbild des Satzes und zwei Bändern. Sie erscheint im Album oben und beim Satz sowie einmalig im Abschluss («Neues Abzeichen für Lena: Bauernhof komplett!»). Im Einzelspiel zeigt der Abschluss ausserdem «Neu im Album: …».
+- **Elternschloss:** Knopf «Für Eltern» oben links im Startmenü. Man muss ihn 3 Sekunden gedrückt halten; ein gelber Balken füllt sich dabei. Lässt man früher los, erscheint «Zum Öffnen 3 Sekunden gedrückt halten.»
+- **Einstellungen:** Ton (ein/aus, beim Einschalten erklingt eine Probe), Vorlesen (ein/aus, beim Einschalten ein Probesatz; der Satz schaltet auf dem iPad gleichzeitig die Sprachausgabe frei), wie lange nicht passende Karten offen bleiben (normal 2,5 s / langsam 4 s / sehr langsam 6 s / bis man tippt), Kartenrückseite (Blau mit Punkten, Grün mit Streifen, Orange mit Karos – Farbe *und* Muster unterscheiden sich), Tiernamen auf den Karten (ja/nein; ohne Namen werden die Karten quadratisch und dadurch grösser). Dazu Spieler ändern, löschen (mit Rückfrage; Album und Bestleistungen werden mitgelöscht) und neu anlegen.
+- **«Bis man tippt»:** Nach einem Fehlversuch bleiben die Karten offen, und unten erscheint «Tippe, um die Karten umzudrehen.» Ein Tipp irgendwo aufs Spielbrett dreht sie um. Tipps in den ersten 0,3 s zählen nicht, damit ein versehentlicher Doppeltipp die Karten nicht sofort wieder verdeckt.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 
 ## Offene Fragen

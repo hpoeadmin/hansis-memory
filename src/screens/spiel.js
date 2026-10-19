@@ -7,7 +7,8 @@ import { klang } from '../klang.js';
 import { sprich } from '../vorlesen.js';
 
 const FLIP_DAUER = 500; // ms, muss zur CSS-Animation passen
-const KARTEN_VERHAELTNIS = 0.8; // Breite / Höhe (Bild + Name)
+const VERHAELTNIS_MIT_NAMEN = 0.8; // Breite / Höhe (Bild + Name)
+const VERHAELTNIS_OHNE_NAMEN = 1;
 const ABSTAND = 14;
 
 const AUFDECK_DAUER = { normal: 2500, langsam: 4000, 'sehr-langsam': 6000 };
@@ -102,7 +103,32 @@ export function zeigeSpiel(app) {
 
   // ---------- Karten ----------
 
-  const brett = el('div', { class: 'brett', style: `--set-farbe: ${set.farbe}` });
+  const mitNamen = app.einstellungen.namen !== false;
+  const verhaeltnis = mitNamen ? VERHAELTNIS_MIT_NAMEN : VERHAELTNIS_OHNE_NAMEN;
+  const brett = el('div', {
+    class: `brett ${mitNamen ? '' : 'ohne-namen'}`.trim(),
+    style: `--set-farbe: ${set.farbe}; --verhaeltnis: ${verhaeltnis}`,
+  });
+
+  // «Bis man tippt»: nicht passende Karten bleiben offen, bis jemand tippt
+  const tippHinweis = el('p', { class: 'tipp-hinweis', role: 'status' });
+  let weiterNachTipp = null;
+  beiTipp(brett, () => {
+    if (!weiterNachTipp) return;
+    const weiter = weiterNachTipp;
+    weiterNachTipp = null;
+    weiter();
+  });
+  function warteAufTipp() {
+    tippHinweis.textContent = T.spiel.tippenZumUmdrehen;
+    tippHinweis.classList.add('sichtbar');
+    return new Promise((weiter) => {
+      weiterNachTipp = () => {
+        tippHinweis.classList.remove('sichtbar');
+        weiter();
+      };
+    });
+  }
 
   for (const karte of karten) {
     karte.element = el(
@@ -177,7 +203,12 @@ export function zeigeSpiel(app) {
       if (mehrspieler) aktualisiereKopf(true);
       zustand.gesperrt = false;
     } else {
-      await warte(AUFDECK_DAUER[app.einstellungen.aufdeckDauer] ?? AUFDECK_DAUER.normal);
+      if (app.einstellungen.aufdeckDauer === 'tippen') {
+        await warte(300); // ein schneller Doppeltipp soll nicht sofort umdrehen
+        await warteAufTipp();
+      } else {
+        await warte(AUFDECK_DAUER[app.einstellungen.aufdeckDauer] ?? AUFDECK_DAUER.normal);
+      }
       setzeOffen(a, false);
       setzeOffen(b, false);
       await warte(FLIP_DAUER);
@@ -195,7 +226,7 @@ export function zeigeSpiel(app) {
   function passeRasterAn() {
     const { width, height } = brett.getBoundingClientRect();
     if (!width || !height) return;
-    const r = bestesRaster(karten.length, width, height, KARTEN_VERHAELTNIS, ABSTAND);
+    const r = bestesRaster(karten.length, width, height, verhaeltnis, ABSTAND);
     brett.style.setProperty('--spalten', r.spalten);
     brett.style.setProperty('--kb', `${r.kartenBreite}px`);
   }
@@ -235,7 +266,7 @@ export function zeigeSpiel(app) {
         beendenKnopf,
       );
 
-  zeige(el('main', { class: 'bildschirm spiel' }, kopf, brett, paarAnzeige));
+  zeige(el('main', { class: 'bildschirm spiel' }, kopf, brett, tippHinweis, paarAnzeige));
   if (mehrspieler) aktualisiereKopf();
   passeRasterAn();
 }

@@ -56,6 +56,14 @@ export function speichereProfil(profil) {
   return profil;
 }
 
+export function loescheProfil(profil) {
+  speicher.profile = speicher.profile.filter((p) => p.id !== profil.id);
+  speicher.letzteSpieler = speicher.letzteSpieler.filter((id) => id !== profil.id);
+  delete speicher.album[profil.id];
+  delete speicher.bestleistungen[profil.id];
+  sichere();
+}
+
 export function merkeLetzteSpieler(profile) {
   speicher.letzteSpieler = profile.map((p) => p.id);
   sichere();
