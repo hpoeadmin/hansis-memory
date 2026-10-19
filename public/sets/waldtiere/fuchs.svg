@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="fuchs-kopf"><path d="M100 44 C136 44 160 66 160 96 C160 120 128 146 100 162 C72 146 40 120 40 96 C40 66 64 44 100 44 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#E6DCC8"/>
+  <circle cx="100" cy="112" r="80" fill="#DACDB3"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M54 76 L44 20 L90 50 Z" fill="#E8792B"/>
+    <path d="M146 76 L156 20 L110 50 Z" fill="#E8792B"/>
+    <path d="M58 64 L52 34 L78 52 Z" fill="#FFE9D2" stroke="none"/>
+    <path d="M142 64 L148 34 L122 52 Z" fill="#FFE9D2" stroke="none"/>
+    <path d="M100 44 C136 44 160 66 160 96 C160 120 128 146 100 162 C72 146 40 120 40 96 C40 66 64 44 100 44 Z" fill="#E8792B" stroke="none"/>
+    <g clip-path="url(#fuchs-kopf)" stroke="none"><path d="M30 100 C60 100 84 112 100 130 C116 112 140 100 170 100 L170 180 L30 180 Z" fill="#FFF4E6"/></g>
+    <path d="M100 44 C136 44 160 66 160 96 C160 120 128 146 100 162 C72 146 40 120 40 96 C40 66 64 44 100 44 Z" fill="none"/>
+    <ellipse cx="78" cy="90" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="81" cy="86" r="3" fill="#FFFFFF" stroke="none"/>
+    <ellipse cx="122" cy="90" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="125" cy="86" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="66" cy="112" r="7" fill="#F5A3B5" stroke="none"/>
+    <circle cx="134" cy="112" r="7" fill="#F5A3B5" stroke="none"/>
+    <ellipse cx="100" cy="136" rx="10" ry="7" fill="#2E2A26" stroke="none"/>
+    <path d="M100 143 L100 148 M92 150 Q100 156 108 150" fill="none" stroke-width="4"/>
+  </g>
+</svg>

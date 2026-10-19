@@ -1,82 +1,82 @@
 {
   "id": "waldtiere",
   "name": "Waldtiere",
-  "status": "bald",
+  "status": "bereit",
   "reihenfolge": 3,
   "farbe": "#E6DCC8",
-  "titelbild": null,
+  "titelbild": "fuchs.svg",
   "tiere": [
     {
       "id": "reh",
       "name": "Reh",
       "bild": "reh.svg",
-      "info": ""
+      "info": "Das Reh ist scheu und hört mit seinen grossen Ohren jedes Geräusch."
     },
     {
       "id": "hirsch",
       "name": "Hirsch",
       "bild": "hirsch.svg",
-      "info": ""
+      "info": "Der Hirsch trägt ein Geweih. Jedes Jahr fällt es ab und wächst neu."
     },
     {
       "id": "fuchs",
       "name": "Fuchs",
       "bild": "fuchs.svg",
-      "info": ""
+      "info": "Der Fuchs ist schlau und wohnt in einer Höhle, dem Fuchsbau."
     },
     {
       "id": "igel",
       "name": "Igel",
       "bild": "igel.svg",
-      "info": ""
+      "info": "Der Igel hat viele Stacheln und rollt sich bei Gefahr zu einer Kugel."
     },
     {
       "id": "eichhoernchen",
       "name": "Eichhörnchen",
       "bild": "eichhoernchen.svg",
-      "info": ""
+      "info": "Das Eichhörnchen versteckt im Herbst Nüsse für den Winter."
     },
     {
       "id": "dachs",
       "name": "Dachs",
       "bild": "dachs.svg",
-      "info": ""
+      "info": "Der Dachs gräbt sich lange Gänge unter der Erde und schläft am Tag."
     },
     {
       "id": "wildschwein",
       "name": "Wildschwein",
       "bild": "wildschwein.svg",
-      "info": ""
+      "info": "Das Wildschwein wühlt mit seiner Schnauze im Waldboden nach Futter."
     },
     {
       "id": "hase",
       "name": "Hase",
       "bild": "hase.svg",
-      "info": ""
+      "info": "Der Hase hat lange Ohren und kann sehr schnell rennen und hoppeln."
     },
     {
       "id": "baer",
       "name": "Bär",
       "bild": "baer.svg",
-      "info": ""
+      "info": "Der Bär nascht gern Honig und Beeren und schläft im Winter lange."
     },
     {
       "id": "wolf",
       "name": "Wolf",
       "bild": "wolf.svg",
-      "info": ""
+      "info": "Der Wolf lebt mit seiner Familie im Rudel und heult den Mond an."
     },
     {
       "id": "luchs",
       "name": "Luchs",
       "bild": "luchs.svg",
-      "info": ""
+      "info": "Der Luchs hat Haarpinsel an den Ohren und sieht im Dunkeln sehr gut."
     },
     {
       "id": "biber",
       "name": "Biber",
       "bild": "biber.svg",
-      "info": ""
+      "info": "Der Biber fällt mit seinen starken Zähnen Bäume und baut Dämme."
     }
   ]
 }

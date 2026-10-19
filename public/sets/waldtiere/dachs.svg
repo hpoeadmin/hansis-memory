@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="dachs-kopf"><path d="M100 46 C140 46 160 76 156 106 C152 134 126 156 100 164 C74 156 48 134 44 106 C40 76 60 46 100 46 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#E6DCC8"/>
+  <circle cx="100" cy="112" r="80" fill="#DACDB3"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="56" cy="64" r="13" fill="#6B6A68"/><circle cx="144" cy="64" r="13" fill="#6B6A68"/>
+    <path d="M100 46 C140 46 160 76 156 106 C152 134 126 156 100 164 C74 156 48 134 44 106 C40 76 60 46 100 46 Z" fill="#FFFFFF" stroke="none"/>
+    <g clip-path="url(#dachs-kopf)" stroke="none">
+      <path d="M30 40 L52 40 C48 80 58 120 80 160 L30 160 Z" fill="#9C9A97"/>
+      <path d="M170 40 L148 40 C152 80 142 120 120 160 L170 160 Z" fill="#9C9A97"/>
+      <path d="M64 40 L84 40 C80 80 86 120 96 156 L84 156 C66 120 58 80 64 40 Z" fill="#2E2A26"/>
+      <path d="M136 40 L116 40 C120 80 114 120 104 156 L116 156 C134 120 142 80 136 40 Z" fill="#2E2A26"/>
+    </g>
+    <path d="M100 46 C140 46 160 76 156 106 C152 134 126 156 100 164 C74 156 48 134 44 106 C40 76 60 46 100 46 Z" fill="none"/>
+    <circle cx="77" cy="96" r="10" fill="#FFFFFF" stroke="none"/><circle cx="123" cy="96" r="10" fill="#FFFFFF" stroke="none"/>
+    <ellipse cx="77" cy="97" rx="6" ry="7" fill="#2E2A26" stroke="none"/><ellipse cx="123" cy="97" rx="6" ry="7" fill="#2E2A26" stroke="none"/>
+    <circle cx="79" cy="94" r="2.4" fill="#FFFFFF" stroke="none"/><circle cx="125" cy="94" r="2.4" fill="#FFFFFF" stroke="none"/>
+    <circle cx="58" cy="120" r="6" fill="#F5A3B5" stroke="none"/>
+    <circle cx="142" cy="120" r="6" fill="#F5A3B5" stroke="none"/>
+    <ellipse cx="100" cy="146" rx="10" ry="7" fill="#2E2A26" stroke="none"/>
+    <path d="M94 156 Q100 161 106 156" fill="none" stroke-width="4"/>
+  </g>
+</svg>

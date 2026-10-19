@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="wolf-kopf"><path d="M100 42 C138 42 158 66 160 96 L174 106 L160 112 L168 124 L148 126 C138 146 120 160 100 164 C80 160 62 146 52 126 L32 124 L40 112 L26 106 L40 96 C42 66 62 42 100 42 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#E6DCC8"/>
+  <circle cx="100" cy="112" r="80" fill="#DACDB3"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M56 74 L50 20 L92 48 Z" fill="#8E9AA6"/>
+    <path d="M144 74 L150 20 L108 48 Z" fill="#8E9AA6"/>
+    <path d="M60 62 L56 34 L80 50 Z" fill="#D6DCE2" stroke="none"/>
+    <path d="M140 62 L144 34 L120 50 Z" fill="#D6DCE2" stroke="none"/>
+    <path d="M100 42 C138 42 158 66 160 96 L174 106 L160 112 L168 124 L148 126 C138 146 120 160 100 164 C80 160 62 146 52 126 L32 124 L40 112 L26 106 L40 96 C42 66 62 42 100 42 Z" fill="#8E9AA6" stroke="none"/>
+    <g clip-path="url(#wolf-kopf)" stroke="none"><path d="M20 104 C56 104 84 112 100 128 C116 112 144 104 180 104 L180 180 L20 180 Z" fill="#F2F4F6"/>
+      <path d="M100 52 C104 62 104 74 100 82 C96 74 96 62 100 52 Z" fill="#C4CCD4"/></g>
+    <path d="M100 42 C138 42 158 66 160 96 L174 106 L160 112 L168 124 L148 126 C138 146 120 160 100 164 C80 160 62 146 52 126 L32 124 L40 112 L26 106 L40 96 C42 66 62 42 100 42 Z" fill="none"/>
+    <ellipse cx="80" cy="90" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="83" cy="86" r="3" fill="#FFFFFF" stroke="none"/>
+    <ellipse cx="120" cy="90" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="123" cy="86" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="68" cy="112" r="7" fill="#F5A3B5" stroke="none"/>
+    <circle cx="132" cy="112" r="7" fill="#F5A3B5" stroke="none"/>
+    <ellipse cx="100" cy="138" rx="10" ry="7" fill="#2E2A26" stroke="none"/>
+    <path d="M100 145 L100 150 M92 152 Q100 158 108 152" fill="none" stroke-width="4"/>
+  </g>
+</svg>
