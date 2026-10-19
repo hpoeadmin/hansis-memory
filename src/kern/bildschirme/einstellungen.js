@@ -188,7 +188,14 @@ function inhaltVon(app, seite) {
     const vorlesen = vorlesenMoeglich()
       ? auswahl(E.vorlesen, einAus, 'vorlesen', (an) => an && sprich(E.vorlesenProbe))
       : el('section', { class: 'einstellung' }, el('h2', {}, E.vorlesen), el('p', { class: 'hinweis' }, E.vorlesenFehlt));
-    return [auswahl(E.ton, einAus, 'ton', (an) => an && klang.paar()), vorlesen, spieleImMenue()];
+    const version = el(
+      'section',
+      { class: 'einstellung' },
+      el('h2', {}, E.versionTitel),
+      el('p', { class: 'version-gross' }, T.version(__VERSION__)),
+      el('p', { class: 'hinweis' }, E.versionText),
+    );
+    return [auswahl(E.ton, einAus, 'ton', (an) => an && klang.paar()), vorlesen, spieleImMenue(), version];
   }
   if (seite === 'spieler') return [spielerVerwaltung(app)];
   if (seite === 'memory') {

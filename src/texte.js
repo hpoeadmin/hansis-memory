@@ -3,6 +3,8 @@
 export const T = {
   appName: 'Hansis Spielplatz',
 
+  version: (v) => `Version ${v}`,
+
   hauptmenue: {
     titel: 'Hansis Spielplatz',
     frage: 'Was möchtest du spielen?',
@@ -135,6 +137,8 @@ export const T = {
     tempoLangsam: 'Langsam',
     tempoSehrLangsam: 'Sehr langsam',
     spieleImMenue: 'Spiele im Hauptmenü',
+    versionTitel: 'Version',
+    versionText: 'Steht hier ein neueres Datum als vorher, ist das Update angekommen.',
     zeigen: 'Zeigen',
     ausblenden: 'Ausblenden',
     einesBleibt: 'Mindestens ein Spiel bleibt im Hauptmenü sichtbar.',

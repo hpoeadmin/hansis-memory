@@ -37,6 +37,7 @@ export function zeigeHauptmenue(app) {
       ),
       el('p', { class: 'frage' }, T.hauptmenue.frage),
       el('div', { class: 'set-raster spiel-raster', style: `--anzahl: ${kacheln.length}` }, kacheln),
+      el('p', { class: 'version-zeile' }, T.version(__VERSION__)),
     ),
   );
 }

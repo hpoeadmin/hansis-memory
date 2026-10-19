@@ -2549,6 +2549,21 @@ img {
   cursor: default;
 }
 
+/* ---------- Versionsanzeige ---------- */
+
+.version-zeile {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6B645C;
+  text-align: center;
+}
+
+.version-gross {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 /* ---------- Bewegung reduzieren ---------- */
 
 @media (prefers-reduced-motion: reduce) {
