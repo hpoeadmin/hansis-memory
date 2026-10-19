@@ -6,17 +6,78 @@
   "farbe": "#DDF0C8",
   "titelbild": "kuh.svg",
   "tiere": [
-    { "id": "kuh", "name": "Kuh", "bild": "kuh.svg", "info": "Die Kuh gibt uns Milch. Daraus macht man Käse und Butter." },
-    { "id": "schwein", "name": "Schwein", "bild": "schwein.svg", "info": "Das Schwein wälzt sich gern im Schlamm. So bleibt es schön kühl." },
-    { "id": "pferd", "name": "Pferd", "bild": "pferd.svg", "info": "Das Pferd kann sogar im Stehen schlafen." },
-    { "id": "esel", "name": "Esel", "bild": "esel.svg", "info": "Der Esel ruft laut «I-A» und ist sehr klug." },
-    { "id": "schaf", "name": "Schaf", "bild": "schaf.svg", "info": "Aus der Wolle vom Schaf strickt man warme Pullover." },
-    { "id": "ziege", "name": "Ziege", "bild": "ziege.svg", "info": "Die Ziege klettert gern auf Felsen und Mauern." },
-    { "id": "huhn", "name": "Huhn", "bild": "huhn.svg", "info": "Das Huhn legt Eier – manchmal fast jeden Tag eines." },
-    { "id": "ente", "name": "Ente", "bild": "ente.svg", "info": "Die Ente hat Schwimmhäute an den Füssen und paddelt flink." },
-    { "id": "hund", "name": "Hund", "bild": "hund.svg", "info": "Der Hund wedelt mit dem Schwanz, wenn er sich freut." },
-    { "id": "katze", "name": "Katze", "bild": "katze.svg", "info": "Die Katze schnurrt, wenn sie zufrieden ist." },
-    { "id": "kaninchen", "name": "Kaninchen", "bild": "kaninchen.svg", "info": "Das Kaninchen hat lange Ohren und hört sehr gut." },
-    { "id": "maus", "name": "Maus", "bild": "maus.svg", "info": "Die Maus ist klein und flink und knabbert gern Körner." }
+    {
+      "id": "kuh",
+      "name": "Kuh",
+      "bild": "kuh.svg",
+      "info": "Die Kuh gibt uns Milch. Daraus macht man Käse und Butter."
+    },
+    {
+      "id": "schwein",
+      "name": "Schwein",
+      "bild": "schwein.svg",
+      "info": "Das Schwein wälzt sich gern im Schlamm. So bleibt es schön kühl."
+    },
+    {
+      "id": "pferd",
+      "name": "Pferd",
+      "bild": "pferd.svg",
+      "info": "Das Pferd kann sogar im Stehen schlafen."
+    },
+    {
+      "id": "esel",
+      "name": "Esel",
+      "bild": "esel.svg",
+      "info": "Der Esel ruft laut «I-A» und ist sehr klug."
+    },
+    {
+      "id": "schaf",
+      "name": "Schaf",
+      "bild": "schaf.svg",
+      "info": "Aus der Wolle vom Schaf strickt man warme Pullover."
+    },
+    {
+      "id": "ziege",
+      "name": "Ziege",
+      "bild": "ziege.svg",
+      "info": "Die Ziege klettert gern auf Felsen und Mauern."
+    },
+    {
+      "id": "huhn",
+      "name": "Huhn",
+      "bild": "huhn.svg",
+      "info": "Das Huhn legt Eier – manchmal fast jeden Tag eines."
+    },
+    {
+      "id": "ente",
+      "name": "Ente",
+      "bild": "ente.svg",
+      "info": "Die Ente hat Schwimmhäute an den Füssen und paddelt flink."
+    },
+    {
+      "id": "hund",
+      "name": "Hund",
+      "bild": "hund.svg",
+      "info": "Der Hund wedelt mit dem Schwanz, wenn er sich freut."
+    },
+    {
+      "id": "katze",
+      "name": "Katze",
+      "bild": "katze.svg",
+      "info": "Die Katze schnurrt, wenn sie zufrieden ist."
+    },
+    {
+      "id": "kaninchen",
+      "name": "Kaninchen",
+      "trennung": "Kanin­chen",
+      "bild": "kaninchen.svg",
+      "info": "Das Kaninchen hat lange Ohren und hört sehr gut."
+    },
+    {
+      "id": "maus",
+      "name": "Maus",
+      "bild": "maus.svg",
+      "info": "Die Maus ist klein und flink und knabbert gern Körner."
+    }
   ]
 }

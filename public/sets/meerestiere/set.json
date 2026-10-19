@@ -58,6 +58,7 @@
     {
       "id": "seepferdchen",
       "name": "Seepferdchen",
+      "trennung": "See­pferdchen",
       "bild": "seepferdchen.svg",
       "info": "Beim Seepferdchen trägt der Papa die Babys in einem Beutel am Bauch."
     },
@@ -76,6 +77,7 @@
     {
       "id": "kugelfisch",
       "name": "Kugelfisch",
+      "trennung": "Kugel­fisch",
       "bild": "kugelfisch.svg",
       "info": "Der Kugelfisch bläst sich bei Gefahr auf wie ein stacheliger Ball."
     }

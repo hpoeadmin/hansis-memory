@@ -18,12 +18,17 @@ export function bildUrl(set, datei) {
 // «trennung»-Eintrag in set.json (mit weichem Trennstrich \u00AD) erlaubt zwei Zeilen.
 // --namen-faktor = Schriftgrösse im Verhältnis zur Kartenbreite.
 export function tierName(tier) {
-  const text = tier.trennung ?? tier.name;
-  const teile = text.split('\u00AD');
-  const laengstes = Math.max(...teile.map((t) => t.length));
-  const hoechstens = teile.length > 1 ? 0.11 : 0.15;
-  const faktor = Math.min(hoechstens, 1.45 / laengstes);
+  const { text, faktor } = namenGroesse(tier, 0.15, 0.11, 1.45);
   return el('span', { class: 'tier-name-text', style: `--namen-faktor: ${faktor.toFixed(3)}` }, text);
+}
+
+// Passt der Name einzeilig noch gross genug hin, bleibt er auf einer Zeile;
+// sonst wird an der «trennung» (weicher Trennstrich) auf zwei Zeilen umgebrochen.
+export function namenGroesse(tier, einzeilig, zweizeilig, breite) {
+  const eineZeile = Math.min(einzeilig, breite / tier.name.length);
+  if (!tier.trennung || eineZeile >= zweizeilig * 1.1) return { text: tier.name, faktor: eineZeile };
+  const laengstes = Math.max(...tier.trennung.split('\u00AD').map((t) => t.length));
+  return { text: tier.trennung, faktor: Math.min(zweizeilig, breite / laengstes) };
 }
 
 export const STUFEN = {

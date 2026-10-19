@@ -1,6 +1,7 @@
 import { T } from '../../texte.js';
 import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../../kern/ui.js';
-import { STUFEN, bildUrl, tierName } from './sets.js';
+import { STUFEN, tierName } from './sets.js';
+import { sprache, vorderseite } from './inhalte.js';
 import { bestesRaster } from './raster.js';
 import { avatarUrl, farbStil, merkeGefunden } from '../../kern/profile.js';
 import { klang } from '../../kern/klang.js';
@@ -16,16 +17,14 @@ const AUFDECK_DAUER = { normal: 2500, langsam: 4000, 'sehr-langsam': 6000 };
 export function zeigeSpiel(app) {
   const { set, stufe } = app.auswahl;
   const paare = STUFEN[stufe].paare;
-  const tiere = mischen(set.tiere).slice(0, paare);
+  // Die Steuerung liefert die Paare (klassisch: zweimal dasselbe Tier; Lern-Memory: Bild–Wort usw.)
+  const paarListe = app.erzeugePaare(paare);
   // Bilder vorladen, damit das Aufdecken ohne Verzögerung klappt
-  for (const tier of tiere) new Image().src = bildUrl(set, tier.bild);
+  for (const paar of paarListe) if (paar.anzeige.bild) new Image().src = paar.anzeige.bild;
 
-  const karten = mischen([...tiere, ...tiere]).map((tier) => ({
-    tier,
-    offen: false,
-    gefunden: false,
-    element: null,
-  }));
+  const karten = mischen(paarListe.flatMap((paar) => [paar.a, paar.b].map((inhalt) => ({ paar, inhalt })))).map(
+    (k) => ({ ...k, offen: false, gefunden: false, element: null }),
+  );
 
   const spieler = app.auswahl.spieler.map((profil) => ({
     profil,
@@ -91,9 +90,10 @@ export function zeigeSpiel(app) {
   );
   let paarZeit = null;
 
-  function zeigePaar(tier) {
-    paarBild.src = bildUrl(set, tier.bild);
-    paarName.replaceChildren(tierName(tier));
+  function zeigePaar(paar) {
+    paarBild.hidden = !paar.anzeige.bild;
+    if (paar.anzeige.bild) paarBild.src = paar.anzeige.bild;
+    paarName.replaceChildren(paar.anzeige.tier ? tierName(paar.anzeige.tier) : tierName({ name: paar.anzeige.text }));
     paarAnzeige.classList.remove('sichtbar');
     void paarAnzeige.offsetWidth;
     paarAnzeige.classList.add('sichtbar');
@@ -103,7 +103,8 @@ export function zeigeSpiel(app) {
 
   // ---------- Karten ----------
 
-  const mitNamen = app.einstellungen.namen !== false;
+  // Lern-Memory hat keine Namensleiste: dort sind die Karten immer quadratisch
+  const mitNamen = !app.lern && app.einstellungen.namen !== false;
   const verhaeltnis = mitNamen ? VERHAELTNIS_MIT_NAMEN : VERHAELTNIS_OHNE_NAMEN;
   const brett = el('div', {
     class: `brett ${mitNamen ? '' : 'ohne-namen'}`.trim(),
@@ -138,12 +139,7 @@ export function zeigeSpiel(app) {
         'div',
         { class: 'karte-innen' },
         el('div', { class: 'seite rueckseite' }),
-        el(
-          'div',
-          { class: 'seite vorderseite' },
-          el('img', { src: bildUrl(set, karte.tier.bild), alt: '', draggable: 'false' }),
-          el('span', { class: 'karte-name' }, tierName(karte.tier)),
-        ),
+        el('div', { class: 'seite vorderseite' }, vorderseite(karte.inhalt)),
       ),
     );
     beiTipp(karte.element, () => tippeKarte(karte));
@@ -153,7 +149,7 @@ export function zeigeSpiel(app) {
   function setzeOffen(karte, offen) {
     karte.offen = offen;
     karte.element.classList.toggle('offen', offen);
-    karte.element.setAttribute('aria-label', offen ? karte.tier.name : T.spiel.karteVerdeckt);
+    karte.element.setAttribute('aria-label', offen ? sprache(karte.inhalt) : T.spiel.karteVerdeckt);
   }
 
   async function tippeKarte(karte) {
@@ -161,7 +157,7 @@ export function zeigeSpiel(app) {
     setzeOffen(karte, true);
     zustand.offen.push(karte);
     klang.umdrehen();
-    sprich(karte.tier.name);
+    sprich(sprache(karte.inhalt));
 
     if (zustand.offen.length < 2) {
       // Während die Karte dreht, werden weitere Tipps ignoriert
@@ -178,19 +174,22 @@ export function zeigeSpiel(app) {
     zustand.offen = [];
     await warte(FLIP_DAUER);
 
-    if (a.tier.id === b.tier.id) {
+    if (a.paar === b.paar) {
       a.gefunden = b.gefunden = true;
       a.element.classList.add('gefunden');
       b.element.classList.add('gefunden');
       zustand.gefunden++;
       const s = spieler[zustand.aktiv];
       s.paare++;
-      const album = merkeGefunden(s.profil, set, a.tier.id);
-      if (album.neu) s.neueTiere.push(a.tier);
-      if (album.komplett) s.neuesAbzeichen = true;
+      // Nur das klassische Memory füllt das Album
+      if (!app.lern && a.paar.tier) {
+        const album = merkeGefunden(s.profil, set, a.paar.tier.id);
+        if (album.neu) s.neueTiere.push(a.paar.tier);
+        if (album.komplett) s.neuesAbzeichen = true;
+      }
       paareAnzeige.textContent = T.spiel.vonGesamt(zustand.gefunden, paare);
       klang.paar();
-      zeigePaar(a.tier);
+      zeigePaar(a.paar);
       if (zustand.gefunden === paare) {
         zustand.beendet = true;
         aktualisiereKopf();

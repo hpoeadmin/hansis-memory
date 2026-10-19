@@ -33,6 +33,7 @@
     {
       "id": "eichhoernchen",
       "name": "Eichhörnchen",
+      "trennung": "Eich­hörnchen",
       "bild": "eichhoernchen.svg",
       "info": "Das Eichhörnchen versteckt im Herbst Nüsse für den Winter."
     },
@@ -45,6 +46,7 @@
     {
       "id": "wildschwein",
       "name": "Wildschwein",
+      "trennung": "Wild­schwein",
       "bild": "wildschwein.svg",
       "info": "Das Wildschwein wühlt mit seiner Schnauze im Waldboden nach Futter."
     },

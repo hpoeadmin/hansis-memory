@@ -165,7 +165,15 @@ img {
   place-items: center;
 }
 
-.set-bild img {
+.set-bild {
+  position: relative;
+}
+
+/* Das Bild füllt immer genau die freie Fläche, auch wenn die Kachel niedrig ist */
+.set-bild img,
+.set-bild svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2241,6 +2249,44 @@ img {
   height: 64px;
   border: 3px solid var(--kontur);
   border-radius: 14px;
+}
+
+/* ---------- Lern-Memory: Kartenseiten ---------- */
+
+.karte-feld {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.karte-wort {
+  padding: 0 6%;
+  background: #FFFFFF;
+}
+
+.karte-wort .tier-name-text {
+  font-size: calc(var(--kb) * var(--wort-faktor, 0.15));
+}
+
+.karte-zahl,
+.karte-buchstabe {
+  font-size: calc(var(--kb) * 0.55);
+  background: #FFFFFF;
+}
+
+.karte-menge {
+  grid-template-columns: repeat(var(--spalten-menge), 1fr);
+  align-content: center;
+  gap: 2%;
+  padding: 8%;
+}
+
+.karte-menge img {
+  border-radius: 18%;
 }
 
 /* ---------- Bewegung reduzieren ---------- */

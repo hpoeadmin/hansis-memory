@@ -51,12 +51,14 @@
     {
       "id": "fledermaus",
       "name": "Fledermaus",
+      "trennung": "Fleder­maus",
       "bild": "fledermaus.svg",
       "info": "Die Fledermaus fliegt nachts und schläft am Tag kopfüber hängend."
     },
     {
       "id": "schmetterling",
       "name": "Schmetterling",
+      "trennung": "Schmetter­ling",
       "bild": "schmetterling.svg",
       "info": "Der Schmetterling war zuerst eine kleine Raupe."
     },
@@ -69,6 +71,7 @@
     {
       "id": "marienkaefer",
       "name": "Marienkäfer",
+      "trennung": "Marien­käfer",
       "bild": "marienkaefer.svg",
       "info": "Der Marienkäfer ist ein kleiner Glücksbringer mit roten Flügeln und schwarzen Punkten."
     },

@@ -8,6 +8,8 @@ import { zeigeStufe } from './stufe.js';
 import { zeigeSpiel } from './spiel.js';
 import { zeigeEnde } from './ende.js';
 import { zeigeAlbum } from './album.js';
+import { mischen } from '../../kern/ui.js';
+import { tierPaare } from './inhalte.js';
 
 export function memorySteuerung(app) {
   const m = Object.create(app);
@@ -39,5 +41,6 @@ export function memorySteuerung(app) {
   m.zeigeSpiel = () => zeigeSpiel(m);
   m.zeigeEnde = (ergebnis) => zeigeEnde(m, ergebnis);
   m.zeigeAlbum = (profilId) => zeigeAlbum(m, profilId);
+  m.erzeugePaare = (anzahl) => tierPaare(m.auswahl.set, mischen(m.auswahl.set.tiere).slice(0, anzahl));
   return m;
 }

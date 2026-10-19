@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="64" fill="#FBE7C6"/><circle cx="256" cy="270" r="200" fill="#FFFFFF" fill-opacity="0.45"/><g transform="rotate(-8 160.0 235.0)"><rect x="60" y="110" width="200" height="250" rx="22" fill="#DDF0C8" stroke="#2E2A26" stroke-width="9"/><svg x="65" y="125" width="90" height="90" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Beine -->
+    <path d="M88 160 L88 182 M80 184 L96 184" stroke="#E8962A" fill="none"/>
+    <path d="M116 160 L116 182 M108 184 L124 184" stroke="#E8962A" fill="none"/>
+    <!-- Schwanzfedern -->
+    <path d="M138 112 C146 82 166 66 178 70 C176 92 172 110 158 130 Z" fill="#B5602F"/>
+    <!-- Körper -->
+    <ellipse cx="104" cy="122" rx="58" ry="46" fill="#E08A4E"/>
+    <!-- Kamm -->
+    <path d="M54 52 C50 36 64 32 68 42 C70 28 86 28 86 42 C96 34 104 46 96 56 Z" fill="#E5383B"/>
+    <!-- Kopf -->
+    <circle cx="72" cy="76" r="30" fill="#E08A4E"/>
+    <!-- Schnabel -->
+    <path d="M45 72 L26 82 L46 90 Z" fill="#F6B93B"/>
+    <!-- Kehllappen -->
+    <path d="M48 92 C42 104 50 112 56 108 C60 104 58 98 54 92 Z" fill="#E5383B"/>
+    <!-- Auge -->
+    <ellipse cx="66" cy="70" rx="7" ry="9" fill="#2E2A26" stroke="none"/>
+    <circle cx="69" cy="66" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="82" cy="88" r="6" fill="#F5A3B5" stroke="none"/>
+    <!-- Flügel -->
+    <path d="M96 114 C110 96 142 100 144 124 C130 146 104 142 96 114 Z" fill="#C9733C"/>
+    <path d="M112 124 C120 128 130 128 136 124" fill="none" stroke-width="4"/>
+  </g>
+</svg><svg x="155" y="125" width="90" height="90" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Beine -->
+    <path d="M88 160 L88 182 M80 184 L96 184" stroke="#E8962A" fill="none"/>
+    <path d="M116 160 L116 182 M108 184 L124 184" stroke="#E8962A" fill="none"/>
+    <!-- Schwanzfedern -->
+    <path d="M138 112 C146 82 166 66 178 70 C176 92 172 110 158 130 Z" fill="#B5602F"/>
+    <!-- Körper -->
+    <ellipse cx="104" cy="122" rx="58" ry="46" fill="#E08A4E"/>
+    <!-- Kamm -->
+    <path d="M54 52 C50 36 64 32 68 42 C70 28 86 28 86 42 C96 34 104 46 96 56 Z" fill="#E5383B"/>
+    <!-- Kopf -->
+    <circle cx="72" cy="76" r="30" fill="#E08A4E"/>
+    <!-- Schnabel -->
+    <path d="M45 72 L26 82 L46 90 Z" fill="#F6B93B"/>
+    <!-- Kehllappen -->
+    <path d="M48 92 C42 104 50 112 56 108 C60 104 58 98 54 92 Z" fill="#E5383B"/>
+    <!-- Auge -->
+    <ellipse cx="66" cy="70" rx="7" ry="9" fill="#2E2A26" stroke="none"/>
+    <circle cx="69" cy="66" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="82" cy="88" r="6" fill="#F5A3B5" stroke="none"/>
+    <!-- Flügel -->
+    <path d="M96 114 C110 96 142 100 144 124 C130 146 104 142 96 114 Z" fill="#C9733C"/>
+    <path d="M112 124 C120 128 130 128 136 124" fill="none" stroke-width="4"/>
+  </g>
+</svg><svg x="110" y="210" width="90" height="90" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="28" fill="#DDF0C8"/>
+  <circle cx="100" cy="112" r="80" fill="#CDE8B2"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Beine -->
+    <path d="M88 160 L88 182 M80 184 L96 184" stroke="#E8962A" fill="none"/>
+    <path d="M116 160 L116 182 M108 184 L124 184" stroke="#E8962A" fill="none"/>
+    <!-- Schwanzfedern -->
+    <path d="M138 112 C146 82 166 66 178 70 C176 92 172 110 158 130 Z" fill="#B5602F"/>
+    <!-- Körper -->
+    <ellipse cx="104" cy="122" rx="58" ry="46" fill="#E08A4E"/>
+    <!-- Kamm -->
+    <path d="M54 52 C50 36 64 32 68 42 C70 28 86 28 86 42 C96 34 104 46 96 56 Z" fill="#E5383B"/>
+    <!-- Kopf -->
+    <circle cx="72" cy="76" r="30" fill="#E08A4E"/>
+    <!-- Schnabel -->
+    <path d="M45 72 L26 82 L46 90 Z" fill="#F6B93B"/>
+    <!-- Kehllappen -->
+    <path d="M48 92 C42 104 50 112 56 108 C60 104 58 98 54 92 Z" fill="#E5383B"/>
+    <!-- Auge -->
+    <ellipse cx="66" cy="70" rx="7" ry="9" fill="#2E2A26" stroke="none"/>
+    <circle cx="69" cy="66" r="2.6" fill="#FFFFFF" stroke="none"/>
+    <!-- Bäckchen -->
+    <circle cx="82" cy="88" r="6" fill="#F5A3B5" stroke="none"/>
+    <!-- Flügel -->
+    <path d="M96 114 C110 96 142 100 144 124 C130 146 104 142 96 114 Z" fill="#C9733C"/>
+    <path d="M112 124 C120 128 130 128 136 124" fill="none" stroke-width="4"/>
+  </g>
+</svg></g><g transform="rotate(7 350.0 275.0)"><rect x="250" y="150" width="200" height="250" rx="22" fill="#FFFFFF" stroke="#2E2A26" stroke-width="9"/><text x="350" y="335" text-anchor="middle" font-size="190" font-family="'Atkinson Hyperlegible', system-ui, sans-serif" font-weight="700" fill="#2E2A26">3</text></g></svg>

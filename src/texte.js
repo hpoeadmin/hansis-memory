@@ -12,6 +12,9 @@ export const T = {
 
   spiele: {
     memory: 'Memory',
+    lernmemory: 'Lern-Memory',
+    lebensraum: 'Wo wohne ich?',
+    reihenfolge: 'Merk dir die Reihenfolge',
     nuenistei: 'Nüni Stei',
     eilemitweile: 'Eile mit Weile',
   },
@@ -120,7 +123,16 @@ export const T = {
     frage: 'Was möchtest du einstellen?',
     zurueck: 'Einstellungen',
     seiten: {
-      allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
+      lernmemory: {
+    frage: 'Was möchtest du üben?',
+    arten: {
+      bildwort: { titel: 'Bild und Wort', text: 'Lesen üben' },
+      mengezahl: { titel: 'Menge und Zahl', text: 'Zählen üben' },
+      buchstaben: { titel: 'Gross und klein', text: 'Buchstaben üben' },
+    },
+  },
+
+  allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
       spieler: { titel: 'Spieler', text: 'Namen und Tiere' },
       memory: { titel: 'Memory', text: 'Karten und Tempo' },
       nuenistei: { titel: 'Nüni Stei', text: 'Zug zurück' },
@@ -240,6 +252,15 @@ export const T = {
     imZiel: (n) => (n === 1 ? '1 im Ziel' : `${n} im Ziel`),
     tablet: 'spielt das Tablet',
     augen: ['eine Eins', 'eine Zwei', 'eine Drei', 'eine Vier', 'eine Fünf', 'eine Sechs'],
+  },
+
+  lernmemory: {
+    frage: 'Was möchtest du üben?',
+    arten: {
+      bildwort: { titel: 'Bild und Wort', text: 'Lesen üben' },
+      mengezahl: { titel: 'Menge und Zahl', text: 'Zählen üben' },
+      buchstaben: { titel: 'Gross und klein', text: 'Buchstaben üben' },
+    },
   },
 
   allgemein: {

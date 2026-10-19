@@ -37,7 +37,9 @@ function einzelErgebnis(app, { paare, zuege, spieler }) {
   const profil = spieler[0].profil;
   const sterne = berechneSterne(paare, zuege);
   const lob = profil.gast ? zufall(T.ende.lob) : T.ende.lobPersoenlich(profil.name);
-  const { neu, bisher } = merkeBestleistung(profil, app.auswahl.stufe, zuege);
+  // Lern-Memory hat eigene Bestleistungen pro Übungsart
+  const schluessel = app.lern ? `${app.lern}-${app.auswahl.stufe}` : app.auswahl.stufe;
+  const { neu, bisher } = merkeBestleistung(profil, schluessel, zuege);
   let bestleistung = null;
   if (!profil.gast) {
     bestleistung = neu

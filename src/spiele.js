@@ -9,6 +9,13 @@ export const SPIELE = [
     starte: (app) => app.memory.zeigeStart(),
   },
   {
+    id: 'lernmemory',
+    bild: 'spiele/lernmemory.svg',
+    farbe: '#DCEBFA',
+    status: 'bereit',
+    starte: (app) => app.lernmemory.zeigeStart(),
+  },
+  {
     id: 'nuenistei',
     bild: 'spiele/nuenistei.svg',
     farbe: '#EAD7B7',

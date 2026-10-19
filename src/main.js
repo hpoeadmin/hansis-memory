@@ -13,6 +13,7 @@ import { ladeSets } from './spiele/memory/sets.js';
 import { memorySteuerung } from './spiele/memory/index.js';
 import { nuensteiSteuerung } from './spiele/nuenistei/index.js';
 import { eileMitWeileSteuerung } from './spiele/eilemitweile/index.js';
+import { lernMemorySteuerung } from './spiele/lernmemory/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -28,6 +29,7 @@ const app = {
 app.memory = memorySteuerung(app);
 app.nuenistei = nuensteiSteuerung(app);
 app.eilemitweile = eileMitWeileSteuerung(app);
+app.lernmemory = lernMemorySteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();
