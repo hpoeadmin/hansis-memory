@@ -1,10 +1,23 @@
 // Alle Texte der App an einem Ort (Schweizer Schreibweise: «ss» statt «ß»).
 
 export const T = {
-  appName: 'Hansi’s Memory',
+  appName: 'Hansis Spielplatz',
+
+  hauptmenue: {
+    titel: 'Hansis Spielplatz',
+    frage: 'Was möchtest du spielen?',
+    kommtBald: 'kommt bald',
+    zurueck: 'Spiele',
+  },
+
+  spiele: {
+    memory: 'Memory',
+    nuenistei: 'Nüni Stei',
+    eilemitweile: 'Eile mit Weile',
+  },
 
   start: {
-    titel: 'Hansi’s Memory',
+    titel: 'Memory',
     frage: 'Welche Tiere möchtest du?',
     kommtBald: 'kommt bald',
   },
@@ -19,7 +32,8 @@ export const T = {
 
   spieler: {
     frage: 'Wer spielt mit?',
-    hinweis: 'Tippe auf alle, die mitspielen (bis zu 4).',
+    hinweis: (max) =>
+      max === 1 ? 'Tippe an, wer spielt.' : `Tippe auf alle, die mitspielen (bis zu ${max}).`,
     neu: 'Neuer Spieler',
     los: 'Los geht’s!',
   },
@@ -99,6 +113,8 @@ export const T = {
 
   einstellungen: {
     titel: 'Einstellungen',
+    gruppeAllgemein: 'Für alle Spiele',
+    gruppeSpieler: 'Spieler',
     ton: 'Ton',
     vorlesen: 'Tiernamen vorlesen',
     vorlesenFehlt: 'Dieses Gerät kann leider nicht vorlesen.',

@@ -1,10 +1,10 @@
-import { T } from '../texte.js';
-import { el, beiTipp, knopf, zeige } from '../ui.js';
-import { speicher } from '../speicher.js';
-import { bildUrl, tierName } from '../sets.js';
-import { albumVon, avatarUrl, farbStil } from '../profile.js';
-import { abzeichen } from '../abzeichen.js';
-import { sprich } from '../vorlesen.js';
+import { T } from '../../texte.js';
+import { el, beiTipp, knopf, zeige } from '../../kern/ui.js';
+import { speicher } from '../../kern/speicher.js';
+import { bildUrl, tierName } from './sets.js';
+import { albumVon, avatarUrl, farbStil } from '../../kern/profile.js';
+import { abzeichen } from './abzeichen.js';
+import { sprich } from '../../kern/vorlesen.js';
 
 function zeigeTier(set, tier) {
   const schliessen = () => hintergrund.remove();

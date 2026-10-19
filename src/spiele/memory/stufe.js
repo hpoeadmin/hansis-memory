@@ -1,6 +1,6 @@
-import { T } from '../texte.js';
-import { el, beiTipp, knopf, zeige } from '../ui.js';
-import { STUFEN } from '../sets.js';
+import { T } from '../../texte.js';
+import { el, beiTipp, knopf, zeige } from '../../kern/ui.js';
+import { STUFEN } from './sets.js';
 
 export function zeigeStufe(app) {
   const knoepfe = Object.entries(STUFEN).map(([id, stufe]) => {

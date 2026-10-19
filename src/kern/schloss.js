@@ -1,6 +1,6 @@
 // Elternschloss: Knopf, der 3 Sekunden gedrückt gehalten werden muss.
 // Ein Balken im Knopf zeigt, wie lange es noch dauert.
-import { T } from './texte.js';
+import { T } from '../texte.js';
 import { el } from './ui.js';
 
 const HALTEDAUER = 3000;

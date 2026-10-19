@@ -1,6 +1,6 @@
 // Service Worker: Offline-Betrieb und Hinweis auf neue Versionen.
 import { registerSW } from 'virtual:pwa-register';
-import { T } from './texte.js';
+import { T } from '../texte.js';
 import { el, beiTipp } from './ui.js';
 
 const PRUEF_INTERVALL = 30 * 60 * 1000; // alle 30 Minuten nach Neuem schauen

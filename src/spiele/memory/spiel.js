@@ -1,10 +1,10 @@
-import { T } from '../texte.js';
-import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../ui.js';
-import { STUFEN, bildUrl, tierName } from '../sets.js';
-import { bestesRaster } from '../raster.js';
-import { avatarUrl, farbStil, merkeGefunden } from '../profile.js';
-import { klang } from '../klang.js';
-import { sprich } from '../vorlesen.js';
+import { T } from '../../texte.js';
+import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../../kern/ui.js';
+import { STUFEN, bildUrl, tierName } from './sets.js';
+import { bestesRaster } from './raster.js';
+import { avatarUrl, farbStil, merkeGefunden } from '../../kern/profile.js';
+import { klang } from '../../kern/klang.js';
+import { sprich } from '../../kern/vorlesen.js';
 
 const FLIP_DAUER = 500; // ms, muss zur CSS-Animation passen
 const VERHAELTNIS_MIT_NAMEN = 0.8; // Breite / Höhe (Bild + Name)

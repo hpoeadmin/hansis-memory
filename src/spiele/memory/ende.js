@@ -1,10 +1,10 @@
-import { T } from '../texte.js';
-import { el, knopf, zeige, mischen } from '../ui.js';
-import { avatarUrl, farbStil, merkeBestleistung } from '../profile.js';
-import { klang } from '../klang.js';
-import { sprich } from '../vorlesen.js';
-import { konfetti } from '../konfetti.js';
-import { abzeichen } from '../abzeichen.js';
+import { T } from '../../texte.js';
+import { el, knopf, zeige, mischen } from '../../kern/ui.js';
+import { avatarUrl, farbStil, merkeBestleistung } from '../../kern/profile.js';
+import { klang } from '../../kern/klang.js';
+import { sprich } from '../../kern/vorlesen.js';
+import { konfetti } from '../../kern/konfetti.js';
+import { abzeichen } from './abzeichen.js';
 
 // Sterne: immer mindestens einer – es gibt kein «Verlieren».
 export function berechneSterne(paare, zuege) {

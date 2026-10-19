@@ -1,4 +1,4 @@
-import { el } from './ui.js';
+import { el } from '../../kern/ui.js';
 
 // Lädt die Kartensätze aus public/sets/index.json (erzeugt von scripts/sets-index.mjs).
 

@@ -15,9 +15,9 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png', 'icon.svg'],
       manifest: {
         id: BASIS,
-        name: 'Hansi’s Memory',
-        short_name: 'Memory',
-        description: 'Ein Memory-Spiel mit Tieren für Kinder und Grosseltern.',
+        name: 'Hansis Spielplatz',
+        short_name: 'Spielplatz',
+        description: 'Spiele für Kinder und Grosseltern: Memory und bald mehr.',
         lang: 'de-CH',
         start_url: BASIS,
         scope: BASIS,

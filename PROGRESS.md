@@ -1,4 +1,4 @@
-# Fortschritt – Hansi’s Memory
+# Fortschritt – Hansis Spielplatz
 
 ## Stand
 
@@ -17,6 +17,23 @@
 | 11 | Satz «Meerestiere» (12 Tiere) | ✅ |
 | 12 | Satz «Waldtiere» (12 Tiere) | ✅ |
 | 13 | Satz «In der Luft» (12 Tiere) – alle vier Sätze spielbar | ✅ |
+
+## Ausbau zum «Hansis Spielplatz»
+
+| Schritt | Inhalt | Status |
+|---|---|---|
+| A | Umbau: gemeinsamer Kern, Hauptmenü, Memory als Spiel Nr. 1, Name «Hansis Spielplatz» | ✅ |
+| B | Nüni Stei für 2 Personen (Setzen, Ziehen, Springen, Mühle, Wegnehmen, Zug zurück) | offen |
+| C | Nüni Stei gegen das Tablet (zwei Stufen) | offen |
+| D | Eile mit Weile für 2–4 Personen, freie Plätze spielt das Tablet | offen |
+| E | Weitere Spiele (z.B. Tier-Domino, Vier gewinnt, Leiterlispiel, Puzzle) | Idee |
+
+**Regeln laut Hanspeter (19.10.2026):**
+- Nüni Stei: mit «Springen» (wer nur noch 3 Steine hat, darf auf jedes freie Feld).
+- Eile mit Weile: Herauskommen mit einer 6. Nach einer 6 darf man nochmals würfeln. Auf dem Bänkli ist man sicher. Zwei Steine der gleichen Farbe sperren die anderen. Ins Ziel muss man genau würfeln. *Vor Schritt D nochmals nachfragen: Sperren zwei gleiche Steine überall oder nur auf dem Bänkli?*
+- Bei beiden Brettspielen kann man gegen eine Person oder gegen das Tablet spielen.
+
+**Für alle Spiele:** nur tippen (Stein antippen, dann Ziel), mögliche Züge markiert, kein Zeitdruck, Zug zurücknehmen, laufendes Spiel wird gespeichert, alle werden gelobt.
 
 ## Entscheidungen
 
@@ -51,6 +68,7 @@
 - **Meerestiere:** Satzfarbe `#CDE7F5`, Titelbild Wal. Gut unterscheidbar durch Farbe *und* Form: Wal blau, Delfin türkis und schräg springend, Hai grau mit Kiemen und weissem Maul, Krake lachsrot, Seestern orange, Krabbe rot, Schildkröte grün, Qualle rosa, Seepferdchen lila, Robbe graubraun, Pinguin schwarz-weiss, Kugelfisch gelb mit Stacheln. Bei der Krake steht im Infosatz bewusst keine Armzahl (gezeichnet sind 5 Arme).
 - **Waldtiere:** Satzfarbe `#E6DCC8`, Titelbild Fuchs. Ähnliche Tiere sind bewusst verschieden gestaltet: Reh hellbraun ohne Geweih, Hirsch dunkelbraun mit Geweih; Fuchs orange, Wolf grau mit Fellbüscheln an den Wangen; Luchs mit Ohrpinseln, Flecken und Halskrause; Hase als ganzer Körper von der Seite (anders als das Kaninchen vom Bauernhof); Wildschwein mit Borstenkamm und weissen Hauern.
 - **In der Luft:** Satzfarbe `#FBE7C6`, Titelbild Eule. Vögel mit Ast oder Pfosten (Adler, Eule, Papagei, Pelikan) und stehend (Storch weiss auf zwei roten Beinen, Flamingo rosa auf einem Bein). Die Schwalbe fliegt. Insekten und die Fledermaus sind von vorne oder oben gezeichnet; auf dunklen Köpfen bekommen die Augen einen weissen Ring.
+- **Umbau (Schritt A):** Der angezeigte Name ist «Hansis Spielplatz» (Home-Bildschirm: «Spielplatz»). Repository, Adresse und Speicher-Schlüssel (`hansis-memory`) bleiben gleich, damit installierte Symbole und gespeicherte Spieler, Alben und Bestleistungen erhalten bleiben. Album und Bestleistungen gehören zu Memory; neue Spiele legen ihre Daten unter eigenen Schlüsseln ab. Das Elternschloss sitzt im Hauptmenü. Die Einstellungen sind gegliedert in «Für alle Spiele», «Memory» und «Spieler». Ablauf Memory: Hauptmenü → Satz → Stufe → Spieler (ein Schritt mehr als vorher; «Nochmals spielen» startet weiterhin direkt).
 - **Lange Tiernamen:** Die Schriftgrösse richtet sich nach dem längsten Wortteil (`tierName()` in `src/sets.js`). Ein optionales Feld `trennung` mit weichem Trennstrich erlaubt zwei Zeilen («Meeres-/schildkröte»). Das gilt für Karte, Paar-Anzeige und Album.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 

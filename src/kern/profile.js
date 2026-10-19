@@ -1,6 +1,6 @@
 // Spielerprofile: Name, Farbe, Tier-Avatar. Dazu Album und Bestleistungen.
 import { speicher, sichere, neueId } from './speicher.js';
-import { T } from './texte.js';
+import { T } from '../texte.js';
 
 const BASIS = import.meta.env.BASE_URL;
 

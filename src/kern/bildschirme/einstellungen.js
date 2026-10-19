@@ -1,4 +1,4 @@
-import { T } from '../texte.js';
+import { T } from '../../texte.js';
 import { el, beiTipp, knopf, zeige, bestaetigen } from '../ui.js';
 import { speicher, sichere } from '../speicher.js';
 import { avatarUrl, farbStil, loescheProfil } from '../profile.js';
@@ -121,13 +121,15 @@ export function zeigeEinstellungen(app) {
         'header',
         { class: 'kopfzeile' },
         el('h1', { class: 'kopf-titel' }, E.titel),
-        knopf(E.fertig, () => app.zeigeStart(), 'knopf-haupt knopf-fertig'),
+        knopf(E.fertig, () => app.zeigeHauptmenue(), 'knopf-haupt knopf-fertig'),
       ),
       el(
         'div',
         { class: 'einstellungen-inhalt' },
+        el('h2', { class: 'gruppen-titel' }, E.gruppeAllgemein),
         auswahl(E.ton, einAus, 'ton', (an) => an && klang.paar()),
         vorlesen,
+        el('h2', { class: 'gruppen-titel' }, T.spiele.memory),
         auswahl(
           E.dauer,
           [
@@ -147,6 +149,7 @@ export function zeigeEinstellungen(app) {
           ],
           'namen',
         ),
+        el('h2', { class: 'gruppen-titel' }, E.gruppeSpieler),
         spielerVerwaltung(app),
       ),
     ),

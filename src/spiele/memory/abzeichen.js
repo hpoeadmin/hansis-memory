@@ -1,7 +1,7 @@
 // Abzeichen für einen vollständig gesammelten Satz: Medaille mit Bändern.
-import { el } from './ui.js';
+import { el } from '../../kern/ui.js';
 import { bildUrl } from './sets.js';
-import { T } from './texte.js';
+import { T } from '../../texte.js';
 
 export function abzeichen(set, gross = false) {
   return el(

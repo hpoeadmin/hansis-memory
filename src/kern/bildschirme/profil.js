@@ -1,7 +1,6 @@
-import { T } from '../texte.js';
+import { T } from '../../texte.js';
 import { el, beiTipp, knopf, zeige } from '../ui.js';
-import { FARBEN, speichereProfil } from '../profile.js';
-import { bildUrl } from '../sets.js';
+import { FARBEN, avatarUrl, speichereProfil } from '../profile.js';
 
 // Profil anlegen oder ändern. «fertig» wird nach Speichern oder Abbrechen aufgerufen.
 export function zeigeProfil(app, profil, fertig) {
@@ -46,7 +45,7 @@ export function zeigeProfil(app, profil, fertig) {
     const k = el(
       'button',
       { class: 'avatar-knopf', type: 'button', 'aria-label': tier.name },
-      el('img', { src: bildUrl(avatarSet, tier.bild), alt: '' }),
+      el('img', { src: avatarUrl({ avatar: pfad }), alt: '' }),
     );
     beiTipp(k, () => {
       entwurf.avatar = pfad;

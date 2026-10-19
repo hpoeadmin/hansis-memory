@@ -1,17 +1,18 @@
-import { T } from '../texte.js';
+import { T } from '../../texte.js';
 import { el, beiTipp, knopf, zeige } from '../ui.js';
 import { speicher } from '../speicher.js';
 import { alleProfile, avatarUrl, farbStil, findeProfil } from '../profile.js';
 
-const MAX_SPIELER = 4;
-
-export function zeigeSpieler(app) {
+// Spielerauswahl für alle Spiele.
+// optionen: { farbe, max, zurueck(), weiter(profile) }
+export function zeigeSpieler(app, optionen) {
+  const { farbe, max = 4, zurueck, weiter } = optionen;
   // Die zuletzt gewählten Spieler sind schon vorausgewählt
-  const gewaehlt = speicher.letzteSpieler.filter((id) => findeProfil(id));
+  const gewaehlt = speicher.letzteSpieler.filter((id) => findeProfil(id)).slice(0, max);
 
   const losKnopf = knopf(T.spieler.los, () => {
     if (gewaehlt.length === 0) return;
-    app.starteSpiel(gewaehlt.map(findeProfil));
+    weiter(gewaehlt.map(findeProfil));
   }, 'knopf-haupt knopf-los');
 
   const kacheln = alleProfile().map((profil) => {
@@ -26,7 +27,7 @@ export function zeigeSpieler(app) {
     beiTipp(kachel, () => {
       const index = gewaehlt.indexOf(profil.id);
       if (index >= 0) gewaehlt.splice(index, 1);
-      else if (gewaehlt.length < MAX_SPIELER) gewaehlt.push(profil.id);
+      else if (gewaehlt.length < max) gewaehlt.push(profil.id);
       aktualisiere();
     }, { scrollbar: true });
     return { profil, kachel, nummer };
@@ -38,7 +39,18 @@ export function zeigeSpieler(app) {
     el('span', { class: 'plus', 'aria-hidden': 'true' }, '+'),
     el('span', { class: 'spieler-name' }, T.spieler.neu),
   );
-  beiTipp(neuKachel, () => app.zeigeProfil(null), { scrollbar: true });
+  beiTipp(
+    neuKachel,
+    () =>
+      app.zeigeProfil(null, (neu) => {
+        // Ein neu angelegter Spieler ist gleich ausgewählt
+        if (neu && gewaehlt.length < max) {
+          speicher.letzteSpieler = [...gewaehlt, neu.id];
+        }
+        zeigeSpieler(app, optionen);
+      }),
+    { scrollbar: true },
+  );
 
   function aktualisiere() {
     for (const { profil, kachel, nummer } of kacheln) {
@@ -55,14 +67,14 @@ export function zeigeSpieler(app) {
   zeige(
     el(
       'main',
-      { class: 'bildschirm spieler', style: `--set-farbe: ${app.auswahl.set.farbe}` },
+      { class: 'bildschirm spieler', style: `--set-farbe: ${farbe}` },
       el(
         'header',
         { class: 'kopfzeile' },
-        knopf(`‹ ${T.allgemein.zurueck}`, () => app.zeigeStufe(), 'knopf-zurueck'),
+        knopf(`‹ ${T.allgemein.zurueck}`, zurueck, 'knopf-zurueck'),
         el('h1', { class: 'kopf-titel' }, T.spieler.frage),
       ),
-      el('p', { class: 'hinweis' }, T.spieler.hinweis),
+      el('p', { class: 'hinweis' }, T.spieler.hinweis(max)),
       el('div', { class: 'spieler-raster' }, kacheln.map((k) => k.kachel), neuKachel),
       el('footer', { class: 'fusszeile' }, losKnopf),
     ),

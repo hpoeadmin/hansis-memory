@@ -1,6 +1,24 @@
-# Hansi’s Memory
+# Hansis Spielplatz
 
-Ein Memory-Spiel für Tablets – für Enkel und Grosseltern. Ohne Zeitdruck, ohne Verlieren.
+Spiele für Tablets – für Enkel und Grosseltern. Ohne Zeitdruck, ohne Verlieren.
+Zurzeit: **Memory** mit vier Tiersätzen. In Arbeit: **Nüni Stei** und **Eile mit Weile**.
+
+## Aufbau
+
+```
+src/
+├─ main.js          App-Objekt, Start
+├─ hauptmenue.js    Spielauswahl
+├─ spiele.js        Liste aller Spiele (neues Spiel = ein Eintrag)
+├─ texte.js         alle Texte (Schweizer Schreibweise)
+├─ kern/            Speicher, Profile, Elternschloss, Ton, Vorlesen, Update-Hinweis,
+│  └─ bildschirme/  Spielerauswahl, Profil-Editor, Einstellungen
+└─ spiele/
+   └─ memory/       Satzwahl, Stufe, Spiel, Abschluss, Album
+```
+
+Jedes Spiel hat eine eigene Steuerung (z.B. `memorySteuerung(app)`), die vom App-Objekt erbt.
+Die Spielerauswahl `zeigeSpieler(app, { farbe, max, zurueck, weiter })` nutzen alle Spiele.
 
 ## Lokal testen
 
@@ -54,7 +72,7 @@ npm run preview
 
 1. In **Safari** `https://hpoeadmin.github.io/hansis-memory/` öffnen.
 2. **Teilen** (Quadrat mit Pfeil) → **Zum Home-Bildschirm** → **Hinzufügen**.
-3. Ab jetzt über das Symbol «Memory» starten. Die App läuft im Vollbild und auch offline.
+3. Ab jetzt über das Symbol «Spielplatz» starten. Die App läuft im Vollbild und auch offline.
 
 Eine ausführliche Anleitung zum Weitergeben steht in [ANLEITUNG-FAMILIE.md](ANLEITUNG-FAMILIE.md).
 

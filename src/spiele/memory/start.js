@@ -1,7 +1,6 @@
-import { T } from '../texte.js';
-import { el, beiTipp, knopf, zeige } from '../ui.js';
-import { bildUrl } from '../sets.js';
-import { elternschloss } from '../schloss.js';
+import { T } from '../../texte.js';
+import { el, beiTipp, knopf, zeige } from '../../kern/ui.js';
+import { bildUrl } from './sets.js';
 
 export function zeigeStart(app) {
   const kacheln = app.sets.map((set) => {
@@ -35,7 +34,7 @@ export function zeigeStart(app) {
       el(
         'header',
         { class: 'start-kopf' },
-        elternschloss(() => app.zeigeEinstellungen()),
+        knopf(`‹ ${T.hauptmenue.zurueck}`, () => app.zeigeHauptmenue(), 'knopf-zurueck kopf-links'),
         el('h1', { class: 'titel' }, T.start.titel),
         knopf(T.album.knopf, () => app.zeigeAlbum(), 'knopf-album'),
       ),

@@ -1086,11 +1086,17 @@ img {
   right: 0;
 }
 
+.kopf-links {
+  position: absolute;
+  left: 0;
+}
+
 @media (max-width: 640px) {
   .start-kopf {
     justify-content: space-between;
   }
-  .knopf-album {
+  .knopf-album,
+  .kopf-links {
     position: static;
   }
 }
@@ -1425,6 +1431,13 @@ img {
   top: 0;
 }
 
+/* Hauptmenü: höchstens 3 Spiele pro Zeile, damit die Kacheln gross bleiben */
+@media (orientation: landscape) {
+  .spiel-raster {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .knopf-schloss {
   position: relative;
   overflow: hidden;
@@ -1494,6 +1507,11 @@ img {
   border: 4px solid var(--kontur);
   border-radius: 24px;
   background: var(--flaeche);
+}
+
+.gruppen-titel {
+  margin: 8px 4px 12px;
+  font-size: 1.9rem;
 }
 
 .einstellung h2 {
