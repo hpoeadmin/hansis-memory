@@ -1,0 +1,82 @@
+{
+  "id": "in-der-luft",
+  "name": "In der Luft",
+  "status": "bald",
+  "reihenfolge": 4,
+  "farbe": "#FBE7C6",
+  "titelbild": null,
+  "tiere": [
+    {
+      "id": "adler",
+      "name": "Adler",
+      "bild": "adler.svg",
+      "info": ""
+    },
+    {
+      "id": "eule",
+      "name": "Eule",
+      "bild": "eule.svg",
+      "info": ""
+    },
+    {
+      "id": "papagei",
+      "name": "Papagei",
+      "bild": "papagei.svg",
+      "info": ""
+    },
+    {
+      "id": "storch",
+      "name": "Storch",
+      "bild": "storch.svg",
+      "info": ""
+    },
+    {
+      "id": "flamingo",
+      "name": "Flamingo",
+      "bild": "flamingo.svg",
+      "info": ""
+    },
+    {
+      "id": "pelikan",
+      "name": "Pelikan",
+      "bild": "pelikan.svg",
+      "info": ""
+    },
+    {
+      "id": "schwalbe",
+      "name": "Schwalbe",
+      "bild": "schwalbe.svg",
+      "info": ""
+    },
+    {
+      "id": "fledermaus",
+      "name": "Fledermaus",
+      "bild": "fledermaus.svg",
+      "info": ""
+    },
+    {
+      "id": "schmetterling",
+      "name": "Schmetterling",
+      "bild": "schmetterling.svg",
+      "info": ""
+    },
+    {
+      "id": "biene",
+      "name": "Biene",
+      "bild": "biene.svg",
+      "info": ""
+    },
+    {
+      "id": "marienkaefer",
+      "name": "Marienkäfer",
+      "bild": "marienkaefer.svg",
+      "info": ""
+    },
+    {
+      "id": "libelle",
+      "name": "Libelle",
+      "bild": "libelle.svg",
+      "info": ""
+    }
+  ]
+}

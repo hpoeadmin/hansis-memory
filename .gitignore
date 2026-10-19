@@ -1,0 +1,4 @@
+node_modules/
+dist/
+public/sets/index.json
+.DS_Store

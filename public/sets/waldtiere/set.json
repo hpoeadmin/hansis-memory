@@ -1,0 +1,82 @@
+{
+  "id": "waldtiere",
+  "name": "Waldtiere",
+  "status": "bald",
+  "reihenfolge": 3,
+  "farbe": "#E6DCC8",
+  "titelbild": null,
+  "tiere": [
+    {
+      "id": "reh",
+      "name": "Reh",
+      "bild": "reh.svg",
+      "info": ""
+    },
+    {
+      "id": "hirsch",
+      "name": "Hirsch",
+      "bild": "hirsch.svg",
+      "info": ""
+    },
+    {
+      "id": "fuchs",
+      "name": "Fuchs",
+      "bild": "fuchs.svg",
+      "info": ""
+    },
+    {
+      "id": "igel",
+      "name": "Igel",
+      "bild": "igel.svg",
+      "info": ""
+    },
+    {
+      "id": "eichhoernchen",
+      "name": "Eichhörnchen",
+      "bild": "eichhoernchen.svg",
+      "info": ""
+    },
+    {
+      "id": "dachs",
+      "name": "Dachs",
+      "bild": "dachs.svg",
+      "info": ""
+    },
+    {
+      "id": "wildschwein",
+      "name": "Wildschwein",
+      "bild": "wildschwein.svg",
+      "info": ""
+    },
+    {
+      "id": "hase",
+      "name": "Hase",
+      "bild": "hase.svg",
+      "info": ""
+    },
+    {
+      "id": "baer",
+      "name": "Bär",
+      "bild": "baer.svg",
+      "info": ""
+    },
+    {
+      "id": "wolf",
+      "name": "Wolf",
+      "bild": "wolf.svg",
+      "info": ""
+    },
+    {
+      "id": "luchs",
+      "name": "Luchs",
+      "bild": "luchs.svg",
+      "info": ""
+    },
+    {
+      "id": "biber",
+      "name": "Biber",
+      "bild": "biber.svg",
+      "info": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "hansis-memory",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "sets": "node scripts/sets-index.mjs",
+    "predev": "npm run sets",
+    "dev": "vite --host",
+    "prebuild": "npm run sets",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "vite": "^7.3.7"
+  }
+}

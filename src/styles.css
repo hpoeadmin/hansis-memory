@@ -1,0 +1,500 @@
+:root {
+  --hintergrund: #FFF8EC;
+  --text: #2E2A26;
+  --kontur: #2E2A26;
+  --haupt: #2F6B3A;
+  --haupt-text: #FFFFFF;
+  --flaeche: #FFFFFF;
+  --rueckseite: #3E7CB1;
+  --stern: #F6B93B;
+  --set-farbe: #DDF0C8;
+  --abstand: 20px;
+  --schrift: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--hintergrund);
+  color: var(--text);
+  font-family: var(--schrift);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  touch-action: manipulation;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+#app {
+  min-height: 100%;
+}
+
+.bildschirm {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  padding: max(var(--abstand), env(safe-area-inset-top)) max(var(--abstand), env(safe-area-inset-right))
+    max(var(--abstand), env(safe-area-inset-bottom)) max(var(--abstand), env(safe-area-inset-left));
+  gap: 16px;
+}
+
+.meldung {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 30vh;
+}
+
+.titel {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-align: center;
+}
+
+.frage {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  text-align: center;
+}
+
+/* ---------- Knöpfe ---------- */
+
+.knopf {
+  min-height: 72px;
+  min-width: 72px;
+  padding: 0 32px;
+  border: 4px solid var(--kontur);
+  border-radius: 20px;
+  background: var(--flaeche);
+  font-size: 1.6rem;
+  font-weight: 700;
+  box-shadow: 0 5px 0 var(--kontur);
+  cursor: pointer;
+}
+
+.knopf:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--kontur);
+}
+
+.knopf-haupt {
+  background: var(--haupt);
+  color: var(--haupt-text);
+}
+
+.knopf:focus-visible,
+.set-kachel:focus-visible,
+.stufe-knopf:focus-visible,
+.karte:focus-visible {
+  outline: 5px solid #1C5FD4;
+  outline-offset: 4px;
+}
+
+.kopfzeile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.kopf-titel {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+/* ---------- Startmenü ---------- */
+
+.set-raster {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: var(--abstand);
+}
+
+@media (orientation: landscape) {
+  .set-raster {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.set-kachel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  padding: 14px;
+  border: 5px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--set-farbe);
+  box-shadow: 0 6px 0 var(--kontur);
+  cursor: pointer;
+}
+
+.set-kachel:active:not(.gesperrt) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--kontur);
+}
+
+.set-bild {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.set-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.set-fragezeichen {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 700;
+  opacity: 0.35;
+}
+
+.set-name {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.set-kachel.gesperrt {
+  cursor: default;
+  box-shadow: none;
+  border-style: dashed;
+}
+
+.set-bald {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ---------- Stufe ---------- */
+
+.stufe-liste {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: var(--abstand);
+}
+
+@media (orientation: landscape) {
+  .stufe-liste {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stufe-knopf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 0;
+  padding: 16px;
+  border: 5px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--set-farbe);
+  box-shadow: 0 6px 0 var(--kontur);
+  cursor: pointer;
+}
+
+.stufe-knopf:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--kontur);
+}
+
+.stufe-name {
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  font-weight: 700;
+}
+
+.stufe-paare {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+}
+
+.mini-karten {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  max-width: 260px;
+}
+
+.mini-karte {
+  width: 16px;
+  height: 20px;
+  border: 2px solid var(--kontur);
+  border-radius: 4px;
+  background: var(--rueckseite);
+}
+
+/* ---------- Spiel ---------- */
+
+.spiel {
+  gap: 12px;
+}
+
+.spiel-kopf {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.anzeige {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 4px solid var(--kontur);
+  border-radius: 18px;
+  background: var(--flaeche);
+}
+
+.anzeige .beschriftung {
+  font-size: 1.3rem;
+}
+
+.anzeige .zahl {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.knopf-beenden {
+  margin-left: auto;
+}
+
+.brett {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--spalten, 4), var(--kb, 120px));
+  grid-auto-rows: calc(var(--kb, 120px) / 0.8);
+  justify-content: center;
+  align-content: center;
+  gap: 14px;
+}
+
+.karte {
+  position: relative;
+  width: var(--kb);
+  height: calc(var(--kb) / 0.8);
+  padding: 0;
+  border: 0;
+  background: none;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.karte-innen {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.karte.offen .karte-innen {
+  transform: rotateY(180deg);
+}
+
+.seite {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: max(3px, calc(var(--kb) * 0.03)) solid var(--kontur);
+  border-radius: calc(var(--kb) * 0.12);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rueckseite {
+  background-color: var(--rueckseite);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.28) 22%, transparent 24%);
+  background-size: calc(var(--kb) * 0.2) calc(var(--kb) * 0.2);
+  background-position: center;
+}
+
+.vorderseite {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  background: var(--flaeche);
+}
+
+.vorderseite img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.karte-name {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--kb) * 0.15);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Gefundenes Paar: hüpft kurz und bekommt ein Häkchen (nicht nur Farbe) */
+.karte.gefunden {
+  cursor: default;
+  animation: huepfen 0.7s ease-out 0.1s;
+}
+
+.karte.gefunden .vorderseite::after {
+  content: '✓';
+  position: absolute;
+  top: calc(var(--kb) * 0.04);
+  right: calc(var(--kb) * 0.04);
+  width: calc(var(--kb) * 0.2);
+  height: calc(var(--kb) * 0.2);
+  display: grid;
+  place-items: center;
+  border: max(2px, calc(var(--kb) * 0.02)) solid var(--kontur);
+  border-radius: 50%;
+  background: var(--haupt);
+  color: #fff;
+  font-size: calc(var(--kb) * 0.12);
+  font-weight: 700;
+}
+
+@keyframes huepfen {
+  0% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-12%) scale(1.06); }
+  65% { transform: translateY(0) scale(0.98); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ---------- Abschluss ---------- */
+
+.ende {
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  text-align: center;
+  background: var(--set-farbe);
+}
+
+.lob {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+.sterne {
+  display: flex;
+  gap: 16px;
+}
+
+.stern {
+  width: clamp(80px, 14vw, 130px);
+  height: auto;
+}
+
+.stern path {
+  stroke: var(--kontur);
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.stern.verdient path {
+  fill: var(--stern);
+}
+
+.stern.leer path {
+  fill: rgba(255, 255, 255, 0.6);
+  stroke-dasharray: 6 6;
+  stroke-opacity: 0.5;
+}
+
+.zusammenfassung {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  max-width: 30ch;
+}
+
+.ende-knoepfe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--abstand);
+}
+
+/* ---------- Dialog ---------- */
+
+.dialog-hintergrund {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(46, 42, 38, 0.55);
+  z-index: 10;
+}
+
+.dialog {
+  max-width: 560px;
+  padding: 32px;
+  border: 5px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--flaeche);
+  text-align: center;
+}
+
+.dialog-frage {
+  margin: 0 0 28px;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.dialog-knoepfe {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- Bewegung reduzieren ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .karte-innen {
+    transition: none;
+  }
+  .karte.gefunden {
+    animation: none;
+  }
+}

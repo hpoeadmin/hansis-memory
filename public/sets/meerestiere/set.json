@@ -1,0 +1,82 @@
+{
+  "id": "meerestiere",
+  "name": "Meerestiere",
+  "status": "bald",
+  "reihenfolge": 2,
+  "farbe": "#CDE7F5",
+  "titelbild": null,
+  "tiere": [
+    {
+      "id": "wal",
+      "name": "Wal",
+      "bild": "wal.svg",
+      "info": ""
+    },
+    {
+      "id": "delfin",
+      "name": "Delfin",
+      "bild": "delfin.svg",
+      "info": ""
+    },
+    {
+      "id": "hai",
+      "name": "Hai",
+      "bild": "hai.svg",
+      "info": ""
+    },
+    {
+      "id": "krake",
+      "name": "Krake",
+      "bild": "krake.svg",
+      "info": ""
+    },
+    {
+      "id": "seestern",
+      "name": "Seestern",
+      "bild": "seestern.svg",
+      "info": ""
+    },
+    {
+      "id": "krabbe",
+      "name": "Krabbe",
+      "bild": "krabbe.svg",
+      "info": ""
+    },
+    {
+      "id": "meeresschildkroete",
+      "name": "Meeresschildkröte",
+      "bild": "meeresschildkroete.svg",
+      "info": ""
+    },
+    {
+      "id": "qualle",
+      "name": "Qualle",
+      "bild": "qualle.svg",
+      "info": ""
+    },
+    {
+      "id": "seepferdchen",
+      "name": "Seepferdchen",
+      "bild": "seepferdchen.svg",
+      "info": ""
+    },
+    {
+      "id": "robbe",
+      "name": "Robbe",
+      "bild": "robbe.svg",
+      "info": ""
+    },
+    {
+      "id": "pinguin",
+      "name": "Pinguin",
+      "bild": "pinguin.svg",
+      "info": ""
+    },
+    {
+      "id": "kugelfisch",
+      "name": "Kugelfisch",
+      "bild": "kugelfisch.svg",
+      "info": ""
+    }
+  ]
+}
