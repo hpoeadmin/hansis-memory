@@ -3101,3 +3101,307 @@ img {
     grid-column: 1 / -1;
   }
 }
+
+/* ---------- Frage-Spiele (Einmaleins, Uhr lesen) ---------- */
+
+.fs-spiel {
+  gap: 14px;
+}
+
+.fs-stufen-text {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fs-stufenbild {
+  margin: 6px 0;
+}
+
+
+
+.fs-oben {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.fs-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 0;
+  max-height: 100%;
+}
+
+.fs-bild {
+  flex: 0 1 auto;
+  display: grid;
+  place-items: center;
+  max-height: 100%;
+}
+
+.fs-bild[hidden] {
+  display: none;
+}
+
+.fs-mitte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex: 0 1 500px;
+  min-width: 0;
+}
+
+.fs-frage {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.fs-antworten {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.fs-antwort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 92px;
+  padding: 8px 12px;
+  border: 5px solid var(--kontur);
+  border-radius: 24px;
+  background: var(--flaeche);
+  box-shadow: 0 6px 0 var(--kontur);
+  font: inherit;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.fs-antwort-text {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.fs-antwort-klein {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6B645C;
+}
+
+.fs-antwort.richtig {
+  background: #DDF0C8;
+  outline: 8px solid #2F8F46;
+  outline-offset: 2px;
+}
+
+.fs-antwort.falsch {
+  opacity: 0.4;
+}
+
+.fs-meldung {
+  margin: 0;
+  padding: 0;
+  min-height: 1.4em;
+  font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.fs-meldung.richtig {
+  color: #2F7A3E;
+}
+
+.fs-hilfe:empty {
+  display: none;
+}
+
+.fs-weiter {
+  min-width: 220px;
+  min-height: 76px;
+  font-size: 1.7rem;
+}
+
+.fs-weiter[hidden] {
+  display: none;
+}
+
+@media (orientation: portrait) {
+  .fs-oben {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Einmaleins */
+
+.em-aufgabe {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 18px 30px;
+  border: 6px solid var(--kontur);
+  border-radius: 32px;
+  background: var(--flaeche);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.em-frage {
+  color: #D9662B;
+}
+
+.em-punkte {
+  display: grid;
+  grid-template-columns: repeat(var(--spalten), 20px);
+  gap: 6px;
+  justify-content: center;
+}
+
+.em-punkt {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #D9662B;
+}
+
+.em-punkt.em-b {
+  background: #4A90D9;
+}
+
+/* Uhr lesen */
+
+.uh-uhr .uhr {
+  display: block;
+  width: min(36vw, 50vh, 360px);
+  height: auto;
+}
+
+
+
+.uh-tafel,
+.uh-mini-tafel {
+  border: 6px solid var(--kontur);
+  border-radius: 18px;
+  background: #1F3A6E;
+  color: #FFFFFF;
+}
+
+.uh-mini-tafel {
+  width: auto;
+  height: auto;
+  padding: 8px 14px;
+  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+}
+
+.uh-tafel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 18px 22px;
+  min-width: min(44vw, 420px);
+}
+
+.uh-zeile {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: 14px;
+  font-weight: 700;
+}
+
+.uh-ort {
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+}
+
+.uh-art {
+  font-size: 1.1rem;
+  color: #BFD3F2;
+}
+
+.uh-zeit {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  color: #FFE14D;
+  font-variant-numeric: tabular-nums;
+}
+
+.uh-pfeil {
+  font-size: 1.6rem;
+  color: #BFD3F2;
+}
+
+.fs-uhr .fs-antwort-text {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+}
+
+/* Kantone der Schweiz */
+
+.karte-wappen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+  padding: 6%;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.karte-wappen img {
+  display: block;
+  width: auto;
+  height: 82%;
+  min-height: 0;
+}
+
+.karte-wappen.mit-name img {
+  height: 62%;
+}
+
+.karte-wappen-name {
+  font-size: calc(var(--kb, 120px) * 0.13);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.kt-modusbild {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+}
+
+.kt-modusbild img {
+  position: static;
+  width: 30%;
+  height: auto;
+  max-height: 90%;
+}
+
+.kt-hauptort {
+  padding: 6px 14px;
+  border: 4px solid var(--kontur);
+  border-radius: 14px;
+  background: var(--flaeche);
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+}

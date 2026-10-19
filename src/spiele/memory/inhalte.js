@@ -7,8 +7,11 @@
 //     { art: 'menge', n, set, tier } n gleiche Tierbilder
 //     { art: 'zahl', n }           die Ziffer
 //     { art: 'buchstabe', text }   ein Buchstabe
+//     { art: 'wappen', kanton, mitName? }  Kantonswappen (Kantone der Schweiz)
 import { el } from '../../kern/ui.js';
 import { bildUrl, namenGroesse, tierName } from './sets.js';
+
+const BASIS = import.meta.env.BASE_URL;
 
 // Klassisches Memory: zweimal dasselbe Tier
 export function tierPaare(set, tiere) {
@@ -31,6 +34,8 @@ export function sprache(inhalt) {
     case 'menge':
     case 'zahl':
       return String(inhalt.n);
+    case 'wappen':
+      return inhalt.kanton.name;
     default:
       return inhalt.text;
   }
@@ -73,6 +78,15 @@ export function vorderseite(inhalt) {
       return [el('div', { class: 'karte-feld karte-zahl' }, String(inhalt.n))];
     case 'buchstabe':
       return [el('div', { class: 'karte-feld karte-buchstabe' }, inhalt.text)];
+    case 'wappen':
+      return [
+        el(
+          'div',
+          { class: `karte-feld karte-wappen${inhalt.mitName ? ' mit-name' : ''}` },
+          el('img', { src: `${BASIS}spiele/kantone/${inhalt.kanton.kz}.svg`, alt: '', draggable: 'false' }),
+          inhalt.mitName ? el('span', { class: 'karte-wappen-name' }, inhalt.kanton.name) : null,
+        ),
+      ];
     default:
       return [];
   }

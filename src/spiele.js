@@ -42,6 +42,22 @@ export const SPIELE = [
     starte: (app) => app.lernmemory.waehleArt('mengezahl'),
   },
   {
+    id: 'einmaleins',
+    bereich: 'mathe',
+    ab: 'kl34',
+    bild: 'spiele/einmaleins.svg',
+    farbe: '#FDE6D8',
+    starte: (app) => app.einmaleins.zeigeStart(),
+  },
+  {
+    id: 'uhr',
+    bereich: 'mathe',
+    ab: 'kl34',
+    bild: 'spiele/uhr.svg',
+    farbe: '#DCEBFA',
+    starte: (app) => app.uhr.zeigeStart(),
+  },
+  {
     id: 'franken',
     bereich: 'mathe',
     ab: 'kl34',
@@ -82,6 +98,14 @@ export const SPIELE = [
     bild: 'spiele/lebensraum.svg',
     farbe: '#FBE7C6',
     starte: (app) => app.lebensraum.zeigeStart(),
+  },
+  {
+    id: 'kantone',
+    bereich: 'natur',
+    ab: 'kl34',
+    bild: 'spiele/kantone.svg',
+    farbe: '#F7DCDC',
+    starte: (app) => app.kantone.zeigeStart(),
   },
   {
     id: 'nuenistei',

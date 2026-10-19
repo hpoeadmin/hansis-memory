@@ -18,6 +18,9 @@ import { lebensraumSteuerung } from './spiele/lebensraum/index.js';
 import { reihenfolgeSteuerung } from './spiele/reihenfolge/index.js';
 import { wortartenSteuerung } from './spiele/wortarten/index.js';
 import { frankenSteuerung } from './spiele/franken/index.js';
+import { einmaleinsSteuerung } from './spiele/einmaleins/index.js';
+import { uhrSteuerung } from './spiele/uhr/index.js';
+import { kantoneSteuerung } from './spiele/kantone/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -38,6 +41,9 @@ app.lebensraum = lebensraumSteuerung(app);
 app.reihenfolge = reihenfolgeSteuerung(app);
 app.wortarten = wortartenSteuerung(app);
 app.franken = frankenSteuerung(app);
+app.einmaleins = einmaleinsSteuerung(app);
+app.uhr = uhrSteuerung(app);
+app.kantone = kantoneSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

@@ -35,6 +35,9 @@ export const T = {
     'lern-bildwort': 'Bild und Wort',
     'lern-buchstaben': 'Gross und klein',
     wortarten: 'Wortarten',
+    einmaleins: 'Einmaleins-Meister',
+    uhr: 'Uhr lesen',
+    kantone: 'Kantone der Schweiz',
     franken: 'Bezahlen mit Franken',
     lebensraum: 'Wo wohne ich?',
     reihenfolge: 'Merk dir die Reihenfolge',
@@ -280,6 +283,67 @@ export const T = {
     aufgabeVon: (n, gesamt) => `Einkauf ${n} von ${gesamt}`,
     ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Einkäufen gleich beim ersten Mal richtig bezahlt.`,
     ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  einmaleins: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      reihen: { titel: 'Leichte Reihen', text: '2er, 5er und 10er' },
+      alle: { titel: 'Kleines Einmaleins', text: 'alle Reihen gemischt' },
+      teilen: { titel: 'Mal und geteilt', text: 'auch Umkehraufgaben' },
+      profi: { titel: 'Profi', text: 'Zehner und Teilen mit Rest' },
+    },
+    frageVon: (n, gesamt) => `Aufgabe ${n} von ${gesamt}`,
+    tippe: 'Tippe auf das richtige Ergebnis.',
+    vorlesen: (a, op, b) => `Wie viel ist ${a} ${op === '×' ? 'mal' : 'geteilt durch'} ${b}?`,
+    richtig: ['Richtig!', 'Super gerechnet!', 'Genau!', 'Toll!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    hilfeMal: (a, b) => `Noch nicht. Schau: ${a} Reihen mit je ${b} Punkten. Zähle in ${b}er-Schritten.`,
+    hilfeTeilen: (b, gesamt) => `Noch nicht. Denk an die ${b}er-Reihe: ${b} mal wie viel gibt ${gesamt}?`,
+    hilfeZehnerMal: (a, b, kern) => `Noch nicht. Rechne zuerst ${a} × ${b} = ${kern}. Dann hängst du eine Null an.`,
+    hilfeZehnerTeilen: (kern, a, b) => `Noch nicht. Denk an ${kern} : ${a} = ${b}. Dann hängst du eine Null an.`,
+    hilfeRest: (b, gesamt, naechste) => `Noch nicht. Welche Zahl der ${b}er-Reihe passt knapp unter ${gesamt}? Es ist ${naechste}. Was bleibt übrig?`,
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Aufgaben gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  uhr: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      stunden: { titel: 'Volle und halbe', text: 'z.B. halb vier' },
+      viertel: { titel: 'Viertelstunden', text: 'Viertel nach, Viertel vor' },
+      fuenf: { titel: 'Fünf Minuten', text: 'z.B. 10:25' },
+      dauer: { titel: 'Wie lange?', text: 'Zeitspannen am Fahrplan' },
+    },
+    frageVon: (n, gesamt) => `Aufgabe ${n} von ${gesamt}`,
+    wieSpaet: 'Wie spät ist es?',
+    esIst: (zeit) => `Es ist ${zeit}.`,
+    ab: 'ab',
+    an: 'an',
+    wieLange: (von, nach) => `Wie lange dauert die Fahrt von ${von} nach ${nach}?`,
+    wieLangeVorlesen: (von, ab, nach, an) => `Der Zug fährt um ${ab} in ${von} ab und kommt um ${an} in ${nach} an. Wie lange dauert die Fahrt?`,
+    dauerIst: (dauer) => `Die Fahrt dauert ${dauer}.`,
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Toll abgelesen!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    // Der lange Zeiger verrät die Minuten
+    hilfeUhr: (m) => {
+      const auf = m === 0 ? 12 : m / 5;
+      const bedeutung = { 0: 'eine volle Stunde', 15: 'Viertel nach', 30: 'halb – also schon fast die nächste Stunde', 45: 'Viertel vor' }[m] ?? `${m} Minuten nach der vollen Stunde`;
+      return `Noch nicht. Der kurze blaue Zeiger zeigt die Stunde. Der lange Zeiger steht auf der ${auf} – das heisst ${bedeutung}.`;
+    },
+    hilfeDauer: (ab, volle, erst, an) => `Noch nicht. Rechne in zwei Schritten: von ${ab} bis ${volle} sind es ${erst}. Wie lange ist es dann noch bis ${an}?`,
+    hilfeDauerKurz: 'Noch nicht. Zähle die Minuten von der Abfahrt bis zur Ankunft.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Aufgaben gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  kantone: {
+    frage: 'Was möchtest du spielen?',
+    modi: {
+      nachbarn: { titel: 'Rund um Zürich', text: 'Wappen und Name, 8 Kantone' },
+      alle: { titel: 'Alle Kantone', text: 'Wappen und Name, 12 von 26' },
+      hauptorte: { titel: 'Hauptorte', text: 'Kanton und Hauptort' },
+    },
   },
 
   update: {
