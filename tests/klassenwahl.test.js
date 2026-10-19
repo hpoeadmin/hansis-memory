@@ -15,7 +15,16 @@ describe('Spiele pro Klasse', () => {
   });
 
   it('3./4. Klasse: neue Spiele, aber keine Kindergarten-Lernspiele', () => {
-    expect(ids('kl34')).toEqual(expect.arrayContaining(['franken', 'wortarten', 'memory', 'nuenistei']));
+    expect(ids('kl34')).toEqual(expect.arrayContaining(['franken', 'wortarten', 'memory']));
     expect(ids('kl34')).not.toContain('lern-buchstaben');
+  });
+
+  it('Brettspiele stehen nur unter «Spiele» und «Alle Spiele»', () => {
+    expect(ids('brett').sort()).toEqual(['eilemitweile', 'nuenistei']);
+    for (const klasse of ['kg', 'kl12', 'kl34', 'kl56']) {
+      expect(ids(klasse)).not.toContain('nuenistei');
+      expect(ids(klasse)).not.toContain('eilemitweile');
+    }
+    expect(ids('alle')).toContain('nuenistei');
   });
 });

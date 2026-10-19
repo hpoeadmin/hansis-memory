@@ -5,14 +5,19 @@
 
 export const BEREICHE = ['gedaechtnis', 'raum', 'mathe', 'lesen', 'natur', 'brett'];
 
-// Klassen auf der Startseite (Reihenfolge = Alter). «alle» zeigt jedes Spiel.
-export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'alle'];
+// Kacheln auf der Startseite: die Klassen (Reihenfolge = Alter), «Spiele» (die Brettspiele)
+// und «Alle Spiele» (jedes Spiel).
+export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'brett', 'alle'];
 const RANG = { alle: 0, kg: 1, kl12: 2, kl34: 3, kl56: 4 };
 
-// Spiele für eine Klasse: alles, was «ab» dieser Klasse oder jünger gedacht ist
+// Spiele für eine Kachel: bei einer Klasse alles, was «ab» dieser Klasse oder jünger gedacht ist –
+// ohne die Brettspiele, die haben ihre eigene Kachel
 export function spieleFuer(klasse) {
   if (klasse === 'alle') return SPIELE;
-  return SPIELE.filter((spiel) => RANG[spiel.ab] <= RANG[klasse] && RANG[klasse] <= RANG[spiel.bis ?? 'kl56']);
+  if (klasse === 'brett') return SPIELE.filter((spiel) => spiel.bereich === 'brett');
+  return SPIELE.filter(
+    (spiel) => spiel.bereich !== 'brett' && RANG[spiel.ab] <= RANG[klasse] && RANG[klasse] <= RANG[spiel.bis ?? 'kl56'],
+  );
 }
 
 export const SPIELE = [

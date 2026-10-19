@@ -3042,16 +3042,29 @@ img {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  grid-template-rows: minmax(0, min(100%, 420px));
-  align-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: var(--abstand);
+}
+
+/* Querformat: zwei Reihen à drei Kacheln – das Bild richtet sich nach der Höhe */
+@media (orientation: landscape) {
+  .klassen-bild {
+    width: min(14vw, 21vh, 170px);
+  }
 }
 
 .klassen-kachel {
   justify-content: center;
   gap: 6px;
   padding: 14px 8px;
+}
+
+.klassen-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .klassen-kachel .set-name {
@@ -3095,15 +3108,10 @@ img {
 @media (orientation: portrait) {
   .klassen-raster {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-rows: minmax(0, 1fr);
-    align-content: stretch;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
   }
   .klassen-bild {
     width: clamp(120px, 22vw, 190px);
-  }
-  .klassen-kachel:last-child {
-    grid-column: 1 / -1;
   }
 }
 

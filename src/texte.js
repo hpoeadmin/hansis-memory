@@ -16,6 +16,7 @@ export const T = {
     frage: 'In welche Klasse gehst du?',
     zurueck: 'Klassen',
     alle: 'Alle Spiele',
+    namen: { brett: 'Spiele', alle: 'Alle Spiele' },
     anzahl: (n) => `${n} Spiele`,
   },
 

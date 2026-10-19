@@ -8,7 +8,10 @@ import { BEREICHE, KLASSENWAHL, spieleFuer } from './spiele.js';
 
 const BASIS = import.meta.env.BASE_URL;
 
-const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', alle: '#FFF3D6' };
+const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', brett: '#F6E3B4', alle: '#FFF3D6' };
+
+// Name einer Startseiten-Kachel: Klasse, «Spiele» oder «Alle Spiele»
+const kachelName = (klasse) => T.klassenwahl.namen[klasse] ?? T.schule.kategorien[klasse];
 
 function kachel(app, spiel, mitAlter) {
   const k = el(
@@ -30,7 +33,7 @@ function sichtbareSpiele(app, klasse) {
 
 // Die Kinder mit Profil, die heute in diese Klasse gehen (Kindergarten inkl. «vor dem Kindergarten»)
 function kinderIn(klasse) {
-  if (klasse === 'alle') return [];
+  if (klasse === 'alle' || klasse === 'brett') return [];
   return speicher.profile.filter((profil) => {
     const k = aktuelleKlasse(profil);
     if (!k || k.id === 'erw') return false;
@@ -48,17 +51,21 @@ export function zeigeKlassenwahl(app) {
       'button',
       { class: 'set-kachel klassen-kachel', type: 'button', style: `--set-farbe: ${KLASSEN_FARBE[klasse]}` },
       el('img', { class: 'klassen-bild', src: `${BASIS}spiele/klasse-${klasse}.svg`, alt: '' }),
-      el('span', { class: 'set-name' }, klasse === 'alle' ? W.alle : T.schule.kategorien[klasse]),
-      el('span', { class: 'modus-text' }, W.anzahl(sichtbareSpiele(app, klasse).length)),
-      kinder.length
-        ? el(
-            'span',
-            { class: 'klassen-kinder' },
-            kinder.map((p) =>
-              el('span', { class: 'klassen-kind' }, el('img', { class: 'avatar', src: avatarUrl(p), alt: '' }), p.name),
-            ),
-          )
-        : null,
+      el(
+        'span',
+        { class: 'klassen-text' },
+        el('span', { class: 'set-name' }, kachelName(klasse)),
+        el('span', { class: 'modus-text' }, W.anzahl(sichtbareSpiele(app, klasse).length)),
+        kinder.length
+          ? el(
+              'span',
+              { class: 'klassen-kinder' },
+              kinder.map((p) =>
+                el('span', { class: 'klassen-kind' }, el('img', { class: 'avatar', src: avatarUrl(p), alt: '' }), p.name),
+              ),
+            )
+          : null,
+      ),
     );
     beiTipp(k, () => {
       app.klasse = klasse;
@@ -97,7 +104,7 @@ export function zeigeHauptmenue(app) {
       'section',
       { class: 'bereich' },
       el('h2', { class: 'bereich-titel' }, T.bereiche[bereich]),
-      el('div', { class: 'bereich-raster' }, spiele.map((s) => kachel(app, s, klasse === 'alle'))),
+      el('div', { class: 'bereich-raster' }, spiele.map((s) => kachel(app, s, klasse === 'alle' || klasse === 'brett'))),
     );
   }).filter(Boolean);
 
@@ -116,7 +123,7 @@ export function zeigeHauptmenue(app) {
           },
           'knopf-zurueck kopf-links',
         ),
-        el('h1', { class: 'titel' }, klasse === 'alle' ? T.klassenwahl.alle : T.schule.kategorien[klasse]),
+        el('h1', { class: 'titel' }, kachelName(klasse)),
       ),
       el('div', { class: 'hauptmenue-inhalt' }, abschnitte, el('p', { class: 'version-zeile' }, T.version(__VERSION__))),
     ),

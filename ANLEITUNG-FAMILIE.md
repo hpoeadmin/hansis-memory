@@ -34,7 +34,7 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 ## Gut zu wissen
 
 - **Ohne Internet:** Öffne das Spiel einmal mit Internet. Danach funktioniert es auch ohne WLAN, z.B. im Zug oder in den Ferien.
-- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Unter **Alle Spiele** findest du jedes Spiel.
+- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Die Brettspiele (Nüni Stei, Eile mit Weile) findest du unter **Spiele**, jedes Spiel unter **Alle Spiele**.
 - **Spiel wählen:** Danach erscheinen die Spiele für diese Klasse. Tippe auf ein Spiel, z.B. **Memory**. Mit **‹ Klassen** kommst du zurück zur Startseite.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
