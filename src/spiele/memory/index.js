@@ -1,6 +1,7 @@
 // Memory: Ablauf Satz → Stufe → Spieler → Spiel → Abschluss.
 // Die Steuerung erbt vom App-Objekt (Kartensätze, Einstellungen, Profile, Hauptmenü).
 import { merkeLetzteSpieler } from '../../kern/profile.js';
+import { speicher } from '../../kern/speicher.js';
 import { zeigeSpieler } from '../../kern/bildschirme/spieler.js';
 import { zeigeStart } from './start.js';
 import { zeigeStufe } from './stufe.js';
@@ -26,6 +27,7 @@ export function memorySteuerung(app) {
     zeigeSpieler(app, {
       farbe: m.auswahl.set.farbe,
       max: 4,
+      vorauswahl: speicher.letzteSpieler,
       zurueck: m.zeigeStufe,
       weiter: m.starteSpiel,
     });

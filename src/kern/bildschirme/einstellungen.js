@@ -149,6 +149,15 @@ export function zeigeEinstellungen(app) {
           ],
           'namen',
         ),
+        el('h2', { class: 'gruppen-titel' }, T.spiele.nuenistei),
+        auswahl(
+          E.zugZurueck,
+          [
+            { wert: true, text: E.ja },
+            { wert: false, text: E.nein },
+          ],
+          'zugZurueck',
+        ),
         el('h2', { class: 'gruppen-titel' }, E.gruppeSpieler),
         spielerVerwaltung(app),
       ),

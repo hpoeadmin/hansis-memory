@@ -12,7 +12,9 @@ const STANDARD = {
     vorlesen: false,
     rueckseite: 'blau', // blau | gruen | orange
     namen: true, // Tiernamen auf den Karten
+    zugZurueck: true, // Brettspiele: «Zug zurück» anbieten
   },
+  nuenistei: { laufend: null }, // gespeichertes, noch nicht beendetes Spiel
   bestleistungen: {}, // { profilId: { leicht: zuege, ... } }
   album: {}, // { profilId: { setId: [tierId, ...] } }
 };

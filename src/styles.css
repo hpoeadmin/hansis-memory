@@ -1644,6 +1644,379 @@ img {
   font-weight: 700;
 }
 
+/* ---------- Nüni Stei: Startseite ---------- */
+
+.modus-kachel .modus-text {
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+}
+
+.regeln-dialog {
+  max-width: 680px;
+  text-align: left;
+}
+
+.regeln-liste {
+  margin: 0 0 24px;
+  padding-left: 1.4em;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.regeln-liste li + li {
+  margin-top: 10px;
+}
+
+/* ---------- Nüni Stei: Spiel ---------- */
+
+.muehle-spiel {
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr) minmax(150px, 210px);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'meldung meldung meldung'
+    'links brett rechts'
+    'fuss fuss fuss';
+  gap: 14px;
+}
+
+.muehle-spiel .meldung {
+  grid-area: meldung;
+  margin: 0;
+  padding: 12px 20px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.muehle-spiel .meldung.muehle {
+  background: var(--stern);
+}
+
+.muehle-seite.links {
+  grid-area: links;
+}
+
+.muehle-seite.rechts {
+  grid-area: rechts;
+}
+
+.muehle-mitte {
+  grid-area: brett;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.muehle-fuss {
+  grid-area: fuss;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.knopf-zug-zurueck[hidden] {
+  display: none;
+}
+
+.muehle-seite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-height: 0;
+  padding: 14px 10px;
+  border: 4px solid var(--kontur);
+  border-radius: 24px;
+  background: var(--flaeche);
+  text-align: center;
+  overflow: hidden;
+}
+
+.muehle-seite.aktiv {
+  border-width: 7px;
+  background: var(--spieler-farbe);
+  color: var(--spieler-text);
+}
+
+.dran-schild {
+  padding: 2px 12px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.muehle-seite .avatar {
+  width: 88px;
+  height: 88px;
+  border-width: 6px;
+  border-color: var(--spieler-farbe);
+}
+
+.muehle-seite.aktiv .avatar {
+  border-color: var(--kontur);
+}
+
+.seite-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.seite-farbe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.seite-text {
+  font-size: 1.1rem;
+}
+
+.seite-text.fett {
+  font-weight: 700;
+}
+
+.vorrat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 140px;
+}
+
+.mini-stein {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--kontur);
+  border-radius: 50%;
+}
+
+.mini-stein.weiss {
+  background: #F8F5EE;
+}
+
+.mini-stein.schwarz {
+  background: #3B3632;
+}
+
+/* Hochformat: Spieler oben nebeneinander, Brett darunter */
+@media (orientation: portrait) {
+  .muehle-spiel {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'meldung meldung'
+      'links rechts'
+      'brett brett'
+      'fuss fuss';
+  }
+  .muehle-seite {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'avatar name' 'avatar farbe' 'avatar text';
+    justify-items: start;
+    text-align: left;
+    column-gap: 12px;
+    row-gap: 2px;
+    padding: 10px 14px;
+  }
+  .muehle-seite .avatar {
+    grid-area: avatar;
+    width: 72px;
+    height: 72px;
+  }
+  .muehle-seite .dran-schild,
+  .muehle-seite .vorrat,
+  .muehle-seite .seite-text + .seite-text {
+    display: none;
+  }
+}
+
+.muehle-brett {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  touch-action: manipulation;
+}
+
+.brett-holz {
+  fill: #D9B77E;
+  stroke: var(--kontur);
+  stroke-width: 8;
+}
+
+.brett-linien {
+  fill: none;
+  stroke: var(--kontur);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.brett-punkt {
+  fill: var(--kontur);
+}
+
+.tippflaeche {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.muehle-linie {
+  stroke: #F6C33B;
+  stroke-width: 30;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+.ziel-ring {
+  fill: rgba(125, 191, 90, 0.4);
+  stroke: #2F8F46;
+  stroke-width: 6;
+  stroke-dasharray: 8 6;
+}
+
+.ziel-punkt {
+  fill: #2F8F46;
+}
+
+.stein {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.stein-glanz {
+  fill: none;
+}
+
+.stein.gewaehlt .stein-glanz {
+  fill: rgba(246, 195, 59, 0.6);
+  stroke: #E0A21B;
+  stroke-width: 5;
+}
+
+.stein.beweglich .stein-glanz {
+  stroke: #2F8F46;
+  stroke-width: 4;
+  stroke-dasharray: 6 6;
+}
+
+.stein-schatten {
+  fill: var(--kontur);
+  opacity: 0.25;
+}
+
+.stein-koerper {
+  stroke: var(--kontur);
+  stroke-width: 6;
+}
+
+.stein.weiss .stein-koerper {
+  fill: #F8F5EE;
+}
+
+.stein.schwarz .stein-koerper {
+  fill: #3B3632;
+}
+
+.stein-rille {
+  fill: none;
+  stroke-width: 4;
+}
+
+.stein.weiss .stein-rille {
+  stroke: #D8D2C6;
+}
+
+.stein.schwarz .stein-rille {
+  stroke: #5A534D;
+}
+
+.weg-ring {
+  fill: none;
+  stroke: #D64545;
+  stroke-width: 6;
+  stroke-dasharray: 9 7;
+}
+
+.weg-knopf {
+  fill: #D64545;
+  stroke: var(--kontur);
+  stroke-width: 4;
+}
+
+.weg-kreuz {
+  stroke: #FFFFFF;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.stein.neu {
+  animation: stein-setzen 0.35s ease-out;
+}
+
+.stein.gezogen {
+  animation: stein-ziehen 0.45s ease-in-out;
+}
+
+.stein.verschwindet {
+  animation: stein-weg 0.5s ease-in forwards;
+}
+
+@keyframes stein-setzen {
+  0% { transform: scale(0.3); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes stein-ziehen {
+  from { transform: translate(var(--dx), var(--dy)); }
+  to { transform: translate(0, 0); }
+}
+
+@keyframes stein-weg {
+  to { transform: scale(0.2); opacity: 0; }
+}
+
+/* ---------- Nüni Stei: Abschluss ---------- */
+
+.ende-paar {
+  display: flex;
+  gap: 28px;
+}
+
+.ende-spieler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ende-spieler .avatar {
+  width: 96px;
+  height: 96px;
+  border-width: 6px;
+  border-color: var(--spieler-farbe);
+}
+
+.ende-spieler.sieger .avatar {
+  width: 124px;
+  height: 124px;
+  box-shadow: 0 0 0 8px var(--stern);
+}
+
 /* ---------- Bewegung reduzieren ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1656,7 +2029,9 @@ img {
   .stern,
   .ende .lob,
   .paar-karte,
-  .neues-abzeichen {
+  .neues-abzeichen,
+  .stein.neu,
+  .stein.gezogen {
     animation: none !important;
   }
 }

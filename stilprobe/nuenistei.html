@@ -1,0 +1,203 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Entwurf Nüni Stei</title><style>body{margin:0;background:#FFF8EC;font-family:"Atkinson Hyperlegible",system-ui,sans-serif;color:#2E2A26;padding:20px}
+h1{font-size:26px;margin:0 0 6px}h2{font-size:20px;margin:22px 0 8px}p.erkl{margin:0 0 10px;font-size:16px;max-width:900px}
+.rahmen{width:1024px;height:680px;border:3px solid #2E2A26;border-radius:18px;background:#FFF8EC;display:grid;grid-template-columns:200px 1fr 200px;grid-template-rows:auto 1fr auto;gap:12px;padding:16px;box-sizing:border-box}
+.kopf{grid-column:1/4;display:flex;align-items:center;gap:14px}
+.meldung{flex:1;text-align:center;font-size:24px;font-weight:700;padding:12px 18px;border:4px solid #2E2A26;border-radius:999px;background:#fff}
+.meldung.muehle{background:#F6C33B}
+.knopf{min-height:64px;padding:0 24px;border:4px solid #2E2A26;border-radius:18px;background:#fff;font-size:20px;font-weight:700;box-shadow:0 5px 0 #2E2A26;display:flex;align-items:center}
+.mitte{display:grid;place-items:center;min-height:0}
+.brett{height:100%;max-height:540px;width:auto}
+.seite{border:4px solid #2E2A26;border-radius:24px;background:#fff;padding:14px;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.seite.aktiv{border-width:7px;background:var(--sf);color:#fff}
+.dran{font-size:18px;font-weight:700;background:#fff;color:#2E2A26;border:3px solid #2E2A26;border-radius:999px;padding:2px 12px}
+.ava{width:96px;height:96px;border-radius:50%;border:6px solid var(--sf);background:#fff}
+.seite.aktiv .ava{border-color:#2E2A26}
+.name{font-size:28px;font-weight:700}
+.farbe{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700}
+.zahl{font-size:17px;text-align:center}
+.vorrat{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:150px}
+.mini{width:20px;height:20px;border-radius:50%;border:3px solid #2E2A26;display:inline-block}
+.mini.gross{width:26px;height:26px}
+.fuss{grid-column:1/4;display:flex;justify-content:space-between}
+</style></head><body>
+<h1>Entwurf «Nüni Stei» – Spielbrett zur Freigabe</h1>
+<p class="erkl">Querformat auf dem iPad. Links und rechts die beiden Spieler, wer dran ist, ist farbig mit «▶ ist dran». Oben steht immer gross, was als Nächstes zu tun ist.</p>
+<h2>1. Ziehen: Lena hat einen Stein angetippt – die grünen Punkte zeigen, wohin er darf</h2>
+<div class="rahmen"><div class="kopf"><div class="meldung">Tippe auf einen grünen Punkt, um den Stein zu ziehen.</div></div><div class="seite aktiv" style="--sf:#D64545">
+  <div class="dran">▶ ist dran</div>
+  <img class="ava" src="../public/sets/bauernhof/katze.svg" alt="">
+  <div class="name">Lena</div>
+  <div class="farbe"><span class="mini gross" style="background:#F8F5EE"></span>Weiss</div>
+  <div class="zahl">alle gesetzt<br>6 auf dem Brett</div>
+  <div class="vorrat"></div>
+</div><div class="mitte"><svg viewBox="0 0 560 560" class="brett">
+<rect x="4" y="4" width="552" height="552" rx="34" fill="#D9B77E" stroke="#2E2A26" stroke-width="8"/>
+<g fill="none" stroke="#2E2A26" stroke-width="7" stroke-linecap="round">
+<rect x="40" y="40" width="480" height="480"/>
+<rect x="120" y="120" width="320" height="320"/>
+<rect x="200" y="200" width="160" height="160"/>
+<path d="M280 40 V200 M280 360 V520 M40 280 H200 M360 280 H520"/>
+</g>
+<circle cx="40" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="40" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="40" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="440" r="26" fill="#7DBF5A" fill-opacity="0.35" stroke="#2F8F46" stroke-width="6" stroke-dasharray="8 6"/>
+<circle cx="440" cy="440" r="9" fill="#2F8F46"/>
+<circle cx="520" cy="280" r="26" fill="#7DBF5A" fill-opacity="0.35" stroke="#2F8F46" stroke-width="6" stroke-dasharray="8 6"/>
+<circle cx="520" cy="280" r="9" fill="#2F8F46"/>
+<circle cx="360" cy="280" r="26" fill="#7DBF5A" fill-opacity="0.35" stroke="#2F8F46" stroke-width="6" stroke-dasharray="8 6"/>
+<circle cx="360" cy="280" r="9" fill="#2F8F46"/>
+<circle cx="440" cy="280" r="40" fill="#F6C33B" fill-opacity="0.55" stroke="#E0A21B" stroke-width="5"/>
+<circle cx="440" cy="279" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="440" cy="274" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="440" cy="274" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="40" cy="45" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="40" cy="40" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="40" cy="40" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="280" cy="205" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="280" cy="200" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="280" cy="200" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="200" cy="365" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="200" cy="360" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="200" cy="360" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="520" cy="525" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="520" cy="520" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="520" cy="520" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="120" cy="445" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="120" cy="440" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="120" cy="440" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="440" cy="125" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="440" cy="120" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="440" cy="120" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="520" cy="45" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="520" cy="40" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="520" cy="40" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="280" cy="445" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="280" cy="440" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="280" cy="440" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="200" cy="205" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="200" cy="200" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="200" cy="200" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="40" cy="285" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="40" cy="280" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="40" cy="280" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="360" cy="365" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="360" cy="360" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="360" cy="360" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+</svg>
+</div><div class="seite " style="--sf:#8A4FC7">
+  
+  <img class="ava" src="../public/sets/bauernhof/huhn.svg" alt="">
+  <div class="name">Grosi</div>
+  <div class="farbe"><span class="mini gross" style="background:#3B3632"></span>Schwarz</div>
+  <div class="zahl">alle gesetzt<br>6 auf dem Brett</div>
+  <div class="vorrat"></div>
+</div><div class="fuss"><div class="knopf">↶ Zug zurück</div><div class="knopf">Beenden</div></div></div>
+<h2>2. Setzen: Grosi hat eine Mühle – sie darf einen weissen Stein wegnehmen (rot umrandet)</h2>
+<div class="rahmen"><div class="kopf"><div class="meldung muehle">Mühle! Grosi darf einen Stein von Lena wegnehmen.</div></div><div class="seite " style="--sf:#D64545">
+  
+  <img class="ava" src="../public/sets/bauernhof/katze.svg" alt="">
+  <div class="name">Lena</div>
+  <div class="farbe"><span class="mini gross" style="background:#F8F5EE"></span>Weiss</div>
+  <div class="zahl">noch 5 zu setzen<br>4 auf dem Brett</div>
+  <div class="vorrat"><span class="mini" style="background:#F8F5EE"></span><span class="mini" style="background:#F8F5EE"></span><span class="mini" style="background:#F8F5EE"></span><span class="mini" style="background:#F8F5EE"></span><span class="mini" style="background:#F8F5EE"></span></div>
+</div><div class="mitte"><svg viewBox="0 0 560 560" class="brett">
+<rect x="4" y="4" width="552" height="552" rx="34" fill="#D9B77E" stroke="#2E2A26" stroke-width="8"/>
+<g fill="none" stroke="#2E2A26" stroke-width="7" stroke-linecap="round">
+<rect x="40" y="40" width="480" height="480"/>
+<rect x="120" y="120" width="320" height="320"/>
+<rect x="200" y="200" width="160" height="160"/>
+<path d="M280 40 V200 M280 360 V520 M40 280 H200 M360 280 H520"/>
+</g>
+<line x1="40" y1="40" x2="520" y2="40" stroke="#F6C33B" stroke-width="30" stroke-linecap="round" opacity="0.85"/>
+<circle cx="40" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="40" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="520" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="40" cy="520" r="11" fill="#2E2A26"/>
+<circle cx="40" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="120" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="440" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="440" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="200" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="360" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="280" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="360" r="11" fill="#2E2A26"/>
+<circle cx="200" cy="280" r="11" fill="#2E2A26"/>
+<circle cx="120" cy="125" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="120" cy="120" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="120" cy="120" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="120" cy="120" r="38" fill="none" stroke="#D64545" stroke-width="6" stroke-dasharray="9 7"/>
+<circle cx="147" cy="93" r="14" fill="#D64545" stroke="#2E2A26" stroke-width="4"/>
+<path d="M141 87 L153 99 M153 87 L141 99" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="280" cy="205" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="280" cy="200" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="280" cy="200" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="280" cy="200" r="38" fill="none" stroke="#D64545" stroke-width="6" stroke-dasharray="9 7"/>
+<circle cx="307" cy="173" r="14" fill="#D64545" stroke="#2E2A26" stroke-width="4"/>
+<path d="M301 167 L313 179 M313 167 L301 179" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="440" cy="445" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="440" cy="440" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="440" cy="440" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="440" cy="440" r="38" fill="none" stroke="#D64545" stroke-width="6" stroke-dasharray="9 7"/>
+<circle cx="467" cy="413" r="14" fill="#D64545" stroke="#2E2A26" stroke-width="4"/>
+<path d="M461 407 L473 419 M473 407 L461 419" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="200" cy="365" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="200" cy="360" r="29" fill="#F8F5EE" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="200" cy="360" r="16" fill="none" stroke="#D8D2C6" stroke-width="4"/>
+<circle cx="200" cy="360" r="38" fill="none" stroke="#D64545" stroke-width="6" stroke-dasharray="9 7"/>
+<circle cx="227" cy="333" r="14" fill="#D64545" stroke="#2E2A26" stroke-width="4"/>
+<path d="M221 327 L233 339 M233 327 L221 339" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="40" cy="45" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="40" cy="40" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="40" cy="40" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="280" cy="45" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="280" cy="40" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="280" cy="40" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="520" cy="45" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="520" cy="40" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="520" cy="40" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+<circle cx="360" cy="285" r="29" fill="#2E2A26" opacity="0.25"/>
+<circle cx="360" cy="280" r="29" fill="#3B3632" stroke="#2E2A26" stroke-width="6"/>
+<circle cx="360" cy="280" r="16" fill="none" stroke="#5A534D" stroke-width="4"/>
+</svg>
+</div><div class="seite aktiv" style="--sf:#8A4FC7">
+  <div class="dran">▶ ist dran</div>
+  <img class="ava" src="../public/sets/bauernhof/huhn.svg" alt="">
+  <div class="name">Grosi</div>
+  <div class="farbe"><span class="mini gross" style="background:#3B3632"></span>Schwarz</div>
+  <div class="zahl">noch 5 zu setzen<br>4 auf dem Brett</div>
+  <div class="vorrat"><span class="mini" style="background:#3B3632"></span><span class="mini" style="background:#3B3632"></span><span class="mini" style="background:#3B3632"></span><span class="mini" style="background:#3B3632"></span><span class="mini" style="background:#3B3632"></span></div>
+</div><div class="fuss"><div class="knopf">↶ Zug zurück</div><div class="knopf">Beenden</div></div></div>
+</body></html>

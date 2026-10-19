@@ -32,8 +32,11 @@ export const T = {
 
   spieler: {
     frage: 'Wer spielt mit?',
-    hinweis: (max) =>
-      max === 1 ? 'Tippe an, wer spielt.' : `Tippe auf alle, die mitspielen (bis zu ${max}).`,
+    hinweis: (min, max) => {
+      if (max === 1) return 'Tippe an, wer spielt.';
+      if (min === max) return `Tippe auf die ${max === 2 ? 'zwei' : max} Spieler. Wer zuerst getippt wird, beginnt.`;
+      return `Tippe auf alle, die mitspielen (bis zu ${max}).`;
+    },
     neu: 'Neuer Spieler',
     los: 'Los geht’s!',
   },
@@ -49,6 +52,7 @@ export const T = {
     abbrechen: 'Abbrechen',
     nameFehlt: 'Bitte einen Namen eintragen.',
     gast: 'Gast',
+    gast2: 'Gast 2',
     farben: {
       rot: 'Rot',
       blau: 'Blau',
@@ -115,6 +119,7 @@ export const T = {
     titel: 'Einstellungen',
     gruppeAllgemein: 'Für alle Spiele',
     gruppeSpieler: 'Spieler',
+    zugZurueck: 'Zug zurücknehmen erlaubt',
     ton: 'Ton',
     vorlesen: 'Tiernamen vorlesen',
     vorlesenFehlt: 'Dieses Gerät kann leider nicht vorlesen.',
@@ -149,6 +154,53 @@ export const T = {
   update: {
     titel: 'Neue Version verfügbar',
     tippen: 'Tippen zum Aktualisieren',
+  },
+
+  nuenistei: {
+    frage: 'Wie möchtest du spielen?',
+    weiterspielen: 'Weiterspielen',
+    weiterspielenText: (a, b) => `${a} gegen ${b}`,
+    zuZweit: 'Zu zweit',
+    zuZweitText: 'Zwei Personen am Tablet',
+    gegenTablet: 'Gegen das Tablet',
+    gemuetlich: 'gemütlich',
+    knifflig: 'knifflig',
+    regeln: 'Spielregeln',
+    regelnText: [
+      'Jede Seite hat 9 Steine. Weiss beginnt.',
+      'Zuerst setzt ihr abwechselnd alle Steine auf freie Punkte.',
+      'Danach zieht ihr eure Steine entlang der Linien auf einen freien Nachbarpunkt.',
+      'Drei eigene Steine in einer Linie sind eine Mühle. Dann darfst du einen Stein des anderen wegnehmen – aber keinen aus einer Mühle, solange es andere gibt.',
+      'Wer nur noch 3 Steine hat, darf springen: auf jeden freien Punkt.',
+      'Wer nur noch 2 Steine hat oder nicht mehr ziehen kann, hat verloren.',
+    ],
+    regelnSchliessen: 'Alles klar',
+    weiss: 'Weiss',
+    schwarz: 'Schwarz',
+    tablet: 'Tablet',
+    istDran: '▶ ist dran',
+    nochZuSetzen: (n) => (n === 1 ? 'noch 1 zu setzen' : `noch ${n} zu setzen`),
+    alleGesetzt: 'alle gesetzt',
+    aufDemBrett: (n) => `${n} auf dem Brett`,
+    darfSpringen: 'darf springen',
+    setzen: (name) => `${name}: Tippe auf einen freien Punkt.`,
+    waehlen: (name) => `${name}: Tippe auf einen deiner Steine.`,
+    springenWaehlen: (name) => `${name} hat nur noch 3 Steine und darf springen. Tippe auf einen Stein.`,
+    ziel: 'Tippe auf einen grünen Punkt, um den Stein zu ziehen.',
+    keinZiel: 'Dieser Stein kann nicht ziehen. Wähle einen anderen.',
+    muehle: (name, gegner) => `Mühle! ${name} darf einen Stein von ${gegner} wegnehmen.`,
+    muehleKurz: 'Mühle!',
+    tabletDenkt: 'Das Tablet überlegt …',
+    zugZurueck: '↶ Zug zurück',
+    beendenFrage: 'Möchtest du das Spiel beenden? Es wird gespeichert, du kannst später weiterspielen.',
+    gewonnen: (name) => `${name} hat gewonnen!`,
+    tabletGewonnen: 'Das Tablet hat diesmal gewonnen.',
+    remis: 'Unentschieden!',
+    lobSieger: ['Super gespielt!', 'Gut aufgepasst!', 'Toll gemacht!'],
+    lobAndere: (name) => `${name}, das war ein tolles Spiel – nochmals?`,
+    lobRemis: 'Ihr seid beide gleich stark. Toll gespielt!',
+    nochmals: 'Nochmals spielen',
+    hauptmenue: 'Zum Hauptmenü',
   },
 
   allgemein: {

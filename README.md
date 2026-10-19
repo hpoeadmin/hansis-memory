@@ -1,7 +1,7 @@
 # Hansis Spielplatz
 
 Spiele für Tablets – für Enkel und Grosseltern. Ohne Zeitdruck, ohne Verlieren.
-Zurzeit: **Memory** mit vier Tiersätzen. In Arbeit: **Nüni Stei** und **Eile mit Weile**.
+Zurzeit: **Memory** mit vier Tiersätzen und **Nüni Stei** (zu zweit oder gegen das Tablet). In Arbeit: **Eile mit Weile**.
 
 ## Aufbau
 
@@ -14,7 +14,10 @@ src/
 ├─ kern/            Speicher, Profile, Elternschloss, Ton, Vorlesen, Update-Hinweis,
 │  └─ bildschirme/  Spielerauswahl, Profil-Editor, Einstellungen
 └─ spiele/
-   └─ memory/       Satzwahl, Stufe, Spiel, Abschluss, Album
+   ├─ memory/       Satzwahl, Stufe, Spiel, Abschluss, Album
+   └─ nuenistei/    regeln.js (Spielregeln), computer.js (Gegner), brett.js (SVG),
+                    start.js, spiel.js, ende.js
+tests/              automatische Tests der Spielregeln (npm test)
 ```
 
 Jedes Spiel hat eine eigene Steuerung (z.B. `memorySteuerung(app)`), die vom App-Objekt erbt.
@@ -30,6 +33,12 @@ npm run dev
 ```
 
 Danach im Browser `http://localhost:5173/hansis-memory/` öffnen.
+
+Die Spielregeln (z.B. Nüni Stei) sind mit Tests abgesichert:
+
+```bash
+npm test
+```
 
 **Auf dem iPad im gleichen WLAN:** `npm run dev` zeigt auch eine Adresse wie
 `http://192.168.1.23:5173/hansis-memory/`. Diese Adresse im Safari auf dem iPad öffnen.

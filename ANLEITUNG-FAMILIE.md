@@ -2,7 +2,7 @@
 
 Liebe Familie
 
-Ich habe einen kleinen Spielplatz mit Spielen gemacht. Zuerst gibt es ein Memory mit Tieren, bald kommen Nüni Stei und Eile mit Weile dazu. Man kann auf dem iPad oder auf einem Android-Tablet spielen, allein oder zusammen. Es gibt keinen Zeitdruck, keine Werbung, und niemand verliert.
+Ich habe einen kleinen Spielplatz mit Spielen gemacht. Es gibt ein Memory mit Tieren und Nüni Stei, bald kommt Eile mit Weile dazu. Man kann auf dem iPad oder auf einem Android-Tablet spielen, allein oder zusammen. Es gibt keinen Zeitdruck, keine Werbung, und niemand verliert.
 
 **Adresse:** https://hpoeadmin.github.io/hansis-memory/
 
@@ -37,6 +37,7 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Spiel wählen:** Im Hauptmenü tippst du auf das Spiel, z.B. **Memory**.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
+- **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.
 - **Album:** Jeder sammelt die Tiere, die er gefunden hat. Wer alle 12 Tiere hat, bekommt ein Abzeichen.
 - **Einstellungen für Erwachsene:** Den Knopf **«Für Eltern»** oben links **3 Sekunden gedrückt halten**. Dort lassen sich Ton und Vorlesen einschalten, die Karten langsamer umdrehen («Bis man tippt» lässt sie offen, bis man aufs Spielbrett tippt), eine andere Kartenrückseite wählen und Spieler ändern oder löschen.
 - **Neue Version:** Wenn ich etwas verbessert habe, erscheint unten ein gelber Hinweis **«Neue Version verfügbar – Tippen zum Aktualisieren»**. Einfach antippen.

@@ -11,6 +11,7 @@ import { zeigeEinstellungen, wendeRueckseiteAn } from './kern/bildschirme/einste
 import { zeigeHauptmenue } from './hauptmenue.js';
 import { ladeSets } from './spiele/memory/sets.js';
 import { memorySteuerung } from './spiele/memory/index.js';
+import { nuensteiSteuerung } from './spiele/nuenistei/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -24,6 +25,7 @@ const app = {
   zeigeProfil: (profil, fertig) => zeigeProfil(app, profil, fertig),
 };
 app.memory = memorySteuerung(app);
+app.nuenistei = nuensteiSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

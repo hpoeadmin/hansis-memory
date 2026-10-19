@@ -8,6 +8,12 @@ export const SPIELE = [
     status: 'bereit',
     starte: (app) => app.memory.zeigeStart(),
   },
-  { id: 'nuenistei', bild: 'spiele/nuenistei.svg', farbe: '#EAD7B7', status: 'bald' },
+  {
+    id: 'nuenistei',
+    bild: 'spiele/nuenistei.svg',
+    farbe: '#EAD7B7',
+    status: 'bereit',
+    starte: (app) => app.nuenistei.zeigeStart(),
+  },
   { id: 'eilemitweile', bild: 'spiele/eilemitweile.svg', farbe: '#F6E3B4', status: 'bald' },
 ];

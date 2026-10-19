@@ -32,16 +32,34 @@ export function farbStil(profil) {
   return `--spieler-farbe: ${f.wert}; --spieler-text: ${f.text};`;
 }
 
+export const GAST2 = {
+  id: 'gast2',
+  name: T.profil.gast2,
+  farbe: 'orange',
+  avatar: 'bauernhof/hund.svg',
+  gast: true,
+};
+
+// Der Computergegner bei den Brettspielen
+export const TABLET = {
+  id: 'tablet',
+  name: T.nuenistei.tablet,
+  farbe: 'blau',
+  bild: 'spiele/tablet.svg',
+  gast: true,
+  computer: true,
+};
+
 export function avatarUrl(profil) {
-  return `${BASIS}sets/${profil.avatar}`;
+  return profil.bild ? `${BASIS}${profil.bild}` : `${BASIS}sets/${profil.avatar}`;
 }
 
 export function alleProfile() {
-  return [...speicher.profile, GAST];
+  return [...speicher.profile, GAST, GAST2];
 }
 
 export function findeProfil(id) {
-  return alleProfile().find((p) => p.id === id);
+  return [...alleProfile(), TABLET].find((p) => p.id === id);
 }
 
 export function speichereProfil(profil) {
