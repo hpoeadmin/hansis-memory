@@ -3809,3 +3809,241 @@ img {
   flex: 0 0 auto;
   width: min(100%, 640px);
 }
+
+/* ---------- Schiffe versenken ---------- */
+
+.sv-groessen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sv-groessen-titel {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.sv-groesse {
+  min-height: 64px;
+  padding: 0 22px;
+  font-size: 1.3rem;
+  background: var(--flaeche);
+}
+
+.sv-groesse.gewaehlt {
+  background: #3B7FD0;
+  color: #FFFFFF;
+}
+
+.sv-titel {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.sv-koepfe {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sv-spieler.sv-wartet {
+  opacity: 0.55;
+}
+
+.sv-spieler .avatar {
+  width: 52px;
+  height: 52px;
+}
+
+.sv-mitte,
+.sv-setzen-mitte {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sv-ziel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sv-seite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 330px;
+}
+
+.sv-ueberschrift {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.sv-meldung {
+  margin: 0;
+  min-height: 3.6em;
+  padding: 10px 14px;
+  border: 4px solid var(--kontur);
+  border-radius: 18px;
+  background: var(--flaeche);
+  font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.sv-raster {
+  --zelle: min(calc((100vh - 230px) / (var(--n) + 1)), calc(54vw / (var(--n) + 1)), 64px);
+  display: grid;
+  grid-template-columns: repeat(calc(var(--n) + 1), var(--zelle));
+  grid-auto-rows: var(--zelle);
+  gap: 2px;
+}
+
+.sv-setzen .sv-raster {
+  --zelle: min(calc((100vh - 200px) / (var(--n) + 1)), calc(56vw / (var(--n) + 1)), 64px);
+}
+
+.sv-raster.sv-klein {
+  --zelle: min(calc(26vw / (var(--n) + 1)), calc((100vh - 470px) / (var(--n) + 1)), 30px);
+  gap: 1px;
+}
+
+.sv-kopf,
+.sv-ecke {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: calc(var(--zelle) * 0.42);
+}
+
+.sv-feld {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: #9FCDEB;
+  font: inherit;
+}
+
+.sv-aktiv .sv-feld {
+  cursor: pointer;
+}
+
+.sv-aktiv .sv-feld:active {
+  background: #7FB8E0;
+}
+
+/* Schiffe: graue Rümpfe mit runden Enden */
+.sv-feld.sv-schiff {
+  background: #7A8794;
+  border-radius: 0;
+}
+
+.sv-feld.sv-schiff.quer.anfang { border-radius: 50% 0 0 50%; }
+.sv-feld.sv-schiff.quer.ende { border-radius: 0 50% 50% 0; }
+.sv-feld.sv-schiff.laengs.anfang { border-radius: 50% 50% 0 0; }
+.sv-feld.sv-schiff.laengs.ende { border-radius: 0 0 50% 50%; }
+
+.sv-feld.sv-gewaehlt {
+  background: #F6A940;
+  box-shadow: inset 0 0 0 3px var(--kontur);
+}
+
+/* Wasser: Punkt; Treffer: rotes Kreuz; versenkt: dunkelrotes Schiff */
+.sv-feld.sv-wasser::after {
+  content: '';
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: #2B5E8C;
+}
+
+.sv-feld.sv-treffer::after,
+.sv-feld.sv-versenkt::after {
+  content: '✕';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--zelle) * 0.8);
+  font-weight: 700;
+  line-height: 1;
+  color: #E2231A;
+}
+
+.sv-feld.sv-treffer {
+  background: #FFD9C2;
+}
+
+.sv-feld.sv-versenkt {
+  background: #8E2E2A;
+}
+
+.sv-feld.sv-versenkt::after {
+  color: #FFD9C2;
+}
+
+.sv-feld.sv-zuletzt {
+  box-shadow: inset 0 0 0 3px #F6C33B;
+}
+
+.sv-flotte {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sv-mini {
+  display: flex;
+  gap: 2px;
+}
+
+.sv-mini-teil {
+  width: 16px;
+  height: 16px;
+  background: #7A8794;
+  border: 2px solid var(--kontur);
+}
+
+.sv-mini.weg .sv-mini-teil {
+  background: #8E2E2A;
+  opacity: 0.45;
+}
+
+.sv-weitergeben .sv-bereit {
+  min-width: 320px;
+  min-height: 96px;
+  font-size: 1.8rem;
+}
+
+@media (orientation: portrait) {
+  .sv-mitte,
+  .sv-setzen-mitte {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .sv-raster {
+    --zelle: min(calc(90vw / (var(--n) + 1)), calc((100vh - 560px) / (var(--n) + 1)), 64px);
+  }
+  .sv-setzen .sv-raster {
+    --zelle: min(calc(90vw / (var(--n) + 1)), calc((100vh - 360px) / (var(--n) + 1)), 64px);
+  }
+  .sv-raster.sv-klein {
+    --zelle: min(calc(40vw / (var(--n) + 1)), 22px);
+  }
+  .sv-seite {
+    max-width: none;
+  }
+}

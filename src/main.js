@@ -25,6 +25,7 @@ import { rechnenSteuerung } from './spiele/rechnen/index.js';
 import { zahlenhausSteuerung } from './spiele/zahlenhaus/index.js';
 import { verdoppelnSteuerung } from './spiele/verdoppeln/index.js';
 import { zahlenstrahlSteuerung } from './spiele/zahlenstrahl/index.js';
+import { schiffeSteuerung } from './spiele/schiffe/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -52,6 +53,7 @@ app.rechnen = rechnenSteuerung(app);
 app.zahlenhaus = zahlenhausSteuerung(app);
 app.verdoppeln = verdoppelnSteuerung(app);
 app.zahlenstrahl = zahlenstrahlSteuerung(app);
+app.schiffe = schiffeSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

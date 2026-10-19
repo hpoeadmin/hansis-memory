@@ -157,6 +157,14 @@ export const SPIELE = [
     starte: (app) => app.nuenistei.zeigeStart(),
   },
   {
+    id: 'schiffe',
+    bereich: 'brett',
+    ab: 'kl12',
+    bild: 'spiele/schiffe.svg',
+    farbe: '#D6ECF7',
+    starte: (app) => app.schiffe.zeigeStart(),
+  },
+  {
     id: 'eilemitweile',
     bereich: 'brett',
     ab: 'kg',
