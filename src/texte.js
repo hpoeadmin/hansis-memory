@@ -17,6 +17,34 @@ export const T = {
     paare: (n) => `${n} Paare`,
   },
 
+  spieler: {
+    frage: 'Wer spielt mit?',
+    hinweis: 'Tippe auf alle, die mitspielen (bis zu 4).',
+    neu: 'Neuer Spieler',
+    los: 'Los geht’s!',
+  },
+
+  profil: {
+    titelNeu: 'Neuer Spieler',
+    titelAendern: 'Spieler ändern',
+    name: 'Name',
+    namePlatzhalter: 'z.B. Lena',
+    farbe: 'Lieblingsfarbe',
+    tier: 'Lieblingstier',
+    speichern: 'Speichern',
+    abbrechen: 'Abbrechen',
+    nameFehlt: 'Bitte einen Namen eintragen.',
+    gast: 'Gast',
+    farben: {
+      rot: 'Rot',
+      blau: 'Blau',
+      gruen: 'Grün',
+      gelb: 'Gelb',
+      lila: 'Lila',
+      orange: 'Orange',
+    },
+  },
+
   spiel: {
     zuege: 'Züge',
     paare: 'Paare',
@@ -26,6 +54,9 @@ export const T = {
     beendenJa: 'Ja, beenden',
     beendenNein: 'Nein, weiterspielen',
     karteVerdeckt: 'Verdeckte Karte',
+    istDran: 'ist dran',
+    nochmals: 'darf nochmals!',
+    punkte: (n) => (n === 1 ? '1 Paar' : `${n} Paare`),
   },
 
   ende: {
@@ -33,6 +64,14 @@ export const T = {
     zusammenfassung: (paare, zuege) =>
       `Du hast alle ${paare} Paare in ${zuege} Zügen gefunden.`,
     sterne: (n) => (n === 1 ? '1 Stern' : `${n} Sterne`),
+    lobPersoenlich: (name) => `Super gemacht, ${name}!`,
+    neueBestleistung: 'Neue Bestleistung!',
+    bestleistung: (zuege) => `Deine Bestleistung: ${zuege} Züge`,
+    alleTitel: 'Toll gespielt, alle zusammen!',
+    alleText: 'Ihr habt gemeinsam alle Paare gefunden.',
+    spielerPaare: (n) => (n === 1 ? '1 Paar' : `${n} Paare`),
+    meistePaare: 'Meiste Paare',
+    lobSpieler: ['Gut aufgepasst!', 'Toll gemerkt!', 'Prima gespielt!', 'Wunderbar!'],
     nochmals: 'Nochmals spielen',
     anderesSpiel: 'Anderes Spiel wählen',
   },

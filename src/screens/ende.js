@@ -1,5 +1,6 @@
 import { T } from '../texte.js';
-import { el, knopf, zeige } from '../ui.js';
+import { el, knopf, zeige, mischen } from '../ui.js';
+import { avatarUrl, farbStil, merkeBestleistung } from '../profile.js';
 
 // Sterne: immer mindestens einer – es gibt kein «Verlieren».
 export function berechneSterne(paare, zuege) {
@@ -23,21 +24,75 @@ function stern(verdient) {
   return svg;
 }
 
-export function zeigeEnde(app, { paare, zuege }) {
+function zufall(liste) {
+  return liste[Math.floor(Math.random() * liste.length)];
+}
+
+function einzelErgebnis(app, { paare, zuege, spieler }) {
+  const profil = spieler[0].profil;
   const sterne = berechneSterne(paare, zuege);
-  const lob = T.ende.lob[Math.floor(Math.random() * T.ende.lob.length)];
+  const { neu, bisher } = merkeBestleistung(profil, app.auswahl.stufe, zuege);
+  let bestleistung = null;
+  if (!profil.gast) {
+    bestleistung = neu
+      ? el('p', { class: 'bestleistung neu' }, T.ende.neueBestleistung)
+      : el('p', { class: 'bestleistung' }, T.ende.bestleistung(bisher));
+  }
+
+  return [
+    el('img', { class: 'avatar ende-avatar', src: avatarUrl(profil), alt: '', style: farbStil(profil) }),
+    el('h1', { class: 'lob' }, profil.gast ? zufall(T.ende.lob) : T.ende.lobPersoenlich(profil.name)),
+    el(
+      'div',
+      { class: 'sterne', role: 'img', 'aria-label': T.ende.sterne(sterne) },
+      [1, 2, 3].map((n) => stern(n <= sterne)),
+    ),
+    el('p', { class: 'zusammenfassung' }, T.ende.zusammenfassung(paare, zuege)),
+    bestleistung,
+  ];
+}
+
+// Im Mehrspieler-Spiel werden alle gelobt, in der Reihenfolge des Spiels.
+function mehrErgebnis({ spieler }) {
+  const meiste = Math.max(...spieler.map((s) => s.paare));
+  const alleGleich = spieler.every((s) => s.paare === meiste);
+  const lobsaetze = mischen(T.ende.lobSpieler);
+
+  return [
+    el('h1', { class: 'lob lob-alle' }, T.ende.alleTitel),
+    el('p', { class: 'zusammenfassung' }, T.ende.alleText),
+    el(
+      'ul',
+      { class: 'ergebnis-liste' },
+      spieler.map((s, i) =>
+        el(
+          'li',
+          { class: 'ergebnis-zeile', style: farbStil(s.profil) },
+          el('img', { class: 'avatar', src: avatarUrl(s.profil), alt: '' }),
+          el(
+            'span',
+            { class: 'ergebnis-text' },
+            el('span', { class: 'ergebnis-name' }, s.profil.name),
+            el('span', { class: 'ergebnis-lob' }, lobsaetze[i % lobsaetze.length]),
+          ),
+          el('span', { class: 'ergebnis-paare' }, T.ende.spielerPaare(s.paare)),
+          !alleGleich && s.paare === meiste
+            ? el('span', { class: 'ergebnis-abzeichen' }, T.ende.meistePaare)
+            : null,
+        ),
+      ),
+    ),
+  ];
+}
+
+export function zeigeEnde(app, ergebnis) {
+  const inhalt = ergebnis.spieler.length > 1 ? mehrErgebnis(ergebnis) : einzelErgebnis(app, ergebnis);
 
   zeige(
     el(
       'main',
       { class: 'bildschirm ende', style: `--set-farbe: ${app.auswahl.set.farbe}` },
-      el('h1', { class: 'lob' }, lob),
-      el(
-        'div',
-        { class: 'sterne', role: 'img', 'aria-label': T.ende.sterne(sterne) },
-        [1, 2, 3].map((n) => stern(n <= sterne)),
-      ),
-      el('p', { class: 'zusammenfassung' }, T.ende.zusammenfassung(paare, zuege)),
+      inhalt,
       el(
         'div',
         { class: 'ende-knoepfe' },

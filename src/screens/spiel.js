@@ -2,10 +2,13 @@ import { T } from '../texte.js';
 import { el, beiTipp, knopf, zeige, bestaetigen, mischen, warte } from '../ui.js';
 import { STUFEN, bildUrl } from '../sets.js';
 import { bestesRaster } from '../raster.js';
+import { avatarUrl, farbStil, merkeGefunden } from '../profile.js';
 
 const FLIP_DAUER = 500; // ms, muss zur CSS-Animation passen
 const KARTEN_VERHAELTNIS = 0.8; // Breite / Höhe (Bild + Name)
 const ABSTAND = 14;
+
+const AUFDECK_DAUER = { normal: 2500, langsam: 4000, 'sehr-langsam': 6000 };
 
 export function zeigeSpiel(app) {
   const { set, stufe } = app.auswahl;
@@ -21,10 +24,56 @@ export function zeigeSpiel(app) {
     element: null,
   }));
 
-  const zustand = { zuege: 0, gefunden: 0, offen: [], gesperrt: false, beendet: false };
+  const spieler = app.auswahl.spieler.map((profil) => ({ profil, paare: 0 }));
+  const mehrspieler = spieler.length > 1;
+  const zustand = { zuege: 0, gefunden: 0, aktiv: 0, offen: [], gesperrt: false, beendet: false };
+
+  // ---------- Kopfzeile ----------
 
   const zuegeAnzeige = el('span', { class: 'zahl' }, '0');
   const paareAnzeige = el('span', { class: 'zahl' }, T.spiel.vonGesamt(0, paare));
+
+  const amZugAvatar = el('img', { class: 'avatar', alt: '' });
+  const amZugName = el('span', { class: 'am-zug-name' });
+  const amZugText = el('span', { class: 'am-zug-text' });
+  const amZug = el(
+    'div',
+    { class: 'am-zug', role: 'status', 'aria-live': 'polite' },
+    amZugAvatar,
+    el('span', { class: 'am-zug-worte' }, amZugName, ' ', amZugText),
+  );
+
+  const chips = spieler.map((s) => {
+    const punkte = el('span', { class: 'chip-punkte' }, '0');
+    const chip = el(
+      'div',
+      { class: 'punkte-chip', style: farbStil(s.profil) },
+      el('span', { class: 'chip-pfeil', 'aria-hidden': 'true' }, '▶'),
+      el('img', { class: 'avatar', src: avatarUrl(s.profil), alt: '' }),
+      el('span', { class: 'chip-name' }, s.profil.name),
+      punkte,
+    );
+    return { chip, punkte };
+  });
+
+  function aktualisiereKopf(nochmals = false) {
+    const s = spieler[zustand.aktiv];
+    amZug.style.cssText = farbStil(s.profil);
+    amZugAvatar.src = avatarUrl(s.profil);
+    amZugName.textContent = s.profil.name;
+    amZugText.textContent = nochmals ? T.spiel.nochmals : T.spiel.istDran;
+    amZug.classList.remove('wechsel');
+    void amZug.offsetWidth; // Animation neu starten
+    amZug.classList.add('wechsel');
+    spieler.forEach((sp, i) => {
+      chips[i].chip.classList.toggle('aktiv', i === zustand.aktiv);
+      chips[i].punkte.textContent = String(sp.paare);
+      chips[i].punkte.setAttribute('aria-label', T.spiel.punkte(sp.paare));
+    });
+  }
+
+  // ---------- Karten ----------
+
   const brett = el('div', { class: 'brett', style: `--set-farbe: ${set.farbe}` });
 
   for (const karte of karten) {
@@ -78,22 +127,35 @@ export function zeigeSpiel(app) {
       a.element.classList.add('gefunden');
       b.element.classList.add('gefunden');
       zustand.gefunden++;
+      const s = spieler[zustand.aktiv];
+      s.paare++;
+      merkeGefunden(s.profil, set.id, a.tier.id);
       paareAnzeige.textContent = T.spiel.vonGesamt(zustand.gefunden, paare);
       if (zustand.gefunden === paare) {
         zustand.beendet = true;
+        aktualisiereKopf();
         await warte(1400);
-        app.zeigeEnde({ paare, zuege: zustand.zuege });
+        beobachter.disconnect();
+        app.zeigeEnde({ paare, zuege: zustand.zuege, spieler });
         return;
       }
+      // Wer ein Paar findet, darf nochmals
+      if (mehrspieler) aktualisiereKopf(true);
       zustand.gesperrt = false;
     } else {
-      await warte(app.einstellungen.aufdeckDauer);
+      await warte(AUFDECK_DAUER[app.einstellungen.aufdeckDauer] ?? AUFDECK_DAUER.normal);
       setzeOffen(a, false);
       setzeOffen(b, false);
       await warte(FLIP_DAUER);
+      if (mehrspieler) {
+        zustand.aktiv = (zustand.aktiv + 1) % spieler.length;
+        aktualisiereKopf();
+      }
       zustand.gesperrt = false;
     }
   }
+
+  // ---------- Raster ----------
 
   function passeRasterAn() {
     const { width, height } = brett.getBoundingClientRect();
@@ -114,29 +176,31 @@ export function zeigeSpiel(app) {
     }
   }
 
-  zeige(
-    el(
-      'main',
-      { class: 'bildschirm spiel' },
-      el(
+  const beendenKnopf = knopf(T.spiel.beenden, beenden, 'knopf-beenden');
+
+  const kopf = mehrspieler
+    ? el(
+        'header',
+        { class: 'spiel-kopf mehrspieler' },
+        amZug,
+        el('div', { class: 'punkte-liste' }, chips.map((c) => c.chip)),
+        beendenKnopf,
+      )
+    : el(
         'header',
         { class: 'spiel-kopf' },
         el(
           'div',
-          { class: 'anzeige' },
-          el('span', { class: 'beschriftung' }, T.spiel.zuege),
-          zuegeAnzeige,
+          { class: 'punkte-chip aktiv einzel', style: farbStil(spieler[0].profil) },
+          el('img', { class: 'avatar', src: avatarUrl(spieler[0].profil), alt: '' }),
+          el('span', { class: 'chip-name' }, spieler[0].profil.name),
         ),
-        el(
-          'div',
-          { class: 'anzeige' },
-          el('span', { class: 'beschriftung' }, T.spiel.paare),
-          paareAnzeige,
-        ),
-        knopf(T.spiel.beenden, beenden, 'knopf-beenden'),
-      ),
-      brett,
-    ),
-  );
+        el('div', { class: 'anzeige' }, el('span', { class: 'beschriftung' }, T.spiel.zuege), zuegeAnzeige),
+        el('div', { class: 'anzeige' }, el('span', { class: 'beschriftung' }, T.spiel.paare), paareAnzeige),
+        beendenKnopf,
+      );
+
+  zeige(el('main', { class: 'bildschirm spiel' }, kopf, brett));
+  if (mehrspieler) aktualisiereKopf();
   passeRasterAn();
 }

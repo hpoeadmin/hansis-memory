@@ -488,13 +488,443 @@ img {
   gap: 18px;
 }
 
+/* ---------- Avatare und Spielerauswahl ---------- */
+
+.avatar {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid var(--kontur);
+  background: var(--flaeche);
+  object-fit: cover;
+}
+
+.hinweis {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+}
+
+.spieler-raster {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  align-content: start;
+  gap: var(--abstand);
+  padding: 8px 4px;
+}
+
+.spieler-kachel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px;
+  border: 5px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--flaeche);
+  box-shadow: 0 6px 0 var(--kontur);
+  cursor: pointer;
+}
+
+.spieler-kachel .avatar {
+  width: 110px;
+  height: 110px;
+  border-color: var(--spieler-farbe, var(--kontur));
+  border-width: 7px;
+}
+
+.spieler-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Gewählt: Farbe, Häkchen-Nummer und dicker Rahmen */
+.spieler-kachel.gewaehlt {
+  background: var(--spieler-farbe);
+  color: var(--spieler-text);
+  border-width: 7px;
+  transform: translateY(-3px);
+}
+
+.spieler-kachel.gewaehlt .avatar {
+  border-color: var(--kontur);
+}
+
+.spieler-nummer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: none;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 4px solid var(--kontur);
+  border-radius: 50%;
+  background: var(--flaeche);
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.spieler-kachel.gewaehlt .spieler-nummer {
+  display: grid;
+}
+
+.spieler-neu {
+  border-style: dashed;
+  box-shadow: none;
+  justify-content: center;
+}
+
+.spieler-neu .plus {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fusszeile {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--abstand);
+}
+
+.knopf-los {
+  min-width: 260px;
+  min-height: 84px;
+  font-size: 2rem;
+}
+
+.knopf.inaktiv {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: default;
+}
+
+.knopf.inaktiv:active {
+  transform: none;
+}
+
+/* ---------- Profil anlegen ---------- */
+
+.profil-inhalt {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.feld-titel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.name-feld {
+  width: 100%;
+  max-width: 520px;
+  min-height: 72px;
+  padding: 0 20px;
+  border: 4px solid var(--kontur);
+  border-radius: 18px;
+  font: inherit;
+  font-size: 2rem;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.fehler {
+  margin: 6px 0 0;
+  min-height: 1.2em;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #B42318;
+}
+
+.farb-liste,
+.avatar-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.farb-knopf {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 72px;
+  padding: 0 22px 0 12px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.farb-punkt {
+  width: 46px;
+  height: 46px;
+  border: 3px solid var(--kontur);
+  border-radius: 50%;
+  background: var(--spieler-farbe);
+}
+
+.farb-knopf.gewaehlt,
+.avatar-knopf.gewaehlt {
+  outline: 6px solid var(--kontur);
+  outline-offset: 3px;
+}
+
+.farb-knopf.gewaehlt::after,
+.avatar-knopf.gewaehlt::after {
+  content: '✓';
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.avatar-knopf {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: 4px solid var(--kontur);
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--flaeche);
+  cursor: pointer;
+}
+
+.avatar-knopf img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.avatar-knopf.gewaehlt::after {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--kontur);
+  border-radius: 50%;
+  background: var(--haupt);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* ---------- Mehrspieler im Spiel ---------- */
+
+.spiel-kopf.mehrspieler {
+  flex-wrap: wrap;
+}
+
+.am-zug {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 22px 8px 8px;
+  border: 5px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--spieler-farbe);
+  color: var(--spieler-text);
+}
+
+.am-zug .avatar {
+  width: 76px;
+  height: 76px;
+}
+
+.am-zug-worte {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.am-zug-name {
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  font-weight: 700;
+}
+
+.am-zug-text {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+}
+
+.am-zug.wechsel {
+  animation: wechsel 0.6s ease-out;
+}
+
+@keyframes wechsel {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.punkte-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.punkte-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px 4px 4px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+}
+
+.punkte-chip .avatar {
+  width: 48px;
+  height: 48px;
+  border-width: 3px;
+  border-color: var(--spieler-farbe);
+}
+
+.chip-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.chip-punkte {
+  min-width: 40px;
+  padding: 2px 10px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--hintergrund);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.chip-pfeil {
+  display: none;
+  font-size: 1.2rem;
+  padding-left: 8px;
+}
+
+/* Wer dran ist: Pfeil, dicker Rahmen und Farbe */
+.punkte-chip.aktiv {
+  border-width: 5px;
+  background: var(--spieler-farbe);
+  color: var(--spieler-text);
+}
+
+.punkte-chip.aktiv .chip-pfeil {
+  display: inline;
+}
+
+.punkte-chip.aktiv .chip-punkte {
+  color: var(--text);
+}
+
+.punkte-chip.einzel {
+  padding-right: 18px;
+}
+
+/* ---------- Abschluss mit mehreren Spielern ---------- */
+
+.ende-avatar {
+  width: 120px;
+  height: 120px;
+  border-width: 7px;
+  border-color: var(--spieler-farbe);
+}
+
+.bestleistung {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.bestleistung.neu {
+  padding: 8px 22px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--stern);
+}
+
+.lob-alle {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+}
+
+.ergebnis-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 640px);
+}
+
+.ergebnis-zeile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px 10px 10px;
+  border: 4px solid var(--kontur);
+  border-left: 18px solid var(--spieler-farbe);
+  border-radius: 24px;
+  background: var(--flaeche);
+  text-align: left;
+}
+
+.ergebnis-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ergebnis-name {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.ergebnis-lob {
+  font-size: 1.3rem;
+}
+
+.ergebnis-paare {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ergebnis-abzeichen {
+  padding: 4px 12px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--stern);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 /* ---------- Bewegung reduzieren ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   .karte-innen {
     transition: none;
   }
-  .karte.gefunden {
+  .karte.gefunden,
+  .am-zug.wechsel {
     animation: none;
   }
 }
