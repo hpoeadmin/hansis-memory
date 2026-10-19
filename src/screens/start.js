@@ -1,5 +1,5 @@
 import { T } from '../texte.js';
-import { el, beiTipp, zeige } from '../ui.js';
+import { el, beiTipp, knopf, zeige } from '../ui.js';
 import { bildUrl } from '../sets.js';
 
 export function zeigeStart(app) {
@@ -31,7 +31,12 @@ export function zeigeStart(app) {
     el(
       'main',
       { class: 'bildschirm start' },
-      el('h1', { class: 'titel' }, T.start.titel),
+      el(
+        'header',
+        { class: 'start-kopf' },
+        el('h1', { class: 'titel' }, T.start.titel),
+        knopf(T.album.knopf, () => app.zeigeAlbum(), 'knopf-album'),
+      ),
       el('p', { class: 'frage' }, T.start.frage),
       el('div', { class: 'set-raster' }, kacheln),
     ),

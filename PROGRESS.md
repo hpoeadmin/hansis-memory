@@ -10,7 +10,7 @@
 | 4 | Stufen und Raster für Quer- und Hochformat | ✅ (bereits in der Grundversion enthalten, noch auf echtem iPad prüfen) |
 | 5 | Spielerprofile und Mehrspielermodus | ✅ |
 | 6 | Animationen, Lob, Konfetti, Klang, Vorlesen | ✅ (Klang und Vorlesen noch auf dem iPad anhören) |
-| 7 | Sammelalbum und Abzeichen | offen |
+| 7 | Sammelalbum und Abzeichen | ✅ |
 | 8 | Einstellungen mit Elternschloss | offen |
 | 9 | Offline/PWA mit Update-Hinweis | offen |
 | 10 | GitHub Pages, Anleitung für die Familie | offen |
@@ -36,7 +36,9 @@
 - **Vorlesen:** Web Speech API (`src/vorlesen.js`), Stimme de-CH, sonst de-DE, Tempo 0.8. Liest beim Aufdecken den Tiernamen und am Schluss das Lob. Standardmässig aus; einschalten kommt in die Einstellungen.
 - **Gefundenes Paar:** Die Karten hüpfen, und Bild und Name erscheinen 1,6 s gross über dem Brett. Die Anzeige blockiert keine Tipps.
 - **Abschluss:** Konfetti (Canvas, 4 s), Sterne erscheinen nacheinander. Bei «Bewegung reduzieren» gibt es weder Konfetti noch Hüpf- oder Sternanimationen.
-- **Album:** Gefundene Tiere werden schon jetzt pro Profil gespeichert. Die Anzeige folgt in Schritt 7.
+- **Album:** Den Knopf «Album» gibt es im Startmenü. Oben wählt man das Profil (Reiter mit Avatar und Name). Pro spielbarem Satz zeigt das Album Fortschritt («7 von 12 Tieren» und Balken) und alle 12 Felder: gefundene Tiere mit Bild und Name, noch fehlende als gestricheltes «?». Tippt man ein Tier an, erscheinen grosses Bild, Name und Infosatz (bei eingeschaltetem Vorlesen wird beides vorgelesen). Der Gast hat kein Album.
+- **Abzeichen:** Wer alle 12 Tiere eines Satzes gesammelt hat, bekommt eine Medaille mit dem Titelbild des Satzes und zwei Bändern. Sie erscheint im Album oben und beim Satz sowie einmalig im Abschluss («Neues Abzeichen für Lena: Bauernhof komplett!»). Im Einzelspiel zeigt der Abschluss ausserdem «Neu im Album: …».
+- **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 
 ## Offene Fragen
 

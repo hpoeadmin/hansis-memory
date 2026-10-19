@@ -4,6 +4,7 @@ import { avatarUrl, farbStil, merkeBestleistung } from '../profile.js';
 import { klang } from '../klang.js';
 import { sprich } from '../vorlesen.js';
 import { konfetti } from '../konfetti.js';
+import { abzeichen } from '../abzeichen.js';
 
 // Sterne: immer mindestens einer – es gibt kein «Verlieren».
 export function berechneSterne(paare, zuege) {
@@ -90,8 +91,32 @@ function mehrErgebnis({ spieler }) {
   ];
 }
 
+// Neue Tiere im Album und neue Abzeichen – ein schöner Grund, wieder zu spielen
+function albumNeuigkeiten(app, spieler) {
+  const set = app.auswahl.set;
+  const zeilen = [];
+  for (const s of spieler) {
+    if (s.neuesAbzeichen) {
+      zeilen.push(
+        el(
+          'div',
+          { class: 'neues-abzeichen' },
+          abzeichen(set),
+          el('p', {}, T.ende.neuesAbzeichen(s.profil.name, set.name)),
+        ),
+      );
+    } else if (s.neueTiere.length && spieler.length === 1) {
+      zeilen.push(
+        el('p', { class: 'neu-im-album' }, T.ende.neuImAlbum(s.neueTiere.map((t) => t.name).join(', '))),
+      );
+    }
+  }
+  return zeilen;
+}
+
 export function zeigeEnde(app, ergebnis) {
   const inhalt = ergebnis.spieler.length > 1 ? mehrErgebnis(ergebnis) : einzelErgebnis(app, ergebnis);
+  inhalt.push(...albumNeuigkeiten(app, ergebnis.spieler));
 
   zeige(
     el(

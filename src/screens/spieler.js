@@ -28,7 +28,7 @@ export function zeigeSpieler(app) {
       if (index >= 0) gewaehlt.splice(index, 1);
       else if (gewaehlt.length < MAX_SPIELER) gewaehlt.push(profil.id);
       aktualisiere();
-    });
+    }, { scrollbar: true });
     return { profil, kachel, nummer };
   });
 
@@ -38,7 +38,7 @@ export function zeigeSpieler(app) {
     el('span', { class: 'plus', 'aria-hidden': 'true' }, '+'),
     el('span', { class: 'spieler-name' }, T.spieler.neu),
   );
-  beiTipp(neuKachel, () => app.zeigeProfil(null));
+  beiTipp(neuKachel, () => app.zeigeProfil(null), { scrollbar: true });
 
   function aktualisiere() {
     for (const { profil, kachel, nummer } of kacheln) {

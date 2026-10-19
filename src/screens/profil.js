@@ -37,7 +37,7 @@ export function zeigeProfil(app, profil, fertig) {
     beiTipp(k, () => {
       entwurf.farbe = farbe.id;
       aktualisiere();
-    });
+    }, { scrollbar: true });
     return { id: farbe.id, k };
   });
 
@@ -51,7 +51,7 @@ export function zeigeProfil(app, profil, fertig) {
     beiTipp(k, () => {
       entwurf.avatar = pfad;
       aktualisiere();
-    });
+    }, { scrollbar: true });
     return { pfad, k };
   });
 

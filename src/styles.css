@@ -1007,6 +1007,343 @@ img {
   z-index: 20;
 }
 
+/* ---------- Startmenü-Kopf mit Album-Knopf ---------- */
+
+.start-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 72px;
+}
+
+.knopf-album {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 640px) {
+  .start-kopf {
+    justify-content: space-between;
+  }
+  .knopf-album {
+    position: static;
+  }
+}
+
+/* ---------- Album ---------- */
+
+.album-reiter-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.album-reiter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 72px;
+  padding: 4px 20px 4px 4px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.album-reiter .avatar {
+  width: 56px;
+  height: 56px;
+  border-color: var(--spieler-farbe);
+}
+
+.album-reiter.aktiv {
+  border-width: 6px;
+  background: var(--spieler-farbe);
+  color: var(--spieler-text);
+}
+
+.album-inhalt {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px 4px 24px;
+}
+
+.album-wessen {
+  margin: 4px 0 16px;
+  padding-left: 16px;
+  border-left: 12px solid var(--spieler-farbe);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.abzeichen-bereich,
+.album-set {
+  margin-bottom: 24px;
+  padding: 18px;
+  border: 4px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--flaeche);
+}
+
+.album-set {
+  background: var(--set-farbe);
+}
+
+.abzeichen-bereich h2,
+.album-set h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.album-set-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+
+.album-anzahl {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.album-set-kopf .abzeichen {
+  margin-left: auto;
+}
+
+.fortschritt {
+  height: 20px;
+  margin: 12px 0 16px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  overflow: hidden;
+}
+
+.fortschritt span {
+  display: block;
+  height: 100%;
+  background: var(--haupt);
+}
+
+.album-raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.album-feld {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 8px;
+  border: 4px solid var(--kontur);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--flaeche);
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.album-feld img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.album-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-top: 4px;
+}
+
+.album-feld.leer {
+  justify-content: center;
+  aspect-ratio: 0.82;
+  border-style: dashed;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: default;
+}
+
+.album-fragezeichen {
+  font-size: 3.5rem;
+  font-weight: 700;
+  opacity: 0.35;
+}
+
+.tier-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.tier-gross {
+  width: min(60vmin, 320px);
+  height: auto;
+}
+
+.tier-name {
+  margin: 0;
+  font-size: 2.6rem;
+}
+
+.tier-info {
+  margin: 0 0 18px;
+  font-size: 1.6rem;
+  max-width: 26ch;
+}
+
+/* ---------- Abzeichen ---------- */
+
+.abzeichen-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.abzeichen {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.medaille {
+  position: relative;
+  width: 72px;
+  height: 84px;
+  flex: none;
+}
+
+.abzeichen.gross .medaille {
+  width: 110px;
+  height: 128px;
+}
+
+.medaille-rund {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 6px solid #E0A21B;
+  border-radius: 50%;
+  background: var(--set-farbe);
+  box-shadow: 0 0 0 3px var(--kontur);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.medaille-rund img {
+  width: 100%;
+  height: 100%;
+}
+
+.band {
+  position: absolute;
+  bottom: 0;
+  width: 26%;
+  height: 46%;
+  border: 3px solid var(--kontur);
+  background: #E5383B;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+}
+
+.band.links {
+  left: 20%;
+  transform: rotate(14deg);
+}
+
+.band.rechts {
+  right: 20%;
+  transform: rotate(-14deg);
+  background: #2F6FD0;
+}
+
+.abzeichen-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.abzeichen.gross .abzeichen-text {
+  font-size: 1.5rem;
+}
+
+/* ---------- Abschluss: Neuigkeiten fürs Album ---------- */
+
+.ende {
+  overflow-y: auto;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Mittig, solange alles Platz hat – sonst oben beginnen und scrollen */
+.ende > :first-child {
+  margin-top: auto;
+}
+
+.ende > :last-child {
+  margin-bottom: auto;
+}
+
+.neu-im-album {
+  margin: 0;
+  padding: 8px 20px;
+  border: 3px solid var(--kontur);
+  border-radius: 18px;
+  background: var(--flaeche);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.neues-abzeichen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 24px;
+  border: 4px solid var(--kontur);
+  border-radius: 24px;
+  background: var(--flaeche);
+  animation: stern-erscheinen 0.8s ease-out 1s backwards;
+}
+
+.neues-abzeichen p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.neues-abzeichen .abzeichen-text {
+  display: none;
+}
+
+/* Querformat: alles kompakter, damit die Knöpfe ohne Scrollen sichtbar sind */
+@media (max-height: 820px) {
+  .ende {
+    gap: 14px;
+  }
+  .ende .lob {
+    font-size: clamp(2.2rem, 6vh, 3.4rem);
+  }
+  .ende .stern {
+    width: clamp(64px, 11vh, 100px);
+  }
+  .ende-avatar {
+    width: 84px;
+    height: 84px;
+  }
+  .neues-abzeichen {
+    flex-direction: row;
+    padding: 10px 20px;
+  }
+}
+
 /* ---------- Bewegung reduzieren ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1017,7 +1354,8 @@ img {
   .am-zug.wechsel,
   .stern,
   .ende .lob,
-  .paar-karte {
+  .paar-karte,
+  .neues-abzeichen {
     animation: none !important;
   }
 }

@@ -61,14 +61,20 @@ export function merkeLetzteSpieler(profile) {
   sichere();
 }
 
-export function merkeGefunden(profil, setId, tierId) {
-  if (profil.gast) return;
+// Gibt { neu, komplett } zurück: neu = Tier war noch nicht im Album,
+// komplett = mit diesem Tier ist der Satz gerade vollständig geworden.
+export function merkeGefunden(profil, set, tierId) {
+  if (profil.gast) return { neu: false, komplett: false };
   const album = (speicher.album[profil.id] ??= {});
-  const liste = (album[setId] ??= []);
-  if (!liste.includes(tierId)) {
-    liste.push(tierId);
-    sichere();
-  }
+  const liste = (album[set.id] ??= []);
+  if (liste.includes(tierId)) return { neu: false, komplett: false };
+  liste.push(tierId);
+  sichere();
+  return { neu: true, komplett: liste.length === set.tiere.length };
+}
+
+export function albumVon(profil, setId) {
+  return speicher.album[profil.id]?.[setId] ?? [];
 }
 
 // Gibt { neu, bisher } zurück. Weniger Züge sind besser.

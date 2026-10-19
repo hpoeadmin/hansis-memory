@@ -26,7 +26,12 @@ export function zeigeSpiel(app) {
     element: null,
   }));
 
-  const spieler = app.auswahl.spieler.map((profil) => ({ profil, paare: 0 }));
+  const spieler = app.auswahl.spieler.map((profil) => ({
+    profil,
+    paare: 0,
+    neueTiere: [],
+    neuesAbzeichen: false,
+  }));
   const mehrspieler = spieler.length > 1;
   const zustand = { zuege: 0, gefunden: 0, aktiv: 0, offen: [], gesperrt: false, beendet: false };
 
@@ -154,7 +159,9 @@ export function zeigeSpiel(app) {
       zustand.gefunden++;
       const s = spieler[zustand.aktiv];
       s.paare++;
-      merkeGefunden(s.profil, set.id, a.tier.id);
+      const album = merkeGefunden(s.profil, set, a.tier.id);
+      if (album.neu) s.neueTiere.push(a.tier);
+      if (album.komplett) s.neuesAbzeichen = true;
       paareAnzeige.textContent = T.spiel.vonGesamt(zustand.gefunden, paare);
       klang.paar();
       zeigePaar(a.tier);

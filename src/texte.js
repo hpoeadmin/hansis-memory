@@ -72,8 +72,23 @@ export const T = {
     spielerPaare: (n) => (n === 1 ? '1 Paar' : `${n} Paare`),
     meistePaare: 'Meiste Paare',
     lobSpieler: ['Gut aufgepasst!', 'Toll gemerkt!', 'Prima gespielt!', 'Wunderbar!'],
+    neuImAlbum: (namen) => `Neu im Album: ${namen}`,
+    neuesAbzeichen: (name, setName) => `Neues Abzeichen für ${name}: ${setName} komplett!`,
     nochmals: 'Nochmals spielen',
     anderesSpiel: 'Anderes Spiel wählen',
+  },
+
+  album: {
+    knopf: 'Album',
+    titel: 'Album',
+    wessen: (name) => `Album von ${name}`,
+    keineSpieler: 'Lege zuerst einen Spieler an. Dann sammelt das Album alle Tiere, die gefunden werden.',
+    anzahl: (n, gesamt) => `${n} von ${gesamt} Tieren`,
+    nochNicht: 'Noch nicht gefunden',
+    abzeichen: 'Abzeichen',
+    abzeichenText: (setName) => `${setName} komplett!`,
+    keineAbzeichen: 'Sammle alle 12 Tiere eines Satzes, dann bekommst du ein Abzeichen.',
+    schliessen: 'Schliessen',
   },
 
   allgemein: {

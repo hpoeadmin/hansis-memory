@@ -13,6 +13,7 @@ import { zeigeSpieler } from './screens/spieler.js';
 import { zeigeProfil } from './screens/profil.js';
 import { zeigeSpiel } from './screens/spiel.js';
 import { zeigeEnde } from './screens/ende.js';
+import { zeigeAlbum } from './screens/album.js';
 
 const app = {
   sets: [],
@@ -45,6 +46,7 @@ const app = {
   },
   zeigeSpiel: () => zeigeSpiel(app),
   zeigeEnde: (ergebnis) => zeigeEnde(app, ergebnis),
+  zeigeAlbum: (profilId) => zeigeAlbum(app, profilId),
 };
 
 async function starte() {

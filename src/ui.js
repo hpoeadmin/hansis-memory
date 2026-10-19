@@ -17,21 +17,44 @@ export function el(tag, eigenschaften = {}, ...kinder) {
 
 // Ein Tipp löst sofort beim Berühren aus. Lange oder zittrige Berührungen
 // zählen nur einmal; weitere Tipps kurz danach werden ignoriert.
-export function beiTipp(element, aktion, sperrzeit = 350) {
+// In Listen, die man scrollen kann (scrollbar: true), zählt der Tipp erst beim
+// Loslassen – und nur, wenn der Finger nicht zum Scrollen bewegt wurde.
+const MAX_BEWEGUNG = 24; // px, Zittern bis zu dieser Strecke zählt noch als Tipp
+
+export function beiTipp(element, aktion, { sperrzeit = 350, scrollbar = false } = {}) {
   let letzter = 0;
-  element.addEventListener('pointerdown', (ereignis) => {
-    if (ereignis.button > 0) return;
-    ereignis.preventDefault();
+  const ausloesen = (ereignis) => {
     const jetzt = performance.now();
     if (jetzt - letzter < sperrzeit) return;
     letzter = jetzt;
     aktion(ereignis);
-  });
+  };
+
+  if (scrollbar) {
+    let start = null;
+    element.addEventListener('pointerdown', (ereignis) => {
+      if (ereignis.button > 0) return;
+      start = { x: ereignis.clientX, y: ereignis.clientY, id: ereignis.pointerId };
+    });
+    element.addEventListener('pointercancel', () => (start = null));
+    element.addEventListener('pointerup', (ereignis) => {
+      if (!start || start.id !== ereignis.pointerId) return;
+      const weg = Math.hypot(ereignis.clientX - start.x, ereignis.clientY - start.y);
+      start = null;
+      if (weg <= MAX_BEWEGUNG) ausloesen(ereignis);
+    });
+  } else {
+    element.addEventListener('pointerdown', (ereignis) => {
+      if (ereignis.button > 0) return;
+      ereignis.preventDefault();
+      ausloesen(ereignis);
+    });
+  }
   // Tastatur (z.B. Bluetooth-Tastatur oder Bedienungshilfen)
   element.addEventListener('keydown', (ereignis) => {
     if (ereignis.key === 'Enter' || ereignis.key === ' ') {
       ereignis.preventDefault();
-      aktion(ereignis);
+      ausloesen(ereignis);
     }
   });
   element.addEventListener('contextmenu', (ereignis) => ereignis.preventDefault());
