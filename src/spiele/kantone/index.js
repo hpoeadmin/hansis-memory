@@ -6,15 +6,20 @@ import { speicher } from '../../kern/speicher.js';
 import { findeProfil, merkeLetzteSpieler } from '../../kern/profile.js';
 import { passendeStufe } from '../../kern/schulstufe.js';
 import { zeigeSpieler } from '../../kern/bildschirme/spieler.js';
+import { zeigeFragen } from '../../kern/fragespiel.js';
+import { zeigeRundenende } from '../../kern/bildschirme/rundenende.js';
 import { STUFEN } from '../memory/sets.js';
 import { zeigeSpiel } from '../memory/spiel.js';
 import { zeigeEnde } from '../memory/ende.js';
 import { MODI, kantoneFuer } from './kantone.js';
+import { KARTEN_MODI, kartenFragen, ladeKarte } from './karte.js';
 
 export const FARBE = '#F7DCDC';
 const BASIS = import.meta.env.BASE_URL;
-const EMPFEHLUNG = { kl12: 'nachbarn', kl34: 'nachbarn', kl56: 'hauptorte' };
+const EMPFEHLUNG = { kl12: 'nachbarn', kl34: 'nachbarn', kl56: 'karte-ch' };
 const MODUS_BILD = { nachbarn: ['zh', 'ag', 'sg'], alle: ['ur', 'ge', 'vs'], hauptorte: ['gr'] };
+const ALLE_MODI = [...Object.keys(MODI), ...Object.keys(KARTEN_MODI)];
+const istKarte = (modus) => modus in KARTEN_MODI;
 
 export const wappenUrl = (kz) => `${BASIS}spiele/kantone/${kz}.svg`;
 
@@ -42,8 +47,10 @@ function paare(modus, anzahl) {
 function zeigeStart(m) {
   const KT = T.kantone;
   const empfohlen = passendeStufe(speicher.letzteSpieler.map(findeProfil).filter(Boolean), EMPFEHLUNG);
-  const kacheln = Object.keys(MODI).map((id) => {
-    const bild = el('div', { class: 'set-bild kt-modusbild' }, MODUS_BILD[id].map((kz) => el('img', { src: wappenUrl(kz), alt: '' })));
+  const kacheln = ALLE_MODI.map((id) => {
+    const bild = istKarte(id)
+      ? el('div', { class: 'set-bild kt-modusbild' }, el('img', { class: `kt-minikarte ${id}`, src: `${BASIS}spiele/kantone-karte.svg`, alt: '' }))
+      : el('div', { class: 'set-bild kt-modusbild' }, MODUS_BILD[id].map((kz) => el('img', { src: wappenUrl(kz), alt: '' })));
     if (id === 'hauptorte') bild.append(el('span', { class: 'kt-hauptort' }, 'Chur'));
     const k = el(
       'button',
@@ -68,7 +75,8 @@ function zeigeStart(m) {
         el('h1', { class: 'titel' }, T.spiele.kantone),
       ),
       el('p', { class: 'frage' }, KT.frage),
-      el('div', { class: 'set-raster spiel-raster', style: '--anzahl: 3' }, kacheln),
+      el('div', { class: 'set-raster spiel-raster kt-modi', style: `--anzahl: ${kacheln.length}` }, kacheln),
+      el('p', { class: 'kt-quelle' }, KT.quelle),
     ),
   );
 }
@@ -80,8 +88,32 @@ export function kantoneSteuerung(app) {
   m.auswahl = { set: null, stufe: null, spieler: [] };
 
   m.zeigeStart = () => zeigeStart(m);
-  m.waehleModus = (modus) => {
+  // Kartenfragen laufen im Frage-Rahmen (wie Einmaleins), die übrigen im Memory
+  const kartenSpiel = {
+    id: 'kantone',
+    farbe: FARBE,
+    texte: T.kantone,
+    erzeugeFragen: () => kartenFragen(m.modus),
+  };
+
+  m.waehleModus = async (modus) => {
     m.modus = modus;
+    if (istKarte(modus)) {
+      await ladeKarte();
+      m.auswahl.stufe = modus;
+      zeigeSpieler(app, {
+        farbe: FARBE,
+        max: 4,
+        vorauswahl: speicher.letzteSpieler,
+        zurueck: m.zeigeStart,
+        weiter: (profile) => {
+          m.auswahl.spieler = profile;
+          merkeLetzteSpieler(profile);
+          m.zeigeSpiel();
+        },
+      });
+      return;
+    }
     m.lern = `kantone-${modus}`;
     m.auswahl.set = { id: 'kantone', name: T.kantone.modi[modus].titel, farbe: FARBE };
     m.auswahl.stufe = MODI[modus].stufe;
@@ -97,8 +129,15 @@ export function kantoneSteuerung(app) {
       },
     });
   };
-  m.zeigeSpiel = () => zeigeSpiel(m);
-  m.zeigeEnde = (ergebnis) => zeigeEnde(m, ergebnis);
+  m.zeigeSpiel = () => (istKarte(m.modus) ? zeigeFragen(m, kartenSpiel) : zeigeSpiel(m));
+  m.zeigeEnde = (ergebnis) =>
+    istKarte(m.modus)
+      ? zeigeRundenende(m, {
+          ...ergebnis,
+          farbe: FARBE,
+          texte: { einzel: T.kantone.ergebnisEinzel, spieler: T.kantone.ergebnisSpieler },
+        })
+      : zeigeEnde(m, ergebnis);
   m.erzeugePaare = () => paare(m.modus, STUFEN[m.auswahl.stufe].paare);
   return m;
 }

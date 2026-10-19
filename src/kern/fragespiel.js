@@ -16,7 +16,9 @@
 //   bild?: () => Element,   z.B. Uhr, Punktefeld, Fahrplan
 //   antworten: [{ text, klein?, richtig }],
 //   erklaerung?,            nach der richtigen Antwort
-//   hilfe?: () => { text, bild? }   nach einer falschen Antwort
+//   hilfe?: (antwort) => { text, bild? }   nach einer falschen Antwort
+//   interaktiv?: ({ richtig(), falsch(text) }) => Element   statt bild und Knöpfen:
+//                           das Element meldet die Antwort selbst (Karte antippen)
 // }
 import { T } from '../texte.js';
 import { el, beiTipp, knopf, zeige, bestaetigen } from './ui.js';
@@ -95,7 +97,7 @@ function zeigeStufen(s, spiel) {
   );
 }
 
-function zeigeFragen(s, spiel) {
+export function zeigeFragen(s, spiel) {
   const S = spiel.texte;
   const fragen = spiel.erzeugeFragen(s.auswahl.stufe, spiel.anzahl);
   const spieler = s.auswahl.spieler.map((profil) => ({ profil, richtig: 0 }));
@@ -129,8 +131,12 @@ function zeigeFragen(s, spiel) {
       el('img', { class: 'avatar', src: avatarUrl(sp.profil), alt: '' }),
       el('span', { class: 'am-zug-worte' }, el('span', { class: 'am-zug-name' }, sp.profil.name), ' ', el('span', { class: 'am-zug-text' }, T.spiel.istDran)),
     );
-    bildBox.replaceChildren(...(f.bild ? [f.bild()] : []));
-    bildBox.hidden = !f.bild;
+    // Interaktives Bild (z.B. Karte zum Antippen) meldet die Antwort selbst
+    const bild = f.interaktiv
+      ? f.interaktiv({ richtig: () => antworte({ richtig: true }, null), falsch: (text) => antworte({ richtig: false, text }, null) })
+      : f.bild?.();
+    bildBox.replaceChildren(...(bild ? [bild] : []));
+    bildBox.hidden = !bild;
     frageText.textContent = f.text;
     meldung.textContent = '';
     meldung.classList.remove('richtig');
@@ -151,11 +157,11 @@ function zeigeFragen(s, spiel) {
   }
 
   function antworte(antwort, k) {
-    if (beantwortet || beendet || k.classList.contains('falsch')) return;
+    if (beantwortet || beendet || k?.classList.contains('falsch')) return;
     const f = fragen[nummer];
     if (antwort.richtig) {
       beantwortet = true;
-      k.classList.add('richtig');
+      k?.classList.add('richtig');
       klang.paar();
       if (ersterVersuch) aktiver().richtig++;
       const text = f.erklaerung ? `${zufall(S.richtig)} ${f.erklaerung}` : zufall(S.richtig);
@@ -168,9 +174,9 @@ function zeigeFragen(s, spiel) {
     }
     ersterVersuch = false;
     // Kein Fehlerton – nur die Hilfe
-    k.classList.add('falsch');
-    const hilfe = f.hilfe?.();
-    const text = hilfe?.text ?? S.nochmals;
+    k?.classList.add('falsch');
+    const hilfe = f.hilfe?.(antwort);
+    const text = hilfe?.text ?? antwort.text ?? S.nochmals;
     meldung.textContent = text;
     if (hilfe?.bild) hilfeBox.replaceChildren(hilfe.bild);
     sprich(text);

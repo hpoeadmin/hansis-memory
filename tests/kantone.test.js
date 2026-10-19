@@ -20,3 +20,11 @@ describe('Kantone', () => {
     for (const k of kantoneFuer('hauptorte')) expect(k.hauptort).not.toBe(k.name);
   });
 });
+
+describe('Kantonskarte', () => {
+  it('enthält alle 26 Kantone mit Mittelpunkt', async () => {
+    const { readFileSync } = await import('node:fs');
+    const svg = readFileSync('public/spiele/kantone-karte.svg', 'utf8');
+    for (const k of KANTONE) expect(svg).toMatch(new RegExp(`id="kt-${k.kz}"[^>]*data-mx="[\\d.]+"`));
+  });
+});
