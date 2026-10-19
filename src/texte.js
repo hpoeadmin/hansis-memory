@@ -125,10 +125,15 @@ export const T = {
     seiten: {
       allgemein: { titel: 'Allgemein', text: 'Ton, Vorlesen, Spiele' },
       spieler: { titel: 'Spieler', text: 'Namen und Tiere' },
-      memory: { titel: 'Memory', text: 'Karten und Tempo' },
+      memory: { titel: 'Memory', text: 'auch Lern-Memory' },
       nuenistei: { titel: 'Nüni Stei', text: 'Zug zurück' },
       eilemitweile: { titel: 'Eile mit Weile', text: 'Zug zurück' },
+      reihenfolge: { titel: 'Merk dir die Reihenfolge', text: 'Tempo' },
     },
+    tempo: 'Wie schnell die Tiere aufleuchten',
+    tempoNormal: 'Normal',
+    tempoLangsam: 'Langsam',
+    tempoSehrLangsam: 'Sehr langsam',
     spieleImMenue: 'Spiele im Hauptmenü',
     zeigen: 'Zeigen',
     ausblenden: 'Ausblenden',
@@ -268,6 +273,26 @@ export const T = {
     tierVon: (n, gesamt) => `Tier ${n} von ${gesamt}`,
     ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Tieren gleich beim ersten Mal richtig gewusst.`,
     ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  reihenfolge: {
+    frage: 'Wie viele Tiere?',
+    stufen: {
+      vier: { titel: '4 Tiere', text: 'zum Einstieg' },
+      sechs: { titel: '6 Tiere', text: 'schon kniffliger' },
+      neun: { titel: '9 Tiere', text: 'für Profis' },
+    },
+    zuschauen: 'Schau gut zu …',
+    duBist: 'Jetzt du! Tippe die Tiere in der gleichen Reihenfolge.',
+    geschafft: ['Super! Jetzt kommt ein Tier dazu.', 'Toll gemerkt! Eines mehr …', 'Bravo! Weiter geht’s.'],
+    fast: 'Fast! Schau nochmal genau hin.',
+    laenge: (n) => `Folge: ${n} Tiere`,
+    rekord: (n) => `Bestleistung: ${n}`,
+    ergebnis: (n) => (n === 1 ? 'Du hast dir 1 Tier gemerkt.' : `Du hast dir ${n} Tiere nacheinander gemerkt.`),
+    nochNichts: 'Das war knifflig! Beim nächsten Mal klappt es bestimmt besser.',
+    neuerRekord: 'Neue Bestleistung!',
+    alterRekord: (n) => `Deine Bestleistung: ${n} Tiere`,
+    ganzGeschafft: 'Unglaublich – du hast alles geschafft!',
   },
 
   lernmemory: {

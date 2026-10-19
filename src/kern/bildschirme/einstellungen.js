@@ -163,13 +163,14 @@ function spieleImMenue() {
   );
 }
 
-const SEITEN = ['allgemein', 'spieler', 'memory', 'nuenistei', 'eilemitweile'];
+const SEITEN = ['allgemein', 'spieler', 'memory', 'nuenistei', 'eilemitweile', 'reihenfolge'];
 const SEITEN_BILD = {
   allgemein: 'spiele/einstellungen.svg',
   spieler: 'sets/bauernhof/katze.svg',
   memory: 'spiele/memory.svg',
   nuenistei: 'spiele/nuenistei.svg',
   eilemitweile: 'spiele/eilemitweile.svg',
+  reihenfolge: 'spiele/reihenfolge.svg',
 };
 
 function inhaltVon(app, seite) {
@@ -213,6 +214,19 @@ function inhaltVon(app, seite) {
   }
   if (seite === 'nuenistei') return [auswahl(E.zugZurueck, jaNein, 'zugZurueck')];
   if (seite === 'eilemitweile') return [auswahl(E.zugZurueck, jaNein, 'emwZugZurueck')];
+  if (seite === 'reihenfolge') {
+    return [
+      auswahl(
+        E.tempo,
+        [
+          { wert: 'normal', text: E.tempoNormal },
+          { wert: 'langsam', text: E.tempoLangsam },
+          { wert: 'sehr-langsam', text: E.tempoSehrLangsam },
+        ],
+        'merkTempo',
+      ),
+    ];
+  }
   return [];
 }
 

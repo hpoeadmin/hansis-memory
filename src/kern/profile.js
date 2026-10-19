@@ -103,6 +103,23 @@ export function albumVon(profil, setId) {
   return speicher.album[profil.id]?.[setId] ?? [];
 }
 
+// Rekord, bei dem mehr besser ist (z.B. längste gemerkte Folge). Gibt { neu, bisher } zurück.
+export function merkeRekord(profil, schluessel, wert) {
+  if (profil.gast) return { neu: false, bisher: null };
+  const eintraege = (speicher.bestleistungen[profil.id] ??= {});
+  const bisher = eintraege[schluessel] ?? null;
+  const neu = bisher === null || wert > bisher;
+  if (neu) {
+    eintraege[schluessel] = wert;
+    sichere();
+  }
+  return { neu, bisher };
+}
+
+export function rekordVon(profil, schluessel) {
+  return speicher.bestleistungen[profil.id]?.[schluessel] ?? null;
+}
+
 // Gibt { neu, bisher } zurück. Weniger Züge sind besser.
 export function merkeBestleistung(profil, stufe, zuege) {
   if (profil.gast) return { neu: false, bisher: null };

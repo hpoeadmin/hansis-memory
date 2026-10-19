@@ -1,7 +1,7 @@
 # Hansis Spielplatz
 
 Spiele für Tablets – für Enkel und Grosseltern. Ohne Zeitdruck, ohne Verlieren.
-Zurzeit: **Memory** mit vier Tiersätzen, **Nüni Stei** (zu zweit oder gegen das Tablet) und **Eile mit Weile** (2–4 Farben, freie Plätze spielt das Tablet).
+Zurzeit: **Memory** mit vier Tiersätzen, die Lernspiele **Lern-Memory**, **Wo wohne ich?** und **Merk dir die Reihenfolge** sowie die Brettspiele **Nüni Stei** (zu zweit oder gegen das Tablet) und **Eile mit Weile** (2–4 Farben, freie Plätze spielt das Tablet).
 
 ## Aufbau
 

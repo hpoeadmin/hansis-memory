@@ -23,6 +23,13 @@ export const SPIELE = [
     starte: (app) => app.lebensraum.zeigeStart(),
   },
   {
+    id: 'reihenfolge',
+    bild: 'spiele/reihenfolge.svg',
+    farbe: '#EADCF7',
+    status: 'bereit',
+    starte: (app) => app.reihenfolge.zeigeStart(),
+  },
+  {
     id: 'nuenistei',
     bild: 'spiele/nuenistei.svg',
     farbe: '#EAD7B7',

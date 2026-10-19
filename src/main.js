@@ -15,6 +15,7 @@ import { nuensteiSteuerung } from './spiele/nuenistei/index.js';
 import { eileMitWeileSteuerung } from './spiele/eilemitweile/index.js';
 import { lernMemorySteuerung } from './spiele/lernmemory/index.js';
 import { lebensraumSteuerung } from './spiele/lebensraum/index.js';
+import { reihenfolgeSteuerung } from './spiele/reihenfolge/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -32,6 +33,7 @@ app.nuenistei = nuensteiSteuerung(app);
 app.eilemitweile = eileMitWeileSteuerung(app);
 app.lernmemory = lernMemorySteuerung(app);
 app.lebensraum = lebensraumSteuerung(app);
+app.reihenfolge = reihenfolgeSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

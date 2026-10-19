@@ -2,7 +2,7 @@
 
 Liebe Familie
 
-Ich habe einen kleinen Spielplatz mit Spielen gemacht. Es gibt ein Memory mit Tieren, Nüni Stei und Eile mit Weile. Man kann auf dem iPad oder auf einem Android-Tablet spielen, allein oder zusammen. Es gibt keinen Zeitdruck, keine Werbung, und niemand verliert.
+Ich habe einen kleinen Spielplatz mit Spielen gemacht. Es gibt ein Memory mit Tieren, drei Lernspiele (Lern-Memory, «Wo wohne ich?» und «Merk dir die Reihenfolge»), Nüni Stei und Eile mit Weile. Man kann auf dem iPad oder auf einem Android-Tablet spielen, allein oder zusammen. Es gibt keinen Zeitdruck, keine Werbung, und niemand verliert.
 
 **Adresse:** https://hpoeadmin.github.io/hansis-memory/
 
@@ -37,6 +37,9 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Spiel wählen:** Im Hauptmenü tippst du auf das Spiel, z.B. **Memory**.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
+- **Lern-Memory:** Memory mit ungleichen Paaren: Bild und Wort (Lesen), Menge und Zahl (Zählen), Gross- und Kleinbuchstabe.
+- **Wo wohne ich?** Ein Tier erscheint, du tippst auf sein Zuhause: Bauernhof, Meer, Wald oder Luft. Danach erzählt das Tablet etwas über das Tier.
+- **Merk dir die Reihenfolge:** Tiere leuchten nacheinander auf, du tippst sie in der gleichen Reihenfolge nach. Ein gutes Gedächtnistraining für Gross und Klein; das Tempo lässt sich unter «Für Eltern» langsamer stellen.
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.
 - **Eile mit Weile:** Für 2, 3 oder 4 Farben; wer fehlt, wird vom Tablet gespielt. Tippe auf «Würfeln», dann auf eine leuchtende Figur. Die Regeln sind wie bei uns zu Hause: mit einer 6 herauskommen, nach einer 6 nochmals würfeln, auf dem Bänkli ist man sicher, zwei gleiche Figuren auf einem Bänkli sperren.
 - **Album:** Jeder sammelt die Tiere, die er gefunden hat. Wer alle 12 Tiere hat, bekommt ein Abzeichen.

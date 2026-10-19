@@ -48,6 +48,8 @@ export const klang = {
     }),
   wechsel: () => spiele(() => ton(523, 0, 0.2, 0.12, 'triangle')),
   hupf: () => spiele(() => ton(880, 0, 0.06, 0.06, 'triangle')),
+  // Ein Ton in beliebiger Höhe (Merk dir die Reihenfolge: jedes Tier hat seinen Ton)
+  note: (frequenz, dauer = 0.45) => spiele(() => ton(frequenz, 0, dauer, 0.28, 'sine')),
   wuerfeln: () =>
     spiele(() => {
       for (let i = 0; i < 5; i++) ton(300 + Math.random() * 300, i * 0.08, 0.05, 0.08, 'square');

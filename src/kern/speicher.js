@@ -15,6 +15,7 @@ const STANDARD = {
     zugZurueck: true, // Nüni Stei: «Zug zurück» anbieten
     emwZugZurueck: true, // Eile mit Weile: «Zug zurück» anbieten
     ausgeblendet: [], // Spiele, die im Hauptmenü nicht erscheinen
+    merkTempo: 'normal', // Merk dir die Reihenfolge: normal | langsam | sehr-langsam
   },
   nuenistei: { laufend: null }, // gespeichertes, noch nicht beendetes Spiel
   eilemitweile: { laufend: null },

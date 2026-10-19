@@ -27,7 +27,10 @@
 | C | Nüni Stei gegen das Tablet (zwei Stufen) | ✅ |
 | D | Eile mit Weile für 2–4 Farben, freie Plätze spielt das Tablet | ✅ |
 | D2 | Einstellungen nach Spielen geordnet, Spiele im Hauptmenü ausblendbar | ✅ |
-| E | Weitere Spiele (z.B. Tier-Domino, Vier gewinnt, Leiterlispiel, Puzzle) | Idee |
+| E1 | Lernspiel «Lern-Memory» (Bild–Wort, Menge–Zahl, Gross–klein) | ✅ |
+| E2 | Lernspiel «Wo wohne ich?» (Lebensräume) | ✅ |
+| E3 | Lernspiel «Merk dir die Reihenfolge» (Gedächtnis) | ✅ |
+| E | Weitere Ideen: Zählen und Rechnen, Wer bin ich?, Anlaut-Spiel, Tier-Puzzle, Uhr lesen, Wörter legen | Idee |
 
 **Regeln laut Hanspeter (19.10.2026):**
 - Nüni Stei: mit «Springen» (wer nur noch 3 Steine hat, darf auf jedes freie Feld).
@@ -80,6 +83,9 @@
 - **Eile mit Weile – Bedienung:** grosser Knopf «Würfeln» (auch der Würfel selbst ist antippbar). Ziehbare Figuren leuchten pulsierend, ihr Zielfeld ist gestrichelt. Antippen lässt sich die Figur oder ihr Zielfeld (unsichtbare Tippfläche, Radius 26 von 700). Die Figur hüpft Feld für Feld (0,14 s pro Feld). Bei einer Sperre erscheint ein Schloss. Mit Vorlesen wird die gewürfelte Zahl angesagt.
 - **Eile mit Weile – Ablauf:** Hauptmenü → Anzahl Farben (2: Rot/Blau, 3: Rot/Grün/Blau, 4: alle) → Spieler (1 bis Anzahl). Die gewählten Menschen bekommen die ersten Farben, die übrigen Plätze spielt das Tablet. Der Computer bewertet jeden Zug mit Faustregeln: herauskommen, ins Ziel, schlagen (je weiter die fremde Figur, desto lieber), aufs Bänkli, Sperre bauen; gefährliche Felder (fremde Figur 1–6 dahinter) meidet er. «Nochmals spielen» behält die Plätze, die nächste Farbe beginnt. Gespeichert wird wie bei Nüni Stei; «Zug zurück» gilt für beide Brettspiele.
 - **Einstellungen (Elternschloss):** Übersicht mit fünf Kacheln, jede öffnet eine eigene Seite: *Allgemein* (Ton, Vorlesen, Spiele im Hauptmenü zeigen/ausblenden), *Spieler* (ändern, löschen, neu), *Memory* (Aufdeck-Dauer, Kartenrückseite, Tiernamen), *Nüni Stei* und *Eile mit Weile* (je «Zug zurück» erlaubt, getrennt einstellbar: `zugZurueck` bzw. `emwZugZurueck`). Mindestens ein Spiel bleibt im Hauptmenü sichtbar (`einstellungen.ausgeblendet`). Sind weniger Spiele sichtbar, stehen ihre Kacheln in der Mitte.
+- **Lern-Memory** (`src/spiele/lernmemory/`): nutzt die Memory-Bildschirme. Der Memory-Kern arbeitet jetzt mit allgemeinen Paaren (`memory/inhalte.js`: tier, bild, wort, menge, zahl, buchstabe); jede Steuerung liefert `erzeugePaare(anzahl)`. Lern-Karten sind immer quadratisch (keine Namensleiste, sonst wäre das Wort verraten). *Bild und Wort*: zufällige Tiere aus allen Sätzen. *Menge und Zahl*: 1 bis Anzahl Paare, je ein zufälliges Tier. *Gross und klein*: Buchstaben ohne Q, X, Y. Bestleistungen pro Übungsart und Stufe; das Album füllt nur das klassische Memory.
+- **Wo wohne ich?** (`src/spiele/lebensraum/`): Lebensraum = Kartensatz des Tiers. Fragen mischen alle vier Sätze gleichmässig. Vier Lebensraum-Bilder (`public/spiele/lebensraum-*.svg`). Jedes Tier hat jetzt in `set.json` einen `artikel` (der/die/das) für «Wo wohnt der Fuchs?». Falsch = Knopf ruhig ausgegraut mit ✕, nochmals versuchen; richtig = Infosatz anzeigen und vorlesen, Tier kommt ins Album, «Weiter»-Knopf (kein Zeitdruck). Punkte nur für «gleich beim ersten Mal richtig».
+- **Merk dir die Reihenfolge** (`src/spiele/reihenfolge/`): 4, 6 oder 9 Bauernhof-Tiere, jedes mit eigenem Ton (Pentatonik). Start mit 2 Tieren, jede geschaffte Folge +1 (höchstens 15). Erster Fehler: Folge wird nochmals gezeigt; zweiter Fehler: Abschluss mit der Länge der gemerkten Folge (auch angefangene zählen). Rekord pro Spieler und Stufe (`merkeRekord`, mehr ist besser). Tempo in den Einstellungen: normal / langsam / sehr langsam.
 - **Lange Tiernamen:** Die Schriftgrösse richtet sich nach dem längsten Wortteil (`tierName()` in `src/sets.js`). Ein optionales Feld `trennung` mit weichem Trennstrich erlaubt zwei Zeilen («Meeres-/schildkröte»). Das gilt für Karte, Paar-Anzeige und Album.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 
