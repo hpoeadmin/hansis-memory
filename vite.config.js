@@ -1,6 +1,44 @@
 import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 
 // GitHub Pages veröffentlicht unter https://<benutzer>.github.io/hansis-memory/
+const BASIS = '/hansis-memory/';
+
 export default defineConfig({
-  base: '/hansis-memory/',
+  base: BASIS,
+  plugins: [
+    VitePWA({
+      // Neue Versionen warten, bis jemand auf «Aktualisieren» tippt –
+      // so wird kein laufendes Spiel unterbrochen.
+      registerType: 'prompt',
+      injectRegister: false,
+      includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png', 'icon.svg'],
+      manifest: {
+        id: BASIS,
+        name: 'Hansi’s Memory',
+        short_name: 'Memory',
+        description: 'Ein Memory-Spiel mit Tieren für Kinder und Grosseltern.',
+        lang: 'de-CH',
+        start_url: BASIS,
+        scope: BASIS,
+        display: 'fullscreen',
+        display_override: ['fullscreen', 'standalone'],
+        orientation: 'any',
+        background_color: '#FFF8EC',
+        theme_color: '#FFF8EC',
+        icons: [
+          { src: 'pwa-64x64.png', sizes: '64x64', type: 'image/png' },
+          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+        ],
+      },
+      workbox: {
+        // Alles für den Offline-Betrieb: Seite, Code, Schrift, Kartensätze, Icons
+        globPatterns: ['**/*.{html,js,css,woff2,svg,json,png,ico}'],
+        cleanupOutdatedCaches: true,
+        navigateFallback: `${BASIS}index.html`,
+      },
+    }),
+  ],
 });

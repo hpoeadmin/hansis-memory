@@ -7,6 +7,7 @@ import { speicher } from './speicher.js';
 import { merkeLetzteSpieler } from './profile.js';
 import { zeige, el } from './ui.js';
 import { entsperreAudio } from './klang.js';
+import { starteAktualisierung } from './aktualisierung.js';
 import { zeigeStart } from './screens/start.js';
 import { zeigeStufe } from './screens/stufe.js';
 import { zeigeSpieler } from './screens/spieler.js';
@@ -69,3 +70,4 @@ async function starte() {
 document.addEventListener('pointerdown', entsperreAudio, { capture: true });
 
 starte();
+starteAktualisierung();

@@ -4,8 +4,20 @@
     {
       "name": "hansis-memory",
       "runtimeExecutable": "/bin/zsh",
-      "runtimeArgs": ["-lc", "npm run dev -- --port 5173 --strictPort"],
+      "runtimeArgs": [
+        "-lc",
+        "npm run dev -- --port 5173 --strictPort"
+      ],
       "port": 5173
+    },
+    {
+      "name": "hansis-memory-build",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "npm run build && npx vite preview --port 4173 --strictPort"
+      ],
+      "port": 4173
     }
   ]
 }

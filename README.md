@@ -30,6 +30,37 @@ Danach im Browser `http://localhost:5173/hansis-memory/` öffnen.
 
 Fehlt ein Bild, bricht `npm run dev` bzw. `npm run build` mit einer Meldung ab.
 
+## Veröffentlichung
+
+Jeder Push auf `main` baut die App mit GitHub Actions (`.github/workflows/deploy.yml`) und veröffentlicht sie auf GitHub Pages:
+
+**https://hpoeadmin.github.io/hansis-memory/**
+
+Den Stand des Builds siehst du im Repository unter **Actions**.
+
+### Neue Versionen auf den Tablets
+
+Die App arbeitet mit einem Service Worker (`vite-plugin-pwa`) und speichert alle Dateien für den Offline-Betrieb. Das gilt für Seite, Code, Schrift, Kartensätze und Icons. Nach einer Veröffentlichung merkt die App die neue Version beim nächsten Start, beim Zurückkehren in die App und sonst alle 30 Minuten. Dann erscheint unten **«Neue Version verfügbar – Tippen zum Aktualisieren»**. Ein laufendes Spiel wird dadurch nicht unterbrochen.
+
+Offline-Version lokal testen:
+
+```bash
+npm run build
+npm run preview
+```
+
 ## Auf dem iPad installieren
 
-Folgt, sobald die App auf GitHub Pages veröffentlicht ist.
+1. In **Safari** `https://hpoeadmin.github.io/hansis-memory/` öffnen.
+2. **Teilen** (Quadrat mit Pfeil) → **Zum Home-Bildschirm** → **Hinzufügen**.
+3. Ab jetzt über das Symbol «Memory» starten. Die App läuft im Vollbild und auch offline.
+
+Eine ausführliche Anleitung zum Weitergeben steht in [ANLEITUNG-FAMILIE.md](ANLEITUNG-FAMILIE.md).
+
+## App-Icons neu erzeugen
+
+Das Icon ist `public/icon.svg`. Nach einer Änderung:
+
+```bash
+npx pwa-assets-generator
+```

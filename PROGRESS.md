@@ -12,8 +12,8 @@
 | 6 | Animationen, Lob, Konfetti, Klang, Vorlesen | ✅ (Klang und Vorlesen noch auf dem iPad anhören) |
 | 7 | Sammelalbum und Abzeichen | ✅ |
 | 8 | Einstellungen mit Elternschloss | ✅ |
-| 9 | Offline/PWA mit Update-Hinweis | offen |
-| 10 | GitHub Pages, Anleitung für die Familie | offen |
+| 9 | Offline/PWA mit Update-Hinweis | ✅ |
+| 10 | GitHub Pages, Anleitung für die Familie | ✅ https://hpoeadmin.github.io/hansis-memory/ |
 
 ## Entscheidungen
 
@@ -41,6 +41,10 @@
 - **Elternschloss:** Knopf «Für Eltern» oben links im Startmenü. Man muss ihn 3 Sekunden gedrückt halten; ein gelber Balken füllt sich dabei. Lässt man früher los, erscheint «Zum Öffnen 3 Sekunden gedrückt halten.»
 - **Einstellungen:** Ton (ein/aus, beim Einschalten erklingt eine Probe), Vorlesen (ein/aus, beim Einschalten ein Probesatz; der Satz schaltet auf dem iPad gleichzeitig die Sprachausgabe frei), wie lange nicht passende Karten offen bleiben (normal 2,5 s / langsam 4 s / sehr langsam 6 s / bis man tippt), Kartenrückseite (Blau mit Punkten, Grün mit Streifen, Orange mit Karos – Farbe *und* Muster unterscheiden sich), Tiernamen auf den Karten (ja/nein; ohne Namen werden die Karten quadratisch und dadurch grösser). Dazu Spieler ändern, löschen (mit Rückfrage; Album und Bestleistungen werden mitgelöscht) und neu anlegen.
 - **«Bis man tippt»:** Nach einem Fehlversuch bleiben die Karten offen, und unten erscheint «Tippe, um die Karten umzudrehen.» Ein Tipp irgendwo aufs Spielbrett dreht sie um. Tipps in den ersten 0,3 s zählen nicht, damit ein versehentlicher Doppeltipp die Karten nicht sofort wieder verdeckt.
+- **PWA:** `vite-plugin-pwa` (nur beim Build) erzeugt Manifest und Service Worker (Workbox, generateSW). Alle Dateien werden vorab gespeichert (`globPatterns`), dazu gehören auch die Kartensätze, weil `sets/index.json` vor dem Build entsteht. `display: fullscreen` mit Fallback `standalone`. Der Basis-Pfad `/hansis-memory/` gilt für Manifest, Scope und Navigations-Fallback.
+- **Updates:** `registerType: 'prompt'`. Eine neue Version wartet, bis jemand auf den gelben Hinweis tippt; das unterbricht kein Spiel. Geprüft wird beim Start, beim Zurückkehren in die App (`visibilitychange`) und alle 30 Minuten.
+- **Icons:** `public/icon.svg` (zwei Karten mit Kuh auf Grün). Die PNGs erzeugt `@vite-pwa/assets-generator` (`pwa-assets.config.js`).
+- **Veröffentlichung:** GitHub Actions (`deploy.yml`, Node 22) → GitHub Pages, Quelle «GitHub Actions».
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 
 ## Offene Fragen

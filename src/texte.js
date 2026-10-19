@@ -130,6 +130,11 @@ export const T = {
     fertig: 'Fertig',
   },
 
+  update: {
+    titel: 'Neue Version verfügbar',
+    tippen: 'Tippen zum Aktualisieren',
+  },
+
   allgemein: {
     zurueck: 'Zurück',
     laden: 'Einen Moment …',
