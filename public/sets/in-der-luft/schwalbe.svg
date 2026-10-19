@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="schwalbe-koerper"><path d="M40 108 C50 92 84 86 116 92 C138 96 152 108 150 118 C140 128 108 136 80 132 C56 128 40 122 40 108 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#FBE7C6"/>
+  <circle cx="100" cy="112" r="80" fill="#F5D9AC"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M96 100 C84 68 70 50 48 42 C60 68 72 92 88 112 Z" fill="#1F3A6E"/>
+    <path d="M130 112 L184 136 L156 126 L178 160 L124 126 Z" fill="#2B4C8C"/>
+    <path d="M40 108 C50 92 84 86 116 92 C138 96 152 108 150 118 C140 128 108 136 80 132 C56 128 40 122 40 108 Z" fill="#2B4C8C" stroke="none"/>
+    <g clip-path="url(#schwalbe-koerper)" stroke="none"><ellipse cx="96" cy="140" rx="60" ry="22" fill="#FFFFFF"/></g>
+    <path d="M40 108 C50 92 84 86 116 92 C138 96 152 108 150 118 C140 128 108 136 80 132 C56 128 40 122 40 108 Z" fill="none"/>
+    <path d="M104 98 C124 62 152 44 184 40 C164 66 140 92 118 110 Z" fill="#2B4C8C"/>
+    <circle cx="58" cy="102" r="21" fill="#2B4C8C"/>
+    <ellipse cx="50" cy="112" rx="10" ry="8" fill="#E5383B" stroke="none"/>
+    <path d="M38 98 L26 102 L38 106 Z" fill="#2E2A26" stroke-width="3"/>
+    <circle cx="58" cy="96" r="8" fill="#FFFFFF"/>
+    <circle cx="58" cy="97" r="5" fill="#2E2A26" stroke="none"/>
+    <circle cx="61" cy="93" r="3" fill="#FFFFFF" stroke="none"/>
+  </g>
+</svg>

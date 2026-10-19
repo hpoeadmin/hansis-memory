@@ -1,82 +1,82 @@
 {
   "id": "in-der-luft",
   "name": "In der Luft",
-  "status": "bald",
+  "status": "bereit",
   "reihenfolge": 4,
   "farbe": "#FBE7C6",
-  "titelbild": null,
+  "titelbild": "eule.svg",
   "tiere": [
     {
       "id": "adler",
       "name": "Adler",
       "bild": "adler.svg",
-      "info": ""
+      "info": "Der Adler sieht so scharf, dass er eine Maus von ganz hoch oben entdeckt."
     },
     {
       "id": "eule",
       "name": "Eule",
       "bild": "eule.svg",
-      "info": ""
+      "info": "Die Eule ist nachts wach und kann ihren Kopf fast ganz herumdrehen."
     },
     {
       "id": "papagei",
       "name": "Papagei",
       "bild": "papagei.svg",
-      "info": ""
+      "info": "Der Papagei ist bunt und kann manchmal sogar Wörter nachsprechen."
     },
     {
       "id": "storch",
       "name": "Storch",
       "bild": "storch.svg",
-      "info": ""
+      "info": "Der Storch baut sein grosses Nest gern auf Dächern und Kaminen."
     },
     {
       "id": "flamingo",
       "name": "Flamingo",
       "bild": "flamingo.svg",
-      "info": ""
+      "info": "Der Flamingo steht oft auf einem Bein. Rosa wird er von seinem Futter."
     },
     {
       "id": "pelikan",
       "name": "Pelikan",
       "bild": "pelikan.svg",
-      "info": ""
+      "info": "Der Pelikan fängt Fische mit seinem grossen Schnabelsack."
     },
     {
       "id": "schwalbe",
       "name": "Schwalbe",
       "bild": "schwalbe.svg",
-      "info": ""
+      "info": "Die Schwalbe fliegt im Herbst in warme Länder und kommt im Frühling zurück."
     },
     {
       "id": "fledermaus",
       "name": "Fledermaus",
       "bild": "fledermaus.svg",
-      "info": ""
+      "info": "Die Fledermaus fliegt nachts und schläft am Tag kopfüber hängend."
     },
     {
       "id": "schmetterling",
       "name": "Schmetterling",
       "bild": "schmetterling.svg",
-      "info": ""
+      "info": "Der Schmetterling war zuerst eine kleine Raupe."
     },
     {
       "id": "biene",
       "name": "Biene",
       "bild": "biene.svg",
-      "info": ""
+      "info": "Die Biene sammelt Nektar aus Blüten und macht daraus Honig."
     },
     {
       "id": "marienkaefer",
       "name": "Marienkäfer",
       "bild": "marienkaefer.svg",
-      "info": ""
+      "info": "Der Marienkäfer ist ein kleiner Glücksbringer mit roten Flügeln und schwarzen Punkten."
     },
     {
       "id": "libelle",
       "name": "Libelle",
       "bild": "libelle.svg",
-      "info": ""
+      "info": "Die Libelle hat vier Flügel und kann sogar rückwärts fliegen."
     }
   ]
 }

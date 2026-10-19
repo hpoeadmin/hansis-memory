@@ -16,6 +16,7 @@
 | 10 | GitHub Pages, Anleitung für die Familie | ✅ https://hpoeadmin.github.io/hansis-memory/ |
 | 11 | Satz «Meerestiere» (12 Tiere) | ✅ |
 | 12 | Satz «Waldtiere» (12 Tiere) | ✅ |
+| 13 | Satz «In der Luft» (12 Tiere) – alle vier Sätze spielbar | ✅ |
 
 ## Entscheidungen
 
@@ -49,6 +50,7 @@
 - **Veröffentlichung:** GitHub Actions (`deploy.yml`, Node 22) → GitHub Pages, Quelle «GitHub Actions».
 - **Meerestiere:** Satzfarbe `#CDE7F5`, Titelbild Wal. Gut unterscheidbar durch Farbe *und* Form: Wal blau, Delfin türkis und schräg springend, Hai grau mit Kiemen und weissem Maul, Krake lachsrot, Seestern orange, Krabbe rot, Schildkröte grün, Qualle rosa, Seepferdchen lila, Robbe graubraun, Pinguin schwarz-weiss, Kugelfisch gelb mit Stacheln. Bei der Krake steht im Infosatz bewusst keine Armzahl (gezeichnet sind 5 Arme).
 - **Waldtiere:** Satzfarbe `#E6DCC8`, Titelbild Fuchs. Ähnliche Tiere sind bewusst verschieden gestaltet: Reh hellbraun ohne Geweih, Hirsch dunkelbraun mit Geweih; Fuchs orange, Wolf grau mit Fellbüscheln an den Wangen; Luchs mit Ohrpinseln, Flecken und Halskrause; Hase als ganzer Körper von der Seite (anders als das Kaninchen vom Bauernhof); Wildschwein mit Borstenkamm und weissen Hauern.
+- **In der Luft:** Satzfarbe `#FBE7C6`, Titelbild Eule. Vögel mit Ast oder Pfosten (Adler, Eule, Papagei, Pelikan) und stehend (Storch weiss auf zwei roten Beinen, Flamingo rosa auf einem Bein). Die Schwalbe fliegt. Insekten und die Fledermaus sind von vorne oder oben gezeichnet; auf dunklen Köpfen bekommen die Augen einen weissen Ring.
 - **Lange Tiernamen:** Die Schriftgrösse richtet sich nach dem längsten Wortteil (`tierName()` in `src/sets.js`). Ein optionales Feld `trennung` mit weichem Trennstrich erlaubt zwei Zeilen («Meeres-/schildkröte»). Das gilt für Karte, Paar-Anzeige und Album.
 - **Tippen in scrollbaren Listen** (Album, Spielerauswahl, Profil-Editor): Dort zählt ein Tipp erst beim Loslassen und nur, wenn sich der Finger höchstens 24 px bewegt hat. So löst Scrollen nichts aus, Zittern aber schon. Auf dem Spielbrett und bei festen Knöpfen zählt der Tipp weiterhin sofort beim Berühren.
 

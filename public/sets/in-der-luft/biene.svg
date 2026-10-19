@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="bienen-koerper"><path d="M70 118 C70 90 100 80 128 84 C156 88 172 104 172 120 C172 138 152 152 124 154 C96 156 70 146 70 118 Z"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="#FBE7C6"/>
+  <circle cx="100" cy="112" r="80" fill="#F5D9AC"/>
+  <g stroke="#2E2A26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="104" cy="70" rx="18" ry="28" transform="rotate(-25 104 70)" fill="#E6F3FB"/>
+    <ellipse cx="132" cy="72" rx="16" ry="25" transform="rotate(20 132 72)" fill="#E6F3FB"/>
+    <path d="M172 118 L188 122 L172 128 Z" fill="#2E2A26"/>
+    <path d="M70 118 C70 90 100 80 128 84 C156 88 172 104 172 120 C172 138 152 152 124 154 C96 156 70 146 70 118 Z" fill="#F6C945" stroke="none"/>
+    <g clip-path="url(#bienen-koerper)" stroke="none" fill="#2E2A26"><rect x="98" y="70" width="14" height="100"/><rect x="128" y="70" width="14" height="100"/><rect x="156" y="70" width="12" height="100"/></g>
+    <path d="M70 118 C70 90 100 80 128 84 C156 88 172 104 172 120 C172 138 152 152 124 154 C96 156 70 146 70 118 Z" fill="none"/>
+    <path d="M52 92 C48 74 42 66 34 64 M64 88 C64 70 62 60 56 54" fill="none"/>
+    <circle cx="34" cy="64" r="5" fill="#2E2A26"/><circle cx="56" cy="54" r="5" fill="#2E2A26"/>
+    <circle cx="60" cy="114" r="30" fill="#F6C945"/>
+    <ellipse cx="52" cy="108" rx="8" ry="10" fill="#2E2A26" stroke="none"/>
+    <circle cx="55" cy="104" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="66" cy="126" r="7" fill="#F5A3B5" stroke="none"/>
+    <path d="M38 124 Q46 132 56 127" fill="none" stroke-width="5"/>
+  </g>
+</svg>
