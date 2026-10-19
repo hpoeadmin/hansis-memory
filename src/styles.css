@@ -2549,6 +2549,93 @@ img {
   cursor: default;
 }
 
+/* ---------- Hauptmenü nach Bereichen ---------- */
+
+/* Die Bereiche stehen nebeneinander und brechen um – so passt alles auf einen Blick */
+.hauptmenue-inhalt {
+  --kachel: clamp(140px, min(17vw, 27vh), 220px);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 14px 30px;
+  padding: 4px 4px 16px;
+}
+
+.bereich {
+  flex: 0 0 auto;
+}
+
+.bereich-titel {
+  margin: 0 0 8px;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+}
+
+.bereich-raster {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--kachel);
+  gap: 14px;
+}
+
+.bereich-raster .spiel-kachel {
+  height: var(--kachel);
+  padding: 8px;
+  touch-action: pan-y;
+}
+
+.bereich-raster .set-name {
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+  line-height: 1.1;
+  padding-top: 4px;
+}
+
+.alters-schild {
+  margin-top: 4px;
+  padding: 1px 10px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hauptmenue-inhalt .version-zeile {
+  flex: 0 0 100%;
+}
+
+@media (orientation: portrait) {
+  .hauptmenue-inhalt {
+    --kachel: clamp(140px, 27vw, 210px);
+  }
+}
+
+.verwaltung-klasse {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+/* Empfehlung «passt für Lena» auf Stufen-Knöpfen */
+.passt-schild {
+  margin-top: 6px;
+  padding: 4px 14px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--stern);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.stufe-knopf:has(.passt-schild),
+.modus-kachel:has(.passt-schild) {
+  border-width: 7px;
+}
+
 /* ---------- Versionsanzeige ---------- */
 
 .version-zeile {

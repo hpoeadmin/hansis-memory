@@ -1,6 +1,7 @@
 import { T } from '../../texte.js';
 import { el, beiTipp, knopf, zeige } from '../ui.js';
 import { FARBEN, avatarUrl, speichereProfil } from '../profile.js';
+import { KLASSEN, aktuelleKlasse, schuljahr } from '../schulstufe.js';
 
 // Profil anlegen oder ändern. «fertig» wird nach Speichern oder Abbrechen aufgerufen.
 export function zeigeProfil(app, profil, fertig) {
@@ -54,7 +55,26 @@ export function zeigeProfil(app, profil, fertig) {
     return { pfad, k };
   });
 
+  // Klasse: gezeigt wird die heutige (mitgezählte) Klasse
+  entwurf.klasse = aktuelleKlasse(profil)?.id ?? null;
+  const klassenKnoepfe = [{ id: null }, ...KLASSEN].map(({ id }) => {
+    const k = el(
+      'button',
+      { class: 'wahl-knopf klasse-knopf', type: 'button' },
+      el('span', {}, id ? T.schule.klassen[id] : T.schule.keine),
+    );
+    beiTipp(k, () => {
+      entwurf.klasse = id;
+      aktualisiere();
+    }, { scrollbar: true });
+    return { id, k };
+  });
+
   function aktualisiere() {
+    for (const { id, k } of klassenKnoepfe) {
+      k.classList.toggle('gewaehlt', id === entwurf.klasse);
+      k.setAttribute('aria-pressed', id === entwurf.klasse ? 'true' : 'false');
+    }
     for (const { id, k } of farbKnoepfe) {
       k.classList.toggle('gewaehlt', id === entwurf.farbe);
       k.setAttribute('aria-pressed', id === entwurf.farbe ? 'true' : 'false');
@@ -74,6 +94,9 @@ export function zeigeProfil(app, profil, fertig) {
       return;
     }
     entwurf.name = name;
+    // Die Klasse gilt ab dem laufenden Schuljahr und zählt von da an mit
+    if (entwurf.klasse) entwurf.klasseSchuljahr = schuljahr();
+    else delete entwurf.klasseSchuljahr;
     fertig(speichereProfil(entwurf));
   }
 
@@ -100,6 +123,9 @@ export function zeigeProfil(app, profil, fertig) {
         el('div', { class: 'farb-liste' }, farbKnoepfe.map((f) => f.k)),
         el('h2', { class: 'feld-titel' }, T.profil.tier),
         el('div', { class: 'avatar-liste' }, avatarKnoepfe.map((a) => a.k)),
+        el('h2', { class: 'feld-titel' }, T.schule.titel),
+        el('p', { class: 'hinweis' }, T.schule.hinweis),
+        el('div', { class: 'wahl-liste klassen-liste' }, klassenKnoepfe.map((x) => x.k)),
       ),
       el(
         'footer',

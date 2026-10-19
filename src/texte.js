@@ -12,9 +12,21 @@ export const T = {
     zurueck: 'Spiele',
   },
 
+  bereiche: {
+    gedaechtnis: 'Gedächtnis',
+    raum: 'Räumliches Denken',
+    mathe: 'Zahlen und Rechnen',
+    lesen: 'Lesen und Sprache',
+    natur: 'Natur und Wissen',
+    brett: 'Brettspiele',
+  },
+
   spiele: {
     memory: 'Memory',
     lernmemory: 'Lern-Memory',
+    'lern-mengezahl': 'Menge und Zahl',
+    'lern-bildwort': 'Bild und Wort',
+    'lern-buchstaben': 'Gross und klein',
     lebensraum: 'Wo wohne ich?',
     reihenfolge: 'Merk dir die Reihenfolge',
     nuenistei: 'Nüni Stei',
@@ -172,6 +184,35 @@ export const T = {
     loeschenNein: 'Nein, behalten',
     neuerSpieler: 'Neuer Spieler',
     fertig: 'Fertig',
+  },
+
+  schule: {
+    titel: 'Klasse',
+    hinweis: 'Im August zählt die App automatisch eine Klasse weiter.',
+    keine: 'Keine Angabe',
+    klassen: {
+      vorkg: 'Vor dem Kindergarten',
+      kg1: 'Kindergarten 1',
+      kg2: 'Kindergarten 2',
+      1: '1. Klasse',
+      2: '2. Klasse',
+      3: '3. Klasse',
+      4: '4. Klasse',
+      5: '5. Klasse',
+      6: '6. Klasse',
+      ober: 'Oberstufe',
+      erw: 'Erwachsen',
+    },
+    kategorien: {
+      vorkg: 'Vor dem Kindergarten',
+      kg: 'Kindergarten',
+      kl12: '1./2. Klasse',
+      kl34: '3./4. Klasse',
+      kl56: '5./6. Klasse',
+      erw: 'Erwachsene',
+    },
+    ab: { alle: 'für alle', kg: 'ab Kindergarten', kl12: 'ab 1. Klasse', kl34: 'ab 3. Klasse', kl56: 'ab 5. Klasse' },
+    passtFuer: (name) => `passt für ${name}`,
   },
 
   update: {

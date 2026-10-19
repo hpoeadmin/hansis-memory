@@ -1,29 +1,37 @@
 import { T } from './texte.js';
 import { el, beiTipp, zeige } from './kern/ui.js';
 import { elternschloss } from './kern/schloss.js';
-import { SPIELE } from './spiele.js';
+import { BEREICHE, SPIELE } from './spiele.js';
 
 const BASIS = import.meta.env.BASE_URL;
 
+function kachel(app, spiel) {
+  const k = el(
+    'button',
+    { class: 'set-kachel spiel-kachel', type: 'button', style: `--set-farbe: ${spiel.farbe}` },
+    el('div', { class: 'set-bild' }, el('img', { src: `${BASIS}${spiel.bild}`, alt: '' })),
+    el('span', { class: 'set-name' }, T.spiele[spiel.id]),
+    el('span', { class: 'alters-schild' }, T.schule.ab[spiel.ab]),
+  );
+  // Das Menü kann scrollen: ein Tipp zählt erst beim Loslassen ohne Wischen
+  beiTipp(k, () => spiel.starte(app), { scrollbar: true });
+  return k;
+}
+
+// Hauptmenü: ein Abschnitt pro Bereich (Gedächtnis, Zahlen, Lesen …); leere Bereiche fehlen
 export function zeigeHauptmenue(app) {
   const ausgeblendet = app.einstellungen.ausgeblendet ?? [];
-  const kacheln = SPIELE.filter((spiel) => !ausgeblendet.includes(spiel.id)).map((spiel) => {
-    const bereit = spiel.status === 'bereit';
-    const kachel = el(
-      'button',
-      {
-        class: `set-kachel spiel-kachel ${bereit ? '' : 'gesperrt'}`,
-        type: 'button',
-        style: `--set-farbe: ${spiel.farbe}`,
-        'aria-disabled': bereit ? false : 'true',
-      },
-      el('div', { class: 'set-bild' }, el('img', { src: `${BASIS}${spiel.bild}`, alt: '' })),
-      el('span', { class: 'set-name' }, T.spiele[spiel.id]),
-      bereit ? null : el('span', { class: 'set-bald' }, T.hauptmenue.kommtBald),
+  const sichtbar = SPIELE.filter((spiel) => !ausgeblendet.includes(spiel.id));
+  const abschnitte = BEREICHE.map((bereich) => {
+    const spiele = sichtbar.filter((s) => s.bereich === bereich);
+    if (!spiele.length) return null;
+    return el(
+      'section',
+      { class: 'bereich' },
+      el('h2', { class: 'bereich-titel' }, T.bereiche[bereich]),
+      el('div', { class: 'bereich-raster' }, spiele.map((s) => kachel(app, s))),
     );
-    if (bereit) beiTipp(kachel, () => spiel.starte(app));
-    return kachel;
-  });
+  }).filter(Boolean);
 
   zeige(
     el(
@@ -35,10 +43,7 @@ export function zeigeHauptmenue(app) {
         elternschloss(() => app.zeigeEinstellungen()),
         el('h1', { class: 'titel' }, T.hauptmenue.titel),
       ),
-      el('p', { class: 'frage' }, T.hauptmenue.frage),
-      el('div', { class: 'set-raster spiel-raster', style: `--anzahl: ${kacheln.length}` }, kacheln),
-      el('p', { class: 'version-zeile' }, T.version(__VERSION__)),
+      el('div', { class: 'hauptmenue-inhalt' }, abschnitte, el('p', { class: 'version-zeile' }, T.version(__VERSION__))),
     ),
   );
 }
-

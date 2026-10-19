@@ -5,6 +5,7 @@ import { avatarUrl, farbStil, loescheProfil } from '../profile.js';
 import { klang } from '../klang.js';
 import { sprich, vorlesenMoeglich } from '../vorlesen.js';
 import { SPIELE } from '../../spiele.js';
+import { aktuelleKlasse } from '../schulstufe.js';
 
 const BASIS = import.meta.env.BASE_URL;
 
@@ -57,7 +58,12 @@ function spielerVerwaltung(app) {
       'li',
       { class: 'verwaltung-zeile', style: farbStil(profil) },
       el('img', { class: 'avatar', src: avatarUrl(profil), alt: '' }),
-      el('span', { class: 'verwaltung-name' }, profil.name),
+      el(
+        'span',
+        { class: 'verwaltung-name' },
+        profil.name,
+        aktuelleKlasse(profil) ? el('span', { class: 'verwaltung-klasse' }, T.schule.klassen[aktuelleKlasse(profil).id]) : null,
+      ),
       knopf(
         T.einstellungen.aendern,
         () => app.zeigeProfil(profil, () => zeigeEinstellungen(app, 'spieler')),

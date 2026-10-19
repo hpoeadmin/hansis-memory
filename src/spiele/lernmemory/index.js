@@ -7,7 +7,6 @@ import { T } from '../../texte.js';
 import { zeigeStufe } from '../memory/stufe.js';
 import { zeigeSpiel } from '../memory/spiel.js';
 import { zeigeEnde } from '../memory/ende.js';
-import { zeigeStart } from './start.js';
 import { lernPaare } from './paare.js';
 
 export const ARTEN = {
@@ -21,7 +20,8 @@ export function lernMemorySteuerung(app) {
   m.lern = null;
   m.auswahl = { set: null, stufe: null, spieler: [] };
 
-  m.zeigeStart = () => zeigeStart(m);
+  // Die drei Übungsarten haben eigene Kacheln im Hauptmenü – «zurück» führt dorthin
+  m.zeigeStart = () => app.zeigeHauptmenue();
   m.waehleArt = (art) => {
     m.lern = art;
     m.auswahl.set = { id: `lern-${art}`, name: T.lernmemory.arten[art].titel, farbe: ARTEN[art].farbe };
