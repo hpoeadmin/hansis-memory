@@ -24,14 +24,23 @@ function kalenderblatt(jahr, monat, markiert = null) {
   return el('div', { class: 'kal-blatt' }, el('div', { class: 'kal-titel' }, `${MONATE[monat]} ${jahr}`), el('div', { class: 'kal-raster' }, zellen));
 }
 
-// Abfahrtstafel mit vier Zügen
+// Fahrplan als Tabelle: links Abfahrt (mit Ort), rechts Ankunft (mit Ort)
 function tafel(x) {
+  const K = T.kalender;
   return el(
     'div',
     { class: 'uh-tafel kal-tafel' },
-    el('div', { class: 'kal-strecke' }, `${x.von} → ${x.nach}`),
-    x.zuege.map((z) =>
-      el('div', { class: 'uh-zeile' }, el('span', { class: 'uh-art' }, T.kalender.ab), el('span', { class: 'uh-zeit' }, zeit(z.ab)), el('span', { class: 'uh-art' }, T.kalender.an), el('span', { class: 'uh-zeit' }, zeit(z.an))),
+    el(
+      'div',
+      { class: 'kal-fahrplan' },
+      el('span', { class: 'kal-spalte' }, K.abfahrt, el('small', {}, x.von)),
+      el('span', {}),
+      el('span', { class: 'kal-spalte' }, K.ankunft, el('small', {}, x.nach)),
+      x.zuege.flatMap((z) => [
+        el('span', { class: 'uh-zeit' }, zeit(z.ab)),
+        el('span', { class: 'kal-pfeil', 'aria-hidden': 'true' }, '→'),
+        el('span', { class: 'uh-zeit' }, zeit(z.an)),
+      ]),
     ),
   );
 }

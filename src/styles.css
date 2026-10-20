@@ -4551,10 +4551,32 @@ img {
   min-width: min(44vw, 440px);
 }
 
-.kal-strecke {
-  margin-bottom: 6px;
-  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+.kal-fahrplan {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
+  column-gap: 26px;
+  row-gap: 6px;
+}
+
+.kal-spalte {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #BFD3F2;
+  color: #BFD3F2;
+  font-size: 1.15rem;
   font-weight: 700;
+}
+
+.kal-spalte small {
+  color: #FFFFFF;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+}
+
+.kal-pfeil {
+  color: #BFD3F2;
+  font-size: 1.8rem;
 }
 
 /* Einkaufsliste merken */
