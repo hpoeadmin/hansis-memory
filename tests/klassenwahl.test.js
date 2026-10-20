@@ -20,7 +20,7 @@ describe('Spiele pro Klasse', () => {
   });
 
   it('Brettspiele stehen nur unter «Spiele» und «Alle Spiele»', () => {
-    expect(ids('brett').sort()).toEqual(['eilemitweile', 'nuenistei', 'schiffe']);
+    expect(ids('brett').sort()).toEqual(['eilemitweile', 'nuenistei', 'schiffe', 'tschausepp', 'viergewinnt']);
     for (const klasse of ['kg', 'kl12', 'kl34', 'kl56']) {
       expect(ids(klasse)).not.toContain('nuenistei');
       expect(ids(klasse)).not.toContain('eilemitweile');

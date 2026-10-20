@@ -4701,3 +4701,344 @@ img {
 .ek-stufenbild span {
   font-size: clamp(3rem, 8vw, 5rem);
 }
+
+/* ---------- Vier gewinnt ---------- */
+
+.vg-spiel {
+  gap: 10px;
+}
+
+.vg-meldung {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.vg-mitte {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.vg-brett {
+  --loch: min(calc((100vh - 170px) / 6.6), calc((100vw - 340px) / 7.6), 84px);
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border: 6px solid var(--kontur);
+  border-radius: 22px;
+  background: #2E5FA8;
+}
+
+.vg-spalte {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.vg-spalte:not(:disabled):active,
+.vg-spalte:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.vg-loch {
+  width: var(--loch);
+  height: var(--loch);
+  border-radius: 50%;
+  background: #F4EFE6;
+  box-shadow: inset 0 4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.vg-stein-0,
+.vg-stein-1 {
+  border: 4px solid var(--kontur);
+  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.18);
+}
+
+.vg-stein-0 {
+  background: #E2543A;
+}
+
+.vg-stein-1 {
+  background: #F6C33B;
+}
+
+/* Der neue Stein fällt von oben herein */
+.vg-neu {
+  animation: vg-fallen calc(0.07s * var(--fall) + 0.12s) ease-in;
+}
+
+@keyframes vg-fallen {
+  from { transform: translateY(calc(-1 * var(--fall) * (var(--loch) + 6px))); }
+  to { transform: translateY(0); }
+}
+
+.vg-gewinn {
+  outline: 6px solid #FFFFFF;
+  outline-offset: 2px;
+  animation: vg-blinken 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes vg-blinken {
+  to { outline-color: #7CC36B; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vg-neu,
+  .vg-gewinn {
+    animation: none;
+  }
+}
+
+.vg-seite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 140px;
+  padding: 14px 8px;
+  border: 5px solid var(--kontur);
+  border-radius: 24px;
+  background: var(--flaeche);
+  opacity: 0.6;
+}
+
+.vg-seite.aktiv {
+  opacity: 1;
+  outline: 6px solid var(--spieler-farbe, #F6C33B);
+}
+
+.vg-seite .avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.vg-farbe {
+  width: 44px;
+  height: 44px;
+  border: 4px solid var(--kontur);
+  border-radius: 50%;
+}
+
+@media (orientation: portrait) {
+  .vg-mitte {
+    flex-wrap: wrap;
+  }
+  .vg-brett {
+    --loch: min(calc((100vw - 120px) / 7.6), 84px);
+    order: -1;
+    flex-basis: auto;
+  }
+}
+
+/* ---------- Tschau Sepp ---------- */
+
+.ts-spiel {
+  gap: 10px;
+}
+
+.ts-gegner {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.ts-mitspieler {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 6px;
+  border: 4px solid var(--kontur);
+  border-radius: 999px;
+  background: var(--flaeche);
+  opacity: 0.65;
+}
+
+.ts-mitspieler.aktiv {
+  opacity: 1;
+  outline: 5px solid var(--spieler-farbe, #F6C33B);
+}
+
+.ts-mitspieler .avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.ts-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.ts-anzahl {
+  font-size: 1rem;
+  color: #6B645C;
+  font-weight: 700;
+}
+
+.ts-meldung {
+  margin: 0;
+  min-height: 2.6em;
+  font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.ts-mitte {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ts-ablage-paar {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.ts-karte {
+  display: block;
+  width: var(--karte, clamp(96px, 12vw, 136px));
+}
+
+.ts-karte svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ts-stapel {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(4px 4px 0 rgba(46, 42, 38, 0.35));
+}
+
+.ts-ablage {
+  filter: drop-shadow(3px 3px 0 rgba(46, 42, 38, 0.25));
+}
+
+.ts-infos {
+  display: flex;
+  gap: 14px;
+  min-height: 2em;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.ts-strafe {
+  color: #C8402E;
+}
+
+.ts-knoepfe {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  min-height: 72px;
+}
+
+.ts-tschau {
+  min-width: 200px;
+  min-height: 72px;
+  font-size: 1.8rem;
+  background: #F6C33B;
+}
+
+.ts-tschau.gesagt {
+  background: #7CC36B;
+}
+
+.ts-hand {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding-bottom: 6px;
+}
+
+.ts-handkarte {
+  --karte: clamp(80px, 10.5vw, 118px);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.ts-handkarte:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ts-handkarte.darf {
+  transform: translateY(-8px);
+}
+
+.ts-handkarte.neu {
+  outline: 5px solid #F6C33B;
+  border-radius: 12px;
+}
+
+.ts-verdeckt {
+  font-size: 1.3rem;
+  color: #6B645C;
+}
+
+.ts-farbwahl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ts-farbknopf {
+  min-height: 84px;
+  font-size: 1.7rem;
+}
+
+.ts-herz,
+.ts-ecke {
+  color: #D0342C;
+}
+
+.ts-facher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ts-mini {
+  position: relative;
+  width: 26%;
+  margin: 0 -6%;
+}
+
+.ts-mini svg {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.ts-mini-0 { transform: rotate(-12deg); }
+.ts-mini-1 { transform: rotate(-4deg) translateY(-6px); }
+.ts-mini-2 { transform: rotate(4deg) translateY(-6px); }
+.ts-mini-3 { transform: rotate(12deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-handkarte {
+    transition: none;
+  }
+}

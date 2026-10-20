@@ -38,6 +38,8 @@ import { wirbeltiereSteuerung } from './spiele/wirbeltiere/index.js';
 import { einkaufSteuerung } from './spiele/einkauf/index.js';
 import { sprichwoerterSteuerung } from './spiele/sprichwoerter/index.js';
 import { kalenderSteuerung } from './spiele/kalender/index.js';
+import { vierGewinntSteuerung } from './spiele/viergewinnt/index.js';
+import { tschauSeppSteuerung } from './spiele/tschausepp/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -78,6 +80,8 @@ app.wirbeltiere = wirbeltiereSteuerung(app);
 app.einkauf = einkaufSteuerung(app);
 app.sprichwoerter = sprichwoerterSteuerung(app);
 app.kalender = kalenderSteuerung(app);
+app.viergewinnt = vierGewinntSteuerung(app);
+app.tschausepp = tschauSeppSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();
