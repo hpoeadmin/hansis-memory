@@ -89,7 +89,7 @@ describe('Fälle und Satzglieder', () => {
 
 describe('Kachel Gymi', () => {
   it('zeigt nur die Gymi-Spiele, und diese fehlen bei den Klassen', () => {
-    expect(spieleFuer('gymi').map((s) => s.id).sort()).toEqual(['faelle', 'gleichungen', 'negativ']);
+    expect(spieleFuer('gymi').map((s) => s.id).sort()).toEqual(['antike', 'bruchrechnen', 'faelle', 'gleichungen', 'negativ', 'wirbeltiere']);
     expect(spieleFuer('kl56').map((s) => s.id)).not.toContain('gleichungen');
   });
 });

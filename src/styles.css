@@ -4245,6 +4245,12 @@ img {
   stroke-width: 3;
 }
 
+.geo-roemer {
+  fill: #C9A227;
+  stroke: #2E2A26;
+  stroke-width: 3;
+}
+
 .geo-berg {
   fill: #8A7A66;
   stroke: #2E2A26;
@@ -4324,4 +4330,119 @@ img {
   .ng-bild .ng-strahl {
     width: min(90vw, 520px);
   }
+}
+
+/* Bruchrechnen */
+
+.brr-aufgabe {
+  font-size: clamp(2.4rem, 5.6vw, 3.8rem);
+  gap: 0.35em;
+}
+
+.brr-gemischt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.brr-gemischt .br-bruch {
+  font-size: 0.7em;
+}
+
+.fs-bruchrechnen .fs-antwort-text {
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+}
+
+/* Antike */
+
+.an-ereignis {
+  margin: 0;
+  max-width: 40vw;
+  padding: 16px 22px;
+  border: 5px solid var(--kontur);
+  border-radius: 22px;
+  background: var(--flaeche);
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.an-gross {
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+}
+
+/* Antike: Zeitstrahl über den Antworten, damit er breit genug ist */
+.fs-antike .fs-oben {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fs-antike .fs-mitte {
+  flex: 0 0 auto;
+  width: min(100%, 640px);
+}
+
+.an-strahl svg {
+  display: block;
+  width: min(92vw, 760px);
+  height: auto;
+}
+
+.fs-antike .fs-antwort-text {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.an-mini {
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+}
+
+@media (orientation: portrait) {
+  .an-ereignis {
+    max-width: 92vw;
+  }
+}
+
+/* Wirbeltiere */
+
+.wt-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(34vw, 46vh, 300px);
+  border: 6px solid var(--kontur);
+  border-radius: 32px;
+  background: var(--flaeche);
+  overflow: hidden;
+}
+
+.wt-tier img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.wt-name {
+  padding: 8px 10px 12px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.fs-wirbeltiere .fs-antworten {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fs-wirbeltiere .fs-antwort {
+  min-height: 72px;
+}
+
+.fs-wirbeltiere .fs-antwort-text {
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+}
+
+/* Antike: die Römerkarte steht über den Antworten und muss Platz lassen */
+.fs-antike .kt-karte svg {
+  width: auto;
+  height: min(38vh, 360px);
+  max-width: 92vw;
 }

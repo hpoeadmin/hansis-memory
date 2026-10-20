@@ -156,13 +156,23 @@ const ORTE = {
     ['Titlis', 46.772, 8.437, 3238], ['Piz Bernina', 46.382, 9.908, 4049], ['Tödi', 46.811, 8.915, 3614],
     ['Napf', 47.005, 7.94, 1408], ['Weisshorn', 46.101, 7.716, 4506], ['Niesen', 46.645, 7.651, 2362],
   ],
+  // Römerstädte und -lager in der Schweiz (Name, Breite, Länge, heutiger Ort)
+  roemer: [
+    ['Augusta Raurica', 47.533, 7.722, 'Augst'], ['Vindonissa', 47.479, 8.221, 'Windisch'],
+    ['Aventicum', 46.882, 7.042, 'Avenches'], ['Turicum', 47.37, 8.541, 'Zürich'],
+    ['Octodurus', 46.102, 7.072, 'Martigny'], ['Lousonna', 46.517, 6.6, 'Lausanne'],
+    ['Curia', 46.85, 9.532, 'Chur'], ['Genava', 46.204, 6.143, 'Genf'],
+    ['Salodurum', 47.208, 7.537, 'Solothurn'], ['Vitudurum', 47.51, 8.758, 'Oberwinterthur'],
+  ],
 };
 const orte = Object.fromEntries(
   Object.entries(ORTE).map(([art, liste]) => [
     art,
-    liste.map(([name, lat, lon, hoehe]) => {
+    liste.map(([name, lat, lon, extra]) => {
       const [x, y] = proj([lon, lat]);
-      return { name, x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10, ...(hoehe ? { hoehe } : {}) };
+      // extra: Höhe (Berge) oder heutiger Ort (Römer)
+      const zusatz = typeof extra === 'number' ? { hoehe: extra } : extra ? { heute: extra } : {};
+      return { name, x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10, ...zusatz };
     }),
   ]),
 );

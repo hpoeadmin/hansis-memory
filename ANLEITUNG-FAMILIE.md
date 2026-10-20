@@ -54,6 +54,9 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Negative Zahlen** (Gymi): Am Thermometer rechnen, dann Plus, Minus, Mal und Geteilt mit Vorzeichen.
 - **Gleichungen lösen** (Gymi): Was ist x? Die Waage zeigt: Auf beiden Seiten das Gleiche wegnehmen.
 - **Fälle und Satzglieder** (Gymi): In welchem Fall steht der markierte Teil? Ist er Subjekt, Prädikat oder Objekt?
+- **Bruchrechnen** (Gymi): Plus, Minus, Mal und Geteilt mit Brüchen und gemischten Zahlen.
+- **Antike** (Gymi): Was war früher? Was heisst «v. Chr.»? Wann war das? Und wo lagen die Römerstädte in der Schweiz?
+- **Wirbeltiere** (Gymi): Ist der Wal ein Fisch? Tiere ihrer Klasse zuordnen – Säugetiere, Vögel, Reptilien, Amphibien, Fische oder Wirbellose.
 - **Uhr lesen** (ab 1./2. Klasse): Wie spät ist es auf der Zeigeruhr? Von «halb vier» bis zu Fünf-Minuten-Schritten. Für die 4. Klasse: Wie lange dauert eine Zugfahrt laut Fahrplan?
 - **Kantone der Schweiz** (ab 3. Klasse): Memory mit Kantonswappen und Namen – zuerst «Rund um Zürich», dann alle Kantone oder Kanton und Hauptort. Auf der Schweizerkarte tippst du an, wo ein Kanton liegt, oder erkennst den Kanton, der aufleuchtet.
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.

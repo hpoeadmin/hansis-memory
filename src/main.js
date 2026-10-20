@@ -32,6 +32,9 @@ import { geografieSteuerung } from './spiele/geografie/index.js';
 import { negativSteuerung } from './spiele/negativ/index.js';
 import { gleichungenSteuerung } from './spiele/gleichungen/index.js';
 import { faelleSteuerung } from './spiele/faelle/index.js';
+import { bruchrechnenSteuerung } from './spiele/bruchrechnen/index.js';
+import { antikeSteuerung } from './spiele/antike/index.js';
+import { wirbeltiereSteuerung } from './spiele/wirbeltiere/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -66,6 +69,9 @@ app.geografie = geografieSteuerung(app);
 app.negativ = negativSteuerung(app);
 app.gleichungen = gleichungenSteuerung(app);
 app.faelle = faelleSteuerung(app);
+app.bruchrechnen = bruchrechnenSteuerung(app);
+app.antike = antikeSteuerung(app);
+app.wirbeltiere = wirbeltiereSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

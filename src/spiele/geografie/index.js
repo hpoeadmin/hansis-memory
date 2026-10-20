@@ -32,6 +32,7 @@ const BERG_ARTIKEL = { Dufourspitze: 'die', Matterhorn: 'das', Rigi: 'die', Weis
 function ziele(art) {
   if (art === 'see') return SEEN.map((name) => ({ art, name, artikel: 'der' }));
   if (art === 'stadt') return ORTE.staedte.map((o) => ({ art, artikel: '', ...o }));
+  if (art === 'roemer') return ORTE.roemer.map((o) => ({ art, artikel: '', ...o }));
   return ORTE.berge.map((o) => ({ art, artikel: BERG_ARTIKEL[o.name] ?? 'der', ...o }));
 }
 
@@ -49,14 +50,17 @@ function karte(arten, leuchtet = null) {
   svg.setAttribute('aria-hidden', 'true');
   if (arten.includes('see')) svg.classList.add('geo-mit-seen');
   const marken = svgEl('g', { class: 'geo-marken' });
-  for (const art of ['stadt', 'berg']) {
+  for (const art of ['stadt', 'berg', 'roemer']) {
     if (!arten.includes(art)) continue;
     for (const o of ziele(art)) {
       const an = leuchtet?.art === art && leuchtet.name === o.name;
+      const g = an ? 15 : 10;
       const m =
         art === 'stadt'
           ? svgEl('circle', { cx: o.x, cy: o.y, r: an ? 15 : 9, class: `geo-stadt ${an ? 'geo-an' : ''}` })
-          : svgEl('path', { d: `M${o.x} ${o.y - (an ? 20 : 13)} l${an ? 17 : 11} ${an ? 30 : 20} h${an ? -34 : -22} Z`, class: `geo-berg ${an ? 'geo-an' : ''}` });
+          : art === 'roemer'
+            ? svgEl('rect', { x: o.x - g, y: o.y - g, width: 2 * g, height: 2 * g, rx: 3, class: `geo-roemer ${an ? 'geo-an' : ''}` })
+            : svgEl('path', { d: `M${o.x} ${o.y - (an ? 20 : 13)} l${an ? 17 : 11} ${an ? 30 : 20} h${an ? -34 : -22} Z`, class: `geo-berg ${an ? 'geo-an' : ''}` });
       m.dataset.name = o.name;
       m.dataset.art = art;
       marken.append(m);
@@ -156,16 +160,23 @@ function welcherFrage(ziel, arten) {
   return {
     text: G.welcher[ziel.art],
     bild: () => karte(arten, ziel).box,
-    antworten: mischen([ziel, ...andere]).map((z) => ({ text: z.name, richtig: z.name === ziel.name })),
+    antworten: mischen([ziel, ...andere]).map((z) => ({ text: z.name, klein: z.heute ? T.geografie.heute(z.heute) : null, richtig: z.name === ziel.name })),
     erklaerung: G.erklaerung(ziel),
     hilfe: () => ({ text: G.welcherHilfe }),
   };
 }
 
-function erzeugeFragen(stufe, anzahl) {
-  const arten = STUFEN[stufe].arten;
+// Fragen zu bestimmten Arten (auch für andere Spiele, z.B. die Römer in der «Antike»)
+export function kartenFragen(arten, anzahl) {
   const pool = mischen(arten.flatMap(ziele)).slice(0, anzahl);
   return pool.map((z, i) => (i % 2 === 0 ? woFrage(z, arten) : welcherFrage(z, arten)));
+}
+
+const erzeugeFragen = (stufe, anzahl) => kartenFragen(STUFEN[stufe].arten, anzahl);
+
+// Die Karte laden, bevor Kartenfragen gestellt werden
+export async function bereiteKarteVor() {
+  kartenText ??= await ladeKarte();
 }
 
 export function geografieSteuerung(app) {
@@ -181,7 +192,7 @@ export function geografieSteuerung(app) {
   // Die Karte vor dem Spielen laden (danach offline aus dem Zwischenspeicher)
   const waehle = s.waehleStufe;
   s.waehleStufe = async (stufe) => {
-    kartenText ??= await ladeKarte();
+    await bereiteKarteVor();
     waehle(stufe);
   };
   return s;

@@ -169,5 +169,67 @@
    "y": 377.9,
    "hoehe": 2362
   }
+ ],
+ "roemer": [
+  {
+   "name": "Augusta Raurica",
+   "x": 389.1,
+   "y": 92,
+   "heute": "Augst"
+  },
+  {
+   "name": "Vindonissa",
+   "x": 499.1,
+   "y": 109.4,
+   "heute": "Windisch"
+  },
+  {
+   "name": "Aventicum",
+   "x": 239.2,
+   "y": 301.6,
+   "heute": "Avenches"
+  },
+  {
+   "name": "Turicum",
+   "x": 569.6,
+   "y": 144.5,
+   "heute": "Zürich"
+  },
+  {
+   "name": "Octodurus",
+   "x": 245.8,
+   "y": 552.8,
+   "heute": "Martigny"
+  },
+  {
+   "name": "Lousonna",
+   "x": 141.8,
+   "y": 419.2,
+   "heute": "Lausanne"
+  },
+  {
+   "name": "Curia",
+   "x": 788.1,
+   "y": 311.9,
+   "heute": "Chur"
+  },
+  {
+   "name": "Genava",
+   "x": 41,
+   "y": 519.9,
+   "heute": "Genf"
+  },
+  {
+   "name": "Salodurum",
+   "x": 348.3,
+   "y": 196.6,
+   "heute": "Solothurn"
+  },
+  {
+   "name": "Vitudurum",
+   "x": 617.5,
+   "y": 99.4,
+   "heute": "Oberwinterthur"
+  }
  ]
 }
