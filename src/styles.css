@@ -4446,3 +4446,236 @@ img {
   height: min(38vh, 360px);
   max-width: 92vw;
 }
+
+/* ---------- KopfFit (Erwachsene über 75): grösser und ruhiger ---------- */
+
+.fs-ruhig .fs-frage {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+}
+
+.fs-ruhig .fs-antwort {
+  min-height: 104px;
+}
+
+.fs-ruhig .fs-antwort-text {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.fs-ruhig .fs-meldung {
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+}
+
+.fs-ruhig .fs-weiter {
+  min-height: 92px;
+  font-size: 2rem;
+}
+
+/* Sprichwörter */
+
+.sw-satz {
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+}
+
+.sw-mini {
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+}
+
+/* Kalender und Fahrplan */
+
+.kal-blatt {
+  padding: 14px 16px 18px;
+  border: 6px solid var(--kontur);
+  border-radius: 24px;
+  background: #FFFFFF;
+}
+
+.kal-titel {
+  margin-bottom: 8px;
+  padding: 6px 0;
+  border-radius: 10px;
+  background: #C8402E;
+  color: #FFFFFF;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.kal-raster {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(42px, 1fr));
+  gap: 4px;
+  text-align: center;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+}
+
+.kal-kopf {
+  color: #6B645C;
+  font-size: 0.85em;
+}
+
+.kal-we {
+  color: #C8402E;
+}
+
+.kal-tag {
+  padding: 4px 0;
+  border-radius: 999px;
+}
+
+.kal-markiert {
+  background: #F6C33B;
+  box-shadow: 0 0 0 3px var(--kontur);
+}
+
+.kal-woche {
+  display: flex;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.kal-woche span {
+  padding: 6px 10px;
+  border: 3px solid var(--kontur);
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+
+.kal-woche .kal-heute {
+  background: #F6C33B;
+}
+
+.kal-tafel {
+  min-width: min(44vw, 440px);
+}
+
+.kal-strecke {
+  margin-bottom: 6px;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+}
+
+/* Einkaufsliste merken */
+
+.ek-spiel {
+  gap: 14px;
+}
+
+.ek-auftrag {
+  margin-top: auto;
+  text-align: center;
+}
+
+.ek-spiel > :last-child {
+  margin-bottom: auto;
+}
+
+.ek-zettel {
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 36px;
+  padding: 22px 34px;
+  border: 5px solid var(--kontur);
+  border-radius: 16px;
+  background: #FFFDF2;
+  box-shadow: 6px 6px 0 rgba(46, 42, 38, 0.15);
+}
+
+.ek-eintrag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 700;
+}
+
+.ek-bild {
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+.ek-knopf {
+  align-self: center;
+  min-width: 320px;
+  min-height: 92px;
+  font-size: 1.8rem;
+}
+
+.ek-auswahl {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  align-content: center;
+}
+
+.ek-ding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 128px;
+  padding: 8px;
+  border: 5px solid var(--kontur);
+  border-radius: 20px;
+  background: var(--flaeche);
+  box-shadow: 0 5px 0 var(--kontur);
+  font: inherit;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.ek-ding .ek-bild {
+  font-size: 3.2rem;
+}
+
+.ek-ding .ek-name {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+}
+
+.ek-ding.gewaehlt {
+  background: #FFE9A8;
+  outline: 6px solid #E0A21B;
+  outline-offset: 1px;
+}
+
+.ek-ding.richtig {
+  background: #DDF0C8;
+  outline: 6px solid #2F8F46;
+}
+
+.ek-ding.falsch {
+  opacity: 0.45;
+  outline: none;
+}
+
+.ek-ding.vergessen {
+  outline: 6px dashed #E07A1E;
+}
+
+.ek-unten {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ek-zaehler {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.ek-meldung {
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+}
+
+.ek-stufenbild span {
+  font-size: clamp(3rem, 8vw, 5rem);
+}

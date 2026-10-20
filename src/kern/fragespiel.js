@@ -10,6 +10,7 @@
 //   empfehlung,             { kl12: 'stufe', kl34: …, kl56: … }
 //   anzahl,                 Fragen pro Runde
 //   erzeugeFragen(stufe, anzahl) → [frage]
+//   ruhig?                  für Erwachsene (KopfFit): grössere Schrift, sachliches Lob, kein Konfetti
 // }
 // frage = {
 //   text,                   Frage (wird gezeigt und vorgelesen)
@@ -60,6 +61,7 @@ export function fragespielSteuerung(app, spiel) {
       gesamt,
       farbe: spiel.farbe,
       texte: { einzel: spiel.texte.ergebnisEinzel, spieler: spiel.texte.ergebnisSpieler },
+      ruhig: spiel.ruhig,
     });
   return s;
 }
@@ -207,7 +209,7 @@ export function zeigeFragen(s, spiel) {
   zeige(
     el(
       'main',
-      { class: `bildschirm fs-spiel fs-${spiel.id}`, style: `--set-farbe: ${spiel.farbe}` },
+      { class: `bildschirm fs-spiel fs-${spiel.id} ${spiel.ruhig ? 'fs-ruhig' : ''}`, style: `--set-farbe: ${spiel.farbe}` },
       el('header', { class: 'spiel-kopf' }, amZug, zaehler, knopf(T.spiel.beenden, beenden, 'knopf-beenden')),
       el(
         'div',

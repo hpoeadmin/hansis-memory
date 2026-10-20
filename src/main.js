@@ -35,6 +35,9 @@ import { faelleSteuerung } from './spiele/faelle/index.js';
 import { bruchrechnenSteuerung } from './spiele/bruchrechnen/index.js';
 import { antikeSteuerung } from './spiele/antike/index.js';
 import { wirbeltiereSteuerung } from './spiele/wirbeltiere/index.js';
+import { einkaufSteuerung } from './spiele/einkauf/index.js';
+import { sprichwoerterSteuerung } from './spiele/sprichwoerter/index.js';
+import { kalenderSteuerung } from './spiele/kalender/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -72,6 +75,9 @@ app.faelle = faelleSteuerung(app);
 app.bruchrechnen = bruchrechnenSteuerung(app);
 app.antike = antikeSteuerung(app);
 app.wirbeltiere = wirbeltiereSteuerung(app);
+app.einkauf = einkaufSteuerung(app);
+app.sprichwoerter = sprichwoerterSteuerung(app);
+app.kalender = kalenderSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

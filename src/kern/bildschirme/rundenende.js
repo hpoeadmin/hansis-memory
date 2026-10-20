@@ -20,13 +20,14 @@ function stern(verdient, nummer) {
   return svg;
 }
 
-export function zeigeRundenende(steuerung, { spieler, gesamt, texte, farbe, zusatz }) {
+// ruhig: für Erwachsene (KopfFit) – sachlicheres Lob, kein Konfetti
+export function zeigeRundenende(steuerung, { spieler, gesamt, texte, farbe, zusatz, ruhig = false }) {
   let inhalt;
   if (spieler.length === 1) {
     const s = spieler[0];
     // Viele Treffer beim ersten Versuch = viele Sterne; mindestens einer gibt es immer
     const sterne = s.richtig >= gesamt * 0.9 ? 3 : s.richtig >= gesamt * 0.6 ? 2 : 1;
-    const titel = s.profil.gast ? T.ende.lob[0] : T.ende.lobPersoenlich(s.profil.name);
+    const titel = ruhig ? T.ende.lobRuhig(s.profil.gast ? null : s.profil.name) : s.profil.gast ? T.ende.lob[0] : T.ende.lobPersoenlich(s.profil.name);
     inhalt = [
       el('img', { class: 'avatar ende-avatar', src: avatarUrl(s.profil), alt: '', style: farbStil(s.profil) }),
       el('h1', { class: 'lob', 'data-vorlesen': titel }, titel),
@@ -68,7 +69,7 @@ export function zeigeRundenende(steuerung, { spieler, gesamt, texte, farbe, zusa
     ),
   );
   klang.fertig();
-  konfetti();
+  if (!ruhig) konfetti();
   const titel = document.querySelector('[data-vorlesen]');
   if (titel) sprich(titel.dataset.vorlesen);
 }

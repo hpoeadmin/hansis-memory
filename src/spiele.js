@@ -2,12 +2,13 @@
 // (Name in texte.js unter «spiele», Bild in public/spiele/).
 // ab: ab welcher Kategorie das Spiel gedacht ist ('alle', 'kg', 'kl12', 'kl34', 'kl56', 'gymi')
 // bis: (freiwillig) bis zu welcher Kategorie – für Ältere zu einfache Spiele fehlen dort
+// kopffit: true – erscheint auch unter «KopfFit» (für Erwachsene)
 
 export const BEREICHE = ['gedaechtnis', 'raum', 'mathe', 'lesen', 'natur', 'brett'];
 
 // Kacheln auf der Startseite: die Klassen (Reihenfolge = Alter), «Spiele» (die Brettspiele)
 // und «Alle Spiele» (jedes Spiel).
-export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'gymi', 'brett', 'alle'];
+export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'gymi', 'kopffit', 'brett', 'alle'];
 const RANG = { alle: 0, kg: 1, kl12: 2, kl34: 3, kl56: 4, gymi: 5 };
 
 // Spiele für eine Kachel: bei einer Klasse alles, was «ab» dieser Klasse oder jünger gedacht ist –
@@ -17,6 +18,8 @@ export function spieleFuer(klasse) {
   if (klasse === 'brett') return SPIELE.filter((spiel) => spiel.bereich === 'brett');
   // Das Gymnasium hat nur seine eigenen Spiele
   if (klasse === 'gymi') return SPIELE.filter((spiel) => spiel.ab === 'gymi');
+  // KopfFit (Erwachsene über 75): eigene Spiele und passende bestehende (kopffit: true)
+  if (klasse === 'kopffit') return SPIELE.filter((spiel) => spiel.ab === 'kopffit' || spiel.kopffit);
   return SPIELE.filter(
     (spiel) => spiel.bereich !== 'brett' && RANG[spiel.ab] <= RANG[klasse] && RANG[klasse] <= RANG[spiel.bis ?? 'kl56'],
   );
@@ -25,6 +28,7 @@ export function spieleFuer(klasse) {
 export const SPIELE = [
   {
     id: 'memory',
+    kopffit: true,
     bereich: 'gedaechtnis',
     ab: 'alle',
     bild: 'spiele/memory.svg',
@@ -33,6 +37,7 @@ export const SPIELE = [
   },
   {
     id: 'reihenfolge',
+    kopffit: true,
     bereich: 'gedaechtnis',
     ab: 'alle',
     bild: 'spiele/reihenfolge.svg',
@@ -160,6 +165,7 @@ export const SPIELE = [
   },
   {
     id: 'kantone',
+    kopffit: true,
     bereich: 'natur',
     ab: 'kl34',
     bild: 'spiele/kantone.svg',
@@ -168,6 +174,7 @@ export const SPIELE = [
   },
   {
     id: 'geografie',
+    kopffit: true,
     bereich: 'natur',
     ab: 'kl56',
     bild: 'spiele/geografie.svg',
@@ -223,7 +230,32 @@ export const SPIELE = [
     starte: (app) => app.wirbeltiere.zeigeStart(),
   },
   {
+    id: 'einkauf',
+    bereich: 'gedaechtnis',
+    ab: 'kopffit',
+    bild: 'spiele/einkauf.svg',
+    farbe: '#EEF3E2',
+    starte: (app) => app.einkauf.zeigeStart(),
+  },
+  {
+    id: 'sprichwoerter',
+    bereich: 'lesen',
+    ab: 'kopffit',
+    bild: 'spiele/sprichwoerter.svg',
+    farbe: '#F2E8D5',
+    starte: (app) => app.sprichwoerter.zeigeStart(),
+  },
+  {
+    id: 'kalender',
+    bereich: 'natur',
+    ab: 'kopffit',
+    bild: 'spiele/kalender.svg',
+    farbe: '#E4EEE8',
+    starte: (app) => app.kalender.zeigeStart(),
+  },
+  {
     id: 'nuenistei',
+    kopffit: true,
     bereich: 'brett',
     ab: 'kl12',
     bild: 'spiele/nuenistei.svg',
@@ -232,6 +264,7 @@ export const SPIELE = [
   },
   {
     id: 'schiffe',
+    kopffit: true,
     bereich: 'brett',
     ab: 'kl12',
     bild: 'spiele/schiffe.svg',
@@ -240,6 +273,7 @@ export const SPIELE = [
   },
   {
     id: 'eilemitweile',
+    kopffit: true,
     bereich: 'brett',
     ab: 'kg',
     bild: 'spiele/eilemitweile.svg',

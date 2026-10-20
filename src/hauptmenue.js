@@ -8,7 +8,7 @@ import { BEREICHE, KLASSENWAHL, spieleFuer } from './spiele.js';
 
 const BASIS = import.meta.env.BASE_URL;
 
-const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', gymi: '#D7E3F4', brett: '#F6E3B4', alle: '#FFF3D6' };
+const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', gymi: '#D7E3F4', kopffit: '#E4EEE8', brett: '#F6E3B4', alle: '#FFF3D6' };
 
 // Name einer Startseiten-Kachel: Klasse, «Spiele» oder «Alle Spiele»
 const kachelName = (klasse) => T.klassenwahl.namen[klasse] ?? T.schule.kategorien[klasse];
@@ -34,6 +34,8 @@ function sichtbareSpiele(app, klasse) {
 // Die Kinder mit Profil, die heute in diese Klasse gehen (Kindergarten inkl. «vor dem Kindergarten»)
 function kinderIn(klasse) {
   if (klasse === 'alle' || klasse === 'brett') return [];
+  // Auf «KopfFit» stehen die Erwachsenen
+  if (klasse === 'kopffit') return speicher.profile.filter((profil) => aktuelleKlasse(profil)?.id === 'erw');
   return speicher.profile.filter((profil) => {
     const k = aktuelleKlasse(profil);
     if (!k || k.id === 'erw') return false;

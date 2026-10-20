@@ -34,7 +34,7 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 ## Gut zu wissen
 
 - **Ohne Internet:** Öffne das Spiel einmal mit Internet. Danach funktioniert es auch ohne WLAN, z.B. im Zug oder in den Ferien.
-- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Wer schon ans Gymnasium geht, tippt auf **Gymi** (im Profil die Klasse «Gymnasium» wählen). Die Brettspiele (Nüni Stei, Eile mit Weile, Schiffe versenken) findest du unter **Spiele**, jedes Spiel unter **Alle Spiele**.
+- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Wer schon ans Gymnasium geht, tippt auf **Gymi** (im Profil die Klasse «Gymnasium» wählen). Für Grosseltern gibt es **KopfFit**: ruhige Spiele mit grosser Schrift, ohne Zeitdruck (im Profil die Klasse «Erwachsen» wählen, dann steht der Name auf der Kachel). Die Brettspiele (Nüni Stei, Eile mit Weile, Schiffe versenken) findest du unter **Spiele**, jedes Spiel unter **Alle Spiele**.
 - **Spiel wählen:** Danach erscheinen die Spiele für diese Klasse. Tippe auf ein Spiel, z.B. **Memory**. Mit **‹ Klassen** kommst du zurück zur Startseite.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
@@ -57,6 +57,9 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Bruchrechnen** (Gymi): Plus, Minus, Mal und Geteilt mit Brüchen und gemischten Zahlen.
 - **Antike** (Gymi): Was war früher? Was heisst «v. Chr.»? Wann war das? Und wo lagen die Römerstädte in der Schweiz?
 - **Wirbeltiere** (Gymi): Ist der Wal ein Fisch? Tiere ihrer Klasse zuordnen – Säugetiere, Vögel, Reptilien, Amphibien, Fische oder Wirbellose.
+- **Einkaufsliste merken** (KopfFit): Eine Einkaufsliste in Ruhe ansehen, dann die Dinge aus einer grösseren Auswahl wiederfinden.
+- **Sprichwörter** (KopfFit): «Morgenstund hat …» – wie geht es weiter? Oder: Was bedeutet das Sprichwort?
+- **Kalender und Fahrplan** (KopfFit): Welcher Tag ist übermorgen? Auf welchen Wochentag fällt der 24.? Welchen Zug nehme ich, um rechtzeitig dort zu sein?
 - **Uhr lesen** (ab 1./2. Klasse): Wie spät ist es auf der Zeigeruhr? Von «halb vier» bis zu Fünf-Minuten-Schritten. Für die 4. Klasse: Wie lange dauert eine Zugfahrt laut Fahrplan?
 - **Kantone der Schweiz** (ab 3. Klasse): Memory mit Kantonswappen und Namen – zuerst «Rund um Zürich», dann alle Kantone oder Kanton und Hauptort. Auf der Schweizerkarte tippst du an, wo ein Kanton liegt, oder erkennst den Kanton, der aufleuchtet.
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.
