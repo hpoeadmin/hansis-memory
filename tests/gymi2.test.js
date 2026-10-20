@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import * as br from '../src/spiele/bruchrechnen/aufgaben.js';
 import * as an from '../src/spiele/antike/ereignisse.js';
 import * as wt from '../src/spiele/wirbeltiere/klassen.js';
@@ -63,7 +63,10 @@ describe('Antike', () => {
 });
 
 describe('Wirbeltiere', () => {
-  const sets = JSON.parse(readFileSync('public/sets/index.json', 'utf8'));
+  // Die Sätze direkt lesen (index.json entsteht erst beim Bauen)
+  const sets = readdirSync('public/sets', { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => JSON.parse(readFileSync(`public/sets/${d.name}/set.json`, 'utf8')));
   const tiere = [...sets.flatMap((s) => s.tiere), ...wt.EIGENE_TIERE];
 
   it('jedes Tier hat genau eine Klasse, und es gibt ein Bild', () => {
