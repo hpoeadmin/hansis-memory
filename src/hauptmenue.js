@@ -3,12 +3,12 @@ import { el, beiTipp, knopf, zeige } from './kern/ui.js';
 import { elternschloss } from './kern/schloss.js';
 import { speicher } from './kern/speicher.js';
 import { avatarUrl } from './kern/profile.js';
-import { aktuelleKlasse, kategorieVon } from './kern/schulstufe.js';
+import { aktuelleKlasse, kategorieVonKlasse } from './kern/schulstufe.js';
 import { BEREICHE, KLASSENWAHL, spieleFuer } from './spiele.js';
 
 const BASIS = import.meta.env.BASE_URL;
 
-const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', brett: '#F6E3B4', alle: '#FFF3D6' };
+const KLASSEN_FARBE = { kg: '#FBE7C6', kl12: '#DDF0C8', kl34: '#DCEBFA', kl56: '#EADCF7', gymi: '#D7E3F4', brett: '#F6E3B4', alle: '#FFF3D6' };
 
 // Name einer Startseiten-Kachel: Klasse, «Spiele» oder «Alle Spiele»
 const kachelName = (klasse) => T.klassenwahl.namen[klasse] ?? T.schule.kategorien[klasse];
@@ -37,7 +37,7 @@ function kinderIn(klasse) {
   return speicher.profile.filter((profil) => {
     const k = aktuelleKlasse(profil);
     if (!k || k.id === 'erw') return false;
-    const kategorie = kategorieVon(k.n);
+    const kategorie = kategorieVonKlasse(k);
     return (kategorie === 'vorkg' ? 'kg' : kategorie) === klasse;
   });
 }

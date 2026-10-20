@@ -16,7 +16,7 @@
 //   bild?: () => Element,   z.B. Uhr, Punktefeld, Fahrplan
 //   antworten: [{ text, klein?, richtig }],
 //   erklaerung?,            nach der richtigen Antwort
-//   hilfe?: (antwort) => { text, bild? }   nach einer falschen Antwort
+//   hilfe?: (antwort) => { text, bild?, ersetzeBild? }   nach einer falschen Antwort
 //   interaktiv?: ({ richtig(), falsch(text) }) => Element   statt bild und Knöpfen:
 //                           das Element meldet die Antwort selbst (Karte antippen)
 // }
@@ -179,6 +179,8 @@ export function zeigeFragen(s, spiel) {
     const text = hilfe?.text ?? antwort.text ?? S.nochmals;
     meldung.textContent = text;
     if (hilfe?.bild) hilfeBox.replaceChildren(hilfe.bild);
+    // Manche Hilfen ergänzen das Bild selbst (z.B. ein Pfeil am Thermometer)
+    if (hilfe?.ersetzeBild) bildBox.replaceChildren(hilfe.ersetzeBild);
     sprich(text);
   }
 

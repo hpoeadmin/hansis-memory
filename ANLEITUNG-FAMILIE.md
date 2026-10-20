@@ -34,7 +34,7 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 ## Gut zu wissen
 
 - **Ohne Internet:** Öffne das Spiel einmal mit Internet. Danach funktioniert es auch ohne WLAN, z.B. im Zug oder in den Ferien.
-- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Die Brettspiele (Nüni Stei, Eile mit Weile, Schiffe versenken) findest du unter **Spiele**, jedes Spiel unter **Alle Spiele**.
+- **Klasse wählen:** Auf der Startseite tippst du auf deine Klasse, z.B. **3./4. Klasse**. Dein Name steht auf der richtigen Kachel, wenn im Profil die Klasse eingetragen ist. Wer schon ans Gymnasium geht, tippt auf **Gymi** (im Profil die Klasse «Gymnasium» wählen). Die Brettspiele (Nüni Stei, Eile mit Weile, Schiffe versenken) findest du unter **Spiele**, jedes Spiel unter **Alle Spiele**.
 - **Spiel wählen:** Danach erscheinen die Spiele für diese Klasse. Tippe auf ein Spiel, z.B. **Memory**. Mit **‹ Klassen** kommst du zurück zur Startseite.
 - **Spieler anlegen:** Wähle einen Satz und eine Stufe. Danach kommt **«Neuer Spieler»**: Name eintippen, Lieblingsfarbe und Lieblingstier wählen, fertig.
 - **Zusammen spielen:** Tippe bei «Wer spielt mit?» alle an, die mitspielen. Gross oben steht immer, wer dran ist. Wer ein Paar findet, darf nochmals.
@@ -51,6 +51,9 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Brüche** (5./6. Klasse): Welcher Teil der Pizza ist rot? Welcher Bruch ist gleich viel wie 4/8? Welcher ist grösser? Wie viel ist ¾ von 20?
 - **Zeitformen** (5./6. Klasse): In welcher Zeitform steht der Satz – Präsens, Präteritum, Perfekt, Plusquamperfekt oder Futur? Oder: Wie heisst der Satz im Perfekt?
 - **Schweizer Geografie** (5./6. Klasse): Seen, Städte und Berge auf der Schweizerkarte antippen oder erkennen.
+- **Negative Zahlen** (Gymi): Am Thermometer rechnen, dann Plus, Minus, Mal und Geteilt mit Vorzeichen.
+- **Gleichungen lösen** (Gymi): Was ist x? Die Waage zeigt: Auf beiden Seiten das Gleiche wegnehmen.
+- **Fälle und Satzglieder** (Gymi): In welchem Fall steht der markierte Teil? Ist er Subjekt, Prädikat oder Objekt?
 - **Uhr lesen** (ab 1./2. Klasse): Wie spät ist es auf der Zeigeruhr? Von «halb vier» bis zu Fünf-Minuten-Schritten. Für die 4. Klasse: Wie lange dauert eine Zugfahrt laut Fahrplan?
 - **Kantone der Schweiz** (ab 3. Klasse): Memory mit Kantonswappen und Namen – zuerst «Rund um Zürich», dann alle Kantone oder Kanton und Hauptort. Auf der Schweizerkarte tippst du an, wo ein Kanton liegt, oder erkennst den Kanton, der aufleuchtet.
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.

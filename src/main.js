@@ -29,6 +29,9 @@ import { schiffeSteuerung } from './spiele/schiffe/index.js';
 import { bruecheSteuerung } from './spiele/brueche/index.js';
 import { zeitformenSteuerung } from './spiele/zeitformen/index.js';
 import { geografieSteuerung } from './spiele/geografie/index.js';
+import { negativSteuerung } from './spiele/negativ/index.js';
+import { gleichungenSteuerung } from './spiele/gleichungen/index.js';
+import { faelleSteuerung } from './spiele/faelle/index.js';
 
 // Das App-Objekt hält, was alle Spiele teilen. Jedes Spiel hat eine eigene
 // Steuerung, die davon erbt (z.B. app.memory).
@@ -60,6 +63,9 @@ app.schiffe = schiffeSteuerung(app);
 app.brueche = bruecheSteuerung(app);
 app.zeitformen = zeitformenSteuerung(app);
 app.geografie = geografieSteuerung(app);
+app.negativ = negativSteuerung(app);
+app.gleichungen = gleichungenSteuerung(app);
+app.faelle = faelleSteuerung(app);
 
 async function starte() {
   wendeRueckseiteAn();

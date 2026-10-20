@@ -61,3 +61,13 @@ describe('Empfehlung', () => {
     expect(passendeStufe([grosi], tabelle, tag(2026, 10, 19))).toBe(null);
   });
 });
+
+describe('Gymnasium', () => {
+  it('zählt nicht weiter und hat eine eigene Kategorie', async () => {
+    const { kategorieVonKlasse } = await import('../src/kern/schulstufe.js');
+    const anna = { klasse: 'gymi', klasseSchuljahr: 2026 };
+    expect(aktuelleKlasse(anna, tag(2028, 9, 1)).id).toBe('gymi');
+    expect(kategorieVonKlasse(aktuelleKlasse(anna))).toBe('gymi');
+    expect(passendeStufe([anna], { kl56: 'a', gymi: 'b' })?.stufe).toBe('b');
+  });
+});

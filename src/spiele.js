@@ -1,20 +1,22 @@
 // Alle Spiele im Hauptmenü, geordnet nach Bereichen. Ein neues Spiel = ein Eintrag hier
 // (Name in texte.js unter «spiele», Bild in public/spiele/).
-// ab: ab welcher Kategorie das Spiel gedacht ist ('alle', 'kg', 'kl12', 'kl34', 'kl56')
+// ab: ab welcher Kategorie das Spiel gedacht ist ('alle', 'kg', 'kl12', 'kl34', 'kl56', 'gymi')
 // bis: (freiwillig) bis zu welcher Kategorie – für Ältere zu einfache Spiele fehlen dort
 
 export const BEREICHE = ['gedaechtnis', 'raum', 'mathe', 'lesen', 'natur', 'brett'];
 
 // Kacheln auf der Startseite: die Klassen (Reihenfolge = Alter), «Spiele» (die Brettspiele)
 // und «Alle Spiele» (jedes Spiel).
-export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'brett', 'alle'];
-const RANG = { alle: 0, kg: 1, kl12: 2, kl34: 3, kl56: 4 };
+export const KLASSENWAHL = ['kg', 'kl12', 'kl34', 'kl56', 'gymi', 'brett', 'alle'];
+const RANG = { alle: 0, kg: 1, kl12: 2, kl34: 3, kl56: 4, gymi: 5 };
 
 // Spiele für eine Kachel: bei einer Klasse alles, was «ab» dieser Klasse oder jünger gedacht ist –
 // ohne die Brettspiele, die haben ihre eigene Kachel
 export function spieleFuer(klasse) {
   if (klasse === 'alle') return SPIELE;
   if (klasse === 'brett') return SPIELE.filter((spiel) => spiel.bereich === 'brett');
+  // Das Gymnasium hat nur seine eigenen Spiele
+  if (klasse === 'gymi') return SPIELE.filter((spiel) => spiel.ab === 'gymi');
   return SPIELE.filter(
     (spiel) => spiel.bereich !== 'brett' && RANG[spiel.ab] <= RANG[klasse] && RANG[klasse] <= RANG[spiel.bis ?? 'kl56'],
   );
@@ -171,6 +173,30 @@ export const SPIELE = [
     bild: 'spiele/geografie.svg',
     farbe: '#DDEFE6',
     starte: (app) => app.geografie.zeigeStart(),
+  },
+  {
+    id: 'negativ',
+    bereich: 'mathe',
+    ab: 'gymi',
+    bild: 'spiele/negativ.svg',
+    farbe: '#DCE9F5',
+    starte: (app) => app.negativ.zeigeStart(),
+  },
+  {
+    id: 'gleichungen',
+    bereich: 'mathe',
+    ab: 'gymi',
+    bild: 'spiele/gleichungen.svg',
+    farbe: '#E6E3F5',
+    starte: (app) => app.gleichungen.zeigeStart(),
+  },
+  {
+    id: 'faelle',
+    bereich: 'lesen',
+    ab: 'gymi',
+    bild: 'spiele/faelle.svg',
+    farbe: '#F3E6D6',
+    starte: (app) => app.faelle.zeigeStart(),
   },
   {
     id: 'nuenistei',

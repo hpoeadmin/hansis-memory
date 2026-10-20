@@ -3042,12 +3042,12 @@ img {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: var(--abstand);
 }
 
-/* Querformat: zwei Reihen à drei Kacheln – das Bild richtet sich nach der Höhe */
+/* Querformat: zwei Reihen à vier Kacheln – das Bild richtet sich nach der Höhe */
 @media (orientation: landscape) {
   .klassen-bild {
     width: min(14vw, 21vh, 170px);
@@ -3108,7 +3108,7 @@ img {
 @media (orientation: portrait) {
   .klassen-raster {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
   }
   .klassen-bild {
     width: clamp(120px, 22vw, 190px);
@@ -4262,4 +4262,66 @@ img {
 
 .fs-geografie .fs-antwort-text {
   font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+}
+
+/* ---------- Gymi: Negative Zahlen, Gleichungen, Fälle ---------- */
+
+.ng-bild .ng-thermo {
+  display: block;
+  height: min(52vh, 360px);
+  width: auto;
+}
+
+.ng-bild .ng-strahl {
+  display: block;
+  width: min(44vw, 520px);
+  height: auto;
+}
+
+.gl-bild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.gl-gleichung {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.gl-waage svg {
+  display: block;
+  width: min(46vw, 520px);
+  height: auto;
+}
+
+.gl-mini {
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+}
+
+.fa-satz {
+  max-width: 46vw;
+}
+
+.fa-markiert {
+  padding: 0 6px;
+  border-radius: 8px;
+  background: #F6C33B;
+  color: inherit;
+  box-shadow: 0 0 0 3px var(--kontur);
+}
+
+.fs-faelle .fs-antwort-text,
+.fs-gleichungen .fs-antwort-text {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+}
+
+@media (orientation: portrait) {
+  .fa-satz {
+    max-width: 92vw;
+  }
+  .gl-waage svg,
+  .ng-bild .ng-strahl {
+    width: min(90vw, 520px);
+  }
 }

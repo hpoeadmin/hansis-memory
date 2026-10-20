@@ -1,5 +1,15 @@
 // Alle Texte der App an einem Ort (Schweizer Schreibweise: «ss» statt «ß»).
 
+// Frageproben und Namen für «Fälle und Satzglieder»
+const FRAGEPROBE = { nom: 'Wer oder was?', gen: 'Wessen?', dat: 'Wem?', akk: 'Wen oder was?' };
+const FALLNAME = { nom: 'Nominativ', gen: 'Genitiv', dat: 'Dativ', akk: 'Akkusativ' };
+const SATZGLIEDERKLAERUNG = {
+  S: 'das Subjekt (Wer oder was?, immer im Nominativ)',
+  P: 'das Prädikat (das Verb)',
+  AO: 'das Akkusativobjekt (Wen oder was?)',
+  DO: 'das Dativobjekt (Wem?)',
+};
+
 // Namen der Bruchteile zum Vorlesen («drei Viertel»)
 const T_TEILE = { 2: 'Halbe', 3: 'Drittel', 4: 'Viertel', 5: 'Fünftel', 6: 'Sechstel', 8: 'Achtel', 10: 'Zehntel', 12: 'Zwölftel' };
 
@@ -19,7 +29,7 @@ export const T = {
     frage: 'In welche Klasse gehst du?',
     zurueck: 'Klassen',
     alle: 'Alle Spiele',
-    namen: { brett: 'Spiele', alle: 'Alle Spiele' },
+    namen: { gymi: 'Gymi', brett: 'Spiele', alle: 'Alle Spiele' },
     anzahl: (n) => `${n} Spiele`,
   },
 
@@ -50,6 +60,9 @@ export const T = {
     brueche: 'Brüche',
     zeitformen: 'Zeitformen',
     geografie: 'Schweizer Geografie',
+    negativ: 'Negative Zahlen',
+    gleichungen: 'Gleichungen lösen',
+    faelle: 'Fälle und Satzglieder',
     franken: 'Bezahlen mit Franken',
     lebensraum: 'Wo wohne ich?',
     reihenfolge: 'Merk dir die Reihenfolge',
@@ -225,6 +238,7 @@ export const T = {
       5: '5. Klasse',
       6: '6. Klasse',
       ober: 'Oberstufe',
+      gymi: 'Gymnasium',
       erw: 'Erwachsen',
     },
     kategorien: {
@@ -233,9 +247,10 @@ export const T = {
       kl12: '1./2. Klasse',
       kl34: '3./4. Klasse',
       kl56: '5./6. Klasse',
+      gymi: 'Gymnasium',
       erw: 'Erwachsene',
     },
-    ab: { alle: 'für alle', kg: 'ab Kindergarten', kl12: 'ab 1. Klasse', kl34: 'ab 3. Klasse', kl56: 'ab 5. Klasse' },
+    ab: { alle: 'für alle', kg: 'ab Kindergarten', kl12: 'ab 1. Klasse', kl34: 'ab 3. Klasse', kl56: 'ab 5. Klasse', gymi: 'Gymnasium' },
     passtFuer: (name) => `passt für ${name}`,
   },
 
@@ -613,6 +628,70 @@ export const T = {
     richtig: ['Richtig!', 'Genau!', 'Super!', 'Toll gefunden!'],
     nochmals: 'Noch nicht – versuch es nochmals.',
     ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Fragen gleich beim ersten Mal richtig beantwortet.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  negativ: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      thermometer: { titel: 'Thermometer', text: 'wärmer und kälter' },
+      plusminus: { titel: 'Plus und Minus', text: 'z.B. −3 + 5' },
+      malgeteilt: { titel: 'Mal und Geteilt', text: 'Vorzeichenregeln' },
+      gemischt: { titel: 'Gemischt', text: 'auch 2 − (−5)' },
+    },
+    frageVon: (n, gesamt) => `Aufgabe ${n} von ${gesamt}`,
+    tippe: 'Tippe auf das richtige Ergebnis.',
+    vorlesen: (text) => `Wie viel ist ${text.replace(/−/g, 'minus ').replace(/\+/g, 'plus').replace(/·/g, 'mal').replace(/:/g, 'geteilt durch')}?`,
+    thermometer: (start, grad, waermer) => `Es ist ${start} °C. Es wird ${grad} Grad ${waermer ? 'wärmer' : 'kälter'}. Wie warm ist es jetzt?`,
+    erklaerungThermo: (start, ende) => `Von ${start} °C geht es auf ${ende} °C.`,
+    hilfeThermo: (waermer) => `Noch nicht. Folge dem Pfeil: ${waermer ? 'wärmer heisst nach oben' : 'kälter heisst nach unten'}. Zähle die Striche.`,
+    hilfeRechts: (n) => `Noch nicht. Auf dem Zahlenstrahl ${n} Schritte nach rechts.`,
+    hilfeLinks: (n) => `Noch nicht. Auf dem Zahlenstrahl ${n} Schritte nach links.`,
+    hilfeMinusMinus: (a, b) => `Noch nicht. Eine negative Zahl abziehen heisst dazuzählen: ${a} + ${b}.`,
+    hilfeVorzeichen: 'Noch nicht. Rechne zuerst ohne Vorzeichen. Dann: gleiche Vorzeichen → Plus, verschiedene → Minus.',
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Stark!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Aufgaben gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  gleichungen: {
+    frage: 'Was ist x?',
+    stufen: {
+      einfach: { titel: 'Einfach', text: 'x + 4 = 9' },
+      mal: { titel: 'Mal und Geteilt', text: '3x = 12, x : 4 = 5' },
+      zwei: { titel: 'Zwei Schritte', text: '2x + 3 = 11' },
+      beide: { titel: 'x auf beiden Seiten', text: 'für Profis' },
+    },
+    frageVon: (n, gesamt) => `Gleichung ${n} von ${gesamt}`,
+    vorlesen: (text) => `Löse die Gleichung ${text.replace(/−/g, 'minus').replace(/\+/g, 'plus').replace(/:/g, 'geteilt durch')}.`,
+    erklaerung: (weg) => `So geht es: ${weg}.`,
+    hilfe: (tun, ergebnis) => `Noch nicht. Mach auf beiden Seiten der Waage das Gleiche: ${tun}. Dann steht da ${ergebnis}.`,
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Stark!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Aufgaben gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  faelle: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      faelle: { titel: 'Fälle', text: 'Nominativ bis Akkusativ' },
+      satzglieder: { titel: 'Satzglieder', text: 'Subjekt, Prädikat, Objekte' },
+      gemischt: { titel: 'Gemischt', text: 'Fälle und Satzglieder' },
+    },
+    frageVon: (n, gesamt) => `Satz ${n} von ${gesamt}`,
+    faelle: { nom: 'Nominativ', gen: 'Genitiv', dat: 'Dativ', akk: 'Akkusativ' },
+    satzglieder: { S: 'Subjekt', P: 'Prädikat', AO: 'Akkusativobjekt', DO: 'Dativobjekt' },
+    frageFall: (teil) => `In welchem Fall steht «${teil}»?`,
+    frageSatzglied: (teil) => `Welches Satzglied ist «${teil}»?`,
+    erklaerungFall: (teil, fall) => `«${teil}»: Frage «${FRAGEPROBE[fall]}» → ${FALLNAME[fall]}.`,
+    erklaerungSatzglied: (teil, glied) => `«${teil}» ist ${SATZGLIEDERKLAERUNG[glied]}.`,
+    hilfeFall: 'Noch nicht. Mach die Frageprobe: Wer oder was? (Nominativ) – Wessen? (Genitiv) – Wem? (Dativ) – Wen oder was? (Akkusativ). Bei «mit», «nach», «durch» … bestimmt die Präposition den Fall.',
+    hilfeSatzglied: 'Noch nicht. Das Prädikat ist das Verb. Frag dann: Wer oder was tut es? (Subjekt) – Wen oder was? (Akkusativobjekt) – Wem? (Dativobjekt)',
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Stark!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Sätzen gleich beim ersten Mal richtig gelöst.`,
     ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
   },
 
