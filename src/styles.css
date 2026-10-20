@@ -4143,18 +4143,6 @@ img {
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
 }
 
-.fs-stufenbild .br-form {
-  position: absolute;
-  inset: 8%;
-  display: grid;
-  place-items: center;
-}
-
-.fs-stufenbild .br-form .br-svg {
-  position: static;
-  width: auto;
-  height: 100%;
-}
 
 /* ---------- Zeitformen ---------- */
 

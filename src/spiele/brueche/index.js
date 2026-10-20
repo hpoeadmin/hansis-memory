@@ -101,7 +101,46 @@ function frage(x) {
   };
 }
 
-const STUFEN_BILD = { erkennen: [3, 4], gleich: [2, 4], vergleichen: [2, 3], von: [3, 4] };
+// Kleine Bilder für die Stufen-Kacheln (SVG, passt sich der Kachel an)
+const F = "font-family=\"'Atkinson Hyperlegible', system-ui, sans-serif\" font-weight=\"700\"";
+
+function streifen(z, n, x, y, breite, hoehe) {
+  const b = breite / n;
+  return Array.from({ length: n }, (_, i) => `<rect x="${x + i * b}" y="${y}" width="${b}" height="${hoehe}" fill="${i < z ? FUELLUNG : '#FFF6E0'}" stroke="${K}" stroke-width="3"/>`).join('');
+}
+
+function pizza(z, n, cx, cy, r) {
+  let teile = '';
+  for (let i = 0; i < n; i++) {
+    const w1 = (i / n) * 2 * Math.PI - Math.PI / 2;
+    const w2 = ((i + 1) / n) * 2 * Math.PI - Math.PI / 2;
+    const p = (w) => `${(cx + r * Math.cos(w)).toFixed(1)} ${(cy + r * Math.sin(w)).toFixed(1)}`;
+    teile += `<path d="M${cx} ${cy} L${p(w1)} A${r} ${r} 0 0 1 ${p(w2)} Z" fill="${i < z ? FUELLUNG : '#FFF6E0'}" stroke="${K}" stroke-width="4" stroke-linejoin="round"/>`;
+  }
+  return teile;
+}
+
+const STUFEN_SVG = {
+  erkennen: pizza(3, 4, 100, 70, 62),
+  gleich:
+    streifen(2, 4, 20, 22, 160, 34) +
+    `<text x="100" y="86" text-anchor="middle" font-size="26" ${F} fill="${K}">=</text>` +
+    streifen(1, 2, 20, 94, 160, 34),
+  vergleichen:
+    streifen(2, 3, 20, 22, 160, 34) +
+    `<text x="100" y="86" text-anchor="middle" font-size="26" ${F} fill="${K}">&lt;</text>` +
+    streifen(3, 4, 20, 94, 160, 34),
+  von: Array.from({ length: 4 }, (_, g) =>
+    `<rect x="${8 + g * 48}" y="30" width="40" height="80" rx="8" fill="none" stroke="${g < 3 ? K : '#B9B0A4'}" stroke-width="3" stroke-dasharray="${g < 3 ? '0' : '5 4'}"/>` +
+    Array.from({ length: 5 }, (_, i) => `<circle cx="${28 + g * 48}" cy="${44 + i * 13}" r="5" fill="${g < 3 ? FUELLUNG : '#FFFFFF'}" stroke="${K}" stroke-width="2"/>`).join(''),
+  ).join(''),
+};
+
+function stufenBild(id) {
+  const box = el('span', { class: 'br-stufenbild' });
+  box.innerHTML = `<svg viewBox="0 0 200 140" aria-hidden="true">${STUFEN_SVG[id]}</svg>`;
+  return box.firstChild;
+}
 
 export function bruecheSteuerung(app) {
   return fragespielSteuerung(app, {
@@ -110,7 +149,7 @@ export function bruecheSteuerung(app) {
     texte: T.brueche,
     anzahl: AUFGABEN,
     empfehlung: { kl34: 'erkennen', kl56: 'gleich' },
-    stufenBild: (id) => (id === 'erkennen' ? kreis(STUFEN_BILD[id]) : el('span', { class: 'fs-stufen-text' }, bruchEl(STUFEN_BILD[id]), id === 'vergleichen' ? ' < ' : id === 'gleich' ? ' = ' : ' von 20', id === 'vergleichen' ? bruchEl([3, 4]) : id === 'gleich' ? bruchEl([1, 2]) : '')),
+    stufenBild,
     erzeugeFragen: (stufe, anzahl) => runde(stufe, anzahl).map(frage),
   });
 }
