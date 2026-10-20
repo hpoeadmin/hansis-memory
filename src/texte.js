@@ -1,5 +1,8 @@
 // Alle Texte der App an einem Ort (Schweizer Schreibweise: «ss» statt «ß»).
 
+// Namen der Bruchteile zum Vorlesen («drei Viertel»)
+const T_TEILE = { 2: 'Halbe', 3: 'Drittel', 4: 'Viertel', 5: 'Fünftel', 6: 'Sechstel', 8: 'Achtel', 10: 'Zehntel', 12: 'Zwölftel' };
+
 export const T = {
   appName: 'Hansis Spielplatz',
 
@@ -44,6 +47,9 @@ export const T = {
     verdoppeln: 'Verdoppeln und Halbieren',
     zahlenstrahl: 'Zahlenstrahl',
     schiffe: 'Schiffe versenken',
+    brueche: 'Brüche',
+    zeitformen: 'Zeitformen',
+    geografie: 'Schweizer Geografie',
     franken: 'Bezahlen mit Franken',
     lebensraum: 'Wo wohne ich?',
     reihenfolge: 'Merk dir die Reihenfolge',
@@ -514,6 +520,100 @@ export const T = {
     tabletGewonnen: 'Diesmal hat das Tablet gewonnen.',
     mitSchuessen: (n) => `Alle Schiffe versenkt – mit ${n} Schüssen.`,
     lobAndere: (name) => `${name} hat super mitgespielt!`,
+  },
+
+  brueche: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      erkennen: { titel: 'Brüche erkennen', text: 'Pizza und Schokolade' },
+      gleich: { titel: 'Gleich viel', text: 'kürzen und erweitern' },
+      vergleichen: { titel: 'Vergleichen', text: 'Welcher ist grösser?' },
+      von: { titel: 'Bruchteil von', text: 'z.B. ¾ von 20' },
+    },
+    von: 'von',
+    oder: 'oder',
+    frageVon: (n, gesamt) => `Aufgabe ${n} von ${gesamt}`,
+    frageBruchteil: (z, n, menge) => `Wie viel ist ${z}/${n} von ${menge}?`,
+    frageKreis: 'Welcher Teil der Pizza ist rot?',
+    frageBalken: 'Welcher Teil der Schokolade ist rot?',
+    frageGleich: 'Welcher Bruch ist gleich viel?',
+    frageVergleichen: 'Welcher Bruch ist grösser?',
+    erklaerungErkennen: (z, n) => `${z} von ${n} gleichen Teilen sind rot: ${z}/${n}.`,
+    erklaerungGleich: ([a, b], [c, d]) => `${a}/${b} ist gleich viel wie ${c}/${d}.`,
+    erklaerungVergleichen: ([z, n]) => `${z}/${n} ist grösser.`,
+    vorlesenVon: (z, n, menge) => `Wie viel sind ${z} ${T_TEILE[n]} von ${menge}?`,
+    erklaerungVon: (z, n, menge, e) => `${z}/${n} von ${menge} sind ${e}.`,
+    hilfeErkennen: 'Noch nicht. Unten steht, in wie viele gleiche Teile es geteilt ist. Oben, wie viele davon rot sind.',
+    hilfeGleich: 'Noch nicht. Gleich viel heisst: gleich viel Rot. Vergleiche die beiden Streifen.',
+    hilfeVergleichen: 'Noch nicht. Schau, welcher Streifen mehr Rot hat.',
+    hilfeVon: (menge, n, z) => `Noch nicht. Teile zuerst ${menge} in ${n} gleiche Gruppen. Dann nimm ${z} davon.`,
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Toll gerechnet!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Aufgaben gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  zeitformen: {
+    frage: 'Was möchtest du üben?',
+    stufen: {
+      drei: { titel: 'Drei Zeitformen', text: 'Präsens, Präteritum, Perfekt' },
+      alle: { titel: 'Alle fünf', text: 'auch Plusquamperfekt und Futur' },
+      bilden: { titel: 'Sätze umbauen', text: 'Präsens → andere Zeitform' },
+      profi: { titel: 'Profi', text: 'umbauen mit allen Zeitformen' },
+    },
+    namen: { praesens: 'Präsens', praeteritum: 'Präteritum', perfekt: 'Perfekt', plusquamperfekt: 'Plusquamperfekt', futur: 'Futur' },
+    frageVon: (n, gesamt) => `Satz ${n} von ${gesamt}`,
+    frageErkennen: 'In welcher Zeitform steht der Satz?',
+    frageBilden: (zeitform) => `Wie heisst der Satz im ${zeitform}?`,
+    merkmal: {
+      praesens: 'Präsens: Es passiert jetzt – «geht».',
+      praeteritum: 'Präteritum: vorbei, nur ein Verb – «ging».',
+      perfekt: 'Perfekt: «hat» oder «ist» und am Schluss das Partizip – «ist gegangen».',
+      plusquamperfekt: 'Plusquamperfekt: «hatte» oder «war» und am Schluss das Partizip – «war gegangen».',
+      futur: 'Futur: «wird» und am Schluss die Grundform – «wird gehen».',
+    },
+    nochNicht: 'Noch nicht.',
+    hilfe: 'Noch nicht. Schau auf die Verben: Gibt es ein Hilfsverb wie «hat», «ist», «hatte», «war» oder «wird»?',
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Toll erkannt!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Sätzen gleich beim ersten Mal richtig gelöst.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
+  },
+
+  geografie: {
+    frage: 'Was möchtest du finden?',
+    stufen: {
+      seen: { titel: 'Seen', text: 'die 12 grossen Seen' },
+      staedte: { titel: 'Städte', text: 'die grossen Städte' },
+      berge: { titel: 'Berge', text: 'berühmte Gipfel' },
+      gemischt: { titel: 'Alles gemischt', text: 'Seen, Städte und Berge' },
+    },
+    frageVon: (n, gesamt) => `Frage ${n} von ${gesamt}`,
+    // «Wo liegt der Zürichsee?», «Wo liegt Basel?», «Wo ist die Rigi?»
+    wo: (z) => (z.art === 'berg' ? `Wo ist ${z.artikel} ${z.name}? Tippe auf die Karte.` : `Wo liegt ${z.artikel ? `${z.artikel} ` : ''}${z.name}? Tippe auf die Karte.`),
+    welcher: {
+      see: 'Welcher See leuchtet auf der Karte?',
+      stadt: 'Welche Stadt leuchtet auf der Karte?',
+      berg: 'Welcher Berg leuchtet auf der Karte?',
+    },
+    nichtsGetroffen: {
+      see: 'Da ist kein See. Tippe auf einen blauen See.',
+      stadt: 'Da ist keine Stadt. Tippe auf einen Punkt.',
+      berg: 'Da ist kein Berg. Tippe auf ein Dreieck.',
+    },
+    mitArtikel: (z) => (z.artikel ? `${z.artikel} ${z.name}` : z.name),
+    falschDas: (name) => `Das ist ${name}. Versuch es nochmals.`,
+    falschHinweis: (name) => `Das ist ${name}. Schau, wo es auf der Karte blinkt.`,
+    erklaerung: (z) => {
+      const gross = z.artikel ? `${z.artikel[0].toUpperCase()}${z.artikel.slice(1)} ${z.name}` : z.name;
+      if (z.art === 'berg') return `${gross} ist ${z.hoehe.toLocaleString('de-CH')} m hoch.`;
+      return `Das ist ${z.artikel ? `${z.artikel} ` : ''}${z.name}.`;
+    },
+    welcherHilfe: 'Noch nicht. Schau, wo es leuchtet – im Norden, Süden, Osten oder Westen?',
+    richtig: ['Richtig!', 'Genau!', 'Super!', 'Toll gefunden!'],
+    nochmals: 'Noch nicht – versuch es nochmals.',
+    ergebnisEinzel: (richtig, gesamt) => `Du hast ${richtig} von ${gesamt} Fragen gleich beim ersten Mal richtig beantwortet.`,
+    ergebnisSpieler: (n) => (n === 1 ? '1 gleich richtig' : `${n} gleich richtig`),
   },
 
   update: {

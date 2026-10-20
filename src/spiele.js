@@ -83,6 +83,14 @@ export const SPIELE = [
     starte: (app) => app.zahlenstrahl.zeigeStart(),
   },
   {
+    id: 'brueche',
+    bereich: 'mathe',
+    ab: 'kl56',
+    bild: 'spiele/brueche.svg',
+    farbe: '#FDE3D3',
+    starte: (app) => app.brueche.zeigeStart(),
+  },
+  {
     id: 'einmaleins',
     bereich: 'mathe',
     ab: 'kl12',
@@ -133,6 +141,14 @@ export const SPIELE = [
     starte: (app) => app.wortarten.zeigeStart(),
   },
   {
+    id: 'zeitformen',
+    bereich: 'lesen',
+    ab: 'kl56',
+    bild: 'spiele/zeitformen.svg',
+    farbe: '#E7E1F7',
+    starte: (app) => app.zeitformen.zeigeStart(),
+  },
+  {
     id: 'lebensraum',
     bereich: 'natur',
     ab: 'alle',
@@ -147,6 +163,14 @@ export const SPIELE = [
     bild: 'spiele/kantone.svg',
     farbe: '#F7DCDC',
     starte: (app) => app.kantone.zeigeStart(),
+  },
+  {
+    id: 'geografie',
+    bereich: 'natur',
+    ab: 'kl56',
+    bild: 'spiele/geografie.svg',
+    farbe: '#DDEFE6',
+    starte: (app) => app.geografie.zeigeStart(),
   },
   {
     id: 'nuenistei',

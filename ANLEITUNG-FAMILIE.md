@@ -48,6 +48,9 @@ Jetzt liegt auf dem Home-Bildschirm ein grünes Symbol mit zwei Karten und einer
 - **Zahlenhaus** (1./2. Klasse): Im Dach steht die Zahl, in den Zimmern zwei Teile. Welche Zahl fehlt? Zuerst die «Zehnerfreunde».
 - **Verdoppeln und Halbieren** (1./2. Klasse): Mit einem Spiegel sieht man das Doppelte; beim Halbieren werden Punkte gerecht geteilt.
 - **Zahlenstrahl** (1./2. Klasse): Tippe auf den Strahl, wo die Zahl liegt – bis 20 oder bis 100. Oder finde Nachbarzahlen und Nachbarzehner.
+- **Brüche** (5./6. Klasse): Welcher Teil der Pizza ist rot? Welcher Bruch ist gleich viel wie 4/8? Welcher ist grösser? Wie viel ist ¾ von 20?
+- **Zeitformen** (5./6. Klasse): In welcher Zeitform steht der Satz – Präsens, Präteritum, Perfekt, Plusquamperfekt oder Futur? Oder: Wie heisst der Satz im Perfekt?
+- **Schweizer Geografie** (5./6. Klasse): Seen, Städte und Berge auf der Schweizerkarte antippen oder erkennen.
 - **Uhr lesen** (ab 1./2. Klasse): Wie spät ist es auf der Zeigeruhr? Von «halb vier» bis zu Fünf-Minuten-Schritten. Für die 4. Klasse: Wie lange dauert eine Zugfahrt laut Fahrplan?
 - **Kantone der Schweiz** (ab 3. Klasse): Memory mit Kantonswappen und Namen – zuerst «Rund um Zürich», dann alle Kantone oder Kanton und Hauptort. Auf der Schweizerkarte tippst du an, wo ein Kanton liegt, oder erkennst den Kanton, der aufleuchtet.
 - **Nüni Stei:** Zu zweit oder gegen das Tablet («gemütlich» oder «knifflig»). Tippe zuerst auf deinen Stein, dann auf einen grünen Punkt. Bei einer Mühle tippst du auf den rot umrandeten Stein, den du wegnehmen möchtest. Unter «Spielregeln» steht alles kurz erklärt. Ein angefangenes Spiel wird gespeichert, mit «Weiterspielen» geht es später weiter.

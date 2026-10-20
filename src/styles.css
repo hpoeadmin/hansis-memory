@@ -4047,3 +4047,231 @@ img {
     max-width: none;
   }
 }
+
+/* ---------- Brüche ---------- */
+
+.br-bruch {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.br-zaehler {
+  padding: 0 0.15em 0.08em;
+  border-bottom: 0.09em solid currentColor;
+}
+
+.br-nenner {
+  padding-top: 0.08em;
+}
+
+.br-gross {
+  font-size: clamp(3rem, 7vw, 4.6rem);
+}
+
+.br-bild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.br-bild.br-paar {
+  flex-direction: row;
+  gap: 22px;
+  padding: 18px 28px;
+  border: 6px solid var(--kontur);
+  border-radius: 32px;
+  background: var(--flaeche);
+}
+
+.br-oder {
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  font-weight: 700;
+}
+
+.br-menge {
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  font-weight: 700;
+}
+
+.br-form .br-svg {
+  display: block;
+  width: min(34vw, 46vh, 320px);
+  height: auto;
+}
+
+.br-form .br-balken {
+  height: auto;
+}
+
+.br-gruppen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.br-gruppe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 110px;
+  padding: 6px;
+  border: 3px dashed #B9B0A4;
+  border-radius: 10px;
+}
+
+.br-gruppe .rz-punkt {
+  width: 16px;
+}
+
+.br-gruppe.an {
+  border-style: solid;
+  border-color: var(--kontur);
+}
+
+.br-gruppe.an .rz-punkt {
+  background: #E2543A;
+}
+
+.fs-brueche .fs-antwort-text {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+}
+
+.fs-stufenbild .br-form {
+  position: absolute;
+  inset: 8%;
+  display: grid;
+  place-items: center;
+}
+
+.fs-stufenbild .br-form .br-svg {
+  position: static;
+  width: auto;
+  height: 100%;
+}
+
+/* ---------- Zeitformen ---------- */
+
+.zf-satz {
+  margin: 0;
+  max-width: 42vw;
+  padding: 22px 28px;
+  border: 6px solid var(--kontur);
+  border-radius: 28px;
+  background: var(--flaeche);
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.zf-bild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.zf-etikett {
+  padding: 4px 14px;
+  border: 3px solid var(--kontur);
+  border-radius: 999px;
+  background: #F6C33B;
+  font-weight: 700;
+}
+
+.fs-zeitformen .fs-antwort-text {
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.zf-mini {
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+@media (orientation: portrait) {
+  .zf-satz {
+    max-width: 92vw;
+  }
+}
+
+/* ---------- Schweizer Geografie ---------- */
+
+.geo-karte .kt-kanton {
+  fill: #EFE8D6;
+  stroke: #B9B0A4;
+  cursor: pointer;
+}
+
+.geo-karte .kt-seen {
+  fill: #8EC3EA;
+}
+
+.geo-mit-seen .kt-seen {
+  pointer-events: auto;
+}
+
+.geo-mit-seen .kt-see {
+  fill: #5FA9DE;
+  stroke: #2B5E8C;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+}
+
+.geo-karte .kt-see.geo-an,
+.geo-marken .geo-an {
+  fill: #F6A940;
+}
+
+.geo-karte .kt-see.geo-richtig,
+.geo-marken .geo-richtig {
+  fill: #7CC36B;
+}
+
+.geo-karte .geo-hinweis {
+  animation: geo-blinken 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes geo-blinken {
+  from { fill: #FFFFFF; }
+  to { fill: #F6A940; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geo-karte .geo-hinweis {
+    animation: none;
+    fill: #F6A940;
+  }
+}
+
+.geo-stadt {
+  fill: #E2543A;
+  stroke: #2E2A26;
+  stroke-width: 3;
+}
+
+.geo-berg {
+  fill: #8A7A66;
+  stroke: #2E2A26;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.geo-mini {
+  position: absolute;
+  inset: 6%;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+}
+
+.fs-geografie .fs-antwort-text {
+  font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+}
